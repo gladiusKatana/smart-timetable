@@ -12,10 +12,8 @@
 		062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */; };
 		062A3F73226BE8F200D6DBED /* Present&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F50226BE8F100D6DBED /* Present&Reload.swift */; };
 		062A3F74226BE8F200D6DBED /* ExtraPresent&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */; };
-		062A3F75226BE8F200D6DBED /* ButtonSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F52226BE8F100D6DBED /* ButtonSetup.swift */; };
 		062A3F76226BE8F200D6DBED /* SetTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F53226BE8F100D6DBED /* SetTopVC.swift */; };
 		062A3F77226BE8F200D6DBED /* Load&Appear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F55226BE8F100D6DBED /* Load&Appear.swift */; };
-		062A3F78226BE8F200D6DBED /* MonthNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F56226BE8F100D6DBED /* MonthNav.swift */; };
 		062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F57226BE8F100D6DBED /* CellColours.swift */; };
 		062A3F7A226BE8F200D6DBED /* CellDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F58226BE8F100D6DBED /* CellDates.swift */; };
 		062A3F7B226BE8F200D6DBED /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F59226BE8F100D6DBED /* CollectionVC.swift */; };
@@ -48,10 +46,8 @@
 		062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarSetup.swift; sourceTree = "<group>"; };
 		062A3F50226BE8F100D6DBED /* Present&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Present&Reload.swift"; sourceTree = "<group>"; };
 		062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtraPresent&Reload.swift"; sourceTree = "<group>"; };
-		062A3F52226BE8F100D6DBED /* ButtonSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSetup.swift; sourceTree = "<group>"; };
 		062A3F53226BE8F100D6DBED /* SetTopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTopVC.swift; sourceTree = "<group>"; };
 		062A3F55226BE8F100D6DBED /* Load&Appear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load&Appear.swift"; sourceTree = "<group>"; };
-		062A3F56226BE8F100D6DBED /* MonthNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthNav.swift; sourceTree = "<group>"; };
 		062A3F57226BE8F100D6DBED /* CellColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellColours.swift; sourceTree = "<group>"; };
 		062A3F58226BE8F100D6DBED /* CellDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDates.swift; sourceTree = "<group>"; };
 		062A3F59226BE8F100D6DBED /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
@@ -137,7 +133,6 @@
 				062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */,
 				062A3F50226BE8F100D6DBED /* Present&Reload.swift */,
 				062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */,
-				062A3F52226BE8F100D6DBED /* ButtonSetup.swift */,
 				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
 			);
 			path = Navigation;
@@ -147,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
-				062A3F56226BE8F100D6DBED /* MonthNav.swift */,
 				062A3F57226BE8F100D6DBED /* CellColours.swift */,
 				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
@@ -281,11 +275,9 @@
 				062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
-				062A3F78226BE8F200D6DBED /* MonthNav.swift in Sources */,
 				062A3F88226BE8F200D6DBED /* Lifecycle.swift in Sources */,
 				062A3F7C226BE8F200D6DBED /* Selecting.swift in Sources */,
 				062A3F7D226BE8F200D6DBED /* CalendarVars.swift in Sources */,
-				062A3F75226BE8F200D6DBED /* ButtonSetup.swift in Sources */,
 				062A3F87226BE8F200D6DBED /* Description.swift in Sources */,
 				062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */,
 				062A3F83226BE8F200D6DBED /* Colours.swift in Sources */,

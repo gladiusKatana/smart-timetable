@@ -40,10 +40,5 @@ extension CollectionVC {
     override func viewDidAppear(_ animated: Bool) {
         setTopViewController()
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
-        
-        if collectionViewType == .days {
-            removeMonthControlButtons()
-            setupMonthControlButtons()
-        }
     }
 }

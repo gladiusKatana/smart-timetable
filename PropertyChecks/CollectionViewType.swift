@@ -4,10 +4,12 @@
 import UIKit
 
 enum CollectionViewType: Int {
-    case days = 0
-    case months, years
+    case hours = 0
+    case days, months, years
     func simpleDescription() -> String {
         switch self {
+        case .hours:
+            return "shows the hours of this week"
         case .days:
             return "shows the days of this month"
         case .months:

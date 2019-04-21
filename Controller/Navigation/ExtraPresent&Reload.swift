@@ -21,11 +21,6 @@ extension CollectionVC {
             previousOrientation = currentOrientation  // * should probably factor out
             reloadCV() //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
         }
-        
-        if collectionViewType == .days {
-            removeMonthControlButtons()
-            currentTopVC.setupMonthControlButtons()
-        }
     }
     
     func setupTitleAndPresentViewController(vc: CollectionVC, completion: () -> ()) {               //print("\ndismissing/presenting") // vc: \(vc)
