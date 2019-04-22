@@ -133,7 +133,6 @@
 				062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */,
 				062A3F50226BE8F100D6DBED /* Present&Reload.swift */,
 				062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */,
-				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 		062A3F54226BE8F100D6DBED /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
 				062A3F57226BE8F100D6DBED /* CellColours.swift */,
 				062A3F58226BE8F100D6DBED /* CellDates.swift */,
@@ -154,9 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				062A3F5D226BE8F100D6DBED /* CollectionViewType.swift */,
-				062A3F5E226BE8F100D6DBED /* TestSquare.swift */,
 				062A3F5F226BE8F100D6DBED /* Orientation.swift */,
 				062A3F60226BE8F100D6DBED /* DeviceType.swift */,
+				062A3F5E226BE8F100D6DBED /* TestSquare.swift */,
 			);
 			path = PropertyChecks;
 			sourceTree = "<group>";
@@ -172,8 +172,8 @@
 		062A3F64226BE8F100D6DBED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
 				062A3F66226BE8F100D6DBED /* Dates.swift */,
+				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
 				062A3F67226BE8F100D6DBED /* StringMethods.swift */,
 			);
 			path = Model;
@@ -182,8 +182,8 @@
 		062A3F69226BE8F100D6DBED /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F6A226BE8F100D6DBED /* Lifecycle.swift */,
 				062A3F6B226BE8F100D6DBED /* AppDelegate.swift */,
+				062A3F6A226BE8F100D6DBED /* Lifecycle.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
