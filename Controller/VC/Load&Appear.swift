@@ -16,17 +16,17 @@ extension CollectionVC {
     
     override func viewWillAppear(_ animated: Bool) {
         if collectionViewType == .days {
-            setupViewTitle("\(monthString) \(year)", numLines: 1, alignment: .left)
+            setupViewTitle("hello", numLines: 1, alignment: .left)
         }
         else {
             currentDate = Date()
             processCurrentDate()
             
-            if collectionViewType == .months {
-                setupViewTitle("\(year)", numLines: 1, alignment: .left)
+            if collectionViewType == .hours {
+                
             }
             else {
-                setupViewTitle("21st Century", numLines: 1, alignment: .left)
+                
             }
         }
         

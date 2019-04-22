@@ -8,7 +8,6 @@ func processCurrentDate() {
     
     todayCellRow = dayInt / 7 + 1
     todayCellColumn = daysOfTheWeek.firstIndex(of: weekday)!
-    currentMonthIndex = months.firstIndex(of: monthString)!
 }
 
 

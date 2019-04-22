@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		062A3F43226BE87D00D6DBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F42226BE87D00D6DBED /* Assets.xcassets */; };
 		062A3F46226BE87D00D6DBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F44226BE87D00D6DBED /* LaunchScreen.storyboard */; };
 		062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */; };
@@ -18,7 +19,6 @@
 		062A3F7A226BE8F200D6DBED /* CellDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F58226BE8F100D6DBED /* CellDates.swift */; };
 		062A3F7B226BE8F200D6DBED /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F59226BE8F100D6DBED /* CollectionVC.swift */; };
 		062A3F7C226BE8F200D6DBED /* Selecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F5A226BE8F100D6DBED /* Selecting.swift */; };
-		062A3F7D226BE8F200D6DBED /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F5B226BE8F100D6DBED /* CalendarVars.swift */; };
 		062A3F7E226BE8F200D6DBED /* CollectionViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F5D226BE8F100D6DBED /* CollectionViewType.swift */; };
 		062A3F7F226BE8F200D6DBED /* TestSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F5E226BE8F100D6DBED /* TestSquare.swift */; };
 		062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F5F226BE8F100D6DBED /* Orientation.swift */; };
@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		062A3F38226BE87C00D6DBED /* smart-timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smart-timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		062A3F42226BE87D00D6DBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		062A3F45226BE87D00D6DBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		062A3F58226BE8F100D6DBED /* CellDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDates.swift; sourceTree = "<group>"; };
 		062A3F59226BE8F100D6DBED /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		062A3F5A226BE8F100D6DBED /* Selecting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selecting.swift; sourceTree = "<group>"; };
-		062A3F5B226BE8F100D6DBED /* CalendarVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		062A3F5D226BE8F100D6DBED /* CollectionViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewType.swift; sourceTree = "<group>"; };
 		062A3F5E226BE8F100D6DBED /* TestSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSquare.swift; sourceTree = "<group>"; };
 		062A3F5F226BE8F100D6DBED /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orientation.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				062A3F68226BE8F100D6DBED /* Description.swift */,
 				062A3F61226BE8F100D6DBED /* Vars.swift */,
-				062A3F5B226BE8F100D6DBED /* CalendarVars.swift */,
+				061B37FB226D48CA006555B5 /* TimetableVars.swift */,
 				062A3F69226BE8F100D6DBED /* Delegate */,
 				062A3F64226BE8F100D6DBED /* Model */,
 				062A3F6C226BE8F200D6DBED /* ViewModel */,
@@ -275,9 +275,9 @@
 				062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
+				061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */,
 				062A3F88226BE8F200D6DBED /* Lifecycle.swift in Sources */,
 				062A3F7C226BE8F200D6DBED /* Selecting.swift in Sources */,
-				062A3F7D226BE8F200D6DBED /* CalendarVars.swift in Sources */,
 				062A3F87226BE8F200D6DBED /* Description.swift in Sources */,
 				062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */,
 				062A3F83226BE8F200D6DBED /* Colours.swift in Sources */,
