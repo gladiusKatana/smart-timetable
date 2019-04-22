@@ -6,8 +6,8 @@ import UIKit
 func processCurrentDate() { 
     (weekday, monthString, dayInt, year) = displayDate(currentDate)
     
-    todayCellRow = dayInt / 7 + 1
-    todayCellColumn = daysOfTheWeek.firstIndex(of: weekday)!
+    nowRow = 1
+    nowColumn = daysOfTheWeek.firstIndex(of: weekday)!
 }
 
 

@@ -6,7 +6,7 @@ import UIKit
 extension CollectionVC {
     
     func setCellText (cell: CustomCell, indexPath: IndexPath) {
-        let row = indexPath.section ; let column = indexPath.item       // since loadsHorizontally should be true for a (typical) calendar vc
+        let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
 
         cell.titleLabel.textColor = platinum
         

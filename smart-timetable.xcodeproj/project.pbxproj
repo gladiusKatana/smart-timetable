@@ -121,6 +121,7 @@
 		062A3F4D226BE8F100D6DBED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F4E226BE8F100D6DBED /* Navigation */,
 				062A3F54226BE8F100D6DBED /* VC */,
 			);
@@ -143,7 +144,6 @@
 				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
 				062A3F57226BE8F100D6DBED /* CellColours.swift */,
-				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
 				062A3F5A226BE8F100D6DBED /* Selecting.swift */,
 			);

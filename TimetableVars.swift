@@ -9,5 +9,5 @@ var (weekday, monthString, dayInt, year) = ("", "", 0, 0)
 
 var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]//["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
-var todayCellRow = 0;       var todayCellColumn = 0
+var nowRow = 0;       var nowColumn = 0
 
