@@ -18,10 +18,6 @@ extension CollectionVC {
         if collectionViewType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-//        else {
-//            currentDate = Date()
-//            processCurrentDate()
-//        }
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
