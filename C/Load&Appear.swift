@@ -15,20 +15,13 @@ extension CollectionVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if collectionViewType == .days {
-            setupViewTitle("hello", numLines: 1, alignment: .left)
+        if collectionViewType == .hours {
+            setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-        else {
-            currentDate = Date()
-            processCurrentDate()
-            
-            if collectionViewType == .hours {
-                
-            }
-            else {
-                
-            }
-        }
+//        else {
+//            currentDate = Date()
+//            processCurrentDate()
+//        }
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
