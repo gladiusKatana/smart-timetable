@@ -10,7 +10,7 @@ var navController: UINavigationController? = UINavigationController()
 var cellGap = CGFloat(0)          // if nonzero, do NOT make this smaller than: 0.5 (iphone7), or else lines drawn inconsistently
 
 //--------------------------------------------------------------------------------------------
-var daysLayout = CCVFlowLayout(rows: 25, cols: 7, lockedHeaderRows: 1, lockedHeaderSections: 1,
+var hoursLayout = CCVFlowLayout(rows: 25, cols: 7, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                 cellWidth: nil, cellHeight: nil,
                                 autoFitWScale: nil, autoFitHScale: 0.8,     //* auto-fit scale factors ignored if width/height non-nil
                                 hSpace: cellGap, vSpace: cellGap,           //* if auto-fit scale factors are nil, value of 1.0 substituted
@@ -31,12 +31,12 @@ var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHe
                                  loadsHorizontally: true,
                                  squareCellMode: .noAutoSquare)
 
-var daysVC = CollectionVC(.days, colourIndex: 2, collectionViewLayout: daysLayout)         // header titles get...
+var daysVC = CollectionVC(.hours, colourIndex: 2, collectionViewLayout: hoursLayout)         // header titles get...
 var monthsVC = CollectionVC(.months, colourIndex: 1, collectionViewLayout: monthsLayout)   //...changed promptly
 var yearsVC = CollectionVC(.years, colourIndex: 0, collectionViewLayout: yearsLayout)      //...so they don't matter here
 //--------------------------------------------------------------------------------------------
 
-var currentTopVC : CollectionVC = CollectionVC(.days, colourIndex: 0, collectionViewLayout: daysLayout) // temporary value to satisfy init
+var currentTopVC : CollectionVC = CollectionVC(.days, colourIndex: 0, collectionViewLayout: hoursLayout) // temporary value to satisfy init
 var backgroundVC = UIViewController()
 
 var statusBar = UIView();           var navbarTitleLabel = UILabel();       var testRectanglelayer = CAShapeLayer()

@@ -16,7 +16,10 @@ extension CollectionVC {
     
     func setupHourlyCells (cell: CustomCell, column: Int, row: Int) {
         
-        
+        if row == nowRow && column == nowColumn {
+            cell.layer.borderColor = UIColor.blue.cgColor
+            cell.layer.borderWidth = 2
+        }
         
     }
 

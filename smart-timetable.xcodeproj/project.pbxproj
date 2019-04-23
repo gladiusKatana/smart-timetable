@@ -112,10 +112,10 @@
 		062A3F3A226BE87C00D6DBED /* smart-timetable */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F68226BE8F100D6DBED /* Description.swift */,
 				062A3F42226BE87D00D6DBED /* Assets.xcassets */,
 				062A3F44226BE87D00D6DBED /* LaunchScreen.storyboard */,
 				062A3F47226BE87D00D6DBED /* Info.plist */,
+				062A3F68226BE8F100D6DBED /* Description.swift */,
 			);
 			path = "smart-timetable";
 			sourceTree = "<group>";
