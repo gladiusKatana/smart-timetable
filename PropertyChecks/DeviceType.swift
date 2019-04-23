@@ -1,6 +1,6 @@
 //  DeviceType.swift
 //  Extension created by Stack Overflow User HAS (see answer: Nov 16 '14 by HAS): https://stackoverflow.com/questions/26028918/how-to-determine-the-current-iphone-device-model
-//  DMY-Tabs-Calendar  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder a.k.a. gladiusKatana ⚔️
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 
 import UIKit
 
