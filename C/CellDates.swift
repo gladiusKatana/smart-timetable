@@ -20,6 +20,10 @@ extension CollectionVC {
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
         }
+        else {
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 0
+        }
         
     }
 
