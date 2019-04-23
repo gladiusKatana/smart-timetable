@@ -19,12 +19,14 @@ extension CollectionVC {
         if row == nowRow && column == nowColumn {
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
+//            cell.cellDate = Date()
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
         }
         
+        cell.cellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour)
     }
 
 }

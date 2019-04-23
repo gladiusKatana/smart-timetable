@@ -4,43 +4,44 @@
 import UIKit
 
 func processCurrentDate() { 
-    (weekday, monthString, dayInt, year) = displayDate(currentDate)
+    (year, monthString, dayInt, weekday, hour, minute) = displayDate(currentDate)
     
-    nowRow = hourOf(currentDate)
+    nowRow = hourOf(currentDate)  
     nowColumn = daysOfTheWeek.firstIndex(of: weekday)!
 }
 
 
-func createDate(_ year: Int, monthInt: Int, dayInt: Int) -> Date {
+func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int) -> Date {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd HH:mm"
-    guard let date = formatter.date(from: "\(year)/\(monthInt)/\(dayInt) 00:00") else {
+    guard let date = formatter.date(from: "\(year)/\(monthInt)/\(dayInt) \(hour):00") else {
         print("could not create date with this input, returning current date instead")
         return Date()
     }
     return date
 }
 
-
-
 func formalDateString(_ date: Date, comment: String) -> String {
-    let (wkday, monString, dayI, yr) = displayDate(date)
-    return "\(comment) \(wkday), \(monString) \(dayI), \(yr)"
+    let (yr, monString, dayI, wkday, hr, min) = displayDate(date)
+    return "\(comment) \(wkday), \(monString) \(dayI), \(yr), \(hr):\(min)"
 }
 
-
 func displayDate(_ inputDate: Date)
-    -> (weekday: String, monthStr: String, dayInt: Int, year: Int)
+    -> (year: Int, monthStr: String, dayInt: Int, weekday: String, hour: Int, minute: Int)
 {
-    let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
+    let yearFormatter = DateFormatter();        yearFormatter.dateFormat = "YYYY"
     let monthStrFormatter = DateFormatter();    monthStrFormatter.dateFormat = "MMMM"
     let dayIntFormatter = DateFormatter();      dayIntFormatter.dateFormat = "d"
-    let yearFormatter = DateFormatter();        yearFormatter.dateFormat = "YYYY"
+    let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
+    let hourFormatter = DateFormatter();        hourFormatter.dateFormat = "HH"
+    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "HH"
     
-    let weekday = weekdayFormatter.string(from: inputDate as Date)//.capitalized
+    let year = Int(yearFormatter.string(from: inputDate as Date))
     let monthStr = monthStrFormatter.string(from: inputDate as Date)
     let dayInt = Int(dayIntFormatter.string(from: inputDate as Date))
-    let year = Int(yearFormatter.string(from: inputDate as Date))
+    let weekday = weekdayFormatter.string(from: inputDate as Date)//.capitalized
+    let hourInt = Int(hourFormatter.string(from: inputDate as Date))
+    let minuteInt = Int(minuteFormatter.string(from: inputDate as Date))
     
-    return (weekday, monthStr, dayInt!, year!)
+    return (year!, monthStr, dayInt!, weekday, hourInt!, minuteInt!)
 }
