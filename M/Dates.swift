@@ -11,10 +11,10 @@ func processCurrentDate() {
 }
 
 
-func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int) -> Date {
+func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int, minute: Int) -> Date {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd HH:mm"
-    guard let date = formatter.date(from: "\(year)/\(monthInt)/\(dayInt) \(hour):00") else {
+    guard let date = formatter.date(from: "\(year)/\(monthInt)/\(dayInt) \(hour):\(minute)") else {
         print("could not create date with this input, returning current date instead")
         return Date()
     }
@@ -34,14 +34,15 @@ func displayDate(_ inputDate: Date)
     let dayIntFormatter = DateFormatter();      dayIntFormatter.dateFormat = "d"
     let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
     let hourFormatter = DateFormatter();        hourFormatter.dateFormat = "HH"
-    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "HH"
+//    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
     
     let year = Int(yearFormatter.string(from: inputDate as Date))
     let monthStr = monthStrFormatter.string(from: inputDate as Date)
     let dayInt = Int(dayIntFormatter.string(from: inputDate as Date))
     let weekday = weekdayFormatter.string(from: inputDate as Date)//.capitalized
     let hourInt = Int(hourFormatter.string(from: inputDate as Date))
-    let minuteInt = Int(minuteFormatter.string(from: inputDate as Date))
+//    let minuteInt = Double(minuteFormatter.string(from: inputDate as Date))
+    let minuteInt = Calendar.current.component(.minute, from: inputDate)
     
-    return (year!, monthStr, dayInt!, weekday, hourInt!, minuteInt!)
+    return (year!, monthStr, dayInt!, weekday, hourInt!, minuteInt)
 }

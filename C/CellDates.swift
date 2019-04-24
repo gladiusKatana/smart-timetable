@@ -25,7 +25,7 @@ extension CollectionVC {
             cell.layer.borderWidth = 0
         }
         
-        cell.cellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour)
+        cell.cellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
     }
     
 }

@@ -44,7 +44,3 @@ extension CollectionVC {
         }
     }
 }
-
-
-
-
