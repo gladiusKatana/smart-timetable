@@ -25,7 +25,13 @@ extension CollectionVC {
             cell.layer.borderWidth = 0
         }
         
-        cell.cellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
+        let nowCellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
+        
+        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
+        
+        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+        
+        cell.cellDate = nowCellDate + hoursFromNow + daysFromNow
     }
     
 }
