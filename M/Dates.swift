@@ -4,9 +4,9 @@
 import UIKit
 
 func processCurrentDate() { 
-    (year, monthString, dayInt, weekday, hour, minute) = displayDate(currentDate)
+    (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date())
     
-    nowRow = hourOf(currentDate)  
+    nowRow = hourOf(Date())  
     nowColumn = daysOfTheWeek.firstIndex(of: weekday)!
 }
 

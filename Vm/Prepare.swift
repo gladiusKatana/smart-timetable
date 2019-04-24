@@ -26,6 +26,9 @@ extension CCVFlowLayout {
                 currentTopVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: currentTopVC)
             }
         }
+        else {
+            processCurrentDate()
+        }
     }
     
     func calculateSizes() {                                                                 //print("resizing cells")
