@@ -5,17 +5,17 @@ import UIKit
 
 extension CollectionVC {
     
-    func setCellDateAndText (cell: CustomCell, indexPath: IndexPath) {
+    func setCellDateAndText (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
         
         //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)"
         cell.titleLabel.textColor = platinum
         
-        if collectionViewType == .hours {setupHourlyCells(cell: cell, column: column, row: row)}
+        if collectionViewType == .hours {setupHourlyCells(cell: cell, column: column, row: row, layout: layout)}
     }
     
     
-    func setupHourlyCells (cell: CustomCell, column: Int, row: Int) {
+    func setupHourlyCells (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         
         if row - 1 == nowRow && column == nowColumn {           // the 'now-cell'
             cell.layer.borderColor = UIColor.blue.cgColor
@@ -35,19 +35,23 @@ extension CollectionVC {
         cell.cellDate = nowCellDate + hoursFromNow + daysFromNow
         }
         
-        
-        if row > 0 && column == 0 {
+        setHeaderText(cell: cell, column: column, row: row, layout: layout)
+    }
+    
+    func setHeaderText (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+        if column == 0 && row >= layout.lockedHeaderRows {
             var ampm = ""
             if row < 13 {
                 ampm = "am"
-            } else {ampm = "pm"}
+            } else {
+                ampm = "pm"
+            }
             cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
         }
-        if column > 0 && row == 0 {
+        if row == 0 && column >= layout.lockedHeaderRows {
             cell.titleLabel.text = weekdaysAbbrev[column - 1]
         }
     }
-    
 }
 
 

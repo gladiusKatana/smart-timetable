@@ -27,9 +27,10 @@ class CollectionVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
-
-        setCellColours(cell: cell, indexPath: indexPath)
-        setCellDateAndText(cell: cell, indexPath: indexPath)
+        let customLayout = downcastLayout!
+        
+        setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
+        setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)
         
         return cell
     }

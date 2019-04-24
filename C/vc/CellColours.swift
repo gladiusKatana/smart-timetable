@@ -5,13 +5,11 @@ import UIKit
 
 extension CollectionVC {
     
-    func setCellColours (cell: CustomCell, indexPath: IndexPath) {
+    func setCellColours (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         
         let row = indexPath.item; let column = indexPath.section
         
-        let customLayout = downcastLayout!
-        
-        if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
+        if row < layout.lockedHeaderRows || column < layout.lockedHeaderSections {
             cell.backgroundColor = headerColour
         }
         else {
