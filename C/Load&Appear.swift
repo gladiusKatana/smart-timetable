@@ -14,8 +14,10 @@ extension CollectionVC {
         setTopViewController()
         print("\n💾\(collectionViewType)-view loaded")
         
-        checkDatePeriodically()
-        
+        //checkDatePeriodically()
+
+        checkDtPeriodically(){kickoffTimer()}       // if you want to check the date then do the timer kickoff ('start on the 0th callback')
+//        kickoffTimer()                            // if you want to do the timer kickoff then check the date ('start on the 1st callback')
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,17 +39,31 @@ extension CollectionVC {
     
     
     
-    func checkDatePeriodically() {
-        print("check date")
-        resetTimer(closure: { [weak self] () -> () in
-            self?.checkDatePeriodically()
-        })
+    //    func checkDatePeriodically() {
+    //        print("check date")
+    //        resetTimer(closure: { [weak self] () -> () in
+    //            self?.checkDatePeriodically()
+    //        })
+    //    }
+    //
+    //    func resetTimer(closure:()->()) {
+    //        print("reset timer")
+    //        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1.0) { [weak self] in
+    //            self?.checkDatePeriodically()
+    //        }
+    //    }
+    
+    
+    
+    func checkDtPeriodically(completion: () -> ()) {
+        print("check the dte")
+        completion()
     }
     
-    func resetTimer(closure:()->()) {
-        print("reset timer")
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            self?.checkDatePeriodically()
+    func kickoffTimer() {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 4.0) { [weak self] in
+            print("reset the tmr")
+            self?.checkDtPeriodically(){self!.kickoffTimer()}
         }
     }
     
