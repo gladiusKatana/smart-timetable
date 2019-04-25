@@ -34,14 +34,14 @@ func displayDate(_ inputDate: Date)
     let dayIntFormatter = DateFormatter();      dayIntFormatter.dateFormat = "d"
     let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
     let hourFormatter = DateFormatter();        hourFormatter.dateFormat = "HH"
-//    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
+    //let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
     
     let year = Int(yearFormatter.string(from: inputDate as Date))
     let monthStr = monthStrFormatter.string(from: inputDate as Date)
     let dayInt = Int(dayIntFormatter.string(from: inputDate as Date))
     let weekday = weekdayFormatter.string(from: inputDate as Date)//.capitalized
     let hourInt = Int(hourFormatter.string(from: inputDate as Date))
-//    let minuteInt = Double(minuteFormatter.string(from: inputDate as Date))
+    //let minuteInt = Double(minuteFormatter.string(from: inputDate as Date))
     let minuteInt = Calendar.current.component(.minute, from: inputDate)
     
     return (year!, monthStr, dayInt!, weekday, hourInt!, minuteInt)

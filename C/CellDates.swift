@@ -25,14 +25,14 @@ extension CollectionVC {
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
-        
-        let nowCellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
-        
-        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
-        
-        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
-        
-        cell.cellDate = nowCellDate + hoursFromNow + daysFromNow
+            
+            let nowCellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
+            
+            let hoursFromNow = TimeInterval(3600 * (row - nowRow))
+            
+            let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+            
+            cell.cellDate = nowCellDate + hoursFromNow + daysFromNow
         }
         
         setHeaderText(cell: cell, column: column, row: row, layout: layout)
