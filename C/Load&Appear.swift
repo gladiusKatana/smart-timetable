@@ -39,7 +39,7 @@ extension CollectionVC {
         //        print("\(Date())")
         
         if "\(Date())".contains(":00:") {               //print("the hour ticked over")
-            if !reloadedFromHourTickOver {
+            if !reloadedFromHourTickingOver {
                 DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
                     self?.reloadCV()
                 }
