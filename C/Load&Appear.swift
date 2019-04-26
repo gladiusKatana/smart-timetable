@@ -14,10 +14,8 @@ extension CollectionVC {
         setTopViewController()
         print("\n💾\(collectionViewType)-view loaded")
         
-        //checkDatePeriodically()
-
-        checkDtPeriodically(){kickoffTimer()}       // if you want to check the date then do the timer kickoff ('start on the 0th callback')
-//        kickoffTimer()                            // if you want to do the timer kickoff then check the date ('start on the 1st callback')
+        checkDatePeriodically(){kickoffTimer()}       // if you want to check the date then do the timer kickoff ('start on the 0th callback')
+        //        kickoffTimer()                              // if you want to do the timer kickoff then check the date ('start on the 1st callback')
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,38 +35,27 @@ extension CollectionVC {
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
     
-    
-    
-    //    func checkDatePeriodically() {
-    //        print("check date")
-    //        resetTimer(closure: { [weak self] () -> () in
-    //            self?.checkDatePeriodically()
-    //        })
-    //    }
-    //
-    //    func resetTimer(closure:()->()) {
-    //        print("reset timer")
-    //        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1.0) { [weak self] in
-    //            self?.checkDatePeriodically()
-    //        }
-    //    }
-    
-    
-    
-    func checkDtPeriodically(completion: () -> ()) {
-        print("check the dte")
+    func checkDatePeriodically(completion: () -> ()) {
+        //        print("\(Date())")
+        
+        if "\(Date())".contains(":00:") {               //print("the hour ticked over")
+            if !reloadedFromHourTickOver {
+                DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+                    self?.reloadCV()
+                }
+                reloadedFromHourTickingOver = true
+            } else {
+                reloadedFromHourTickingOver = false
+            }
+        }
         completion()
     }
     
-    func kickoffTimer() {
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 4.0) { [weak self] in
-            print("reset the tmr")
-            self?.checkDtPeriodically(){self!.kickoffTimer()}
+    func kickoffTimer() { //print("·")
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.checkDatePeriodically(){self!.kickoffTimer()}
         }
     }
-    
 }
-
-//        if "\(Date())".contains(":00") {print("the hour ticked over")}
 
 
