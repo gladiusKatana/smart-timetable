@@ -6,8 +6,8 @@ import UIKit
 func processCurrentDate() { 
     (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date())
     
-    nowRow = hourOf(Date())  
-    nowColumn = daysOfTheWeek.firstIndex(of: weekday)!
+    nowRow = hourOf(Date()) + 1
+    nowColumn = daysOfTheWeek.firstIndex(of: weekday)! + 1                  //; print("-----------------------now cell at \([nowRow, nowColumn])")
 }
 
 

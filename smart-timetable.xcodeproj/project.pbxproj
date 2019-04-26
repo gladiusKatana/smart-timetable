@@ -123,8 +123,8 @@
 		062A3F4D226BE8F100D6DBED /* C */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
+				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 				062A3F54226BE8F100D6DBED /* vc */,

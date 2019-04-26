@@ -10,7 +10,11 @@ extension CollectionVC {
         
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         
-        print(formalDateString(cell.cellDate, comment: "selected day-cell date:"))
+        let customLayout = downcastLayout!
+        
+        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
+            print(formalDateString(cell.cellDate, comment: "selected day-cell date:"))
+        }
         
     }
 }

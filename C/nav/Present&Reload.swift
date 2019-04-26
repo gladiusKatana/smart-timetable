@@ -30,7 +30,7 @@ extension CollectionVC {
         }
     }
     
-    @objc func reloadCV() {             print("\n↺")
+    @objc func reloadCV() {             //print("\n↺")
         self.collectionView.reloadData()
     }
     

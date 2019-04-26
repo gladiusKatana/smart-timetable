@@ -9,8 +9,8 @@ var (year, monthString, dayInt, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] 
-var weekdaysAbbrev = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
+var weekdaysAbbrev = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
@@ -18,3 +18,4 @@ var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1
 var nowRow = 0;       var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
+var resumedSessionOnce = false
