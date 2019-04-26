@@ -4,10 +4,10 @@
 import UIKit
 
 func processCurrentDate() { 
-    (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date())
+    (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date()) //; print(formalDateString(Date(), comment: "process dates @ "))
     
     nowRow = hourOf(Date()) + 1
-    nowColumn = daysOfTheWeek.firstIndex(of: weekday)! + 1                  //; print("-----------------------now cell at \([nowRow, nowColumn])")
+    nowColumn = daysOfTheWeek.firstIndex(of: weekday)! + 1                   //; print("-----------------------now cell at \([nowRow, nowColumn])")
 }
 
 

@@ -7,6 +7,10 @@ extension AppDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {              
         pryntApplicationStatusWithSpaces(applicationState: "application became active")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            currentTopVC.reloadCV()
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -18,4 +18,3 @@ var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1
 var nowRow = 0;       var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
-var resumedSessionOnce = false

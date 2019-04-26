@@ -52,7 +52,7 @@ extension CollectionVC {
     }
     
     func kickoffTimer() { //print("·")
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 1) { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.checkDatePeriodically(){self!.kickoffTimer()}
         }
     }
