@@ -4,10 +4,12 @@
 import UIKit
 
 enum CollectionViewType: Int {
-    case hours = 0
-    case days, months, years
+    case initial = 0
+    case hours, days, months, years
     func simpleDescription() -> String {
         switch self {
+        case .initial:
+            return "initial value to satisfy initializer of global collection view controller 'currentTopVC'"
         case .hours:
             return "shows the hours of this week"
         case .days:

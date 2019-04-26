@@ -11,8 +11,11 @@ extension CollectionVC {
         collectionView.bounces = false
         
         setupNotificationForStatusBarHeightChange()
-        setTopViewController()
-        print("\n💾\(collectionViewType)-view loaded")
+
+        if collectionViewType != .initial {
+            print("\n💾\(collectionViewType)-view loaded")
+            setTopViewController()
+        }
         
         checkDatePeriodically(){kickoffTimer()}       // if you want to check the date then do the timer kickoff ('start on the 0th callback')
         //kickoffTimer()                              // if you want to do the timer kickoff then check the date ('start on the 1st callback')
@@ -25,8 +28,7 @@ extension CollectionVC {
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
-            reloadCV()                       
-            print("💾\(collectionViewType)-view appeared")
+            reloadCV(); print("🏞\(collectionViewType)-view appeared")
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
@@ -38,7 +40,7 @@ extension CollectionVC {
     func checkDatePeriodically(completion: () -> ()) {
         //        print("\(Date())")
         
-        if "\(Date())".contains(":00:") {               //print("the hour ticked over")
+        if "\(Date())".contains(":00:") {                                                               //print("the hour ticked over")
             if !reloadedFromHourTickingOver {
                 DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
                     self?.reloadCV()
@@ -51,7 +53,7 @@ extension CollectionVC {
         completion()
     }
     
-    func kickoffTimer() { //print("·")
+    func kickoffTimer() {                                                                               //print(Date())//print("·")
         DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.checkDatePeriodically(){self!.kickoffTimer()}
         }

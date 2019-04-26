@@ -48,7 +48,7 @@ extension CollectionVC {
         return button
     }
     
-    @objc func buttonWrapperMethodforDaysVC() {presentViaVCButton(vc: daysVC)}
+    @objc func buttonWrapperMethodforDaysVC() {presentViaVCButton(vc: timetableVC)}
     @objc func buttonWrapperMethodforMonthsVC() {presentViaVCButton(vc: monthsVC)}
     @objc func buttonWrapperMethodforYearsVC() {presentViaVCButton(vc: yearsVC)}
     

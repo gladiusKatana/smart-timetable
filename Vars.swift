@@ -31,12 +31,12 @@ var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHe
                                  loadsHorizontally: true,
                                  squareCellMode: .noAutoSquare)
 
-var daysVC = CollectionVC(.hours, colourIndex: 2, collectionViewLayout: hoursLayout)         // header titles get...
+var timetableVC = CollectionVC(.hours, colourIndex: 2, collectionViewLayout: hoursLayout)    // header titles get...
 var monthsVC = CollectionVC(.months, colourIndex: 1, collectionViewLayout: monthsLayout)     //...changed promptly
 var yearsVC = CollectionVC(.years, colourIndex: 0, collectionViewLayout: yearsLayout)        //...so they don't matter here
 //--------------------------------------------------------------------------------------------
 
-var currentTopVC : CollectionVC = CollectionVC(.days, colourIndex: 0, collectionViewLayout: hoursLayout) // temporary value to satisfy init
+var currentTopVC : CollectionVC = CollectionVC(.initial, colourIndex: 0, collectionViewLayout: hoursLayout) // temporary value to satisfy initializer
 var backgroundVC = UIViewController()
 
 var statusBar = UIView();           var navbarTitleLabel = UILabel();       var testRectanglelayer = CAShapeLayer()
