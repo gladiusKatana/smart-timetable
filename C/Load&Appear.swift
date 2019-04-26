@@ -9,9 +9,8 @@ extension CollectionVC {
         collectionView.backgroundColor = navyBlue
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
-        
         setupNotificationForStatusBarHeightChange()
-
+        
         if collectionViewType != .initial {
             print("\n💾\(collectionViewType)-view loaded")
             setTopViewController()
@@ -37,9 +36,7 @@ extension CollectionVC {
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
     
-    func checkDatePeriodically(completion: () -> ()) {
-        //        print("\(Date())")
-        
+    func checkDatePeriodically(completion: () -> ()) {                                                  //print("\(Date())")
         if "\(Date())".contains(":00:") {                                                               //print("the hour ticked over")
             if !reloadedFromHourTickingOver {
                 DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in

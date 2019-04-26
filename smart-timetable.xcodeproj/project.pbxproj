@@ -10,7 +10,7 @@
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		062A3F43226BE87D00D6DBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F42226BE87D00D6DBED /* Assets.xcassets */; };
 		062A3F46226BE87D00D6DBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F44226BE87D00D6DBED /* LaunchScreen.storyboard */; };
-		062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */; };
+		062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBar.swift */; };
 		062A3F73226BE8F200D6DBED /* Present&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F50226BE8F100D6DBED /* Present&Reload.swift */; };
 		062A3F74226BE8F200D6DBED /* ExtraPresent&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */; };
 		062A3F76226BE8F200D6DBED /* SetTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F53226BE8F100D6DBED /* SetTopVC.swift */; };
@@ -45,7 +45,7 @@
 		062A3F42226BE87D00D6DBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		062A3F45226BE87D00D6DBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		062A3F47226BE87D00D6DBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarSetup.swift; sourceTree = "<group>"; };
+		062A3F4F226BE8F100D6DBED /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		062A3F50226BE8F100D6DBED /* Present&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Present&Reload.swift"; sourceTree = "<group>"; };
 		062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtraPresent&Reload.swift"; sourceTree = "<group>"; };
 		062A3F53226BE8F100D6DBED /* SetTopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTopVC.swift; sourceTree = "<group>"; };
@@ -91,6 +91,7 @@
 				062A3F61226BE8F100D6DBED /* Vars.swift */,
 				061B37FB226D48CA006555B5 /* TimetableVars.swift */,
 				062A3F69226BE8F100D6DBED /* Delegate */,
+				06B914DE2273B7970018458C /* Dates */,
 				062A3F64226BE8F100D6DBED /* M */,
 				062A3F6C226BE8F200D6DBED /* Vm */,
 				062A3F62226BE8F100D6DBED /* V */,
@@ -123,9 +124,8 @@
 		062A3F4D226BE8F100D6DBED /* C */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
-				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
+				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 				062A3F54226BE8F100D6DBED /* vc */,
 			);
@@ -135,7 +135,7 @@
 		062A3F4E226BE8F100D6DBED /* nav */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F4F226BE8F100D6DBED /* NavBarSetup.swift */,
+				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
 				062A3F50226BE8F100D6DBED /* Present&Reload.swift */,
 				062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */,
 			);
@@ -174,8 +174,6 @@
 		062A3F64226BE8F100D6DBED /* M */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F66226BE8F100D6DBED /* Dates.swift */,
-				0638382D226EA61600F46824 /* DateComponents.swift */,
 				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
 				062A3F67226BE8F100D6DBED /* StringMethods.swift */,
 			);
@@ -194,13 +192,23 @@
 		062A3F6C226BE8F200D6DBED /* Vm */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F6D226BE8F200D6DBED /* Attributes.swift */,
-				062A3F6E226BE8F200D6DBED /* ZIndex.swift */,
 				062A3F6F226BE8F200D6DBED /* Layout.swift */,
-				062A3F70226BE8F200D6DBED /* CellSizeModes.swift */,
+				062A3F6D226BE8F200D6DBED /* Attributes.swift */,
 				062A3F71226BE8F200D6DBED /* Prepare.swift */,
+				062A3F6E226BE8F200D6DBED /* ZIndex.swift */,
+				062A3F70226BE8F200D6DBED /* CellSizeModes.swift */,
 			);
 			path = Vm;
+			sourceTree = "<group>";
+		};
+		06B914DE2273B7970018458C /* Dates */ = {
+			isa = PBXGroup;
+			children = (
+				062A3F66226BE8F100D6DBED /* Dates.swift */,
+				0638382D226EA61600F46824 /* DateComponents.swift */,
+				062A3F58226BE8F100D6DBED /* CellDates.swift */,
+			);
+			path = Dates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				062A3F89226BE8F200D6DBED /* AppDelegate.swift in Sources */,
-				062A3F72226BE8F200D6DBED /* NavBarSetup.swift in Sources */,
+				062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				0638382E226EA61600F46824 /* DateComponents.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
