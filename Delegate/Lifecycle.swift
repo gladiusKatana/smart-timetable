@@ -6,7 +6,7 @@ import UIKit
 extension AppDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {              
-        pryntApplicationStatusWithSpaces(applicationState: "application became active")
+        pryntApplicationStatusWithSpaces(applicationState: "became active")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             currentTopVC.reloadCV()
@@ -14,15 +14,15 @@ extension AppDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        pryntApplicationStatusWithSpaces(applicationState: "application will resign active")
+        pryntApplicationStatusWithSpaces(applicationState: "will resign active")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        pryntApplicationStatusWithSpaces(applicationState: "application entered background")
+        pryntApplicationStatusWithSpaces(applicationState: "entered background")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        pryntApplicationStatusWithSpaces(applicationState: "application will enter foreground")
+        pryntApplicationStatusWithSpaces(applicationState: "will enter foreground")
         
         willPresentVCAgainBecauseAppJustEnteredForeground = true // note, this bool (currently) is one-way: never flips back to false because...
     }//                                                          //...calling the above 2 methods causes a layout exception over the whole life cycle
