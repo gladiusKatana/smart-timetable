@@ -11,10 +11,14 @@ extension AppDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             currentTopVC.reloadCV()
         }
+        
+        loadUsingDefaults(showDates: true)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         pryntApplicationStatusWithSpaces(applicationState: "will resign active")
+        
+        saveUsingDefaults(pryntLastLogin: true)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

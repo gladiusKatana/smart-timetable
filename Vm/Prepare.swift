@@ -27,7 +27,7 @@ extension CCVFlowLayout {
             }
         }
         else {
-            processCurrentDate(); print("process date from prepare")
+            processCurrentDate()                                                            //; print("process date from prepare")
         }
     }
     

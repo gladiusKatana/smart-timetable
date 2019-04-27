@@ -34,15 +34,25 @@ func displayDate(_ inputDate: Date)
     let dayIntFormatter = DateFormatter();      dayIntFormatter.dateFormat = "d"
     let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
     let hourFormatter = DateFormatter();        hourFormatter.dateFormat = "HH"
-    //let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
+    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
     
-    let year = Int(yearFormatter.string(from: inputDate as Date))
-    let monthStr = monthStrFormatter.string(from: inputDate as Date)
-    let dayInt = Int(dayIntFormatter.string(from: inputDate as Date))
-    let weekday = weekdayFormatter.string(from: inputDate as Date)//.capitalized
-    let hourInt = Int(hourFormatter.string(from: inputDate as Date))
-    //let minuteInt = Double(minuteFormatter.string(from: inputDate as Date))
-    let minuteInt = Calendar.current.component(.minute, from: inputDate)
+    let yr = Int(yearFormatter.string(from: inputDate as Date))
+    let mo = monthStrFormatter.string(from: inputDate as Date)
+    let dy = Int(dayIntFormatter.string(from: inputDate as Date))
+    let wdy = weekdayFormatter.string(from: inputDate as Date)//.capitalized
+    let hr = Int(hourFormatter.string(from: inputDate as Date))
+    let minuteInt = Int(minuteFormatter.string(from: inputDate as Date))
     
-    return (year!, monthStr, dayInt!, weekday, hourInt!, minuteInt)
+//    let era = Calendar.current.component(.era, from: inputDate)
+//    let yrInt = Calendar.current.component(.year, from: inputDate)
+//    let moInt = months[Calendar.current.component(.month, from: inputDate) - 1]
+//    let dyInt = Calendar.current.component(.day, from: inputDate)
+//    let wdyInt = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+//    let hrInt = Calendar.current.component(.hour, from: inputDate)
+//    let minInt = Calendar.current.component(.minute, from: inputDate)
+//    let secInt = Calendar.current.component(.second, from: inputDate)
+//
+//    print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
+    
+    return (yr!, mo, dy!, wdy, hr!, minuteInt!)
 }

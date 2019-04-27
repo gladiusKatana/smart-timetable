@@ -37,6 +37,7 @@
 		062A3F8D226BE8F200D6DBED /* CellSizeModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F70226BE8F200D6DBED /* CellSizeModes.swift */; };
 		062A3F8E226BE8F200D6DBED /* Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F71226BE8F200D6DBED /* Prepare.swift */; };
 		0638382E226EA61600F46824 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638382D226EA61600F46824 /* DateComponents.swift */; };
+		06F3A2172273F54B00548AE1 /* SaveUsingDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3A2162273F54B00548AE1 /* SaveUsingDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		062A3F70226BE8F200D6DBED /* CellSizeModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSizeModes.swift; sourceTree = "<group>"; };
 		062A3F71226BE8F200D6DBED /* Prepare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prepare.swift; sourceTree = "<group>"; };
 		0638382D226EA61600F46824 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
+		06F3A2162273F54B00548AE1 /* SaveUsingDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveUsingDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
 				062A3F67226BE8F100D6DBED /* StringMethods.swift */,
+				06F3A2162273F54B00548AE1 /* SaveUsingDefaults.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
 				061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */,
 				062A3F88226BE8F200D6DBED /* Lifecycle.swift in Sources */,
+				06F3A2172273F54B00548AE1 /* SaveUsingDefaults.swift in Sources */,
 				062A3F7C226BE8F200D6DBED /* Selecting.swift in Sources */,
 				062A3F87226BE8F200D6DBED /* Description.swift in Sources */,
 				062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */,
