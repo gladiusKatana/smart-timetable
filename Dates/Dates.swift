@@ -6,10 +6,10 @@ import UIKit
 func processCurrentDate() { 
     (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date()) //; print(formalDateString(Date(), comment: "process dates @ "))
     
-    nowRow = hourOf(Date()) + 1
-    nowColumn = daysOfTheWeek.firstIndex(of: weekday)! + 1                   //; print("-----------------------now cell at \([nowRow, nowColumn])")
+    nowRow = Calendar.current.component(.hour, from: Date()) + 1
+    nowColumn = weekdaysAbbrev.firstIndex(of: weekday)! // why no + 1 needed here? because the method Calendar.current.component(:) uses...
+    print("-----------------------now cell at \([nowRow, nowColumn])")//           ... weekday-indices that start on Sunday
 }
-
 
 func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int, minute: Int) -> Date {
     let formatter = DateFormatter()
@@ -21,38 +21,25 @@ func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int, minute: Int)
     return date
 }
 
+
 func formalDateString(_ date: Date, comment: String) -> String {
     let (yr, monString, dayI, wkday, hr, min) = displayDate(date)
     return "\(comment) \(wkday), \(monString) \(dayI), \(yr), \(hr):\(min)"
 }
 
+
 func displayDate(_ inputDate: Date)
-    -> (year: Int, monthStr: String, dayInt: Int, weekday: String, hour: Int, minute: Int)
-{
-    let yearFormatter = DateFormatter();        yearFormatter.dateFormat = "YYYY"
-    let monthStrFormatter = DateFormatter();    monthStrFormatter.dateFormat = "MMMM"
-    let dayIntFormatter = DateFormatter();      dayIntFormatter.dateFormat = "d"
-    let weekdayFormatter = DateFormatter();     weekdayFormatter.dateFormat = "EEEE"
-    let hourFormatter = DateFormatter();        hourFormatter.dateFormat = "HH"
-    let minuteFormatter = DateFormatter();      minuteFormatter.dateFormat = "mm"
-    
-    let yr = Int(yearFormatter.string(from: inputDate as Date))
-    let mo = monthStrFormatter.string(from: inputDate as Date)
-    let dy = Int(dayIntFormatter.string(from: inputDate as Date))
-    let wdy = weekdayFormatter.string(from: inputDate as Date)//.capitalized
-    let hr = Int(hourFormatter.string(from: inputDate as Date))
-    let minuteInt = Int(minuteFormatter.string(from: inputDate as Date))
-    
-//    let era = Calendar.current.component(.era, from: inputDate)
-//    let yrInt = Calendar.current.component(.year, from: inputDate)
-//    let moInt = months[Calendar.current.component(.month, from: inputDate) - 1]
-//    let dyInt = Calendar.current.component(.day, from: inputDate)
-//    let wdyInt = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
-//    let hrInt = Calendar.current.component(.hour, from: inputDate)
-//    let minInt = Calendar.current.component(.minute, from: inputDate)
-//    let secInt = Calendar.current.component(.second, from: inputDate)
-//
+    -> (year: Int, monthStr: String, dayInt: Int, weekday: String, hour: Int, minute: Int) {
+        
+    let yrInt = Calendar.current.component(.year, from: inputDate)
+    let moStr = months[Calendar.current.component(.month, from: inputDate) - 1]
+    let dyInt = Calendar.current.component(.day, from: inputDate)
+    let wdyStr = weekdaysAbbrev[Calendar.current.component(.weekday, from: inputDate) - 1]
+//    let wdyStr = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+    let hrInt = Calendar.current.component(.hour, from: inputDate)
+    let minInt = Calendar.current.component(.minute, from: inputDate)
+    //let secInt = Calendar.current.component(.second, from: inputDate)
+
 //    print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
-    
-    return (yr!, mo, dy!, wdy, hr!, minuteInt!)
+    return (yrInt, moStr, dyInt, wdyStr, hrInt, minInt)
 }
