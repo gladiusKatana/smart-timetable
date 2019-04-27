@@ -31,15 +31,15 @@ func formalDateString(_ date: Date, comment: String) -> String {
 func displayDate(_ inputDate: Date)
     -> (year: Int, monthStr: String, dayInt: Int, weekday: String, hour: Int, minute: Int) {
         
-    let yrInt = Calendar.current.component(.year, from: inputDate)
-    let moStr = months[Calendar.current.component(.month, from: inputDate) - 1]
-    let dyInt = Calendar.current.component(.day, from: inputDate)
-    let wdyStr = weekdaysAbbrev[Calendar.current.component(.weekday, from: inputDate) - 1]
-//    let wdyStr = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
-    let hrInt = Calendar.current.component(.hour, from: inputDate)
-    let minInt = Calendar.current.component(.minute, from: inputDate)
-    //let secInt = Calendar.current.component(.second, from: inputDate)
-
-//    print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
-    return (yrInt, moStr, dyInt, wdyStr, hrInt, minInt)
+        let yrInt = Calendar.current.component(.year, from: inputDate)
+        let moStr = months[Calendar.current.component(.month, from: inputDate) - 1]
+        let dyInt = Calendar.current.component(.day, from: inputDate)
+        let wdyStr = weekdaysAbbrev[Calendar.current.component(.weekday, from: inputDate) - 1]
+        //    let wdyStr = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+        let hrInt = Calendar.current.component(.hour, from: inputDate)
+        let minInt = Calendar.current.component(.minute, from: inputDate)
+        //let secInt = Calendar.current.component(.second, from: inputDate)
+        
+        //    print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
+        return (yrInt, moStr, dyInt, wdyStr, hrInt, minInt)
 }
