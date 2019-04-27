@@ -32,6 +32,8 @@ class CollectionVC: UICollectionViewController {
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
         setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)
         
+        print(".", terminator: "")
+        
         return cell
     }
 }

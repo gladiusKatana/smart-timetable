@@ -8,7 +8,7 @@ extension CollectionVC {
     func setCellDateAndText (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
         
-        cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)"
+        cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" 
         cell.titleLabel.textColor = platinum
         
         if collectionViewType == .hours {setupHourlyCells(cell: cell, column: column, row: row, layout: layout)}
@@ -16,7 +16,7 @@ extension CollectionVC {
     
     
     func setupHourlyCells (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if row == nowRow && column == nowColumn {           // the 'now-cell'
+        if row == nowRow && column == nowColumn {        // the 'now-cell'
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
             cell.cellDate = Date()
