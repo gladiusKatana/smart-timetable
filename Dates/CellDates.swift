@@ -43,7 +43,7 @@ extension CollectionVC {
             cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
         }
         if row == 0 && column >= layout.lockedHeaderRows {
-            cell.titleLabel.text = weekdaysAbbrev[column - 1]
+            cell.titleLabel.text = weekdaysAbbreviated[column - 1]
         }
     }
 }
