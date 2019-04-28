@@ -9,11 +9,11 @@ var lastLoggedInDate = Date()
 
 var (year, monthString, dayInt, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
-var lastLoginDateStrings = [""]
+var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // = [Any?]()
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
+//var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
 var weekdaysAbbreviated = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 

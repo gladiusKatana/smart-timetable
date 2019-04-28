@@ -3,24 +3,27 @@
 
 import UIKit
 
+
 func saveUsingDefaults(pryntLastLogin: Bool) {
-    lastLoginDateStrings = ["\(weekday)", "\(monthString) \(dayInt)", "\(year)", "\(hour):\(minute)"]
+    lastLoginDateComponents = [year, monthString, dayInt, weekday, hour, minute]
     
     let defaults = UserDefaults.standard
-    defaults.set(lastLoginDateStrings, forKey: "savedLastLoginDateString")
+    defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
     
     if pryntLastLogin {
-        print("saving via defaults, date logged:\n\(lastLoginDateStrings)")
+        print("saving via defaults, date logged:\n\(lastLoginDateComponents)")
     }
 }
+
 
 func loadUsingDefaults(showDates: Bool) {                                        //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
     
-    lastLoginDateStrings = defaults.stringArray(forKey: "savedLastLoginDateString") ?? ["-"]
+    lastLoginDateComponents = defaults.array(forKey: "savedLastLoginDate") ?? ["-"]
     
     if showDates {
-        print("last login: \(lastLoginDateStrings)")
+        print("last login: \(lastLoginDateComponents)")
+        //["\(weekday)", "\(monthString) \(dayInt)", "\(year)", "\(hour):\(minute)"]
     }
 }
 

@@ -10,8 +10,7 @@ extension CollectionVC {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
             || willPresentVCAgainBecauseAppJustEnteredForeground {
             
-            rePresentedVCFromButton = false
-            //print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
+            rePresentedVCFromButton = false              //; print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
             
             setupTitleAndPresentViewController(vc: vc) { () -> () in
                 previousOrientation = currentOrientation // * should probably factor out

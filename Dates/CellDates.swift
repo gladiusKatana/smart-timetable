@@ -14,7 +14,6 @@ extension CollectionVC {
         if collectionViewType == .hours {setupHourlyCells(cell: cell, column: column, row: row, layout: layout)}
     }
     
-    
     func setupHourlyCells (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row == nowRow && column == nowColumn {        // the 'now-cell'
             cell.layer.borderColor = UIColor.blue.cgColor
