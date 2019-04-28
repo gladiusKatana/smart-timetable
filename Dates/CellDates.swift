@@ -19,21 +19,16 @@ extension CollectionVC {
         if row == nowRow && column == nowColumn {        // the 'now-cell'
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
-            cell.cellDate = Date()
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
-            
-            let nowCellDate = createDate(year, monthInt: months.firstIndex(of: monthString)! + 1, dayInt: dayInt, hour: hour, minute: minute)
-            
-            let hoursFromNow = TimeInterval(3600 * (row - nowRow))
-            
-            let daysFromNow = TimeInterval(86400 * (column - nowColumn))
-            
-            cell.cellDate = nowCellDate + hoursFromNow + daysFromNow
         }
         
+        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
+        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+        
+        cell.cellDate = Date() + hoursFromNow + daysFromNow
         setHeaderText(cell: cell, column: column, row: row, layout: layout)
     }
     

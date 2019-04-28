@@ -7,8 +7,8 @@ func processCurrentDate() {
     (year, monthString, dayInt, weekday, hour, minute) = displayDate(Date()) //; print(formalDateString(Date(), comment: "process dates @ "))
     
     nowRow = Calendar.current.component(.hour, from: Date()) + 1
-    nowColumn = weekdaysAbbrev.firstIndex(of: weekday)! // why no + 1 needed here? because the method Calendar.current.component(:) uses...
-    print("-----------------------now cell at \([nowRow, nowColumn])")//           ... weekday-indices that start on Sunday
+    nowColumn = weekdaysAbbrev.firstIndex(of: weekday)! + 1
+    print("-----------------------now cell at \([nowRow, nowColumn])")
 }
 
 func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int, minute: Int) -> Date {
@@ -34,12 +34,12 @@ func displayDate(_ inputDate: Date)
         let yrInt = Calendar.current.component(.year, from: inputDate)
         let moStr = months[Calendar.current.component(.month, from: inputDate) - 1]
         let dyInt = Calendar.current.component(.day, from: inputDate)
-        let wdyStr = weekdaysAbbrev[Calendar.current.component(.weekday, from: inputDate) - 1]
-        //    let wdyStr = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+//        let wdyStr = weekdaysAbbrev[Calendar.current.component(.weekday, from: inputDate) - 1]
+        let wdyStr = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
         let hrInt = Calendar.current.component(.hour, from: inputDate)
         let minInt = Calendar.current.component(.minute, from: inputDate)
         //let secInt = Calendar.current.component(.second, from: inputDate)
         
-        //    print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
+        //print("***[\(era)] \(wdyInt), \(moInt) \(dyInt), \(yrInt), \(hrInt):\(minInt):\(secInt)")
         return (yrInt, moStr, dyInt, wdyStr, hrInt, minInt)
 }
