@@ -7,9 +7,9 @@ var currentDate = Date()
 
 var lastLoggedInDate = Date()
 
-var (year, monthString, dayInt, weekday, hour, minute) = (0, "", 0, "", 0, 0)
+var (year, month, day, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
-var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // = [Any?]()
+var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 

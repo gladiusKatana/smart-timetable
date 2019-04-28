@@ -13,8 +13,20 @@ extension CollectionVC {
         let customLayout = downcastLayout!
         
         if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-            print(formalDateString(cell.cellDate, comment: "selected day-cell date:"))
+            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
         }
         
+        //launching on iPhone 7 ...in portrait orientation      // prototype strings to interpolate for cleaner console prints
+        //                      ...on date
+        
+        //last login    (unformatted gmt)  //
+        //selected date (unformatted gmt)  //
+        
+        //last login       (formatted)    //
+        //selected date    (formatted)    //
+        //                 (formatted)    //
+        //                 (formatted)    //
+
     }
 }
