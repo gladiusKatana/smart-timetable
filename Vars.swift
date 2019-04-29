@@ -12,7 +12,7 @@ var cellGap = CGFloat(0)          // if nonzero, do NOT make this smaller than: 
 //--------------------------------------------------------------------------------------------
 var hoursLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                 cellWidth: nil, cellHeight: nil,
-                                autoFitWScale: nil, autoFitHScale: 0.9,     //* auto-fit scale factors ignored if width/height non-nil
+                                autoFitWScale: nil, autoFitHScale: 0.98,     //* auto-fit scale factors ignored if width/height non-nil
                                 hSpace: cellGap, vSpace: cellGap,           //* if auto-fit scale factors are nil, value of 1.0 substituted
                                 loadsHorizontally: false,        //* ❗️ if loadsHorizontally is true, 'rows' look like columns
                                 squareCellMode: .noAutoSquare)  //* why no autocomplete for enum cases?

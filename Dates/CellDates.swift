@@ -7,8 +7,6 @@ extension CollectionVC {
     
     func setCellDateAndText (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
-        
-        cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" 
         cell.titleLabel.textColor = platinum
         
         if collectionViewType == .hours {setupHourlyCells(cell: cell, column: column, row: row, layout: layout)}
@@ -18,8 +16,7 @@ extension CollectionVC {
         if row == nowRow && column == nowColumn {        // the 'now-cell'
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
-        }
-        else {
+        } else {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
         }
@@ -34,22 +31,25 @@ extension CollectionVC {
                 cell.backgroundColor = .orange
             }
         }
-        
         setHeaderLabels(cell: cell, column: column, row: row, layout: layout)
     }
     
     func setHeaderLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if column == 0 && row >= layout.lockedHeaderRows {
-            var ampm = ""
-            if row < 13 {
-                ampm = "am"
-            } else {
-                ampm = "pm"
-            }
-            cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
+            let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+            let dy = Calendar.current.component(.day, from: cell.cellDate)
+            cell.titleLabel.text = "\(mo) \(dy)"
         }
-        if row == 0 && column >= layout.lockedHeaderRows {
-            cell.titleLabel.text = weekdaysAbbreviated[column - 1]
+        else {
+            if column == 0 && row > 0 {
+                var ampm = ""
+                if row < 13 {ampm = "am"}
+                else {ampm = "pm"}
+                cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
+            }
+            else if row == 0 && column > 0 {
+                cell.titleLabel.text = weekdaysAbbreviated[column - 1]
+            }
         }
     }
 }
