@@ -3,7 +3,6 @@
 
 import UIKit
 
-
 func saveUsingDefaults(showDate: Bool) {
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
@@ -14,7 +13,6 @@ func saveUsingDefaults(showDate: Bool) {
         print("saving via defaults, date logged:\n\(lastLoginDateComponents)")
     }
 }
-
 
 func loadUsingDefaults(showDate: Bool) {                                        //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
@@ -37,7 +35,6 @@ func loadUsingDefaults(showDate: Bool) {                                        
         //print("last login  \(lastLoginDateComponents)")
     }
 }
-
 
 func createDateFromSavedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {// uses all cmpnts. except weekday (unnecessary)
     let formatter = DateFormatter()
