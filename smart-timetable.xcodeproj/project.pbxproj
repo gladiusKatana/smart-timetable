@@ -208,8 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				062A3F66226BE8F100D6DBED /* Dates.swift */,
-				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 				062133882276AE2000D46E5D /* DateCheck.swift */,
+				062A3F58226BE8F100D6DBED /* CellDates.swift */,
 			);
 			path = Dates;
 			sourceTree = "<group>";

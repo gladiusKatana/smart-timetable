@@ -28,10 +28,17 @@ extension CollectionVC {
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow
-        setHeaderText(cell: cell, column: column, row: row, layout: layout)
+        
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
+            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(60) {
+                cell.backgroundColor = .orange
+            }
+        }
+        
+        setHeaderLabels(cell: cell, column: column, row: row, layout: layout)
     }
     
-    func setHeaderText (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setHeaderLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if column == 0 && row >= layout.lockedHeaderRows {
             var ampm = ""
             if row < 13 {
