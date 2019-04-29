@@ -48,19 +48,3 @@ func createDateFromSavedComponents(year: Int, month: Int, day: Int, hour: Int, m
     }
     return date
 }
-
-
-
-
-//func createDate(_ year: Int, monthInt: Int, dayInt: Int, hour: Int, minute: Int) -> Date {
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "yyyy/MM/dd HH:mm"
-//    guard let date = formatter.date(from: "\(year)/\(monthInt)/\(dayInt) \(hour):\(minute)") else {
-//        print("could not create date with this input, returning current date instead")
-//        return Date()
-//    }
-//    return date
-//}
-
-
-//["\(weekday)", "\(monthString) \(dayInt)", "\(year)", "\(hour):\(minute)"]

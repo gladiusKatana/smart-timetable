@@ -35,26 +35,6 @@ extension CollectionVC {
         setTopViewController()
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
-    
-    func checkDatePeriodically(completion: () -> ()) {                                                  //print("\(Date())")
-        if "\(Date())".contains(":00:") {                                                               //print("the hour ticked over")
-            if !reloadedFromHourTickingOver {
-                DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
-                    self?.reloadCV()
-                }
-                reloadedFromHourTickingOver = true
-            } else {
-                reloadedFromHourTickingOver = false
-            }
-        }
-        completion()
-    }
-    
-    func kickoffTimer() {                                                                               //print(Date())//print("·")
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.checkDatePeriodically(){self!.kickoffTimer()}
-        }
-    }
 }
 
 
