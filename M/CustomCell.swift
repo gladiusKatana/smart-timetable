@@ -11,6 +11,8 @@ class CustomCell: UICollectionViewCell {
     
     var cellDate = Date()
     
+    var event = SimpleEvent()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

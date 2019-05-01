@@ -3,7 +3,7 @@
 
 import UIKit
 
-class CollectionVC: UICollectionViewController {
+class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
     var downcastLayout : CCVFlowLayout?;    var collectionViewType = CollectionViewType.days
     var colourIndex: Int = Int();           var loopWeeks = false

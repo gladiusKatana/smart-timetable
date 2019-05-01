@@ -38,6 +38,7 @@
 		062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F6F226BE8F200D6DBED /* Layout.swift */; };
 		062A3F8D226BE8F200D6DBED /* CellSizeModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F70226BE8F200D6DBED /* CellSizeModes.swift */; };
 		062A3F8E226BE8F200D6DBED /* Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F71226BE8F200D6DBED /* Prepare.swift */; };
+		063342332277C12200F7C754 /* SimpleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063342322277C12200F7C754 /* SimpleEvent.swift */; };
 		06F3A2172273F54B00548AE1 /* Save&Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3A2162273F54B00548AE1 /* Save&Load.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		062A3F6F226BE8F200D6DBED /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		062A3F70226BE8F200D6DBED /* CellSizeModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSizeModes.swift; sourceTree = "<group>"; };
 		062A3F71226BE8F200D6DBED /* Prepare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prepare.swift; sourceTree = "<group>"; };
+		063342322277C12200F7C754 /* SimpleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEvent.swift; sourceTree = "<group>"; };
 		06F3A2162273F54B00548AE1 /* Save&Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Save&Load.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 		062A3F64226BE8F100D6DBED /* M */ = {
 			isa = PBXGroup;
 			children = (
+				063342322277C12200F7C754 /* SimpleEvent.swift */,
 				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
 				06F3A2162273F54B00548AE1 /* Save&Load.swift */,
 			);
@@ -308,6 +311,7 @@
 				062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */,
 				062A3F83226BE8F200D6DBED /* Colours.swift in Sources */,
 				062A3F86226BE8F200D6DBED /* StringMethods.swift in Sources */,
+				063342332277C12200F7C754 /* SimpleEvent.swift in Sources */,
 				062A3F84226BE8F200D6DBED /* CustomCell.swift in Sources */,
 				062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */,
 				062A3F82226BE8F200D6DBED /* Vars.swift in Sources */,

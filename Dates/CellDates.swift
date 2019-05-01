@@ -20,7 +20,7 @@ extension CollectionVC {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
             let dy = Calendar.current.component(.day, from: cell.cellDate)
-            cell.titleLabel.text = "\(mo) \(dy)"
+//            cell.titleLabel.text = "\(mo) \(dy)"
         }
         else {
             if column == 0 && row > 0 {
