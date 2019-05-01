@@ -21,6 +21,12 @@ extension CollectionVC {
             let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
             let dy = Calendar.current.component(.day, from: cell.cellDate)
 //            cell.titleLabel.text = "\(mo) \(dy)"
+            
+            let pair = Pair(values:(column, row))
+            if let str = pairMap[pair]      //; print("looked up (\(amount), \(denominations)) -> \(lookup)")
+            {cell.titleLabel.text = str}
+            else {cell.titleLabel.text = ""}
+            
         }
         else {
             if column == 0 && row > 0 {
