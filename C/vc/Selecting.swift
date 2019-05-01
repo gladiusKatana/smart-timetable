@@ -38,7 +38,7 @@ extension CollectionVC {
         textField.resignFirstResponder()
         textField.removeFromSuperview()
         
-        let text = textField.text!                                              ; print("text: \(text)")
+        let text = textField.text!                                              //; print("text: \(text)")
         
         addToPairMap(column: selectedPath[0], row: selectedPath[1], text: text)
         
@@ -49,7 +49,7 @@ extension CollectionVC {
     func addToPairMap(column: Int, row: Int, text: String) {
         let pair = Pair(values:(column, row))
         if pairMap[pair] == nil {
-            pairMap[pair] = text    ; print("pair-map: \(pairMap)")
+            pairMap[pair] = text                                                //; print("pair-map: \(pairMap)")
         }
     }
 }
