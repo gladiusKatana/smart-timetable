@@ -193,6 +193,7 @@
 			children = (
 				063342322277C12200F7C754 /* SimpleEvent.swift */,
 				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
+				062569CD227A8D33003E5C49 /* IndexPathDictionary.swift */,
 				06F3A2162273F54B00548AE1 /* Save&Load.swift */,
 			);
 			path = M;
@@ -225,7 +226,6 @@
 				062A3F66226BE8F100D6DBED /* Dates.swift */,
 				062133882276AE2000D46E5D /* DateCheck.swift */,
 				062A3F58226BE8F100D6DBED /* CellDates.swift */,
-				062569CD227A8D33003E5C49 /* IndexPathDictionary.swift */,
 				060FAE6722775275002E472A /* SetupHourlyCells.swift */,
 			);
 			path = Dates;
