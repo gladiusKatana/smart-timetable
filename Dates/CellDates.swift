@@ -18,13 +18,14 @@ extension CollectionVC {
     
     func setHeaderLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-            let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-            let dy = Calendar.current.component(.day, from: cell.cellDate)
+//            let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+//            let dy = Calendar.current.component(.day, from: cell.cellDate)
 //            cell.titleLabel.text = "\(mo) \(dy)"
             
             let pair = Pair(values:(column, row))
-            if let str = pairMap[pair]      //; print("looked up (\(amount), \(denominations)) -> \(lookup)")
-            {cell.titleLabel.text = str}
+            if let events = pairMap[pair] {
+                cell.titleLabel.text = events.last  ; print("events at time block [\(column), \(row)] \(events)")
+            }
             else {cell.titleLabel.text = ""}
             
         }
