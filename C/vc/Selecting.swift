@@ -2,9 +2,6 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-var selectedPath = [0, 0]
-var pairMap = Dictionary<Pair<Int,Int>,[String]>()
-
 extension CollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView,
@@ -39,38 +36,11 @@ extension CollectionVC {
         textField.removeFromSuperview()
         
         let text = textField.text!                                                  //; print("text: \(text)")
-        
         addToPairMap(column: selectedPath[0], row: selectedPath[1], text: text)
-        
         reloadCV()
         return true
     }
-    
-    func addToPairMap(column: Int, row: Int, text: String) {
-        let pair = Pair(values:(column, row))
-        
-        if pairMap[pair] == nil {
-            let events = [text]
-            pairMap[pair] = events                                                  //; print("pair-map: \(pairMap)")
-        }
-        else {
-            pairMap[pair]!.append(text)
-        }
-    }
 }
-
-struct Pair<T: Hashable, U: Hashable>: Hashable {
-    let values : (T, U)
-    func hash(into hasher: inout Hasher) {
-        let (a,b) = values
-        hasher.combine(a.hashValue &* 31 &+ b.hashValue)
-    }
-}
-
-func ==<T:Hashable,U:Hashable>(lhs: Pair<T,U>, rhs: Pair<T,U>) -> Bool { // comparison function
-    return lhs.values == rhs.values                                      // for conforming to Equatable protocol
-}
-
 
 //    func textFieldDidEndEditing(_ textField: UITextField) {
 //        print("text: \(textField.text!) (ended editing)")

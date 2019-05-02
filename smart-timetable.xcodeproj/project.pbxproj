@@ -10,6 +10,7 @@
 		060FAE6822775275002E472A /* SetupHourlyCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FAE6722775275002E472A /* SetupHourlyCells.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
+		062569CE227A8D33003E5C49 /* IndexPathDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062569CD227A8D33003E5C49 /* IndexPathDictionary.swift */; };
 		062A3F43226BE87D00D6DBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F42226BE87D00D6DBED /* Assets.xcassets */; };
 		062A3F46226BE87D00D6DBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F44226BE87D00D6DBED /* LaunchScreen.storyboard */; };
 		062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBar.swift */; };
@@ -46,6 +47,7 @@
 		060FAE6722775275002E472A /* SetupHourlyCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupHourlyCells.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
+		062569CD227A8D33003E5C49 /* IndexPathDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathDictionary.swift; sourceTree = "<group>"; };
 		062A3F38226BE87C00D6DBED /* smart-timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smart-timetable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		062A3F42226BE87D00D6DBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		062A3F45226BE87D00D6DBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				062A3F66226BE8F100D6DBED /* Dates.swift */,
 				062133882276AE2000D46E5D /* DateCheck.swift */,
 				062A3F58226BE8F100D6DBED /* CellDates.swift */,
+				062569CD227A8D33003E5C49 /* IndexPathDictionary.swift */,
 				060FAE6722775275002E472A /* SetupHourlyCells.swift */,
 			);
 			path = Dates;
@@ -314,6 +317,7 @@
 				063342332277C12200F7C754 /* SimpleEvent.swift in Sources */,
 				062A3F84226BE8F200D6DBED /* CustomCell.swift in Sources */,
 				062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */,
+				062569CE227A8D33003E5C49 /* IndexPathDictionary.swift in Sources */,
 				062A3F82226BE8F200D6DBED /* Vars.swift in Sources */,
 				062A3F7B226BE8F200D6DBED /* CollectionVC.swift in Sources */,
 				062A3F8E226BE8F200D6DBED /* Prepare.swift in Sources */,
