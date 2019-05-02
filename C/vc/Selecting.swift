@@ -15,20 +15,15 @@ extension CollectionVC {
             print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
         }
         selectedPath = [indexPath.section, indexPath.row]
+
+        let fieldWidth = CGFloat(300); let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
+        let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
+        let barsHeight = CGFloat(statusBarHeight + navBarHeight) + 2 * fieldHeight
         
-        let sampleTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
-        sampleTextField.placeholder = "Enter text"
-        sampleTextField.font = UIFont.systemFont(ofSize: 15)
-        sampleTextField.borderStyle = UITextField.BorderStyle.roundedRect
-        sampleTextField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
-        
-        sampleTextField.keyboardType = UIKeyboardType.default
-        sampleTextField.returnKeyType = UIReturnKeyType.done
-        sampleTextField.autocorrectionType = UITextAutocorrectionType.no
-        sampleTextField.clearButtonMode = UITextField.ViewMode.whileEditing
-        sampleTextField.isEnabled = true
-        sampleTextField.delegate = self
-        view.addSubview(sampleTextField)
+        eventField.text = eventField.placeholder
+        eventField.delegate = self
+        eventField.frame = CGRect(x: halfWidth, y: barsHeight, width: 300, height: fieldHeight)
+        view.addSubview(eventField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

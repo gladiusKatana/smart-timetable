@@ -8,6 +8,22 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     var downcastLayout : CCVFlowLayout?;    var collectionViewType = CollectionViewType.days
     var colourIndex: Int = Int();           var loopWeeks = false
     
+    var eventField: UITextField = {
+        let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        eventField.placeholder = "Enter event description"
+        eventField.font = UIFont.systemFont(ofSize: 15)
+        eventField.borderStyle = UITextField.BorderStyle.roundedRect
+        eventField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        eventField.clearsOnBeginEditing = true
+        eventField.keyboardType = UIKeyboardType.default
+        eventField.returnKeyType = UIReturnKeyType.done
+        eventField.autocorrectionType = UITextAutocorrectionType.no
+        eventField.clearButtonMode = UITextField.ViewMode.whileEditing
+        eventField.isEnabled = true
+//        eventField.delegate = self
+        return eventField
+    }()
+    
     init(_ collectionViewType: CollectionViewType, loopWeeks: Bool, colourIndex: Int, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         self.collectionViewType = collectionViewType
