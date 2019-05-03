@@ -26,3 +26,4 @@ var selectedPath = [0, 0]
 var nowRow = 0;       var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
+var textFieldDisplayed = false

@@ -24,17 +24,18 @@ extension CollectionVC {
         }
     }
     
+    
     func reloadWithDelay(after timeDelay: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + timeDelay) {
             self.reloadCV()
         }
     }
     
+    
     @objc func reloadCV() {             //print("\n↺")
         self.collectionView.reloadData()
-        
-//        if eventField.isHidden
     }
+    
     
     func setupNotificationForStatusBarHeightChange() {
         if phones.contains(modelName) {

@@ -24,7 +24,7 @@ extension CollectionVC {
             
             let pair = IndexPathDictionary(values:(column, row))
             if let events = eventsAtIndexPath[pair] {
-                cell.titleLabel.text = events.last  ; print("events at time block [\(column), \(row)] \(events)")
+                cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
             }
             else {cell.titleLabel.text = ""}
             

@@ -7,13 +7,15 @@ extension CollectionVC {
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         let customLayout = downcastLayout!
         
-        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
-        }
+//        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+        
+//        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
+//            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+//            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
+//        }
+        
         selectedPath = [indexPath.section, indexPath.row]
 
         let fieldWidth = CGFloat(300); let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
@@ -23,12 +25,13 @@ extension CollectionVC {
         eventField.text = eventField.placeholder
         eventField.delegate = self
         eventField.frame = CGRect(x: halfWidth, y: barsHeight, width: 300, height: fieldHeight)
-        view.addSubview(eventField)
+        view.addSubview(eventField); textFieldDisplayed = true
     }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        textField.removeFromSuperview()
+        textField.removeFromSuperview(); textFieldDisplayed = false
         
         let text = textField.text!                                                  //; print("text: \(text)")
         addToPairMap(column: selectedPath[0], row: selectedPath[1], text: text)
@@ -37,6 +40,3 @@ extension CollectionVC {
     }
 }
 
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print("text: \(textField.text!) (ended editing)")
-//    }

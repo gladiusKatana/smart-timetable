@@ -25,6 +25,9 @@ extension CCVFlowLayout {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 currentTopVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: currentTopVC)
             }
+            
+            currentTopVC.rePresentTextField()
+            
         }
         else {
             processCurrentDate()                                                            //; print("process date from prepare")
