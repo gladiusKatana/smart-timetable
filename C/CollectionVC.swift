@@ -20,7 +20,6 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         eventField.autocorrectionType = UITextAutocorrectionType.no
         eventField.clearButtonMode = UITextField.ViewMode.whileEditing
         eventField.isEnabled = true
-//        eventField.delegate = self
         return eventField
     }()
     
@@ -48,10 +47,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
         setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)
-        
-        //print(".", terminator: "")
-        //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)"
-        
+//        cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
         return cell
     }
 }

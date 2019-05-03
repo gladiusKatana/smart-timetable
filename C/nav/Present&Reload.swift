@@ -32,6 +32,8 @@ extension CollectionVC {
     
     @objc func reloadCV() {             //print("\n↺")
         self.collectionView.reloadData()
+        
+//        if eventField.isHidden
     }
     
     func setupNotificationForStatusBarHeightChange() {

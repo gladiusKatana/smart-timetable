@@ -22,9 +22,11 @@ extension AppDelegate {
             launchOrientation = " ?"
             lastStatusBarHeight = 99
         }
-        currentOrientation = launchOrientation; previousOrientation = launchOrientation
+        currentOrientation = launchOrientation
+        previousOrientation = launchOrientation
     }
 }
+
 
 func checkOrientation() {
     
