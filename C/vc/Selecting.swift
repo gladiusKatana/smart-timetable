@@ -18,14 +18,9 @@ extension CollectionVC {
         
         selectedPath = [indexPath.section, indexPath.row]
 
-        let fieldWidth = CGFloat(300); let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
-        let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
-        let barsHeight = CGFloat(statusBarHeight + navBarHeight) + 2 * fieldHeight
+        formatAndPresentTextField(customLayout: customLayout)
         
-        eventField.text = eventField.placeholder
-        eventField.delegate = self
-        eventField.frame = CGRect(x: halfWidth, y: barsHeight, width: 300, height: fieldHeight)
-        view.addSubview(eventField); textFieldDisplayed = true
+        textFieldDisplayed = true
     }
     
     
