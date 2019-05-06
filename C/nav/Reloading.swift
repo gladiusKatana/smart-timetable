@@ -1,9 +1,19 @@
-//  ExtraPresent&Reload.swift
+//  Reloading.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 
-import UIKit
+import UIKit; import UserNotifications
 
 extension CollectionVC {
+    
+    @objc func reloadCV() {             //print("\n↺")
+        self.collectionView.reloadData()
+    }
+    
+    func reloadWithDelay(after timeDelay: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeDelay) {
+            self.reloadCV()
+        }
+    }
     
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
@@ -15,19 +25,16 @@ extension CollectionVC {
                 previousOrientation = currentOrientation // * should probably factor out
                 reloadWithDelay(after: 0.02)
             }
-            
         } else {
             previousOrientation = currentOrientation     // * should probably factor out
             reloadCV() //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
         }
     }
     
-    
     func setupTitleAndPresentViewController(vc: CollectionVC, completion: () -> ()) {               //print("\ndismissing/presenting") // vc: \(vc)
         setupAndPresent(vc: vc)
         completion()
     }
-    
     
     func setupAndPresent(vc: CollectionVC) {
         setupViewTitle("", numLines: 1, alignment: .left)
@@ -39,33 +46,18 @@ extension CollectionVC {
         }
     }
     
-    
     func dismissNavController(completion: @escaping () -> ()) {
         navController?.dismiss(animated: false, completion: nil)
         completion()
     }
     
-    
-    func rePresentTextField() {                     //print("rePresent")
-        if textFieldDisplayed {
-            eventField.removeFromSuperview()        //; print("removed")
-            
-            let customLayout = downcastLayout!
-            
-            formatAndPresentTextField(customLayout: customLayout)
+    func setupNotificationForStatusBarHeightChange() {
+        if phones.contains(modelName) {
+            let center = UNUserNotificationCenter.current()
+            center.removeAllDeliveredNotifications()                //to remove all delivered notifications
+            center.removeAllPendingNotificationRequests()           //to remove all pending notifications which are not delivered yet but scheduled.
+            NotificationCenter.default.addObserver(self, selector: #selector(reloadCV),
+                                                   name: UIApplication.willChangeStatusBarFrameNotification, object: nil)
         }
-    }
-    
-    func formatAndPresentTextField(customLayout: CCVFlowLayout) {
-        
-        let fieldWidth = CGFloat(300)
-        let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
-        let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
-        
-        eventField.text = eventField.placeholder
-        eventField.delegate = self
-        eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
-        
-        view.addSubview(eventField)
     }
 }

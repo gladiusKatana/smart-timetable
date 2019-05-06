@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0601A5212280ED85005D0D99 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0601A5202280ED85005D0D99 /* TextField.swift */; };
 		060FAE6822775275002E472A /* SetupHourlyCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FAE6722775275002E472A /* SetupHourlyCells.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
@@ -14,8 +15,8 @@
 		062A3F43226BE87D00D6DBED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F42226BE87D00D6DBED /* Assets.xcassets */; };
 		062A3F46226BE87D00D6DBED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062A3F44226BE87D00D6DBED /* LaunchScreen.storyboard */; };
 		062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F4F226BE8F100D6DBED /* NavBar.swift */; };
-		062A3F73226BE8F200D6DBED /* Present&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F50226BE8F100D6DBED /* Present&Reload.swift */; };
-		062A3F74226BE8F200D6DBED /* ExtraPresent&Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */; };
+		062A3F73226BE8F200D6DBED /* GoToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F50226BE8F100D6DBED /* GoToVC.swift */; };
+		062A3F74226BE8F200D6DBED /* Reloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F51226BE8F100D6DBED /* Reloading.swift */; };
 		062A3F76226BE8F200D6DBED /* SetTopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F53226BE8F100D6DBED /* SetTopVC.swift */; };
 		062A3F77226BE8F200D6DBED /* Load&Appear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F55226BE8F100D6DBED /* Load&Appear.swift */; };
 		062A3F79226BE8F200D6DBED /* CellColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3F57226BE8F100D6DBED /* CellColours.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0601A5202280ED85005D0D99 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		060FAE6722775275002E472A /* SetupHourlyCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupHourlyCells.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
@@ -53,8 +55,8 @@
 		062A3F45226BE87D00D6DBED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		062A3F47226BE87D00D6DBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		062A3F4F226BE8F100D6DBED /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
-		062A3F50226BE8F100D6DBED /* Present&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Present&Reload.swift"; sourceTree = "<group>"; };
-		062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtraPresent&Reload.swift"; sourceTree = "<group>"; };
+		062A3F50226BE8F100D6DBED /* GoToVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoToVC.swift; sourceTree = "<group>"; };
+		062A3F51226BE8F100D6DBED /* Reloading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reloading.swift; sourceTree = "<group>"; };
 		062A3F53226BE8F100D6DBED /* SetTopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTopVC.swift; sourceTree = "<group>"; };
 		062A3F55226BE8F100D6DBED /* Load&Appear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load&Appear.swift"; sourceTree = "<group>"; };
 		062A3F57226BE8F100D6DBED /* CellColours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellColours.swift; sourceTree = "<group>"; };
@@ -153,9 +155,10 @@
 		062A3F4E226BE8F100D6DBED /* nav */ = {
 			isa = PBXGroup;
 			children = (
+				062A3F50226BE8F100D6DBED /* GoToVC.swift */,
+				062A3F51226BE8F100D6DBED /* Reloading.swift */,
 				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
-				062A3F50226BE8F100D6DBED /* Present&Reload.swift */,
-				062A3F51226BE8F100D6DBED /* ExtraPresent&Reload.swift */,
+				0601A5202280ED85005D0D99 /* TextField.swift */,
 			);
 			path = nav;
 			sourceTree = "<group>";
@@ -318,15 +321,16 @@
 				062A3F84226BE8F200D6DBED /* CustomCell.swift in Sources */,
 				062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */,
 				062569CE227A8D33003E5C49 /* IndexPathDictionary.swift in Sources */,
+				0601A5212280ED85005D0D99 /* TextField.swift in Sources */,
 				062A3F82226BE8F200D6DBED /* Vars.swift in Sources */,
 				062A3F7B226BE8F200D6DBED /* CollectionVC.swift in Sources */,
 				062A3F8E226BE8F200D6DBED /* Prepare.swift in Sources */,
 				062A3F85226BE8F200D6DBED /* Dates.swift in Sources */,
-				062A3F74226BE8F200D6DBED /* ExtraPresent&Reload.swift in Sources */,
+				062A3F74226BE8F200D6DBED /* Reloading.swift in Sources */,
 				062A3F7A226BE8F200D6DBED /* CellDates.swift in Sources */,
 				062A3F7E226BE8F200D6DBED /* CollectionViewType.swift in Sources */,
 				062A3F77226BE8F200D6DBED /* Load&Appear.swift in Sources */,
-				062A3F73226BE8F200D6DBED /* Present&Reload.swift in Sources */,
+				062A3F73226BE8F200D6DBED /* GoToVC.swift in Sources */,
 				062A3F81226BE8F200D6DBED /* DeviceType.swift in Sources */,
 				062A3F8B226BE8F200D6DBED /* ZIndex.swift in Sources */,
 				062133892276AE2000D46E5D /* DateCheck.swift in Sources */,
