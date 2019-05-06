@@ -21,6 +21,8 @@ var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1
 
 var eventsAtIndexPath = Dictionary<IndexPathDictionary<Int,Int>,[String]>()
 
+var textFieldY = CGFloat(0)
+
 var selectedPath = [0, 0]
 
 var nowRow = 0;       var nowColumn = 0

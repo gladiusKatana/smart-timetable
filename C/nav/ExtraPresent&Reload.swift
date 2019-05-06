@@ -47,7 +47,6 @@ extension CollectionVC {
     
     
     func rePresentTextField() {                     //print("rePresent")
-        
         if textFieldDisplayed {
             eventField.removeFromSuperview()        //; print("removed")
             
@@ -58,13 +57,14 @@ extension CollectionVC {
     }
     
     func formatAndPresentTextField(customLayout: CCVFlowLayout) {
-        let fieldWidth = CGFloat(300); let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
+        
+        let fieldWidth = CGFloat(300)
+        let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
         let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
-        let barsHeight = CGFloat(statusBarHeight + navBarHeight) + 2 * fieldHeight
         
         eventField.text = eventField.placeholder
         eventField.delegate = self
-        eventField.frame = CGRect(x: halfWidth, y: barsHeight, width: 300, height: fieldHeight)
+        eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
         
         view.addSubview(eventField)
     }

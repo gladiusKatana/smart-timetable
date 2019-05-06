@@ -21,7 +21,10 @@ extension CollectionVC {
         formatAndPresentTextField(customLayout: customLayout)
         
         textFieldDisplayed = true
+        
+//        ; print("(selected) textFieldY = \(textFieldY)")
     }
+    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -33,5 +36,6 @@ extension CollectionVC {
         reloadCV()
         return true
     }
+    
 }
 

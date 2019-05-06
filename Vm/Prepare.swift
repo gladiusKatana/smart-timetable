@@ -17,6 +17,7 @@ extension CCVFlowLayout {
         
         yOffSet = collectionView!.contentOffset.y + CGFloat(navBarHeight + statusBarHeight - statusBarDelta)    //print("yo: \(yOffSet)")
         xOffSet = collectionView!.contentOffset.x
+        textFieldY = CGFloat(navBarHeight + statusBarHeight - statusBarDelta)               //; print("textFieldY = \(textFieldY)")
         
         checkOrientation()
         //        print("---------------------prepare \(currentTopVC.collectionViewType)-cv")     //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
@@ -25,13 +26,12 @@ extension CCVFlowLayout {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 currentTopVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: currentTopVC)
             }
-            
-            currentTopVC.rePresentTextField()
-            
         }
         else {
             processCurrentDate()                                                            //; print("process date from prepare")
         }
+        
+        currentTopVC.rePresentTextField()
     }
     
     func calculateSizes() {                                                                 //print("resizing cells")
