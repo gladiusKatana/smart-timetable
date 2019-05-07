@@ -7,7 +7,7 @@ extension CollectionVC {
     
     func gotoView(vc: CollectionVC) {                                       //print("\nshowing vc \(vc)")
         
-        if topVC != vc {
+        if topVC != vc || !rePresentedVCFromButton {
             
             
             if vc == todoListVC {                                               //print("time block being tested: \(timeBlock)")
@@ -29,7 +29,7 @@ extension CollectionVC {
             
             
         } else {
-            print("you're already looking at the \(vc.collectionViewType)-view")//collectionViewType
+            print("you're already looking at the \(vc.collectionViewType)-view   nav'd by button?\(rePresentedVCFromButton)")//collectionViewType
         }
     }
 }

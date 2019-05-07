@@ -42,15 +42,17 @@ extension CollectionVC {
         if text != "" {
             if collectionViewType == .hours {                                                              //; print("text: \(text)")
                 addToTimeBlocks(column: selectedPath[0], row: selectedPath[1], text: text)
+                reloadCV()
             }
             else if collectionViewType == .todoList {       //print("selected time block: \([previousSelectedPath[0], previousSelectedPath[1]])")
                 addToTimeBlocks(column: previousSelectedPath[0], row: previousSelectedPath[1], text: text)
+                gotoView(vc: todoListVC)
             }
             else {
                 print("collection view is not a recognized type")
             }
         }
-        reloadCV()
+        
         return true
     }
 }
