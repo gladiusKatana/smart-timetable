@@ -47,7 +47,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
         setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)
-//        cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
+        //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
         return cell
     }
 }

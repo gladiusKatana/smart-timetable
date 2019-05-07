@@ -1,5 +1,6 @@
 //  Selecting.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
+
 import UIKit
 
 extension CollectionVC {
@@ -9,22 +10,19 @@ extension CollectionVC {
         
         let customLayout = downcastLayout!
         
-//        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+        /*let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         
-//        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-//            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-//            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
-//        }
+        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
+            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
+        }*/
         
         selectedPath = [indexPath.section, indexPath.row]
 
         formatAndPresentTextField(customLayout: customLayout)
         
         textFieldDisplayed = true
-        
-//        ; print("(selected) textFieldY = \(textFieldY)")
     }
-    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -36,6 +34,5 @@ extension CollectionVC {
         reloadCV()
         return true
     }
-    
 }
 

@@ -24,7 +24,6 @@ extension UIViewController {
             return
         }
         
-        currentTopVC = customVC
+        topVC = customVC
     }
-    
 }

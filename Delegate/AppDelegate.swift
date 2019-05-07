@@ -35,7 +35,7 @@ import UIKit
         
         navController = UINavigationController(rootViewController: backgroundVC)
         
-        window?.rootViewController = navController                          //; print("VCs*: \(String(describing: nav Controller?.viewControllers))")
+        window?.rootViewController = navController                  //; print("VCs*: \(String(describing: nav Controller?.viewControllers))")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             timetableVC.setupAndPresent(vc: timetableVC)  // just need a uiviewcontroller (any of them) to call this func.

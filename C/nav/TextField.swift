@@ -5,6 +5,7 @@ import UIKit
 
 extension CollectionVC {
     
+    
     func rePresentTextField() {                     //print("rePresent")
         if textFieldDisplayed {
             eventField.removeFromSuperview()        //; print("removed")
@@ -15,8 +16,8 @@ extension CollectionVC {
         }
     }
     
+    
     func formatAndPresentTextField(customLayout: CCVFlowLayout) {
-        
         let fieldWidth = CGFloat(300)
         let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
         let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2

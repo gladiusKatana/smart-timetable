@@ -7,7 +7,7 @@ extension CollectionVC {
     
     func gotoView(vc: CollectionVC) {                                       //print("\nshowing vc \(vc)")
         
-        if currentTopVC != vc {
+        if topVC != vc {
             
             //if currentOrientation == "landscape" {
             

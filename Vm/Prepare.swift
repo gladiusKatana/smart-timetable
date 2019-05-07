@@ -24,14 +24,14 @@ extension CCVFlowLayout {
         
         if previousOrientation != currentOrientation  {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
-                currentTopVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: currentTopVC)
+                topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
         }
         else {
             processCurrentDate()                                                            //; print("process date from prepare")
         }
         
-        currentTopVC.rePresentTextField()
+        topVC.rePresentTextField()
     }
     
     func calculateSizes() {                                                                 //print("resizing cells")

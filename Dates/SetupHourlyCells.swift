@@ -17,11 +17,10 @@ extension CollectionVC {
             
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
                 if column < nowColumn || column == nowColumn && row < nowRow {
-//                    cell.backgroundColor = .red
+                    //cell.backgroundColor = .red
                     weekAhead = 1
-                } else {
-//                    cell.backgroundColor = .orange
                 }
+//                else {cell.backgroundColor = .orange}
             }
         }
         

@@ -12,8 +12,8 @@ var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define a
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-//var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
 var weekdaysAbbreviated = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
 var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
@@ -25,7 +25,8 @@ var textFieldY = CGFloat(0)
 
 var selectedPath = [0, 0]
 
-var nowRow = 0;       var nowColumn = 0
+var nowRow = 0
+var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
 var textFieldDisplayed = false

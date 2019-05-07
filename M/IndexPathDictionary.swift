@@ -3,6 +3,7 @@
 
 import UIKit
 
+
 struct IndexPathDictionary<T: Hashable, U: Hashable>: Hashable {
     let values : (T, U)
     func hash(into hasher: inout Hasher) {
@@ -11,9 +12,11 @@ struct IndexPathDictionary<T: Hashable, U: Hashable>: Hashable {
     }
 }
 
+
 func ==<T:Hashable,U:Hashable>(lhs: IndexPathDictionary<T,U>, rhs: IndexPathDictionary<T,U>) -> Bool { // comparison function
     return lhs.values == rhs.values                                      // for conforming to Equatable protocol
 }
+
 
 extension CollectionVC {
     
@@ -22,11 +25,10 @@ extension CollectionVC {
         
         if eventsAtIndexPath[path] == nil {
             let events = [text]
-            eventsAtIndexPath[path] = events                                        //; print("pair-map: \(pairMap)")
+            eventsAtIndexPath[path] = events                            //; print("pair-map: \(pairMap)")
         }
         else {
             eventsAtIndexPath[path]!.append(text)
         }
     }
-    
 }

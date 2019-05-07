@@ -9,7 +9,7 @@ extension AppDelegate {
         pryntApplicationStatusWithSpaces(applicationState: "became active")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            currentTopVC.reloadCV()
+            topVC.reloadCV()
         }
         
         loadUsingDefaults(showDate: true)
@@ -17,7 +17,6 @@ extension AppDelegate {
     
     func applicationWillResignActive(_ application: UIApplication) {
         pryntApplicationStatusWithSpaces(applicationState: "will resign active")
-        
         saveUsingDefaults(showDate: true)
     }
     
@@ -40,3 +39,4 @@ extension AppDelegate {
         print("\n[\(applicationState)]")
     }
 }
+

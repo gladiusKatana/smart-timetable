@@ -8,6 +8,7 @@ extension CollectionVC {
     func setCellDateAndText (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
+        
         cell.titleLabel.textColor = platinum
         
         if collectionViewType == .hours {
@@ -18,16 +19,16 @@ extension CollectionVC {
     
     func setHeaderLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-//            let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-//            let dy = Calendar.current.component(.day, from: cell.cellDate)
-//            cell.titleLabel.text = "\(mo) \(dy)"
+            
+            /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+            let dy = Calendar.current.component(.day, from: cell.cellDate)
+            cell.titleLabel.text = "\(mo) \(dy)"*/
             
             let pair = IndexPathDictionary(values:(column, row))
             if let events = eventsAtIndexPath[pair] {
                 cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
             }
             else {cell.titleLabel.text = ""}
-            
         }
         else {
             if column == 0 && row > 0 {

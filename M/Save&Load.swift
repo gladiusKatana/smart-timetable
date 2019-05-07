@@ -9,9 +9,7 @@ func saveUsingDefaults(showDate: Bool) {
     let defaults = UserDefaults.standard
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
     
-    if showDate {
-        print("saving via defaults, date logged:\n\(lastLoginDateComponents)")
-    }
+    if showDate {print("saving via defaults, date logged:\n\(lastLoginDateComponents)")}
 }
 
 func loadUsingDefaults(showDate: Bool) {                                        //print("(load using defaults)\n")
@@ -23,7 +21,8 @@ func loadUsingDefaults(showDate: Bool) {                                        
     let monthLoaded = lastLoginDateComponents[1] as! String                     //; print("month loaded: \(monthLoaded)")
     let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1                //; print("int: \(monthLoadedInt)")
     let dayLoaded = lastLoginDateComponents[2] as! Int                          //; print("day loaded: \(dayLoaded)")
-    //let weekdayLoaded = lastLoginDateComponents[3] as! String                   //; print("weekday loaded: \(weekdayLoaded)")
+    //let weekdayLoaded = lastLoginDateComponents[3] as! String                 //; print("weekday loaded: \(weekdayLoaded)")
+    
     let hourLoaded = lastLoginDateComponents[4] as! Int                         //; print("hour loaded: \(hourLoaded)")
     let minuteLoaded = lastLoginDateComponents[5] as! Int                       //; print("minute loaded: \(minuteLoaded)")
     
@@ -32,7 +31,6 @@ func loadUsingDefaults(showDate: Bool) {                                        
     if showDate {
         print("last login    (unformatted gmt)  \(lastLoggedInDate)")
         print("                 (formatted)    \(formattedDateString(lastLoggedInDate, comment: ""))")
-        //print("last login  \(lastLoginDateComponents)")
     }
 }
 
