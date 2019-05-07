@@ -31,7 +31,9 @@ extension CCVFlowLayout {
             processCurrentDate()                                                            //; print("process date from prepare")
         }
         
-        topVC.rePresentTextField()
+        if topVC.collectionViewType == .hours {
+            topVC.rePresentTextField()
+        }
     }
     
     func calculateSizes() {                                                                 //print("resizing cells")

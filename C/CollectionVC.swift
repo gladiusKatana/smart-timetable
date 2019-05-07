@@ -10,7 +10,6 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
     lazy var eventField: UITextField = {
         let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//        eventField.placeholder = "New event"
         eventField.font = UIFont.systemFont(ofSize: 15)
         eventField.borderStyle = UITextField.BorderStyle.roundedRect
         eventField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
@@ -45,7 +44,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         eventField.becomeFirstResponder()
         
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
-        setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)
+        setCellContents(cell: cell, indexPath: indexPath, layout: customLayout)
         //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
         return cell
     }

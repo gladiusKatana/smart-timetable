@@ -20,17 +20,16 @@ extension CollectionVC {
         
         selectedPath = [column, row]
         let timeBlock = TimeBlock(values:(column, row))
-        
         let dateString = formattedDateString(cell.cellDate, comment: "New event on")
         
         if eventsAtIndexPath[timeBlock] == nil {
             formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+            textFieldDisplayed = true
         }
         else {
-            print("will present to-do list for this time block")
+//            print("will present to-do list for this time block")
+            gotoView(vc: todoListVC)
         }
-        
-        textFieldDisplayed = true
     }
     
     

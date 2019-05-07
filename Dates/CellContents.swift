@@ -1,11 +1,11 @@
-//  CellDates.swift
+//  CellContents.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 
 import UIKit
 
 extension CollectionVC {
     
-    func setCellDateAndText (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
+    func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
         
@@ -14,6 +14,9 @@ extension CollectionVC {
         if collectionViewType == .hours {
             if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
+        }
+        else if collectionViewType == .todoList {
+            cell.titleLabel.text = "(todo list item)"
         }
     }
     

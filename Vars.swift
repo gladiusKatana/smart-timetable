@@ -31,8 +31,9 @@ var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHe
                                  loadsHorizontally: true,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 2, collectionViewLayout: timetableLayout)     // header titles get...
-var todoListVC = CollectionVC(.months, loopWeeks: false, colourIndex: 1, collectionViewLayout: todoListLayout)     //...changed promptly
+var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 2, collectionViewLayout: timetableLayout)       // header titles get...
+var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 1, collectionViewLayout: todoListLayout)     //...changed promptly
+
 var yearsVC = CollectionVC(.years, loopWeeks: false, colourIndex: 0, collectionViewLayout: yearsLayout)        //...so they don't matter here
 //--------------------------------------------------------------------------------------------
 
