@@ -10,18 +10,18 @@ var navController: UINavigationController? = UINavigationController()
 var cellGap = CGFloat(0)          // if nonzero, do NOT make this smaller than: 0.5 (iphone7), or else lines drawn inconsistently
 
 //--------------------------------------------------------------------------------------------
-var hoursLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
+var timetableLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                 cellWidth: nil, cellHeight: nil,
                                 autoFitWScale: nil, autoFitHScale: nil,     //* auto-fit scale factors ignored if width/height non-nil
                                 hSpace: cellGap, vSpace: cellGap,           //* if auto-fit scale factors are nil, value of 1.0 substituted
                                 loadsHorizontally: false,        //* ❗️ if loadsHorizontally is true, 'rows' look like columns
                                 squareCellMode: .noAutoSquare)  //* why no autocomplete for enum cases?
 
-var monthsLayout = CCVFlowLayout(rows: 3, cols: 4, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var todoListLayout = CCVFlowLayout(rows: 1, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                  cellWidth: nil, cellHeight: nil,
                                  autoFitWScale: 1, autoFitHScale: 1,
                                  hSpace: cellGap, vSpace: cellGap,
-                                 loadsHorizontally: true,
+                                 loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
 var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHeaderSections: 0,
@@ -31,12 +31,12 @@ var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHe
                                  loadsHorizontally: true,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 2, collectionViewLayout: hoursLayout)     // header titles get...
-var monthsVC = CollectionVC(.months, loopWeeks: false, colourIndex: 1, collectionViewLayout: monthsLayout)     //...changed promptly
+var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 2, collectionViewLayout: timetableLayout)     // header titles get...
+var todoListVC = CollectionVC(.months, loopWeeks: false, colourIndex: 1, collectionViewLayout: todoListLayout)     //...changed promptly
 var yearsVC = CollectionVC(.years, loopWeeks: false, colourIndex: 0, collectionViewLayout: yearsLayout)        //...so they don't matter here
 //--------------------------------------------------------------------------------------------
 
-var topVC = CollectionVC(.initial, loopWeeks: false, colourIndex: 0, collectionViewLayout: hoursLayout)// temporary value to satisfy initializer
+var topVC = CollectionVC(.initial, loopWeeks: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer
 var backgroundVC = UIViewController()
 
 var statusBar = UIView();           var navbarTitleLabel = UILabel();       var testRectanglelayer = CAShapeLayer()

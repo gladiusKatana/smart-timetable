@@ -17,16 +17,12 @@ extension CollectionVC {
     }
     
     func setupNavBarButtons(_ withCustomColour: UIColor?, atIndex: Int?) {
-        let navSelectorForDaysVC = #selector(buttonWrapperMethodforDaysVC)
-        let navSelectorForMonthsVC = #selector(buttonWrapperMethodforMonthsVC)
-        let navSelectorForYearsVC = #selector(buttonWrapperMethodforYearsVC)
-        let navSelectorForReloading = #selector(reloadCV)
+        let timetableButton = setupButton(selector: #selector(buttonWrapperMethodforTimetableVC), title: "timetableImage")
+        let todoListButton = setupButton(selector: #selector(buttonWrapperMethodforTodoListVC), title: "calendarImage")
+        let yearsButton = setupButton(selector: #selector(buttonWrapperMethodforYearsVC), title: "reloadButton")
+        let reloadButton = setupButton(selector: #selector(reloadCV), title: "reloadButton")
         
-        let daysButton = setupButton(selector: navSelectorForDaysVC, title: "timetableImage")
-        let monthsButton = setupButton(selector: navSelectorForMonthsVC, title: "calendarImage")
-        let yearsButton = setupButton(selector: navSelectorForYearsVC, title: "reloadButton")
-        let reloadButton = setupButton(selector: navSelectorForReloading, title: "reloadButton")
-        navigationItem.rightBarButtonItems = [yearsButton, monthsButton, daysButton, reloadButton]
+        navigationItem.rightBarButtonItems = [yearsButton, todoListButton, timetableButton, reloadButton]
         
         var barButtonColours = [graySeven, graySeven, graySeven, .clear]
         
@@ -35,6 +31,7 @@ extension CollectionVC {
                 button.tintColor = barButtonColours[index]
             }
         }
+        
         if let customColour = withCustomColour {
             if let colourIndex = atIndex {
                 navigationItem.rightBarButtonItems?[colourIndex].tintColor = customColour
@@ -48,8 +45,8 @@ extension CollectionVC {
         return button
     }
     
-    @objc func buttonWrapperMethodforDaysVC() {presentViaVCButton(vc: timetableVC)}
-    @objc func buttonWrapperMethodforMonthsVC() {presentViaVCButton(vc: monthsVC)}
+    @objc func buttonWrapperMethodforTimetableVC() {presentViaVCButton(vc: timetableVC)}
+    @objc func buttonWrapperMethodforTodoListVC() {presentViaVCButton(vc: todoListVC)}
     @objc func buttonWrapperMethodforYearsVC() {presentViaVCButton(vc: yearsVC)}
     
     func presentViaVCButton(vc: CollectionVC) {
