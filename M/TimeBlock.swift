@@ -21,14 +21,14 @@ func ==<T:Hashable,U:Hashable>(lhs: TimeBlock<T,U>, rhs: TimeBlock<T,U>) -> Bool
 extension CollectionVC {
     
     func addToPairMap(column: Int, row: Int, text: String) {
-        let path = TimeBlock(values:(column, row))
+        let timeBlock = TimeBlock(values:(column, row))
         
-        if eventsAtIndexPath[path] == nil {
+        if eventsAtIndexPath[timeBlock] == nil {
             let events = [text]
-            eventsAtIndexPath[path] = events                            //; print("pair-map: \(pairMap)")
+            eventsAtIndexPath[timeBlock] = events                            //; print("pair-map: \(pairMap)")
         }
         else {
-            eventsAtIndexPath[path]!.append(text)
+            eventsAtIndexPath[timeBlock]!.append(text)
         }
     }
 }

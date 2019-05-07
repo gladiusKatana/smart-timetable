@@ -8,18 +8,27 @@ extension CollectionVC {
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
         
+        let row = indexPath.item ; let column = indexPath.section
         let customLayout = downcastLayout!
         
-        /*let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+         
+         /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
+         print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+         print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
+         }*/
         
-        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
-        }*/
+        selectedPath = [column, row]
+        let timeBlock = TimeBlock(values:(column, row))
         
-        selectedPath = [indexPath.section, indexPath.row]
-
-        formatAndPresentTextField(customLayout: customLayout)
+        let dateString = formattedDateString(cell.cellDate, comment: "New event on")
+        
+        if eventsAtIndexPath[timeBlock] == nil {
+            formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+        }
+        else {
+            print("will present to-do list for this time block")
+        }
         
         textFieldDisplayed = true
     }

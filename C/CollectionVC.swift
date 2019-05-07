@@ -8,9 +8,9 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     var downcastLayout : CCVFlowLayout?;    var collectionViewType = CollectionViewType.days
     var colourIndex: Int = Int();           var loopWeeks = false
     
-    var eventField: UITextField = {
+    lazy var eventField: UITextField = {
         let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        eventField.placeholder = "Enter event description"
+//        eventField.placeholder = "New event"
         eventField.font = UIFont.systemFont(ofSize: 15)
         eventField.borderStyle = UITextField.BorderStyle.roundedRect
         eventField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
@@ -42,6 +42,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
+        eventField.becomeFirstResponder()
         
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
         setCellDateAndText(cell: cell, indexPath: indexPath, layout: customLayout)

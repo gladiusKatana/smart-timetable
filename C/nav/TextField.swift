@@ -12,17 +12,17 @@ extension CollectionVC {
             
             let customLayout = downcastLayout!
             
-            formatAndPresentTextField(customLayout: customLayout)
+            formatAndPresentTextField(customLayout: customLayout, dateString: eventField.placeholder!)
         }
     }
     
     
-    func formatAndPresentTextField(customLayout: CCVFlowLayout) {
-        let fieldWidth = CGFloat(300)
+    func formatAndPresentTextField(customLayout: CCVFlowLayout, dateString: String) {
+        let fieldWidth = CGFloat(350)
         let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
         let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
-        
-        eventField.text = eventField.placeholder
+
+        eventField.placeholder = dateString
         eventField.delegate = self
         eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
         

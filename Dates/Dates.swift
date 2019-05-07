@@ -28,7 +28,7 @@ func displayDate(_ inputDate: Date)
 func formattedDateString(_ date: Date, comment: String) -> String {
     let (yr, mnthString, dayI, wkday, hr, min) = displayDate(date)
     let minTwoDigits = minuteStringShowingTwoDigits(min)
-    return "\(comment) \(wkday), \(mnthString) \(dayI), \(yr), \(hr):\(minTwoDigits)"
+    return "\(comment) \(wkday), \(mnthString) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
 }
 
 
