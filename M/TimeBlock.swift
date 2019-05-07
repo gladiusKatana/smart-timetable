@@ -4,7 +4,7 @@
 import UIKit
 
 
-struct IndexPathDictionary<T: Hashable, U: Hashable>: Hashable {
+struct TimeBlock<T: Hashable, U: Hashable>: Hashable {
     let values : (T, U)
     func hash(into hasher: inout Hasher) {
         let (a,b) = values
@@ -13,7 +13,7 @@ struct IndexPathDictionary<T: Hashable, U: Hashable>: Hashable {
 }
 
 
-func ==<T:Hashable,U:Hashable>(lhs: IndexPathDictionary<T,U>, rhs: IndexPathDictionary<T,U>) -> Bool { // comparison function
+func ==<T:Hashable,U:Hashable>(lhs: TimeBlock<T,U>, rhs: TimeBlock<T,U>) -> Bool { // comparison function
     return lhs.values == rhs.values                                      // for conforming to Equatable protocol
 }
 
@@ -21,7 +21,7 @@ func ==<T:Hashable,U:Hashable>(lhs: IndexPathDictionary<T,U>, rhs: IndexPathDict
 extension CollectionVC {
     
     func addToPairMap(column: Int, row: Int, text: String) {
-        let path = IndexPathDictionary(values:(column, row))
+        let path = TimeBlock(values:(column, row))
         
         if eventsAtIndexPath[path] == nil {
             let events = [text]

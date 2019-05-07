@@ -24,7 +24,7 @@ extension CollectionVC {
             let dy = Calendar.current.component(.day, from: cell.cellDate)
             cell.titleLabel.text = "\(mo) \(dy)"*/
             
-            let pair = IndexPathDictionary(values:(column, row))
+            let pair = TimeBlock(values:(column, row))
             if let events = eventsAtIndexPath[pair] {
                 cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
             }
