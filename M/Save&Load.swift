@@ -3,6 +3,7 @@
 
 import UIKit
 
+
 func saveUsingDefaults(showDate: Bool) {
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
@@ -11,6 +12,7 @@ func saveUsingDefaults(showDate: Bool) {
     
     if showDate {print("saving via defaults, date logged:\n\(lastLoginDateComponents)")}
 }
+
 
 func loadUsingDefaults(showDate: Bool) {                                        //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
@@ -21,6 +23,7 @@ func loadUsingDefaults(showDate: Bool) {                                        
     let monthLoaded = lastLoginDateComponents[1] as! String                     //; print("month loaded: \(monthLoaded)")
     let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1                //; print("int: \(monthLoadedInt)")
     let dayLoaded = lastLoginDateComponents[2] as! Int                          //; print("day loaded: \(dayLoaded)")
+    
     //let weekdayLoaded = lastLoginDateComponents[3] as! String                 //; print("weekday loaded: \(weekdayLoaded)")
     
     let hourLoaded = lastLoginDateComponents[4] as! Int                         //; print("hour loaded: \(hourLoaded)")
@@ -34,6 +37,7 @@ func loadUsingDefaults(showDate: Bool) {                                        
     }
 }
 
+
 func createDateFromSavedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {// uses all cmpnts. except weekday (unnecessary)
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd HH:mm"
@@ -43,3 +47,4 @@ func createDateFromSavedComponents(year: Int, month: Int, day: Int, hour: Int, m
     }
     return date
 }
+
