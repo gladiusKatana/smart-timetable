@@ -3,12 +3,15 @@
 
 import UIKit
 
+
 var currentDate = Date()
 var lastLoggedInDate = Date()
+var selectedCellDate = Date()
 
 var (year, month, day, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
 var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
+
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -19,14 +22,17 @@ var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
 
+
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[String]>()
+
+var timeBlock = TimeBlock(values:(0, 0));   var previousTimeBlock = TimeBlock(values:(0, 0))
+
+var selectedPath = [0, 0];                  var previousSelectedPath = [0, 0]
+
 
 var textFieldY = CGFloat(0)
 
-var selectedPath = [0, 0]
-
-var nowRow = 0
-var nowColumn = 0
+var nowRow = 0;                             var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
 var textFieldDisplayed = false

@@ -24,6 +24,9 @@ extension CollectionVC {
         if collectionViewType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
+        else if collectionViewType == .todoList {
+            setupViewTitle(formattedDateString(selectedCellDate, comment: "To Do, ", short: true), numLines: 1, alignment: .left)
+        }
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false

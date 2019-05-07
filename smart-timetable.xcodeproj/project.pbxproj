@@ -194,10 +194,10 @@
 		062A3F64226BE8F100D6DBED /* M */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
-				062569CD227A8D33003E5C49 /* TimeBlock.swift */,
-				063342322277C12200F7C754 /* SimpleEvent.swift */,
 				06F3A2162273F54B00548AE1 /* Save&Load.swift */,
+				062A3F65226BE8F100D6DBED /* CustomCell.swift */,
+				063342322277C12200F7C754 /* SimpleEvent.swift */,
+				062569CD227A8D33003E5C49 /* TimeBlock.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";

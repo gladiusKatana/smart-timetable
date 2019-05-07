@@ -7,38 +7,49 @@ extension CollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-        
-        let row = indexPath.item ; let column = indexPath.section
-        let customLayout = downcastLayout!
-        
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
-         
-         /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-         print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-         print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))
-         }*/
+        /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections { print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+         print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))}*/
+        let customLayout = downcastLayout!
+        let row = indexPath.item;   let column = indexPath.section
         
+        selectedCellDate = cell.cellDate
+        let dateString = formattedDateString(selectedCellDate,
+                                             comment: "New event on", short: false)
         selectedPath = [column, row]
-        let timeBlock = TimeBlock(values:(column, row))
-        let dateString = formattedDateString(cell.cellDate, comment: "New event on")
+        timeBlock = TimeBlock(values:(column, row))
         
-        if eventsAtIndexPath[timeBlock] == nil {
+        if collectionViewType == .hours {
+            previousSelectedPath = [column, row]
+            previousTimeBlock = TimeBlock(values:(column, row))
+            if eventsAtIndexPath[timeBlock] == nil {
+                formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+                textFieldDisplayed = true
+            }
+            else {gotoView(vc: todoListVC)}
+        }
+        else if collectionViewType == .todoList {
             formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
             textFieldDisplayed = true
         }
-        else {
-//            print("will present to-do list for this time block")
-            gotoView(vc: todoListVC)
-        }
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         textField.removeFromSuperview(); textFieldDisplayed = false
+        let text = textField.text!
         
-        let text = textField.text!                                                  //; print("text: \(text)")
-        addToPairMap(column: selectedPath[0], row: selectedPath[1], text: text)
+        if text != "" {
+            if collectionViewType == .hours {                                                              //; print("text: \(text)")
+                addToTimeBlocks(column: selectedPath[0], row: selectedPath[1], text: text)
+            }
+            else if collectionViewType == .todoList {       //print("selected time block: \([previousSelectedPath[0], previousSelectedPath[1]])")
+                addToTimeBlocks(column: previousSelectedPath[0], row: previousSelectedPath[1], text: text)
+            }
+            else {
+                print("collection view is not a recognized type")
+            }
+        }
         reloadCV()
         return true
     }

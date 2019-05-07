@@ -22,7 +22,9 @@ import UIKit
         }
         
         UINavigationBar.appearance().barTintColor = icyBlue
-        UINavigationBar.appearance().shadowImage = UIImage()        ; print(formattedDateString(Date(), comment: "                      ...on date"))
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        print(formattedDateString(Date(), comment: "                      ...on date", short: false))
         
         return true
     }

@@ -9,6 +9,14 @@ extension CollectionVC {
         
         if topVC != vc {
             
+            
+            if vc == todoListVC {                                               //print("time block being tested: \(timeBlock)")
+                if eventsAtIndexPath[previousTimeBlock] != nil {
+                    todoListVC.downcastLayout!.rows = eventsAtIndexPath[previousTimeBlock]!.count
+                }
+            }
+            
+            
             //if currentOrientation == "landscape" {
             
             setupTitleAndPresentViewController(vc: vc) { () -> () in
@@ -18,6 +26,7 @@ extension CollectionVC {
             //} else {
             //setupAndPresent(vc: vc)
             //}
+            
             
         } else {
             print("you're already looking at the \(vc.collectionViewType)-view")//collectionViewType

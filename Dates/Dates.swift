@@ -25,10 +25,15 @@ func displayDate(_ inputDate: Date)
 }
 
 
-func formattedDateString(_ date: Date, comment: String) -> String {
+func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
     let (yr, mnthString, dayI, wkday, hr, min) = displayDate(date)
     let minTwoDigits = minuteStringShowingTwoDigits(min)
-    return "\(comment) \(wkday), \(mnthString) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
+    if short {
+        return "\(comment) \(wkday) \(hr):\(minTwoDigits)"
+    }
+    else {
+        return "\(comment) \(wkday), \(mnthString) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
+    }
 }
 
 

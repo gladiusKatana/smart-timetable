@@ -17,10 +17,10 @@ extension CollectionVC {
     }
     
     
-    func formatAndPresentTextField(customLayout: CCVFlowLayout, dateString: String) {
-        let fieldWidth = CGFloat(350)
-        let fieldHeight = CGFloat(2 * customLayout.cellHeight!)
-        let halfWidth = (customLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
+    func formatAndPresentTextField(customLayout: CCVFlowLayout, dateString: String) {   // may remove argument  customLayout
+        let fieldWidth = CGFloat(325)
+        let fieldHeight = CGFloat(2 * timetableLayout.cellHeight!)
+        let halfWidth = (timetableLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
 
         eventField.placeholder = dateString
         eventField.delegate = self
@@ -28,5 +28,6 @@ extension CollectionVC {
         
         view.addSubview(eventField)
     }
+    
 }
 

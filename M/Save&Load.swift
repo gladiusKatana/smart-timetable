@@ -33,7 +33,7 @@ func loadUsingDefaults(showDate: Bool) {                                        
     
     if showDate {
         print("last login    (unformatted gmt)  \(lastLoggedInDate)")
-        print("                 (formatted)    \(formattedDateString(lastLoggedInDate, comment: ""))")
+        print("                 (formatted)    \(formattedDateString(lastLoggedInDate, comment: "", short: false))")
     }
 }
 

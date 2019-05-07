@@ -16,7 +16,8 @@ extension CollectionVC {
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
         }
         else if collectionViewType == .todoList {
-            cell.titleLabel.text = "(todo list item)"
+            cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row]
+            cell.cellDate = selectedCellDate
         }
     }
     
