@@ -16,7 +16,13 @@ extension CollectionVC {
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
         }
         else if collectionViewType == .todoList {
-            cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row]
+            if eventsAtIndexPath[previousTimeBlock] != nil {
+                cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row]
+            }
+            else {
+                cell.titleLabel.text = "no items added yet"
+            }
+            
             cell.cellDate = selectedCellDate
         }
     }
@@ -25,8 +31,8 @@ extension CollectionVC {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             
             /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-            let dy = Calendar.current.component(.day, from: cell.cellDate)
-            cell.titleLabel.text = "\(mo) \(dy)"*/
+             let dy = Calendar.current.component(.day, from: cell.cellDate)
+             cell.titleLabel.text = "\(mo) \(dy)"*/
             
             let pair = TimeBlock(values:(column, row))
             if let events = eventsAtIndexPath[pair] {

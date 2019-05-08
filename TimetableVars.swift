@@ -27,7 +27,7 @@ var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[String]>()
 
 var timeBlock = TimeBlock(values:(0, 0));   var previousTimeBlock = TimeBlock(values:(0, 0))
 
-var selectedPath = [0, 0];                  var previousSelectedPath = [0, 0]
+var pathToTimeBlockForAddingAToDo = [0, 0];                  var previousSelectedPath = [0, 0]
 
 
 var textFieldY = CGFloat(0)

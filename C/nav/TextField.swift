@@ -34,7 +34,7 @@ extension CollectionVC {
         
         if text != "" {
             if collectionViewType == .hours {                                                              //; print("text: \(text)")
-                addToTimeBlocks(column: selectedPath[0], row: selectedPath[1], text: text)
+                addToTimeBlocks(column: pathToTimeBlockForAddingAToDo[0], row: pathToTimeBlockForAddingAToDo[1], text: text)
                 reloadCV()
             }
             else if collectionViewType == .todoList {       //print("selected time block: \([previousSelectedPath[0], previousSelectedPath[1]])")

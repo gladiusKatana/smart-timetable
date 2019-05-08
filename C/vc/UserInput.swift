@@ -30,7 +30,7 @@ extension CollectionVC {
         
         selectedCellDate = cell.cellDate
         let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
-        selectedPath = [column, row]
+        pathToTimeBlockForAddingAToDo = [column, row]
         timeBlock = TimeBlock(values:(column, row))
         
         if collectionViewType == .hours {
