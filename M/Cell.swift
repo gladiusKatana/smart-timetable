@@ -1,4 +1,4 @@
-//  CustomCell.swift
+//  Cell.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 
 import UIKit
@@ -10,9 +10,11 @@ class CustomCell: UICollectionViewCell {
     
     lazy var titleLabel = UILabel()
     
-    var cellDate = Date()
     
     var event = SimpleEvent()
+    var cellDate = Date()
+    var cellColour = UIColor.clear
+    var markedForItems = false
     
     
     override init(frame: CGRect) {

@@ -10,12 +10,26 @@ extension CollectionVC {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections { print("\nselected date (unformatted gmt)  \(cell.cellDate)")
          print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))}*/
+        
         let customLayout = downcastLayout!
         let row = indexPath.item;   let column = indexPath.section
         
+        if !cell.markedForItems {
+            UIView.animate(withDuration: 1, delay: 0,
+                           usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                            cell.backgroundColor = .black
+            }, completion: nil)
+            cell.markedForItems = true
+        } else {
+            cell.backgroundColor = niceOrange
+            UIView.animate(withDuration: 1, delay: 0,
+                           usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                            cell.backgroundColor = cell.cellColour
+            }, completion: nil)
+        }
+        
         selectedCellDate = cell.cellDate
-        let dateString = formattedDateString(selectedCellDate,
-                                             comment: "New event on", short: false)
+        let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
         selectedPath = [column, row]
         timeBlock = TimeBlock(values:(column, row))
         
@@ -32,28 +46,6 @@ extension CollectionVC {
             formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
             textFieldDisplayed = true
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        textField.removeFromSuperview(); textFieldDisplayed = false
-        let text = textField.text!
-        
-        if text != "" {
-            if collectionViewType == .hours {                                                              //; print("text: \(text)")
-                addToTimeBlocks(column: selectedPath[0], row: selectedPath[1], text: text)
-                reloadCV()
-            }
-            else if collectionViewType == .todoList {       //print("selected time block: \([previousSelectedPath[0], previousSelectedPath[1]])")
-                addToTimeBlocks(column: previousSelectedPath[0], row: previousSelectedPath[1], text: text)
-                gotoView(vc: todoListVC)
-            }
-            else {
-                print("collection view is not a recognized type")
-            }
-        }
-        
-        return true
     }
 }
 

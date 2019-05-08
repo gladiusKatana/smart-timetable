@@ -9,6 +9,7 @@ var headerColour = UIColor.rgb(num, g: num, b: num, a: 1)
 var cellDefaultColour = navyBlue
 
 
+var niceOrange = UIColor.rgb(228, g: 50, b: 44, a: 1)
 
 var grayTwo = UIColor.rgb(0, g: 0, b: 0, a: 0.2)
 var graySeven = UIColor.rgb(0, g: 0, b: 0, a: 0.7)

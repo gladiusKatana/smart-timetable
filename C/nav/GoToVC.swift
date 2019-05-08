@@ -5,7 +5,7 @@ import UIKit
 
 extension CollectionVC {
     
-    func gotoView(vc: CollectionVC) {                                       //print("\nshowing vc \(vc)")
+    func gotoView(vc: CollectionVC) {                                           //print("\nshowing vc \(vc)")
         
         if topVC != vc || !rePresentedVCFromButton {
             
