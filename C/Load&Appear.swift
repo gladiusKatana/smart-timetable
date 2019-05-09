@@ -16,8 +16,8 @@ extension CollectionVC {
             setTopViewController()
         }
         
-        checkDatePeriodically(){kickoffTimer()}       // if you want to check the date then do the timer kickoff ('start on the 0th callback')
-        //kickoffTimer()                              // if you want to do the timer kickoff then check the date ('start on the 1st callback')
+        checkDatePeriodically(){kickoffTimer()}         // if you want to check the date then do the timer kickoff ('start on the 0th callback')
+        //kickoffTimer()                                // if you want to do the timer kickoff then check the date ('start on the 1st callback')
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,7 @@ extension CollectionVC {
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {     //print("path to time block\(selectedTimeBlockPath)")
         setTopViewController()
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }

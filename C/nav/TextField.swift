@@ -8,9 +8,7 @@ extension CollectionVC {
     func rePresentTextField() {                     //print("rePresent")
         if textFieldDisplayed {
             eventField.removeFromSuperview()        //; print("removed")
-            
             let customLayout = downcastLayout!
-            
             formatAndPresentTextField(customLayout: customLayout, dateString: eventField.placeholder!)
         }
     }
@@ -23,23 +21,22 @@ extension CollectionVC {
         eventField.placeholder = dateString
         eventField.delegate = self
         eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
-        
         view.addSubview(eventField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         textField.removeFromSuperview(); textFieldDisplayed = false
-        let text = textField.text!
+        let textEntered = textField.text!
         
-        if text != "" {
+        if textEntered != "" {
             if collectionViewType == .hours {                                                              //; print("text: \(text)")
-                addToTimeBlocks(column: pathToTimeBlockForAddingAToDo[0], row: pathToTimeBlockForAddingAToDo[1], text: text)
+                addToTimeBlocks(column: selectedTimeBlockPath[0], row: selectedTimeBlockPath[1], text: textEntered)
                 reloadCV()
             }
             else if collectionViewType == .todoList {       //print("selected time block: \([previousSelectedPath[0], previousSelectedPath[1]])")
-                addToTimeBlocks(column: previousSelectedPath[0], row: previousSelectedPath[1], text: text)
-                gotoView(vc: todoListVC)
+                addToTimeBlocks(column: previousSelectedTimeBlockPath[0], row: previousSelectedTimeBlockPath[1], text: textEntered)
+                gotoView(vc: todoListVC) // essentially reloads the view to display the updated list
             }
             else {
                 print("collection view is not a recognized type")

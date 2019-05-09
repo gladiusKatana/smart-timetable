@@ -20,7 +20,7 @@ extension CollectionVC {
                     //cell.backgroundColor = .red
                     weekAhead = 1
                 }
-//                else {cell.backgroundColor = .orange}
+                //else {cell.backgroundColor = .orange}
             }
         }
         
@@ -30,7 +30,7 @@ extension CollectionVC {
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + conditionalWeekAhead
         
-        setHeaderLabels(cell: cell, column: column, row: row, layout: layout)
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
     }
     
     func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
@@ -52,6 +52,6 @@ extension CollectionVC {
                 cell.backgroundColor = .orange
             }
         }
-        setHeaderLabels(cell: cell, column: column, row: row, layout: layout)
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
     }
 }

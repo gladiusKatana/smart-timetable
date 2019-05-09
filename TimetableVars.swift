@@ -25,14 +25,14 @@ var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[String]>()
 
-var timeBlock = TimeBlock(values:(0, 0));   var previousTimeBlock = TimeBlock(values:(0, 0))
+var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 
-var pathToTimeBlockForAddingAToDo = [0, 0];                  var previousSelectedPath = [0, 0]
-
+var selectedTimeBlockPath = [0, 0];             var previousSelectedTimeBlockPath = [0, 0]
 
 var textFieldY = CGFloat(0)
 
-var nowRow = 0;                             var nowColumn = 0
+var nowRow = 0;                                 var nowColumn = 0
 
 var reloadedFromHourTickingOver = false
 var textFieldDisplayed = false
+

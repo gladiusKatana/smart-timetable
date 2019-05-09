@@ -15,27 +15,26 @@ extension CollectionVC {
             if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
         }
-        else if collectionViewType == .todoList {
+        else if collectionViewType == .todoList {                            //print("(todo list; previous time block: \(previousTimeBlock) )")
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row]
             }
             else {
-                cell.titleLabel.text = "no items added yet"
+                cell.titleLabel.text = "no items yet"
             }
-            
             cell.cellDate = selectedCellDate
         }
     }
     
-    func setHeaderLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             
             /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
              let dy = Calendar.current.component(.day, from: cell.cellDate)
              cell.titleLabel.text = "\(mo) \(dy)"*/
             
-            let pair = TimeBlock(values:(column, row))
-            if let events = eventsAtIndexPath[pair] {
+            let timeBlock = TimeBlock(values:(column, row))
+            if let events = eventsAtIndexPath[timeBlock] {
                 cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
             }
             else {cell.titleLabel.text = ""}

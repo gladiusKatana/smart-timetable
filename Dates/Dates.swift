@@ -8,8 +8,17 @@ func processCurrentDate() {
     
     nowRow = Calendar.current.component(.hour, from: Date()) + 1
     nowColumn = weekdaysAbbreviated.firstIndex(of: weekday)! + 1
-    //print("-----------------------now cell at \([nowRow, nowColumn])")
+    
+    if topVC.collectionViewType == .hours {
+        if selectedTimeBlockPath == [0, 0] {selectedTimeBlockPath = [nowColumn, nowRow]}
+        if timeBlock == TimeBlock(values:(0, 0)) {timeBlock = TimeBlock(values:(nowColumn, nowRow))}
+        
+        if previousSelectedTimeBlockPath == [0, 0] {previousSelectedTimeBlockPath = [nowColumn, nowRow]}
+        if previousTimeBlock == TimeBlock(values:(0, 0)) {previousTimeBlock = TimeBlock(values:(nowColumn, nowRow))}
+    }
+//    print("-----------------------now cell at \([nowRow, nowColumn])")
 }
+
 
 func displayDate(_ inputDate: Date)
     -> (year: Int, monthStr: String, day: Int, weekday: String, hour: Int, minute: Int) {

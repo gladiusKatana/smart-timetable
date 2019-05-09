@@ -19,18 +19,17 @@ extension CCVFlowLayout {
         xOffSet = collectionView!.contentOffset.x
         textFieldY = CGFloat(navBarHeight + statusBarHeight - statusBarDelta)               //; print("textFieldY = \(textFieldY)")
         
-        checkOrientation()
-        //        print("---------------------prepare \(currentTopVC.collectionViewType)-cv")     //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
-        
+        checkOrientation()  //; print("---------------------prepare \(currentTopVC.collectionViewType)-cv")     //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
+
         if previousOrientation != currentOrientation  {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
-        }
-        else {
+        } else {
+            if topVC.collectionViewType == .hours {
             processCurrentDate()                                                            //; print("process date from prepare")
+            }
         }
-        
         if topVC.collectionViewType == .hours {
             topVC.rePresentTextField()
         }
@@ -53,7 +52,6 @@ extension CCVFlowLayout {
             
         case .neitherHardcoded:         cellWd = autofitWidth * autoFitWScale!   ; cellHt = autoFitHeight * autoFitHScale!
         }
-        
         resetDimensionIfSquareCellsOn()
     }
 }
