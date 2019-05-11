@@ -16,9 +16,8 @@ func processCurrentDate() {
         if previousSelectedTimeBlockPath == [0, 0] {previousSelectedTimeBlockPath = [nowColumn, nowRow]}
         if previousTimeBlock == TimeBlock(values:(0, 0)) {previousTimeBlock = TimeBlock(values:(nowColumn, nowRow))}
     }
-//    print("-----------------------now cell at \([nowRow, nowColumn])")
+    //    print("-----------------------now cell at \([nowRow, nowColumn])")
 }
-
 
 func displayDate(_ inputDate: Date)
     -> (year: Int, monthStr: String, day: Int, weekday: String, hour: Int, minute: Int) {
@@ -33,7 +32,6 @@ func displayDate(_ inputDate: Date)
         return (year, month, day, weekday, hour, minute)
 }
 
-
 func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
     let (yr, mnthString, dayI, wkday, hr, min) = displayDate(date)
     let minTwoDigits = minuteStringShowingTwoDigits(min)
@@ -41,10 +39,14 @@ func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
         return "\(comment) \(wkday) \(hr):\(minTwoDigits)"
     }
     else {
-        return "\(comment) \(wkday), \(mnthString) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
+        if mnthString == "January" || mnthString == "December" {
+            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
+        }
+        else {
+            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI) at \(hr):\(minTwoDigits)"
+        }
     }
 }
-
 
 func minuteStringShowingTwoDigits(_ minute: Int) -> String {
     var minTwoDigits = "\(minute)"

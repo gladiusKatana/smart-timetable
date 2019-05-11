@@ -24,17 +24,17 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 1, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHeaderSections: 0,
-                                 cellWidth: nil, cellHeight: nil,
-                                 autoFitWScale: 1, autoFitHScale: 1.4,
-                                 hSpace: cellGap, vSpace: cellGap,
-                                 loadsHorizontally: true,
-                                 squareCellMode: .noAutoSquare)
+//var yearsLayout = CCVFlowLayout(rows: 5, cols: 24, lockedHeaderRows: 0, lockedHeaderSections: 0,
+//                                 cellWidth: nil, cellHeight: nil,
+//                                 autoFitWScale: 1, autoFitHScale: 1.4,
+//                                 hSpace: cellGap, vSpace: cellGap,
+//                                 loadsHorizontally: true,
+//                                 squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 2, collectionViewLayout: timetableLayout)       // header titles get...
-var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 1, collectionViewLayout: todoListLayout)     //...changed promptly
+var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 1, collectionViewLayout: timetableLayout)       // header titles get...
+var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 0, collectionViewLayout: todoListLayout)     //...changed promptly
 
-var yearsVC = CollectionVC(.years, loopWeeks: false, colourIndex: 0, collectionViewLayout: yearsLayout)        //...so they don't matter here
+//var yearsVC = CollectionVC(.years, loopWeeks: false, colourIndex: 0, collectionViewLayout: yearsLayout)        //...so they don't matter here
 //--------------------------------------------------------------------------------------------
 
 var topVC = CollectionVC(.initial, loopWeeks: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer

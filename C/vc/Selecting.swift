@@ -8,9 +8,11 @@ extension CollectionVC {
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
-        /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections { print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-         print(formattedDateString(cell.cellDate, comment: "                 (formatted)    "))}*/
         let customLayout = downcastLayout!
+        
+        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections { print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))}
+        
         let row = indexPath.item;   let column = indexPath.section
         
         selectedCellDate = cell.cellDate

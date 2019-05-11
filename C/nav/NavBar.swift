@@ -10,7 +10,7 @@ extension CollectionVC {
         navbarTitleLabel.backgroundColor = .clear
         navbarTitleLabel.text = titleText; navbarTitleLabel.numberOfLines = numLines
         navbarTitleLabel.textAlignment = alignment
-        navbarTitleLabel.font = UIFont(name: "Helvetica Neue", size: 16)
+        navbarTitleLabel.font = UIFont(name: "Helvetica Neue", size: 13)
         navbarTitleLabel.textColor = .black
         navbarTitleLabel.isUserInteractionEnabled = false
         navigationItem.titleView = navbarTitleLabel
@@ -19,12 +19,11 @@ extension CollectionVC {
     func setupNavBarButtons(_ withCustomColour: UIColor?, atIndex: Int?) {
         let timetableButton = setupButton(selector: #selector(buttonWrapperMethodforTimetableVC), title: "timetableImage")
         let todoListButton = setupButton(selector: #selector(buttonWrapperMethodforTodoListVC), title: "calendarImage")
-        let yearsButton = setupButton(selector: #selector(buttonWrapperMethodforYearsVC), title: "reloadButton")
         let reloadButton = setupButton(selector: #selector(reloadCV), title: "reloadButton")
         
-        navigationItem.rightBarButtonItems = [yearsButton, todoListButton, timetableButton, reloadButton]
+        navigationItem.rightBarButtonItems = [todoListButton, timetableButton, reloadButton]
         
-        var barButtonColours = [graySeven, graySeven, graySeven, .clear]
+        var barButtonColours = [graySeven, graySeven, .clear]
         
         for button in navigationItem.rightBarButtonItems! {
             if let index = navigationItem.rightBarButtonItems?.firstIndex(of: button) {
@@ -47,7 +46,6 @@ extension CollectionVC {
     
     @objc func buttonWrapperMethodforTimetableVC() {presentViaVCButton(vc: timetableVC)}
     @objc func buttonWrapperMethodforTodoListVC() {presentViaVCButton(vc: todoListVC)}
-    @objc func buttonWrapperMethodforYearsVC() {presentViaVCButton(vc: yearsVC)}
     
     func presentViaVCButton(vc: CollectionVC) {
         rePresentedVCFromButton = true

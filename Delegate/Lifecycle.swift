@@ -12,12 +12,12 @@ extension AppDelegate {
             topVC.reloadCV()
         }
         
-        loadUsingDefaults(showDate: true)
+        defaultLoad(showDate: true)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         pryntApplicationStatusWithSpaces(applicationState: "will resign active")
-        saveUsingDefaults(showDate: true)
+        defaultSave(showDate: true)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
