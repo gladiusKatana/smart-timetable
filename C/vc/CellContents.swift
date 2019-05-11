@@ -7,7 +7,7 @@ extension CollectionVC {
     
     func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         
-        let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
+        let row = indexPath.item ; let column = indexPath.section
         
         cell.titleLabel.textColor = platinum
         
@@ -33,11 +33,11 @@ extension CollectionVC {
              let dy = Calendar.current.component(.day, from: cell.cellDate)
              cell.titleLabel.text = "\(mo) \(dy)"*/
             
-            let timeBlock = TimeBlock(values:(column, row))
-            if let events = eventsAtIndexPath[timeBlock] {
-                cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
-            }
-            else {cell.titleLabel.text = ""}
+//            let timeBlock = TimeBlock(values:(column, row))
+//            if let events = eventsAtIndexPath[timeBlock] {
+//                cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
+//            }
+//            else {cell.titleLabel.text = ""}
         }
         else {
             if column == 0 && row > 0 {

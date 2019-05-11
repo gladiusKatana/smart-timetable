@@ -43,9 +43,16 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         let customLayout = downcastLayout!
         eventField.becomeFirstResponder()
         
+        let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
+        let timeBlock = TimeBlock(values:(column, row))
+        
+        if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [""]} //\(indexPath)
+        
+        cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last
+        //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
+        
         setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
         setCellContents(cell: cell, indexPath: indexPath, layout: customLayout)
-        //cell.titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
         return cell
     }
     

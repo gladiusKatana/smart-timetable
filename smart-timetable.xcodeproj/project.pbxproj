@@ -148,8 +148,8 @@
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
 				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
 				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
-				062A3F4E226BE8F100D6DBED /* nav */,
 				062A3F54226BE8F100D6DBED /* vc */,
+				062A3F4E226BE8F100D6DBED /* nav */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -157,9 +157,9 @@
 		062A3F4E226BE8F100D6DBED /* nav */ = {
 			isa = PBXGroup;
 			children = (
-				062A3F50226BE8F100D6DBED /* GoToVC.swift */,
-				062A3F51226BE8F100D6DBED /* Reloading.swift */,
 				0601A5202280ED85005D0D99 /* TextField.swift */,
+				062A3F51226BE8F100D6DBED /* Reloading.swift */,
+				062A3F50226BE8F100D6DBED /* GoToVC.swift */,
 			);
 			path = nav;
 			sourceTree = "<group>";
@@ -195,10 +195,10 @@
 		062A3F64226BE8F100D6DBED /* M */ = {
 			isa = PBXGroup;
 			children = (
-				06F3A2162273F54B00548AE1 /* Save&Load.swift */,
 				062A3F65226BE8F100D6DBED /* Cell.swift */,
-				063342322277C12200F7C754 /* SimpleEvent.swift */,
 				062569CD227A8D33003E5C49 /* TimeBlock.swift */,
+				063342322277C12200F7C754 /* SimpleEvent.swift */,
+				06F3A2162273F54B00548AE1 /* Save&Load.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";

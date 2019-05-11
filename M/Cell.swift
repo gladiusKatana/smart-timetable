@@ -10,8 +10,8 @@ class CustomCell: UICollectionViewCell {
     
     lazy var titleLabel = UILabel()
     
+    var event = SimpleEvent() // will add this soon
     
-    var event = SimpleEvent()
     var cellDate = Date()
     var cellColour = UIColor.clear
     var markedForItems = false

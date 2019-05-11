@@ -3,12 +3,28 @@
 
 import UIKit
 
-
 func saveUsingDefaults(showDate: Bool) {
+    let defaults = UserDefaults.standard
+    
+    timeBlockPaths.removeAll(); todoListItems.removeAll()
+    
+    for key in eventsAtIndexPath.keys {
+        let (a, b) = key.values                                                 //; print("key: [\(key)  values \((a, b))")
+        timeBlockPaths.append([a, b])
+    }
+    
+    for val in eventsAtIndexPath.values {                                       //print("value: \(val)")
+        todoListItems.append(val)
+    }
+    
+    //print("todo list items (\(todoListItems.count)): \(todoListItems)")
+    //print("time block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
+    
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
-    let defaults = UserDefaults.standard
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
+    defaults.set(timeBlockPaths, forKey: "savedTimeBlockPaths")
+    defaults.set(todoListItems, forKey: "savedTodoListItems")
     
     if showDate {print("saving via defaults, date logged:\n\(lastLoginDateComponents)")}
 }
@@ -17,24 +33,48 @@ func saveUsingDefaults(showDate: Bool) {
 func loadUsingDefaults(showDate: Bool) {                                        //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
     
-    lastLoginDateComponents = defaults.array(forKey: "savedLastLoginDate") ?? ["-"] /// *** remember, it's a  [0, "", 0, "", 0, 0] as [Any]
+    let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
+    let currentDateAsDefault = [yr, mo, dy, wkd, hr, mn] as [Any]
     
-    let yearLoaded = lastLoginDateComponents[0] as! Int                         //; print("year loaded: \(yearLoaded)")
-    let monthLoaded = lastLoginDateComponents[1] as! String                     //; print("month loaded: \(monthLoaded)")
-    let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1                //; print("int: \(monthLoadedInt)")
-    let dayLoaded = lastLoginDateComponents[2] as! Int                          //; print("day loaded: \(dayLoaded)")
-    
-    //let weekdayLoaded = lastLoginDateComponents[3] as! String                 //; print("weekday loaded: \(weekdayLoaded)")
-    
-    let hourLoaded = lastLoginDateComponents[4] as! Int                         //; print("hour loaded: \(hourLoaded)")
-    let minuteLoaded = lastLoginDateComponents[5] as! Int                       //; print("minute loaded: \(minuteLoaded)")
-    
-    lastLoggedInDate = createDateFromSavedComponents(year: yearLoaded, month: monthLoadedInt, day: dayLoaded, hour: hourLoaded, minute: minuteLoaded)
-    
-    if showDate {
-        print("last login    (unformatted gmt)  \(lastLoggedInDate)")
-        print("                 (formatted)    \(formattedDateString(lastLoggedInDate, comment: "", short: false))")
+    if let components = defaults.array(forKey: "savedLastLoginDate") {
+        lastLoginDateComponents = components
+        
+        let yearLoaded = lastLoginDateComponents[0] as! Int                         //; print("year loaded: \(yearLoaded)")
+        let monthLoaded = lastLoginDateComponents[1] as! String                     //; print("month loaded: \(monthLoaded)")
+        let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1                //; print("int: \(monthLoadedInt)")
+        let dayLoaded = lastLoginDateComponents[2] as! Int                          //; print("day loaded: \(dayLoaded)")
+        //    let weekdayLoaded = lastLoginDateComponents[3] as! String                   //; print("weekday loaded: \(weekdayLoaded)")
+        let hourLoaded = lastLoginDateComponents[4] as! Int                         //; print("hour loaded: \(hourLoaded)")
+        let minuteLoaded = lastLoginDateComponents[5] as! Int                       //; print("minute loaded: \(minuteLoaded)")
+        
+        lastLoggedInDate = createDateFromSavedComponents(year: yearLoaded, month: monthLoadedInt, day: dayLoaded, hour: hourLoaded, minute: minuteLoaded)
+        
+        if showDate {
+            print("last login    (unformatted gmt)  \(lastLoggedInDate)")
+            print("                 (formatted)    \(formattedDateString(lastLoggedInDate, comment: "", short: false))")
+        }
     }
+    else {
+        lastLoginDateComponents = currentDateAsDefault ; print("\nfirst login; default previous login date components: \(lastLoginDateComponents)")
+    }
+    
+    timeBlockPaths = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
+    todoListItems = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
+    
+    populateDictionaryFromDefaults()
+}
+
+
+func populateDictionaryFromDefaults() {
+    //    print("todo list items (\(todoListItems.count)): \(todoListItems)")
+    //    print("time block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
+    var i = 0
+    for path in timeBlockPaths {
+        let timeBlock = TimeBlock(values: (path[0], path[1]))
+        eventsAtIndexPath[timeBlock] = todoListItems[i]
+        i += 1
+    }
+    //    print("\n\n...events at index path (\(eventsAtIndexPath.count)): \(eventsAtIndexPath)")
 }
 
 

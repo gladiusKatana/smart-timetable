@@ -11,7 +11,8 @@ var selectedCellDate = Date()
 var (year, month, day, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
 var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
-
+var timeBlockPaths = [[Int]]()      //[(0, 0)]
+var todoListItems = [[String]]()    //[Any]()
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
