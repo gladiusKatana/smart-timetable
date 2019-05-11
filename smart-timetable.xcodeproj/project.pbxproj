@@ -161,7 +161,6 @@
 				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
 				062A3F50226BE8F100D6DBED /* GoToVC.swift */,
 				062A3F51226BE8F100D6DBED /* Reloading.swift */,
-				0601A5202280ED85005D0D99 /* TextField.swift */,
 			);
 			path = nav;
 			sourceTree = "<group>";
@@ -172,6 +171,7 @@
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
 				062A3F57226BE8F100D6DBED /* CellColours.swift */,
 				062A3F5A226BE8F100D6DBED /* Selecting.swift */,
+				0601A5202280ED85005D0D99 /* TextField.swift */,
 			);
 			path = vc;
 			sourceTree = "<group>";

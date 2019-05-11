@@ -3,18 +3,7 @@
 
 import UIKit
 
-extension CollectionVC {  
-    
-    func setupViewTitle(_ titleText: String, numLines: Int, alignment: NSTextAlignment) {
-        navbarTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 1366, height: 20)) //1366 is width (# of points) of the ipad pro 12.9"
-        navbarTitleLabel.backgroundColor = .clear
-        navbarTitleLabel.text = titleText; navbarTitleLabel.numberOfLines = numLines
-        navbarTitleLabel.textAlignment = alignment
-        navbarTitleLabel.font = UIFont(name: "Helvetica Neue", size: 13)
-        navbarTitleLabel.textColor = .black
-        navbarTitleLabel.isUserInteractionEnabled = false
-        navigationItem.titleView = navbarTitleLabel
-    }
+extension CollectionVC {
     
     func setupNavBarButtons(_ withCustomColour: UIColor?, atIndex: Int?) {
         let timetableButton = setupButton(selector: #selector(buttonWrapperMethodforTimetableVC), title: "timetableImage")
@@ -52,6 +41,17 @@ extension CollectionVC {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.gotoView(vc: vc)
         }
+    }
+    
+    func setupViewTitle(_ titleText: String, numLines: Int, alignment: NSTextAlignment) {
+        navbarTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 1366, height: 20)) //1366 is width (# of points) of the ipad pro 12.9"
+        navbarTitleLabel.backgroundColor = .clear
+        navbarTitleLabel.text = titleText; navbarTitleLabel.numberOfLines = numLines
+        navbarTitleLabel.textAlignment = alignment
+        navbarTitleLabel.font = UIFont(name: "Helvetica Neue", size: 13)
+        navbarTitleLabel.textColor = .black
+        navbarTitleLabel.isUserInteractionEnabled = false
+        navigationItem.titleView = navbarTitleLabel
     }
 }
 
