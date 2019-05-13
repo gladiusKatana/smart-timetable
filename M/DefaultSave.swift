@@ -28,6 +28,3 @@ func defaultSave(showDate: Bool) {
     if showDate {print("saving via defaults, date logged:\n\(lastLoginDateComponents)")}
 }
 
-
-
-

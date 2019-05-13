@@ -9,8 +9,7 @@ extension CollectionVC {
         let customLayout = downcastLayout!
         
         if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-//            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-//            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
+            /*see bottom - optional code to insert*/
         }
         let row = indexPath.item;   let column = indexPath.section
         
@@ -54,3 +53,5 @@ extension CollectionVC {
     }
 }
 
+/*print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))*/

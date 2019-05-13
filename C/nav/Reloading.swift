@@ -1,6 +1,6 @@
 //  Reloading.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-import UIKit; import UserNotifications
+import UIKit 
 extension CollectionVC {
     
     @objc func reloadCV() {             //print("\n↺")
@@ -47,15 +47,5 @@ extension CollectionVC {
     func dismissNavController(completion: @escaping () -> ()) {
         navController?.dismiss(animated: false, completion: nil)
         completion()
-    }
-    
-    func setupNotificationForStatusBarHeightChange() {
-        if phones.contains(modelName) {
-            let center = UNUserNotificationCenter.current()
-            center.removeAllDeliveredNotifications()                //to remove all delivered notifications
-            center.removeAllPendingNotificationRequests()           //to remove all pending notifications which are not delivered yet but scheduled.
-            NotificationCenter.default.addObserver(self, selector: #selector(reloadCV),
-                                                   name: UIApplication.willChangeStatusBarFrameNotification, object: nil)
-        }
     }
 }

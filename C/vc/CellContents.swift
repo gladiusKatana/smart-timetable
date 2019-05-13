@@ -26,11 +26,7 @@ extension CollectionVC {
     
     func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-            
-            /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-             let dy = Calendar.current.component(.day, from: cell.cellDate)
-             cell.titleLabel.text = "\(mo) \(dy)"*/
-            
+        /*see bottom - optional code to insert*/
 //            let timeBlock = TimeBlock(values:(column, row))
 //            if let events = eventsAtIndexPath[timeBlock] {
 //                cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
@@ -51,4 +47,6 @@ extension CollectionVC {
     }
 }
 
-
+/*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+ let dy = Calendar.current.component(.day, from: cell.cellDate)
+ cell.titleLabel.text = "\(mo) \(dy)"*/

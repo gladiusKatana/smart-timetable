@@ -23,7 +23,7 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 1, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 1, collectionViewLayout: timetableLayout)       // header titles get...
+var timetableVC = CollectionVC(.hours, loopWeeks: false, colourIndex: 1, collectionViewLayout: timetableLayout)       // header titles get...
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 0, collectionViewLayout: todoListLayout)     //...changed promptly
 //--------------------------------------------------------------------------------------------
 
