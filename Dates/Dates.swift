@@ -1,6 +1,5 @@
 //  Dates.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
 import UIKit
 
 func processCurrentDate() { 
@@ -15,8 +14,7 @@ func processCurrentDate() {
         
         if previousSelectedTimeBlockPath == [0, 0] {previousSelectedTimeBlockPath = [nowColumn, nowRow]}
         if previousTimeBlock == TimeBlock(values:(0, 0)) {previousTimeBlock = TimeBlock(values:(nowColumn, nowRow))}
-    }
-    //    print("-----------------------now cell at \([nowRow, nowColumn])")
+    }//print("-----------------------now cell at \([nowRow, nowColumn])")
 }
 
 func displayDate(_ inputDate: Date)

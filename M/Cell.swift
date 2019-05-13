@@ -1,10 +1,8 @@
 //  Cell.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
 import UIKit
 
 class CustomCell: UICollectionViewCell {
-    
     
     static let reuseIdentifier = "CustomCell"
     
@@ -15,7 +13,6 @@ class CustomCell: UICollectionViewCell {
     var cellDate = Date()
     var cellColour = UIColor.clear
     var markedForItems = false
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +30,6 @@ class CustomCell: UICollectionViewCell {
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal,
                                          toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

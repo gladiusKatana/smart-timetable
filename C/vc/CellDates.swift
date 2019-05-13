@@ -1,8 +1,6 @@
 //  CellDates.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
 import UIKit
-
 extension CollectionVC {
     
     func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
@@ -17,10 +15,10 @@ extension CollectionVC {
             
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
                 if column < nowColumn || column == nowColumn && row < nowRow {
-                    //cell.backgroundColor = .red
+                    cell.backgroundColor = .red
                     weekAhead = 1
                 }
-                //else {cell.backgroundColor = .orange}
+                else {cell.backgroundColor = .orange}
             }
         }
         
@@ -32,6 +30,7 @@ extension CollectionVC {
         
         setTitleLabels(cell: cell, column: column, row: row, layout: layout)
     }
+    
     
     func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row == nowRow && column == nowColumn {        // the 'now-cell'

@@ -1,6 +1,5 @@
 //  DefaultLoad.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
 import UIKit
 
 func defaultLoad(showDate: Bool) {                                        //print("(load using defaults)\n")
@@ -37,7 +36,6 @@ func defaultLoad(showDate: Bool) {                                        //prin
 }
 
 func populateDictionaryFromDefaults() {
-    //print("todo list items (\(todoListItems.count)): \(todoListItems)"); //print("time block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     var i = 0
     for path in timeBlockPaths {
         let timeBlock = TimeBlock(values: (path[0], path[1]))
@@ -46,7 +44,7 @@ func populateDictionaryFromDefaults() {
     }                                                   //; print("\n\n...events at index path (\(eventsAtIndexPath.count)): \(eventsAtIndexPath)")
 }
 
-func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {// uses all cmpnts. except weekday (unnecessary)
+func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd HH:mm"
     guard let date = formatter.date(from: "\(year)/\(month)/\(day) \(hour):\(minute)") else {
@@ -55,3 +53,4 @@ func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, 
     }
     return date
 }
+

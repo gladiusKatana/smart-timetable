@@ -3,7 +3,6 @@
 
 import UIKit
 
-
 let num = CGFloat(42)
 var headerColour = UIColor.rgb(num, g: num, b: num, a: 1)  
 var cellDefaultColour = navyBlue

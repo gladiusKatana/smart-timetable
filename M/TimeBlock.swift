@@ -1,8 +1,6 @@
 //  TimeBlock.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
 import UIKit
-
 
 struct TimeBlock<T: Hashable, U: Hashable>: Hashable {
     let values : (T, U)
@@ -32,6 +30,6 @@ extension CollectionVC {
         }
         
         print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
-//        print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath)\n")
     }
 }
+
