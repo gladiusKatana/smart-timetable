@@ -113,7 +113,8 @@
 			children = (
 				062A3F61226BE8F100D6DBED /* Vars.swift */,
 				061B37FB226D48CA006555B5 /* TimetableVars.swift */,
-				062A3F69226BE8F100D6DBED /* Delegate */,
+				062A3F6B226BE8F100D6DBED /* AppDelegate.swift */,
+				062A3F6A226BE8F100D6DBED /* Lifecycle.swift */,
 				06B914DE2273B7970018458C /* Dates */,
 				062A3F4D226BE8F100D6DBED /* C */,
 				06674B612288FED30020AE37 /* Notifications.swift */,
@@ -208,15 +209,6 @@
 				0614F6C622875C2700211DF2 /* DefaultLoad.swift */,
 			);
 			path = M;
-			sourceTree = "<group>";
-		};
-		062A3F69226BE8F100D6DBED /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				062A3F6B226BE8F100D6DBED /* AppDelegate.swift */,
-				062A3F6A226BE8F100D6DBED /* Lifecycle.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		062A3F6C226BE8F200D6DBED /* Vm */ = {
