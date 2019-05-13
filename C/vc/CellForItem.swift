@@ -4,11 +4,14 @@ import UIKit
 extension CollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
+        
         eventField.becomeFirstResponder()
         
         let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
+        
         let timeBlock = TimeBlock(values:(column, row))
         
         if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [""]} //\(indexPath)

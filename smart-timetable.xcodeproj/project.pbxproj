@@ -50,7 +50,7 @@
 		0601A5202280ED85005D0D99 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		060FAE6722775275002E472A /* CellDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDates.swift; sourceTree = "<group>"; };
 		0614F6C622875C2700211DF2 /* DefaultLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoad.swift; sourceTree = "<group>"; };
-		0614F6C82288FA3400211DF2 /* CellForItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForItem.swift; sourceTree = "<group>"; };
+		0614F6C82288FA3400211DF2 /* CellForItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellForItem.swift; path = vc/CellForItem.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
 		062569CD227A8D33003E5C49 /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 			children = (
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
 				062A3F55226BE8F100D6DBED /* Load&Appear.swift */,
+				0614F6C82288FA3400211DF2 /* CellForItem.swift */,
 				062A3F54226BE8F100D6DBED /* vc */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 			);
@@ -172,7 +173,6 @@
 		062A3F54226BE8F100D6DBED /* vc */ = {
 			isa = PBXGroup;
 			children = (
-				0614F6C82288FA3400211DF2 /* CellForItem.swift */,
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
 				060FAE6722775275002E472A /* CellDates.swift */,
 				062A3F5A226BE8F100D6DBED /* Selecting.swift */,

@@ -54,6 +54,9 @@ extension CollectionVC {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
             if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
                 cell.backgroundColor = .orange
+                
+                let timeBlock = TimeBlock(values:(column, row))
+                
             }
         }
     }
