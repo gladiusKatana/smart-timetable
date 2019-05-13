@@ -46,20 +46,14 @@ extension CollectionVC {
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow
         
-        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
-            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(60) {
-                cell.backgroundColor = .orange
-            }
-        }
-        
         setTitleLabels(cell: cell, column: column, row: row, layout: layout)
         colourCellBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
     func colourCellBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
-            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() {
-                cell.backgroundColor = .yellow
+            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
+                cell.backgroundColor = .orange
             }
         }
     }
