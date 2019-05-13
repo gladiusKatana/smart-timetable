@@ -56,7 +56,7 @@ extension CollectionVC {
                 cell.backgroundColor = .orange
                 
                 let timeBlock = TimeBlock(values:(column, row))
-                
+                if eventsAtIndexPath[timeBlock] != nil {eventsAtIndexPath[timeBlock] = [""]}
             }
         }
     }

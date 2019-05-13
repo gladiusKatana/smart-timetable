@@ -4,22 +4,44 @@ import Foundation
 
 class SimpleEvent: NSObject {
     
-    var eventSummary =      "" // summary of an event coming up on this day
-    var eventDescription =  "insert description of event"
+    var eventDescription = ""               // description of an event coming up (or todo-list item) on this day
+    var eventDate = Date()                  // date the event/action occurs or must be done by
+    var eventStatus = EventStatus.upcoming
+    //var recurring = false
     
-//    init(fullName: String, firstName: String, lastName: String, homePhone: String, workPhone: String, email: String, additionalEmail: String) {
-//        self.fullName = fullName
-//        self.firstName = firstName
-//        self.lastName = lastName
-//        self.homePhone = homePhone
-//        self.workPhone = workPhone
-//        self.email = email
-//        self.additionalEmail = additionalEmail
-//    }
+    //    init() {                          // may not use one
+    //        self.
+    //    }
     
-//    func showClientProperties() {
-//        print("\n Client: \(self.fullName)\n First Name: \(self.firstName)\n Last Name: \(self.lastName)\n Home: \(self.homePhone)\n Work: \(self.workPhone)\n Email 1: \(self.email)\n Email 2: \(self.additionalEmail)")
-//    }
-    
+    func showEventProperties() {
+        var descriptor = ""
+        if eventStatus == .upcoming {
+            descriptor = "will occur on"
+        }
+        else {
+            descriptor = "occurred on"
+        }
+        print("\n Event: \(eventDescription)\n (\(eventStatus)); \(descriptor): \(eventDate)\n")
+    }
 }
 
+enum EventStatus: Int {
+    case upcoming = 0
+    case occurred, done, delegated, obviated, deferred
+    func simpleDescription() -> String {
+        switch self {
+        case .occurred:
+            return "event occurred"
+        case .done:
+            return "task was done. Nice!"
+        case .delegated:
+            return "task was delegated to someone else"
+        case .obviated:
+            return "task was obviated; no need to do it anymore"
+        case .deferred:
+            return "task was deferred; it will show in the time-block chosen during deferral"
+        default:
+            return "(default event or task description)"
+        }
+    }
+}
