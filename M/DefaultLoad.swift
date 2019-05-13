@@ -36,12 +36,12 @@ func defaultLoad(showDate: Bool) {                                        //prin
 }
 
 func populateDictionaryFromDefaults() {
-    var i = 0
-    for path in timeBlockPaths {
-        let timeBlock = TimeBlock(values: (path[0], path[1]))
-        eventsAtIndexPath[timeBlock] = todoListItems[i]
-        i += 1
-    }                                                   //; print("\n\n...events at index path (\(eventsAtIndexPath.count)): \(eventsAtIndexPath)")
+//    var i = 0
+//    for path in timeBlockPaths {
+//        let timeBlock = TimeBlock(values: (path[0], path[1]))
+//        eventsAtIndexPath[timeBlock] = todoListItems[i]
+//        i += 1
+//    }                                                   //; print("\n\n...events at index path (\(eventsAtIndexPath.count)): \(eventsAtIndexPath)")
 }
 
 func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {

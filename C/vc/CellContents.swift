@@ -4,10 +4,8 @@ import UIKit
 extension CollectionVC {
     
     func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
-        
+         cell.titleLabel.textColor = platinum
         let row = indexPath.item ; let column = indexPath.section
-        
-        cell.titleLabel.textColor = platinum
         
         if collectionViewType == .hours {
             if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
@@ -15,7 +13,7 @@ extension CollectionVC {
         }
         else if collectionViewType == .todoList {                            //print("(todo list; previous time block: \(previousTimeBlock) )")
             if eventsAtIndexPath[previousTimeBlock] != nil {
-                cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row]
+                cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
             }
             else {
                 cell.titleLabel.text = "no items yet"

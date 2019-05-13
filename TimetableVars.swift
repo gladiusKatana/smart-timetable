@@ -12,7 +12,7 @@ var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define a
 var timeBlockPaths = [[Int]]()      //[(0, 0)]
 var todoListItems = [[String]]()    //[Any]()
 
-var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[String]>()
+var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 

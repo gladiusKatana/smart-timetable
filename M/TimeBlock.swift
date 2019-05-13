@@ -18,15 +18,16 @@ func ==<T:Hashable,U:Hashable>(lhs: TimeBlock<T,U>, rhs: TimeBlock<T,U>) -> Bool
 
 extension CollectionVC {
     
-    func addToTimeBlocks(column: Int, row: Int, text: String) {
+    func addToTimeBlocks(column: Int, row: Int, textEntered: String) {
 
         let timeBlock = TimeBlock(values:(column, row))
+        let simpleEvent = SimpleEvent(eventDescription: textEntered, eventDate: selectedCellDate)
         
         if eventsAtIndexPath[timeBlock] == nil {
-            eventsAtIndexPath[timeBlock] = [text]
+            eventsAtIndexPath[timeBlock] = [simpleEvent]
         }
         else {
-            eventsAtIndexPath[timeBlock]!.append(text)
+            eventsAtIndexPath[timeBlock]!.append(simpleEvent)
         }
         
         print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)

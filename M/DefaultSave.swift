@@ -12,9 +12,9 @@ func defaultSave(showDate: Bool) {
         timeBlockPaths.append([a, b])
     }
     
-    for val in eventsAtIndexPath.values {                                       //print("value: \(val)")
-        todoListItems.append(val)
-    }
+//    for val in eventsAtIndexPath.values {                                       //print("value: \(val)")
+//        todoListItems.append(val.event)
+//    }
     
     //print("todo list items (\(todoListItems.count)): \(todoListItems)")
     //print("time block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")

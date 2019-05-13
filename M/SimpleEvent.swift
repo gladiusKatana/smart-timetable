@@ -9,9 +9,10 @@ class SimpleEvent: NSObject {
     var eventStatus = EventStatus.upcoming
     //var recurring = false
     
-    //    init() {                          // may not use one
-    //        self.
-    //    }
+    init(eventDescription: String, eventDate: Date) {                          // oops, of course i need this
+            self.eventDescription = eventDescription
+            self.eventDate = eventDate
+        }
     
     func showEventProperties() {
         var descriptor = ""
