@@ -38,6 +38,16 @@ extension CollectionVC {
         setTopViewController()
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if collectionViewType == .todoList {
+            if textFieldDisplayed {
+                eventField.removeFromSuperview()        //; print("removed text field")
+                textFieldDisplayed = false
+            }
+        }
+    }
 }
 
 
