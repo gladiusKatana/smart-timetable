@@ -3,32 +3,34 @@
 import UIKit
 
 func defaultSave(showDate: Bool) {
+    
+    if showDate {print(formattedDateString(lastLoggedInDate, comment: "saving via defaults, date logged: ", short: false))}
+        
     let defaults = UserDefaults.standard
     
     timeBlockPaths.removeAll(); itemDescriptionArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
-        let (a, b) = key.values                                                 //; print("key: [\(key)  values \((a, b))")
+        let (a, b) = key.values                                             //; print("key: [\(key)  values \((a, b))")
         timeBlockPaths.append([a, b])
     }
+    print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     
-    //print("todo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
-    //print("time block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     
-    for vals in eventsAtIndexPath.values {                                       //print("value: \(val)")
+    for vals in eventsAtIndexPath.values {
         var eventDescriptions = [String]()
         for str in vals {
             eventDescriptions.append(str.eventDescription)
         }
         itemDescriptionArrays.append(eventDescriptions)
     }
+    print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
+    
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
-    defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
     defaults.set(timeBlockPaths, forKey: "savedTimeBlockPaths")
     defaults.set(itemDescriptionArrays, forKey: "savedTodoListItems")
-    
-    if showDate {print("saving via defaults, date logged:\n\(lastLoginDateComponents)")}
+    defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 

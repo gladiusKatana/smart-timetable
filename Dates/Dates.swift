@@ -3,7 +3,7 @@
 import UIKit
 
 func processCurrentDate() { 
-    (year, month, day, weekday, hour, minute) = displayDate(Date())     //; print(formalDateString(Date(), comment: "process dates @ "))
+    (year, month, day, weekday, hour, minute) = displayDate(Date())//; print(formattedDateString(Date(), comment: "process dates @ ", short: false))
     
     nowRow = Calendar.current.component(.hour, from: Date()) + 1
     nowColumn = weekdaysAbbreviated.firstIndex(of: weekday)! + 1
@@ -51,5 +51,4 @@ func minuteStringShowingTwoDigits(_ minute: Int) -> String {
     if minute < 10 {minTwoDigits = "0\(minute)"}
     return minTwoDigits
 }
-
 

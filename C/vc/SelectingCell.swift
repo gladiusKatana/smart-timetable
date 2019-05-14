@@ -54,6 +54,6 @@ extension CollectionVC {
 
 /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
  print("\nselected date (unformatted gmt)  \(cell.cellDate)")
- print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
+ print(formatted DateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
  }*/
 

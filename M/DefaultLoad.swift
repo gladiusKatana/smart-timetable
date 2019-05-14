@@ -16,8 +16,9 @@ func defaultLoad(showDate: Bool) {                                              
         let minuteLoaded = lastLoginDateComponents[5] as! Int                       //; print("minute loaded: \(minuteLoaded)")
         
         lastLoggedInDate = dateFromLoadedComponents(year: yearLoaded, month: monthLoadedInt, day: dayLoaded, hour: hourLoaded, minute: minuteLoaded)
-        if showDate {  print("last login       (formatted)    \(formattedDateString(lastLoggedInDate, comment: "", short: false))")
-                       print("              (unformatted gmt)  \(lastLoggedInDate)")
+        if showDate {
+            print(formattedDateString(lastLoggedInDate, comment: "last login       (formatted)      ", short: false))
+            print("              (unformatted gmt)    \(lastLoggedInDate)")
         }
     } else {
         let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
@@ -27,6 +28,16 @@ func defaultLoad(showDate: Bool) {                                              
     timeBlockPaths = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
     itemDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
     populateDictionaryFromDefaults()
+}
+
+func dateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy/MM/dd HH:mm"
+    guard let date = formatter.date(from: "\(year)/\(month)/\(day) \(hour):\(minute)") else {
+        print("could not create date with loaded input, returning current date instead")
+        return Date()
+    }
+    return date
 }
 
 func populateDictionaryFromDefaults() {
@@ -43,15 +54,5 @@ func populateDictionaryFromDefaults() {
         eventsAtIndexPath[timeBlock] = events
         i += 1
     }
-}
-
-func dateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy/MM/dd HH:mm"
-    guard let date = formatter.date(from: "\(year)/\(month)/\(day) \(hour):\(minute)") else {
-        print("could not create date with loaded input, returning current date instead")
-        return Date()
-    }
-    return date
 }
 
