@@ -19,8 +19,7 @@ func defaultLoad(showDate: Bool) {                                              
         if showDate {  print("last login       (formatted)    \(formattedDateString(lastLoggedInDate, comment: "", short: false))")
                        print("              (unformatted gmt)  \(lastLoggedInDate)")
         }
-    }
-    else {
+    } else {
         let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
         let currentDateAsDefault = [yr, mo, dy, wkd, hr, mn] as [Any]
         lastLoginDateComponents = currentDateAsDefault; print("\nfirst login; default previous login date components: \n\(lastLoginDateComponents)")
