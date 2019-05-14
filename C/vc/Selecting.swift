@@ -10,48 +10,50 @@ extension CollectionVC {
         /*see bottom - optional code to insert*/
         let row = indexPath.item;   let column = indexPath.section
         
-        selectedCellDate = cell.cellDate
-        let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
-        
-        if collectionViewType == .hours {
+        if row >= customLayout.lockedHeaderRows && column >= customLayout.lockedHeaderSections {
+            selectedCellDate = cell.cellDate
+            let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
-            selectedTimeBlockPath = [column, row]
-            timeBlock = TimeBlock(values:(column, row))
-            
-            previousSelectedTimeBlockPath = [column, row]
-            previousTimeBlock = TimeBlock(values:(column, row))
-            
-            if eventsAtIndexPath[timeBlock] == nil {
+            if collectionViewType == .hours {
+                
+                selectedTimeBlockPath = [column, row]
+                timeBlock = TimeBlock(values:(column, row))
+                
+                previousSelectedTimeBlockPath = [column, row]
+                previousTimeBlock = TimeBlock(values:(column, row))
+                
+                if eventsAtIndexPath[timeBlock] == nil {
+                    formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+                    textFieldDisplayed = true
+                }
+                else {gotoView(vc: todoListVC)}
+                
+                if !cell.markedForItems {
+                    UIView.animate(withDuration: 1, delay: 0,
+                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                                    cell.backgroundColor = .black
+                    }, completion: nil)
+                    cell.markedForItems = true
+                }
+                else {
+                    cell.backgroundColor = niceOrange
+                    UIView.animate(withDuration: 1, delay: 0,
+                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                                    cell.backgroundColor = cell.cellColour
+                    }, completion: nil)
+                }
+            }
+            else if collectionViewType == .todoList {
                 formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
                 textFieldDisplayed = true
             }
-            else {gotoView(vc: todoListVC)}
-            
-            if !cell.markedForItems {
-                UIView.animate(withDuration: 1, delay: 0,
-                               usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                cell.backgroundColor = .black
-                }, completion: nil)
-                cell.markedForItems = true
-            }
-            else {
-                cell.backgroundColor = niceOrange
-                UIView.animate(withDuration: 1, delay: 0,
-                               usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                cell.backgroundColor = cell.cellColour
-                }, completion: nil)
-            }
+            else {print("unrecognized collection view cell type selected")}
         }
-        else if collectionViewType == .todoList {
-            formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
-            textFieldDisplayed = true
-        }
-        else {print("unrecognized collection view cell type selected")}
     }
 }
 
 /*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-    print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-    print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
-}*/
+ print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+ print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
+ }*/
 

@@ -6,17 +6,19 @@ extension CollectionVC {
     func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
         cell.titleLabel.textColor = platinum
         let row = indexPath.item ; let column = indexPath.section
-
+        
         if collectionViewType == .hours {
             if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
             
-            let timeBlock = TimeBlock(values:(column, row))
-            let simpleEvent = SimpleEvent(eventDescription: defaultEmptEventDescription, eventDate: selectedCellDate)
-            if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
-            cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
+            if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
+                let timeBlock = TimeBlock(values:(column, row))
+                let simpleEvent = SimpleEvent(eventDescription: defaultEmptEventDescription, eventDate: selectedCellDate)
+                if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
+                cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
+            }
         }
-        else if collectionViewType == .todoList {                            //print("(todo list; previous time block: \(previousTimeBlock) )")
+        else if collectionViewType == .todoList {                               //print("(todo list; previous time block: \(previousTimeBlock) )")
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
             }
@@ -25,11 +27,12 @@ extension CollectionVC {
             }
             cell.cellDate = selectedCellDate
         }
+        else {print("collection view type is some other unknown type")}         // should never get called
     }
     
     func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-        /*see bottom - optional code to insert*/
+            /*see bottom - optional code to insert*/
         }
         else {
             if column == 0 && row > 0 {
