@@ -15,7 +15,7 @@ extension CollectionVC {
     
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
-            || willPresentVCAgainBecauseAppJustEnteredForeground {
+            || firstReenteredForeground {
             
             rePresentedVCFromButton = false              //; print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
             

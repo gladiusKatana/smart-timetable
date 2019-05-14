@@ -34,7 +34,7 @@ var statusBar = UIView();           var navbarTitleLabel = UILabel();       var 
 
 var xOffSet = CGFloat(0);           var yOffSet = CGFloat(0)
 var statusBarHeight = 0.0;          var lastStatusBarHeight = 0.0;  var navBarHeight = 0.0; var launchWidth = 0.0
-var rePresentedVCFromButton = true; var willPresentVCAgainBecauseAppJustEnteredForeground = false
+var rePresentedVCFromButton = true; var firstReenteredForeground = false
 
 var currentOrientation = "orientation (landscape or portrait) for prepare-layout logic"
 var previousOrientation = "previous orientation (landscape or portrait) for prepare-layout logic"
