@@ -9,8 +9,8 @@ var selectedCellDate = Date()
 var (year, month, day, weekday, hour, minute) = (0, "", 0, "", 0, 0)
 
 var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
-var timeBlockPaths = [[Int]]()      //[(0, 0)]
-var itemDescriptionArrays = [[String]]()    //[Any]()
+var timeBlockPaths = [[Int]]()
+var itemDescriptionArrays = [[String]]()
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
@@ -34,3 +34,4 @@ var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
 
+var defaultEmptEventDescription = "~"

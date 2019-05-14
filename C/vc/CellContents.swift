@@ -12,7 +12,7 @@ extension CollectionVC {
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
             
             let timeBlock = TimeBlock(values:(column, row))
-            let simpleEvent = SimpleEvent(eventDescription: "-", eventDate: selectedCellDate)
+            let simpleEvent = SimpleEvent(eventDescription: defaultEmptEventDescription, eventDate: selectedCellDate)
             if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
             cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
         }

@@ -19,7 +19,7 @@ func ==<T:Hashable,U:Hashable>(lhs: TimeBlock<T,U>, rhs: TimeBlock<T,U>) -> Bool
 extension CollectionVC {
     
     func addToTimeBlocks(column: Int, row: Int, textEntered: String) {
-
+        
         let timeBlock = TimeBlock(values:(column, row))
         let simpleEvent = SimpleEvent(eventDescription: textEntered, eventDate: selectedCellDate)
         
@@ -27,7 +27,13 @@ extension CollectionVC {
             eventsAtIndexPath[timeBlock] = [simpleEvent]
         }
         else {
-            eventsAtIndexPath[timeBlock]!.append(simpleEvent)
+            
+            if eventsAtIndexPath[timeBlock]?.last!.eventDescription == defaultEmptEventDescription {
+                eventsAtIndexPath[timeBlock] = [simpleEvent]
+            }
+            else {
+                eventsAtIndexPath[timeBlock]!.append(simpleEvent)
+            }
         }
         
         print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
