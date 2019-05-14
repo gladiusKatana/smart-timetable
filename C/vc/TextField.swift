@@ -7,11 +7,11 @@ extension CollectionVC {
         if textFieldDisplayed {
             eventField.removeFromSuperview()        //; print("removed")
             let customLayout = downcastLayout!
-            formatAndPresentTextField(customLayout: customLayout, dateString: eventField.placeholder!)
+            formatAndPresentTextField(layout: customLayout, dateString: eventField.placeholder!)
         }
     }
     
-    func formatAndPresentTextField(customLayout: CCVFlowLayout, dateString: String) {   // may remove argument  customLayout
+    func formatAndPresentTextField(layout: CCVFlowLayout, dateString: String) {   // may remove argument  customLayout
         let fieldWidth = CGFloat(325)
         let fieldHeight = CGFloat(2 * timetableLayout.cellHeight!)
         let halfWidth = (timetableLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2

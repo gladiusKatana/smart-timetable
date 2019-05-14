@@ -6,11 +6,11 @@ extension CollectionVC {
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
-        let customLayout = downcastLayout!
+        let layout = downcastLayout!
         /*see bottom - optional code to insert*/
         let row = indexPath.item;   let column = indexPath.section
         
-        if row >= customLayout.lockedHeaderRows && column >= customLayout.lockedHeaderSections {
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             selectedCellDate = cell.cellDate
             let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
@@ -23,7 +23,7 @@ extension CollectionVC {
                 previousTimeBlock = TimeBlock(values:(column, row))
                 
                 if eventsAtIndexPath[timeBlock] == nil {
-                    formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+                    formatAndPresentTextField(layout: layout, dateString: dateString)
                     textFieldDisplayed = true
                 }
                 else {gotoView(vc: todoListVC)}
@@ -44,7 +44,7 @@ extension CollectionVC {
                 }
             }
             else if collectionViewType == .todoList {
-                formatAndPresentTextField(customLayout: customLayout, dateString: dateString)
+                formatAndPresentTextField(layout: layout, dateString: dateString)
                 textFieldDisplayed = true
             }
             else {print("unrecognized collection view cell type selected")}

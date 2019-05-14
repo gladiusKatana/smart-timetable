@@ -36,7 +36,7 @@ extension CollectionVC {
                 eventsAtIndexPath[timeBlock]!.append(simpleEvent)
             }
         }
-        print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
+//        print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
     }
 }
 
