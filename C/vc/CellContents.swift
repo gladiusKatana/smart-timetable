@@ -4,12 +4,17 @@ import UIKit
 extension CollectionVC {
     
     func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
-         cell.titleLabel.textColor = platinum
+        cell.titleLabel.textColor = platinum
         let row = indexPath.item ; let column = indexPath.section
-        
+
         if collectionViewType == .hours {
             if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
+            
+            let timeBlock = TimeBlock(values:(column, row))
+            let simpleEvent = SimpleEvent(eventDescription: "-", eventDate: selectedCellDate)
+            if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
+            cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
         }
         else if collectionViewType == .todoList {                            //print("(todo list; previous time block: \(previousTimeBlock) )")
             if eventsAtIndexPath[previousTimeBlock] != nil {
@@ -42,12 +47,12 @@ extension CollectionVC {
 
 /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
  let dy = Calendar.current.component(.day, from: cell.cellDate)
- cell.titleLabel.text = "\(mo) \(dy)"*/
+ cell. titleLabel.text = "\(mo) \(dy)"*/
 
 /*
  //            let timeBlock = TimeBlock(values:(column, row))
  //            if let events = eventsAtIndexPath[timeBlock] {
- //                cell.titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
+ //                cell. titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
  //            }
- //            else {cell.titleLabel.text = ""}
+ //            else {cell. titleLabel.text = ""}
  */
