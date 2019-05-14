@@ -36,4 +36,3 @@ func substringWithAppends(input: String, preceding: String, following: String) -
     return str
 }
 
-

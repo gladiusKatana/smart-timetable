@@ -3,6 +3,34 @@
 import UIKit
 extension CollectionVC {
     
+    func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+        if row == nowRow && column == nowColumn {        // the 'now-cell'
+            cell.layer.borderColor = UIColor.blue.cgColor
+            cell.layer.borderWidth = 2
+        } else {
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 0
+        }
+        
+        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
+        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+        
+        cell.cellDate = Date() + hoursFromNow + daysFromNow
+        
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
+        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
+    }
+    
+    func modifyTimeBlockBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
+            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
+                cell.backgroundColor = .orange
+//                let timeBlock = TimeBlock(values:(column, row))
+//              //(will set event's status to done, delegated, obviated, or deferred)
+            }
+        }
+    }
+    
     func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         var weekAhead = 0
         if row == nowRow && column == nowColumn {        // the 'now-cell'
@@ -21,44 +49,11 @@ extension CollectionVC {
                 else {cell.backgroundColor = .orange}
             }
         }
-        
         let hoursFromNow = TimeInterval(3600 * (row - nowRow))
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
         let conditionalWeekAhead = TimeInterval(86400 * 7 * weekAhead)
-        
         cell.cellDate = Date() + hoursFromNow + daysFromNow + conditionalWeekAhead
-        
         setTitleLabels(cell: cell, column: column, row: row, layout: layout)
-    }
-    
-    
-    func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if row == nowRow && column == nowColumn {        // the 'now-cell'
-            cell.layer.borderColor = UIColor.blue.cgColor
-            cell.layer.borderWidth = 2
-        } else {
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.borderWidth = 0
-        }
-        
-        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
-        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
-        
-        cell.cellDate = Date() + hoursFromNow + daysFromNow
-        
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
-        colourCellBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
-    }
-    
-    func colourCellBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
-            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
-                cell.backgroundColor = .orange
-                
-                let timeBlock = TimeBlock(values:(column, row))
-                
-//                if eventsAtIndexPath[timeBlock] != nil {eventsAtIndexPath[timeBlock] = [""]}
-            }
-        }
     }
 }
+

@@ -49,10 +49,3 @@ extension CollectionVC {
  let dy = Calendar.current.component(.day, from: cell.cellDate)
  cell. titleLabel.text = "\(mo) \(dy)"*/
 
-/*
- //            let timeBlock = TimeBlock(values:(column, row))
- //            if let events = eventsAtIndexPath[timeBlock] {
- //                cell. titleLabel.text = events.last                      //; print("events at time block [\(column), \(row)] \(events)")
- //            }
- //            else {cell. titleLabel.text = ""}
- */

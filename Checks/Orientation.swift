@@ -40,3 +40,4 @@ func checkOrientation() {
     }
     else {print("\n\nApparently, somehow, the global key window's frame's height & width are being evaluated as equal...")} //shouldn't get called
 }//                                                                                                          ...unless Apple makes a square device
+

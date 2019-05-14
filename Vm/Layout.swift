@@ -52,3 +52,4 @@ class CCVFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collec
         fatalError("init(coder:) has not been implemented")
     }
 }
+

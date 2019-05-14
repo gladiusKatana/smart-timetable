@@ -7,10 +7,7 @@ extension CollectionVC {
                                  didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         let customLayout = downcastLayout!
-        
-        if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
-            /*see bottom - optional code to insert*/
-        }
+        /*see bottom - optional code to insert*/
         let row = indexPath.item;   let column = indexPath.section
         
         selectedCellDate = cell.cellDate
@@ -53,5 +50,8 @@ extension CollectionVC {
     }
 }
 
-/*print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))*/
+/*if indexPath.item >= customLayout.lockedHeaderRows && indexPath.section >= customLayout.lockedHeaderSections {
+    print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+    print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
+}*/
+
