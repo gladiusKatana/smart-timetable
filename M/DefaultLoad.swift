@@ -15,7 +15,7 @@ func defaultLoad(showDate: Bool) {                                        //prin
         let monthLoaded = lastLoginDateComponents[1] as! String                     //; print("month loaded: \(monthLoaded)")
         let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1                //; print("int: \(monthLoadedInt)")
         let dayLoaded = lastLoginDateComponents[2] as! Int                          //; print("day loaded: \(dayLoaded)")
-        //    let weekdayLoaded = lastLoginDateComponents[3] as! String                   //; print("weekday loaded: \(weekdayLoaded)")
+        //let weekdayLoaded = lastLoginDateComponents[3] as! String                   //; print("weekday loaded: \(weekdayLoaded)")
         let hourLoaded = lastLoginDateComponents[4] as! Int                         //; print("hour loaded: \(hourLoaded)")
         let minuteLoaded = lastLoginDateComponents[5] as! Int                       //; print("minute loaded: \(minuteLoaded)")
         
@@ -31,17 +31,27 @@ func defaultLoad(showDate: Bool) {                                        //prin
     }
     
     timeBlockPaths = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
-    todoListItems = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
+    itemDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
     populateDictionaryFromDefaults()
 }
 
 func populateDictionaryFromDefaults() {
-//    var i = 0
-//    for path in timeBlockPaths {
-//        let timeBlock = TimeBlock(values: (path[0], path[1]))
-//        eventsAtIndexPath[timeBlock] = todoListItems[i]
-//        i += 1
-//    }                                                   //; print("\n\n...events at index path (\(eventsAtIndexPath.count)): \(eventsAtIndexPath)")
+    var i = 0
+    
+    for path in timeBlockPaths {
+        let todoListItemDescriptions = itemDescriptionArrays[i]
+        var events = [SimpleEvent]()
+        
+        for description in todoListItemDescriptions {
+            let event = SimpleEvent(eventDescription: description, eventDate: Date())
+            events.append(event)
+        }
+        
+        let timeBlock = TimeBlock(values: (path[0], path[1]))
+        eventsAtIndexPath[timeBlock] = events
+        
+        i += 1
+    }
 }
 
 func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
@@ -53,4 +63,5 @@ func createDateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, 
     }
     return date
 }
+
 
