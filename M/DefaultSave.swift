@@ -13,8 +13,10 @@ func defaultSave(showDate: Bool) {
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                             //; print("key: [\(key)  values \((a, b))")
         timeBlockPaths.append([a, b])
+        
+        
     }
-    print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
+//    print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     
     
     for vals in eventsAtIndexPath.values {
@@ -24,7 +26,7 @@ func defaultSave(showDate: Bool) {
         }
         itemDescriptionArrays.append(eventDescriptions)
     }
-    print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
+//    print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
     
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]

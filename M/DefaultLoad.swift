@@ -22,8 +22,8 @@ func defaultLoad(showDate: Bool) {                                              
         }
     } else {
         let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
-        let currentDateAsDefault = [yr, mo, dy, wkd, hr, mn] as [Any]
-        lastLoginDateComponents = currentDateAsDefault; print("\nfirst login; default previous login date components: \n\(lastLoginDateComponents)")
+        lastLoginDateComponents = [yr, mo, dy, wkd, hr, mn] as [Any]
+        print("\nfirst login; default previous login date components: \n\(lastLoginDateComponents)")
     }
     timeBlockPaths = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
     itemDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
