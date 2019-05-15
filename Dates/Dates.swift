@@ -20,14 +20,14 @@ func processCurrentDate() {
 func displayDate(_ inputDate: Date)
     -> (year: Int, monthStr: String, day: Int, weekday: String, hour: Int, minute: Int) {
         
-        let year = Calendar.current.component(.year, from: inputDate)
-        let month = months[Calendar.current.component(.month, from: inputDate) - 1]
-        let day = Calendar.current.component(.day, from: inputDate)
-        let weekday = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
-        let hour = Calendar.current.component(.hour, from: inputDate)
-        let minute = Calendar.current.component(.minute, from: inputDate)
+        let yr = Calendar.current.component(.year, from: inputDate)
+        let mnth = months[Calendar.current.component(.month, from: inputDate) - 1]
+        let dy = Calendar.current.component(.day, from: inputDate)
+        let wkdy = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+        let hr = Calendar.current.component(.hour, from: inputDate)
+        let mn = Calendar.current.component(.minute, from: inputDate)
         //let secInt = Calendar.current.component(.second, from: inputDate)
-        return (year, month, day, weekday, hour, minute)
+        return (yr, mnth, dy, wkdy, hr, mn)
 }
 
 func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {

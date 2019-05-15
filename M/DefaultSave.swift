@@ -4,7 +4,7 @@ import UIKit
 
 func defaultSave(showDate: Bool) {
     
-    if showDate {print(formattedDateString(lastLoggedInDate, comment: "saving via defaults, date logged: ", short: false))}
+    if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
         
     let defaults = UserDefaults.standard
     
