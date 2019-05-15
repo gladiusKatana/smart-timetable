@@ -2,9 +2,6 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-var nonDefaultTimeBlockPaths = [[Int]]()
-var nonDefaultItemDescriptionArrays = [[String]]()//above arrays' non-'nonDefault' counterparts are catch-all arrays (literally: to 'catch 'em all')
-
 func defaultSave(showDate: Bool) {
     
     if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
@@ -12,7 +9,6 @@ func defaultSave(showDate: Bool) {
     let defaults = UserDefaults.standard
     
     nonDefaultTimeBlockPaths.removeAll();   nonDefaultItemDescriptionArrays.removeAll()
-    timeBlockPaths.removeAll();             itemDescriptionArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
@@ -23,10 +19,7 @@ func defaultSave(showDate: Bool) {
             //let pathString = "\((a, b)): \(todo)"                                                 //; print(pathString)
             nonDefaultTimeBlockPaths.append([a, b])
         }
-        
-        timeBlockPaths.append([a, b])                                       //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
-//    print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     print("\nnon default time block paths (\(nonDefaultTimeBlockPaths.count)): \n\(nonDefaultTimeBlockPaths)")
     
     for vals in eventsAtIndexPath.values {
@@ -46,22 +39,17 @@ func defaultSave(showDate: Bool) {
             let str = event.eventDescription
             eventDescriptions.append(str)
         }
-        
-        itemDescriptionArrays.append(eventDescriptions)                     //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
-//    print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
     print("\nnon default descriptions (\(nonDefaultItemDescriptionArrays.count)): \n\(nonDefaultItemDescriptionArrays)")
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
     defaults.set(nonDefaultTimeBlockPaths, forKey: "savedNonDefaultTimeBlockPaths")
     defaults.set(nonDefaultItemDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
-    defaults.set(timeBlockPaths, forKey: "savedTimeBlockPaths")
-    defaults.set(itemDescriptionArrays, forKey: "savedTodoListItems")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 
-/*if let val = eventsAtIndexPath[key] {                                                     // alternative to below section
+/*if let val = eventsAtIndexPath[key] {
     if let todo = val.last?.eventDescription, todo != defaultEmptEventDescription {
         print(todo)
     }

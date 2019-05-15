@@ -28,8 +28,6 @@ func defaultLoad(showDate: Bool) {                                              
     
     nonDefaultTimeBlockPaths = defaults.array(forKey: "savedNonDefaultTimeBlockPaths") as? [[Int]] ?? []
     nonDefaultItemDescriptionArrays = defaults.array(forKey: "savedNonDefaultTodoListItems") as? [[String]] ?? []
-    timeBlockPaths = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
-    itemDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
     populateDictionaryFromDefaults()
 }
 
