@@ -14,7 +14,6 @@ func defaultSave(showDate: Bool) {
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
-        timeBlockPaths.append([a, b])
 
 //        guard let val = eventsAtIndexPath[key] else {print("could not create event at index path key"); return}/*alternate to guard/guard/if: below*/
 //        guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
@@ -24,6 +23,7 @@ func defaultSave(showDate: Bool) {
 //            print(pathString)
 //        }
         
+        timeBlockPaths.append([a, b])                                       //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
     print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
     
@@ -31,16 +31,19 @@ func defaultSave(showDate: Bool) {
     for vals in eventsAtIndexPath.values {
         var eventDescriptions = [String]()
         for event in vals {
-            var str = event.eventDescription
+            let str = event.eventDescription
             
-            if str == defaultEmptEventDescription {str = ":)"}
-            if str == ":)" {str = defaultEmptEventDescription}
+            if str != defaultEmptEventDescription { //str = ":)"
+                
+            }
             
-            eventDescriptions.append(str)
+            eventDescriptions.append(str)                                   //probably temporary, catch-all array (literally: to 'catch 'em all'!)
         }
         itemDescriptionArrays.append(eventDescriptions)
     }
     print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
+    
+    
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
     defaults.set(timeBlockPaths, forKey: "savedTimeBlockPaths")
