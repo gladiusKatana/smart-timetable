@@ -14,8 +14,8 @@ var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 
-var nonDefaultTimeBlockPaths = [[Int]]()
-var nonDefaultItemDescriptionArrays = [[String]]()
+var eventPathArrays = [[Int]]()
+var eventDescriptionArrays = [[String]]()
 
 var selectedTimeBlockPath = [0, 0];             var previousSelectedTimeBlockPath = [0, 0]
 var nowRow = 0;                                 var nowColumn = 0

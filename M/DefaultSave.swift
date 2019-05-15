@@ -6,7 +6,7 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     
     let defaults = UserDefaults.standard
     
-    nonDefaultTimeBlockPaths.removeAll();   nonDefaultItemDescriptionArrays.removeAll()
+    eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
@@ -15,10 +15,10 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
         guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
         if todo != defaultEmptEventDescription {
             //let pathString = "\((a, b)): \(todo)"                                                 //; print(pathString)
-            nonDefaultTimeBlockPaths.append([a, b])
+            eventPathArrays.append([a, b])
         }
     }
-    print("\nnon default time block paths (\(nonDefaultTimeBlockPaths.count)): \n\(nonDefaultTimeBlockPaths)")
+    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
     
     for vals in eventsAtIndexPath.values {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
@@ -26,16 +26,17 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
             for event in vals {
                 let str = event.eventDescription
                 nonDefaultEventDescriptions.append(str)
+                
             }
-            nonDefaultItemDescriptionArrays.append(nonDefaultEventDescriptions)
+            eventDescriptionArrays.append(nonDefaultEventDescriptions)
         } //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
-    print("\nnon default descriptions (\(nonDefaultItemDescriptionArrays.count)): \n\(nonDefaultItemDescriptionArrays)")
+    print("\nnon default descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
-    defaults.set(nonDefaultTimeBlockPaths, forKey: "savedNonDefaultTimeBlockPaths")
-    defaults.set(nonDefaultItemDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
+    defaults.set(eventPathArrays, forKey: "savedNonDefaultTimeBlockPaths")
+    defaults.set(eventDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 
