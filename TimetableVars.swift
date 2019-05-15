@@ -6,8 +6,11 @@ var currentDate = Date()
 var lastLoggedInDate = Date()
 var selectedCellDate = Date()
 
-var (year, month, day, weekday, hour, minute) = (0, "", 0, "", 0, 0) // reserving full-spelled date component names for CURRENT date (Date()!)
-var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
+var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int()) // (0, "", 0, "", 0, 0)
+//* reserving full-spelled date component names for CURRENT date (Date()!)
+
+var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
+//var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
 
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
@@ -16,6 +19,10 @@ var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBloc
 
 var eventPathArrays = [[Int]]()
 var eventDescriptionArrays = [[String]]()
+
+//var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]] as [[Any]]]
+//var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()]]  as [[Any]]]
+var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
 var selectedTimeBlockPath = [0, 0];             var previousSelectedTimeBlockPath = [0, 0]
 var nowRow = 0;                                 var nowColumn = 0

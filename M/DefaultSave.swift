@@ -7,6 +7,7 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     let defaults = UserDefaults.standard
     
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()
+    eventDateArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
@@ -23,20 +24,30 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     for vals in eventsAtIndexPath.values {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
             var nonDefaultEventDescriptions = [String]()
+            
+            var nonDefaultEventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()] as [Any]] // [[0, "", 0, "", 0, 0] as [Any]]
+            nonDefaultEventDateComponents.removeAll()
+            
             for event in vals {
                 let str = event.eventDescription
                 nonDefaultEventDescriptions.append(str)
                 
+                let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate)
+                nonDefaultEventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
             eventDescriptionArrays.append(nonDefaultEventDescriptions)
-        } //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
+            eventDateArrays.append(nonDefaultEventDateComponents)
+        }
+        //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
-    print("\nnon default descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
+    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
+    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
     defaults.set(eventPathArrays, forKey: "savedNonDefaultTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
+    defaults.set(eventDateArrays, forKey: "savedNonDefaultTodoListDates")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 

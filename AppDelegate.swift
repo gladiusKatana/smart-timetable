@@ -24,6 +24,9 @@ import UIKit
         UINavigationBar.appearance().shadowImage = UIImage()
         
         print(formattedDateString(Date(), comment: "                           on date", short: false))
+        
+        eventDateArrays.removeAll()
+        
         return true
     }
     

@@ -28,7 +28,16 @@ func defaultLoad(showDate: Bool) {                                              
     
     eventPathArrays = defaults.array(forKey: "savedNonDefaultTimeBlockPaths") as? [[Int]] ?? []
     eventDescriptionArrays = defaults.array(forKey: "savedNonDefaultTodoListItems") as? [[String]] ?? []
+    
+//    eventDateArrays = defaults.array(forKey: "savedNonDefaultTodoListDates") as? [[[Int(), String(), Int(), String(), Int(), Int()] as [Any] ]] ?? [[]]
+//    eventDateArrays = defaults.array(forKey: "savedNonDefaultTodoListDates") as? [[Int(), String(), Int(), String(), Int(), Int()]] ?? []
+    eventDateArrays = defaults.array(forKey: "savedNonDefaultTodoListDates") as? [[[Any]]] ?? [[[]]]
+    
     populateDictionaryFromDefaults()
+    
+    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
+    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
+    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
 }
 
 func dateFromLoadedComponents(year: Int, month: Int, day: Int, hour: Int, minute: Int) -> Date {
