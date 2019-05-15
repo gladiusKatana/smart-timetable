@@ -2,7 +2,8 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-var nonDefaultPaths = [[Int]]()
+var nonDefaultTimeBlockPaths = [[Int]]()
+var nonDefaultItemDescriptionArrays = [[String]]()//above arrays' non-'nonDefault' counterparts are catch-all arrays (literally: to 'catch 'em all')
 
 func defaultSave(showDate: Bool) {
     
@@ -19,7 +20,7 @@ func defaultSave(showDate: Bool) {
 //        guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
 //        if todo != defaultEmptEventDescription {
 //            let pathString = "\((a, b)): \(todo)"
-//            nonDefaultPaths.append([a, b])
+//            nonDefaultTimeBlockPaths.append([a, b])
 //            print(pathString)
 //        }
         
@@ -34,12 +35,12 @@ func defaultSave(showDate: Bool) {
             let str = event.eventDescription
             
             if str != defaultEmptEventDescription { //str = ":)"
-                
+//                nonDefaultItemDescriptionArrays.append(//...
             }
             
-            eventDescriptions.append(str)                                   //probably temporary, catch-all array (literally: to 'catch 'em all'!)
+            eventDescriptions.append(str)
         }
-        itemDescriptionArrays.append(eventDescriptions)
+        itemDescriptionArrays.append(eventDescriptions)                     //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
     print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
     
