@@ -11,7 +11,8 @@ func defaultSave(showDate: Bool) {
     
     let defaults = UserDefaults.standard
     
-    timeBlockPaths.removeAll(); itemDescriptionArrays.removeAll()
+    nonDefaultTimeBlockPaths.removeAll();   nonDefaultItemDescriptionArrays.removeAll()
+    timeBlockPaths.removeAll();             itemDescriptionArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
@@ -26,7 +27,7 @@ func defaultSave(showDate: Bool) {
         timeBlockPaths.append([a, b])                                       //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
 //    print("\ntime block paths (\(timeBlockPaths.count)): \(timeBlockPaths)")
-    print("\nnon default time block paths (\(nonDefaultTimeBlockPaths.count)): \(nonDefaultTimeBlockPaths)")
+    print("\nnon default time block paths (\(nonDefaultTimeBlockPaths.count)): \n\(nonDefaultTimeBlockPaths)")
     
     for vals in eventsAtIndexPath.values {
         var eventDescriptions = [String]()
@@ -49,10 +50,12 @@ func defaultSave(showDate: Bool) {
         itemDescriptionArrays.append(eventDescriptions)                     //probably temporary, catch-all array (literally: to 'catch 'em all'!)
     }
 //    print("\ntodo list item descriptions (\(itemDescriptionArrays.count)): \(itemDescriptionArrays)")
-    print("\nnon default descriptions (\(nonDefaultItemDescriptionArrays.count)): \(nonDefaultItemDescriptionArrays)")
+    print("\nnon default descriptions (\(nonDefaultItemDescriptionArrays.count)): \n\(nonDefaultItemDescriptionArrays)")
     
     lastLoginDateComponents = [year, month, day, weekday, hour, minute]
     
+    defaults.set(nonDefaultTimeBlockPaths, forKey: "savedNonDefaultTimeBlockPaths")
+    defaults.set(nonDefaultItemDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
     defaults.set(timeBlockPaths, forKey: "savedTimeBlockPaths")
     defaults.set(itemDescriptionArrays, forKey: "savedTodoListItems")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
