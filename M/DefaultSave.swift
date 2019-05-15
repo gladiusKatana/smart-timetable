@@ -21,22 +21,14 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     print("\nnon default time block paths (\(nonDefaultTimeBlockPaths.count)): \n\(nonDefaultTimeBlockPaths)")
     
     for vals in eventsAtIndexPath.values {
-        var eventDescriptions = [String]()
-        
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
             var nonDefaultEventDescriptions = [String]()
             for event in vals {
                 let str = event.eventDescription
                 nonDefaultEventDescriptions.append(str)
             }
-            
             nonDefaultItemDescriptionArrays.append(nonDefaultEventDescriptions)
         } //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
-        
-        for event in vals {
-            let str = event.eventDescription
-            eventDescriptions.append(str)
-        }
     }
     print("\nnon default descriptions (\(nonDefaultItemDescriptionArrays.count)): \n\(nonDefaultItemDescriptionArrays)")
     
