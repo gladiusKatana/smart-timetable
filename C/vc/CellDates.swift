@@ -4,13 +4,7 @@ import UIKit
 extension CollectionVC {
     
     func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if row == nowRow && column == nowColumn {        // the 'now-cell'
-            cell.layer.borderColor = UIColor.blue.cgColor
-            cell.layer.borderWidth = 2
-        } else {
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.borderWidth = 0
-        }
+        showNowCell(cell: cell, column: column, row: row)
         
         let hoursFromNow = TimeInterval(3600 * (row - nowRow))
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
@@ -21,39 +15,52 @@ extension CollectionVC {
         modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
+    func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+        showNowCell(cell: cell, column: column, row: row)
+        
+        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
+        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+        
+        let weekAhead = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: true)
+        let potentialWeekAhead = TimeInterval(86400 * 7 * weekAhead)
+        
+        cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
+        
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
+        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
+    }
+    
+    func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, showWithColours: Bool) -> Int {
+        var weekAhead = 0
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows && !(row == nowRow && column == nowColumn) {
+            if column < nowColumn || column == nowColumn && row < nowRow {
+                if showWithColours{cell.backgroundColor = .red}
+                weekAhead = 1
+            }
+            else {if showWithColours{cell.backgroundColor = .orange}}
+        }
+        return weekAhead
+    }
+    
     func modifyTimeBlockBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
             if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
                 cell.backgroundColor = .orange
-//                let timeBlock = TimeBlock(values:(column, row))
-//              //(will set event's status to done, delegated, obviated, or deferred)
+                //let timeBlock = TimeBlock(values:(column, row))
+                //(upcoming: will set event's status to done, delegated, obviated, or deferred)
             }
         }
     }
     
-    func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        var weekAhead = 0
-        if row == nowRow && column == nowColumn {        // the 'now-cell'
+    func showNowCell(cell: CustomCell, column: Int, row: Int) {
+        if row == nowRow && column == nowColumn {
             cell.layer.borderColor = UIColor.blue.cgColor
             cell.layer.borderWidth = 2
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
-            
-            if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
-                if column < nowColumn || column == nowColumn && row < nowRow {
-                    cell.backgroundColor = .red
-                    weekAhead = 1
-                }
-                else {cell.backgroundColor = .orange}
-            }
         }
-        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
-        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
-        let conditionalWeekAhead = TimeInterval(86400 * 7 * weekAhead)
-        cell.cellDate = Date() + hoursFromNow + daysFromNow + conditionalWeekAhead
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
     }
 }
 
