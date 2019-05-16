@@ -32,7 +32,7 @@ extension CollectionVC {
     
     func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, showWithColours: Bool) -> Int {
         var weekAhead = 0
-        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows && !(row == nowRow && column == nowColumn) {
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
             if column < nowColumn || column == nowColumn && row < nowRow {
                 if showWithColours{cell.backgroundColor = .red}
                 weekAhead = 1
