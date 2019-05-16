@@ -23,22 +23,24 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 1, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: false, colourIndex: 1, collectionViewLayout: timetableLayout)       // header titles get...
-var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 0, collectionViewLayout: todoListLayout)     //...changed promptly
+var timetableVC = CollectionVC(.hours, loopWeeks: false, colourIndex: 1, collectionViewLayout: timetableLayout)
+var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 0, collectionViewLayout: todoListLayout)
 //--------------------------------------------------------------------------------------------
 
 var topVC = CollectionVC(.initial, loopWeeks: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer
-var backgroundVC = UIViewController()
 
-var statusBar = UIView();           var navbarTitleLabel = UILabel();       var testRectanglelayer = CAShapeLayer()
+var statusBarHeight = 0.0;          var lastStatusBarHeight = 0.0;      var navBarHeight = 0.0;     var launchWidth = 0.0
 
 var xOffSet = CGFloat(0);           var yOffSet = CGFloat(0)
-var statusBarHeight = 0.0;          var lastStatusBarHeight = 0.0;  var navBarHeight = 0.0; var launchWidth = 0.0
+var textFieldY = CGFloat(0)
+
 var rePresentedVCFromButton = true; var firstReenteredForeground = false
 
 var currentOrientation = "orientation (landscape or portrait) for prepare-layout logic"
 var previousOrientation = "previous orientation (landscape or portrait) for prepare-layout logic"
 var launchOrientation = "orientation at the moment of launch"
 var modelName = "device you're running on"
+
 var phones = ["iPhone4", "iPhone 4s", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6 Plus", "iPhone 6s", "iPhone 6s Plus", "iPhone 7", "iPhone 7 Plus", "iPhone SE", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XS", "iPhone XS Max", "iPhone XR"]
+// left this global only to make it more prominent
 

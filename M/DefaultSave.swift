@@ -20,36 +20,36 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     
     for vals in eventsAtIndexPath.values {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
-            var nonDefaultEventDescriptions = [String]()
+            var eventDescriptions = [String]()
             
-            var nonDefaultEventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()] as [Any]] // [[0, "", 0, "", 0, 0] as [Any]]
-            nonDefaultEventDateComponents.removeAll()
+            var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()] as [Any]] // [[0, "", 0, "", 0, 0] as [Any]]
+            eventDateComponents.removeAll()
             
             for event in vals {
                 let str = event.eventDescription
-                nonDefaultEventDescriptions.append(str)
+                eventDescriptions.append(str)
                 
                 let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate)
-                nonDefaultEventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
+                eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
-            eventDescriptionArrays.append(nonDefaultEventDescriptions)
-            eventDateArrays.append(nonDefaultEventDateComponents)
+            eventDescriptionArrays.append(eventDescriptions)
+            eventDateArrays.append(eventDateComponents)
         }
         //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
     printSavedArrays()
     lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the latest login date (for saving) as the date this minute
     
-    defaults.set(eventPathArrays, forKey: "savedNonDefaultTimeBlockPaths")
-    defaults.set(eventDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
-    defaults.set(eventDateArrays, forKey: "savedNonDefaultTodoListDates")
+    defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")
+    defaults.set(eventDescriptionArrays, forKey: "savedTodoListItems")
+    defaults.set(eventDateArrays, forKey: "savedTodoListDates")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 
 func printSavedArrays() {
-    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
-    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
-    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
+    print("time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
+    print("event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
+    print("event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
 }
 
 /*if let val = eventsAtIndexPath[key] {

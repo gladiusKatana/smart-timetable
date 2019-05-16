@@ -8,6 +8,7 @@ import UIKit
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
+        var statusBar = UIView();
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = navyBlue
         window?.makeKeyAndVisible()
@@ -30,7 +31,7 @@ import UIKit
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        let backgroundVC = UIViewController()
         backgroundVC.view.frame = globalKeyWindow.frame
         backgroundVC.view.backgroundColor = navyBlue
         
@@ -41,7 +42,6 @@ import UIKit
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             timetableVC.setupAndPresent(vc: timetableVC)  // just need a uiviewcontroller (any of them) to call this func.
         }
-        
         return true
     }
 }

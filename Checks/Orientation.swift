@@ -8,7 +8,6 @@ extension AppDelegate {
     func getOrientationAtLaunch() {
         
         let launchHeight = Double(globalKeyWindow.frame.height)     //; print("view frame height \(launchHeight)")
-        launchWidth = Double(globalKeyWindow.frame.width)           //;  print("view frame width \(launchWidth)")
         
         if launchHeight > launchWidth {
             launchOrientation = "portrait"

@@ -17,9 +17,9 @@ func defaultLoad(showDate: Bool) { //print("(load using defaults)\n")
         lastLoginDateComponents = [yr, mo, dy, wkd, hr, mn] as [Any]
         print("\nfirst login; default previous login date components: \n\(lastLoginDateComponents)")
     }
-    eventPathArrays = defaults.array(forKey: "savedNonDefaultTimeBlockPaths") as? [[Int]] ?? []
-    eventDescriptionArrays = defaults.array(forKey: "savedNonDefaultTodoListItems") as? [[String]] ?? []
-    eventDateArrays = defaults.array(forKey: "savedNonDefaultTodoListDates") as? [[[Any]]] ?? [[[]]]
+    eventPathArrays = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
+    eventDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
+    eventDateArrays = defaults.array(forKey: "savedTodoListDates") as? [[[Any]]] ?? [[[]]]
     populateDictionaryFromDefaults()
 //    printSavedArrays()
 }

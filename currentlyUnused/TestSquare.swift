@@ -3,8 +3,8 @@
 
 import UIKit
 
-
 func drawTestSquare() { //For testing purposes only: to verify calculation/recalculation of navbar height + status bar height, dynamically.
+    let testRectanglelayer = CAShapeLayer()
     testRectanglelayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: statusBarHeight + navBarHeight, width: 4, height: 4), cornerRadius: 0).cgPath
     
     let randNum = randomNumber(inRange: 1...7) - 1

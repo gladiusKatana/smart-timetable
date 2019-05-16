@@ -2,7 +2,6 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-var currentDate = Date()
 var lastLoggedInDate = Date()
 var selectedCellDate = Date()
 
@@ -22,11 +21,10 @@ var eventDescriptionArrays = [[String]]()
 var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
 var selectedTimeBlockPath = [0, 0];             var previousSelectedTimeBlockPath = [0, 0]
-var nowRow = 0;                                 var nowColumn = 0
-var textFieldY = CGFloat(0)
 
-var reloadedFromHourTickingOver = false
-var textFieldDisplayed = false
+var nowRow = 0;                                 var nowColumn = 0
+
+var reloadedFromHourTickingOver = false;        var textFieldDisplayed = false
 
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
