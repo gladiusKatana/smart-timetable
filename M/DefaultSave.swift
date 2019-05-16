@@ -10,12 +10,11 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
     eventDateArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
-        let (a, b) = key.values                                                                     //; print("key: [\(key)  values \((a, b))")
+        let (a, b) = key.values                                                                         //; print("key: [\(key)  values \((a, b))")
         
         guard let val = eventsAtIndexPath[key] else {print("could not create event at index path key"); return}/*alternate to guard/guard/if: below*/
         guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
-        if todo != defaultEmptEventDescription {
-            //let pathString = "\((a, b)): \(todo)"                                                 //; print(pathString)
+        if todo != defaultEmptEventDescription {                                                        //; print(\((a, b)): \(todo))
             eventPathArrays.append([a, b])
         }
     }

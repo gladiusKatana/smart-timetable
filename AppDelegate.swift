@@ -25,8 +25,6 @@ import UIKit
         
         print(formattedDateString(Date(), comment: "                           on date", short: false))
         
-        eventDateArrays.removeAll()
-        
         return true
     }
     
