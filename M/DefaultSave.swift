@@ -3,7 +3,6 @@
 import UIKit
 
 func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
-    
     let defaults = UserDefaults.standard
     
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()
@@ -18,7 +17,6 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
             eventPathArrays.append([a, b])
         }
     }
-    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
     
     for vals in eventsAtIndexPath.values {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
@@ -39,15 +37,19 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
         }
         //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
-    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
-    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
-    
-    lastLoginDateComponents = [year, month, day, weekday, hour, minute]
+    printSavedArrays()
+    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the latest login date (for saving) as the date this minute
     
     defaults.set(eventPathArrays, forKey: "savedNonDefaultTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedNonDefaultTodoListItems")
     defaults.set(eventDateArrays, forKey: "savedNonDefaultTodoListDates")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
+}
+
+func printSavedArrays() {
+    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
+    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
+    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
 }
 
 /*if let val = eventsAtIndexPath[key] {

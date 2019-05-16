@@ -24,6 +24,27 @@ func defaultLoad(showDate: Bool) { //print("(load using defaults)\n")
 //    printSavedArrays()
 }
 
+func populateDictionaryFromDefaults() {
+    var i = 0
+    for path in eventPathArrays {
+        let todoListItemDescriptions = eventDescriptionArrays[i] //!*
+        var events = [SimpleEvent]()
+        
+        var j = 0
+        for description in todoListItemDescriptions {
+            let dateComponents = eventDateArrays[i][j]                              //; print("event date components: \(dateComponents)")
+            let date = dateFromLoadedComponents(dateComponents)                                             //; print("date: \(date)")
+            let event = SimpleEvent(eventDescription: description, eventDate: date)
+            print("loaded event: '\(event.eventDescription)' with deadline:\(formattedDateString(date, comment: "", short: false))")
+            events.append(event)
+            j += 1
+        }
+        let timeBlock = TimeBlock(values: (path[0], path[1]))
+        eventsAtIndexPath[timeBlock] = events
+        i += 1
+    }
+}
+
 func dateFromLoadedComponents(_ array: [Any]) -> Date {
     let yearLoaded = array[0] as! Int                               //; print("year loaded: \(yearLoaded)")     // will probably replace with...
     let monthLoaded = array[1] as! String                           //; print("month loaded: \(monthLoaded)")   //... conditional downcasts,...
@@ -42,29 +63,4 @@ func dateFromLoadedComponents(_ array: [Any]) -> Date {
     return date
 }
 
-func populateDictionaryFromDefaults() {
-    var i = 0
-    for path in eventPathArrays {
-        let todoListItemDescriptions = eventDescriptionArrays[i] //!*
-        var events = [SimpleEvent]()
-        
-        var j = 0
-        for description in todoListItemDescriptions {
-            let dateComponents = eventDateArrays[i][j]                              //; print("event date components: \(dateComponents)")
-            let date = dateFromLoadedComponents(dateComponents)                                             //; print("date: \(date)")
-            print(formattedDateString(date, comment: "dates of time blocks with event(s):", short: false))
-            let event = SimpleEvent(eventDescription: description, eventDate: date)
-            events.append(event)
-            j += 1
-        }
-        let timeBlock = TimeBlock(values: (path[0], path[1]))
-        eventsAtIndexPath[timeBlock] = events
-        i += 1
-    }
-}
 
-func printSavedArrays() {
-    print("\nnon default time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
-    print("\nnon default event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
-    print("\nnon default event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
-}
