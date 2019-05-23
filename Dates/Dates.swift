@@ -3,31 +3,29 @@
 import UIKit
 
 func processCurrentDate() { 
-    (year, month, day, weekday, hour, minute) = displayDate(Date())//; print(formattedDateString(Date(), comment: "process dates @ ", short: false))
+    (year, month, day, weekday, hour, minute) = displayDate(Date()) //; print(formattedDateString(Date(), comment: "process dates @ ", short: false))
     
     nowRow = Calendar.current.component(.hour, from: Date()) + 1
     nowColumn = weekdaysAbbreviated.firstIndex(of: weekday)! + 1
     
-    if topVC.vcType == .hours {
-        if selectedTimeBlockPath == [0, 0] {selectedTimeBlockPath = [nowColumn, nowRow]}
-        if timeBlock == TimeBlock(values:(0, 0)) {timeBlock = TimeBlock(values:(nowColumn, nowRow))}
-        
-        if previousSelectedTimeBlockPath == [0, 0] {previousSelectedTimeBlockPath = [nowColumn, nowRow]}
-        if previousTimeBlock == TimeBlock(values:(0, 0)) {previousTimeBlock = TimeBlock(values:(nowColumn, nowRow))}
-    }//print("-----------------------now cell at \([nowRow, nowColumn])")
+    ///if topVC .vcType == .hours { // already checked in the place where it's called
+    if selectedTimeBlockPath == [0, 0] {selectedTimeBlockPath = [nowColumn, nowRow]}
+    if timeBlock == TimeBlock(values:(0, 0)) {timeBlock = TimeBlock(values:(nowColumn, nowRow))}
+    
+    if previousSelectedTimeBlockPath == [0, 0] {previousSelectedTimeBlockPath = [nowColumn, nowRow]}
+    if previousTimeBlock == TimeBlock(values:(0, 0)) {previousTimeBlock = TimeBlock(values:(nowColumn, nowRow))}
+    ///}
 }
 
-func displayDate(_ inputDate: Date)
-    -> (year: Int, monthStr: String, day: Int, weekday: String, hour: Int, minute: Int) {
-        
-        let yr = Calendar.current.component(.year, from: inputDate)
-        let mnth = months[Calendar.current.component(.month, from: inputDate) - 1]
-        let dy = Calendar.current.component(.day, from: inputDate)
-        let wkdy = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
-        let hr = Calendar.current.component(.hour, from: inputDate)
-        let mn = Calendar.current.component(.minute, from: inputDate)
-        //let secInt = Calendar.current.component(.second, from: inputDate)
-        return (yr, mnth, dy, wkdy, hr, mn)
+func displayDate(_ inputDate: Date) -> (year: Int, monthStr: String, day: Int, weekday: String, hour: Int, minute: Int) {
+    let yr = Calendar.current.component(.year, from: inputDate)
+    let mnth = months[Calendar.current.component(.month, from: inputDate) - 1]
+    let dy = Calendar.current.component(.day, from: inputDate)
+    let wkdy = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
+    let hr = Calendar.current.component(.hour, from: inputDate)
+    let mn = Calendar.current.component(.minute, from: inputDate)
+    //let secInt = Calendar.current.component(.second, from: inputDate)
+    return (yr, mnth, dy, wkdy, hr, mn)
 }
 
 func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
