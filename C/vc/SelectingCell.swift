@@ -17,7 +17,7 @@ extension CollectionVC {
             selectedCellDate = cell.cellDate
             let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
-            if collectionViewType == .hours {
+            if vcType == .hours {
                 
                 selectedTimeBlockPath = [column, row]
                 timeBlock = TimeBlock(values:(column, row))
@@ -46,7 +46,7 @@ extension CollectionVC {
                     }, completion: nil)
                 }
             }
-            else if collectionViewType == .todoList {
+            else if vcType == .todoList {
                 formatAndPresentTextField(layout: layout, dateString: dateString)
                 textFieldDisplayed = true
             }

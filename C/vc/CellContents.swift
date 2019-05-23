@@ -3,10 +3,8 @@
 import UIKit
 extension CollectionVC {
     
-    func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
-        let row = indexPath.item ; let column = indexPath.section
-        
-        if collectionViewType == .hours {
+    func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {     //cell. titleLabel.text = "\(column),\(row)"
+        if vcType == .hours {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: loopWeeks)
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
                 let timeBlock = TimeBlock(values:(column, row))
@@ -15,7 +13,7 @@ extension CollectionVC {
                 cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
             }
         }
-        else if collectionViewType == .todoList {                               //print("(todo list; previous time block: \(previousTimeBlock) )")
+        else if vcType == .todoList {                                   //print("(todo list; previous time block: \(previousTimeBlock))")
             cell.cellDate = selectedCellDate
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 if column == 0 {
@@ -28,7 +26,7 @@ extension CollectionVC {
                 else {cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"}
             } else {cell.titleLabel.text = "(no items yet)"}
         }
-        else {print("collection view type is some other unknown type")}         // should never get called
+        else {print("collection view type is some other unknown type")}             // should never get called
     }
     
     func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) {

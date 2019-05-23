@@ -8,7 +8,8 @@ import UIKit
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        var statusBar = UIView();
+        var statusBar = UIView()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = navyBlue
         window?.makeKeyAndVisible()
@@ -31,12 +32,13 @@ import UIKit
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         let backgroundVC = UIViewController()
+        
         backgroundVC.view.frame = globalKeyWindow.frame
         backgroundVC.view.backgroundColor = navyBlue
         
         navController = UINavigationController(rootViewController: backgroundVC)
-        
         window?.rootViewController = navController                  //; print("VCs*: \(String(describing: nav Controller?.viewControllers))")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {

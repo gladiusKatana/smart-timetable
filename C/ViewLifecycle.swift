@@ -9,8 +9,8 @@ extension CollectionVC {
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
         
-        if collectionViewType != .initial {
-            print("\n💾\(collectionViewType)-view loaded")
+        if vcType != .initial {
+            print("\n💾\(vcType)-view loaded")
             setTopViewController()
         }
         
@@ -20,16 +20,16 @@ extension CollectionVC {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        if collectionViewType == .hours {
+        if vcType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-        else if collectionViewType == .todoList {
+        else if vcType == .todoList {
             setupViewTitle(formattedDateString(selectedCellDate, comment: "TO DO  ∙ ", short: false), numLines: 1, alignment: .left)
         }
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
-            reloadCV(); print("🏞\(collectionViewType)-view appeared")
+            reloadCV(); print("🏞\(vcType)-view appeared")
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
@@ -41,7 +41,7 @@ extension CollectionVC {
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        if collectionViewType == .todoList {
+        if vcType == .todoList {
             if textFieldDisplayed {
                 eventField.removeFromSuperview()        //; print("removed text field")
                 textFieldDisplayed = false

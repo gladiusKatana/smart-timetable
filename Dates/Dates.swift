@@ -8,7 +8,7 @@ func processCurrentDate() {
     nowRow = Calendar.current.component(.hour, from: Date()) + 1
     nowColumn = weekdaysAbbreviated.firstIndex(of: weekday)! + 1
     
-    if topVC.collectionViewType == .hours {
+    if topVC.vcType == .hours {
         if selectedTimeBlockPath == [0, 0] {selectedTimeBlockPath = [nowColumn, nowRow]}
         if timeBlock == TimeBlock(values:(0, 0)) {timeBlock = TimeBlock(values:(nowColumn, nowRow))}
         

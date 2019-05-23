@@ -20,6 +20,7 @@ var eventPathArrays = [[Int]]()
 var eventDescriptionArrays = [[String]]()
 var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
+
 var selectedTimeBlockPath = [0, 0];             var previousSelectedTimeBlockPath = [0, 0]
 
 var nowRow = 0;                                 var nowColumn = 0

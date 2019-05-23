@@ -9,19 +9,17 @@ extension CollectionVC {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
         
+        let row = indexPath.item; let column = indexPath.section
+
         eventField.becomeFirstResponder()
         
-        //let row = indexPath.item ; let column = indexPath.section       // since loadsHorizontally should be true for a (typical) calendar vc
-        //cell. titleLabel.text = "\(indexPath.section),\(indexPath.item)" ; //print(".", terminator: "")
-        
-        setCellColours(cell: cell, indexPath: indexPath, layout: customLayout)
-        setCellContents(cell: cell, indexPath: indexPath, layout: customLayout)
+        setCellColours(cell: cell, row: row, column: column, layout: customLayout)
+        setCellContents(cell: cell, row: row, column: column, layout: customLayout)
         return cell
     }
     
     
-    func setCellColours (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
-        let row = indexPath.item; let column = indexPath.section
+    func setCellColours (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {
         
         if row < layout.lockedHeaderRows || column < layout.lockedHeaderSections {
             cell.backgroundColor = headerColour

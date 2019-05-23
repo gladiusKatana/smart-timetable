@@ -2,7 +2,7 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
+func defaultSaveData(showDate: Bool) { if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
     let defaults = UserDefaults.standard
     
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()

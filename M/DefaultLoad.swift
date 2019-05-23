@@ -2,7 +2,7 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-func defaultLoad(showDate: Bool) { //print("(load using defaults)\n")
+func defaultLoadData(showDate: Bool) {                                      //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
     
     if let components = defaults.array(forKey: "savedLastLoginDate") {
@@ -21,7 +21,7 @@ func defaultLoad(showDate: Bool) { //print("(load using defaults)\n")
     eventDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
     eventDateArrays = defaults.array(forKey: "savedTodoListDates") as? [[[Any]]] ?? [[[]]]
     populateDictionaryFromDefaults()
-//    printSavedArrays()
+    //printSavedArrays()
 }
 
 func populateDictionaryFromDefaults() {

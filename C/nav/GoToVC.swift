@@ -24,7 +24,7 @@ extension CollectionVC {
             //}
             
         } else {
-            print("you're already looking at the \(vc.collectionViewType)-view   nav'd by button?\(rePresentedVCFromButton)")//collectionViewType
+            print("you're already looking at the \(vc.vcType)-view   nav'd by button?\(rePresentedVCFromButton)")//collectionViewType
         }
     }
 }

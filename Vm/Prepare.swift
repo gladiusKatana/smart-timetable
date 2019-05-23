@@ -24,11 +24,11 @@ extension CCVFlowLayout {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
         } else {
-            if topVC.collectionViewType == .hours {
+            if topVC.vcType == .hours {
             processCurrentDate()                                                            //; print("process date from prepare")
             }
         }
-        if topVC.collectionViewType == .hours {
+        if topVC.vcType == .hours {
             topVC.rePresentTextField()
         }
     }

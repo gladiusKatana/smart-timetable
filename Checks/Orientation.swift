@@ -21,6 +21,7 @@ extension AppDelegate {
             launchOrientation = " ?"
             lastStatusBarHeight = 99
         }
+        
         currentOrientation = launchOrientation
         previousOrientation = launchOrientation
     }
@@ -37,6 +38,6 @@ func checkOrientation() {
     else if currentHeight < currentWidth {
         currentOrientation = "landscape"
     }
-    else {print("\n\nApparently, somehow, the global key window's frame's height & width are being evaluated as equal...")} //shouldn't get called
-}//                                                                                                          ...unless Apple makes a square device
+    else {print("\n\nUm, global key window frame height & width are equal...")}//shouldn't get called... unless Apple decides to make a square device
+}
 
