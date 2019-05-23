@@ -4,11 +4,12 @@ import UIKit
 extension CollectionVC {
     
     func setCellContents (cell: CustomCell, indexPath: IndexPath, layout: CCVFlowLayout) {
-        cell.titleLabel.textColor = platinum
         let row = indexPath.item ; let column = indexPath.section
         
         if collectionViewType == .hours {
-            if loopWeeks {setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)}
+            if loopWeeks {
+                setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)
+            }
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
             
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
@@ -32,9 +33,11 @@ extension CollectionVC {
     
     func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
+            cell.titleLabel.textColor = .black
             /*see bottom - optional code to insert*/
         }
         else {
+            cell.titleLabel.textColor = cellTextDefaultColour
             if column == 0 && row > 0 {
                 var ampm = ""
                 if row < 13 {ampm = "am"}

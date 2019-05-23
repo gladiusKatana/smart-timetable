@@ -5,8 +5,9 @@ import UIKit
 
 let num = CGFloat(42)
 var headerColour = UIColor.rgb(num, g: num, b: num, a: 1)  
-var cellDefaultColour = navyBlue
 
+var cellDefaultColour = navyBlue
+var cellTextDefaultColour = platinum
 
 var niceOrange = UIColor.rgb(228, g: 50, b: 44, a: 1)
 

@@ -21,6 +21,7 @@ class CustomCell: UICollectionViewCell {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .ultraLight) //UIFont(name: "Helvetica Neue", size: 12)
+        titleLabel.textColor = cellTextDefaultColour
         
         self.addSubview(titleLabel)
         
