@@ -19,9 +19,9 @@ extension CollectionVC {
     }
     
     func showNowCell(cell: CustomCell, column: Int, row: Int) {
-        if row == nowRow && column == nowColumn {
-            cell.layer.borderColor = UIColor.blue.cgColor
-            cell.layer.borderWidth = 2
+        if row == nowRow && column == nowColumn {                   let nowColor = icyBlue
+            cell.layer.borderWidth = 2;     cell.layer.borderColor = nowColor.cgColor
+            cell.titleLabel.text = "now";   cell.titleLabel.textColor = nowColor
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
