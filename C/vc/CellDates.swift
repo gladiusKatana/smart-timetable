@@ -3,31 +3,30 @@
 import UIKit
 extension CollectionVC {
     
-    func setupHourlyCellsWithoutLooping (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setupHourlyCells(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, looping: Bool, withColours: Bool) {
         showNowCell(cell: cell, column: column, row: row)
         
         let hoursFromNow = TimeInterval(3600 * (row - nowRow))
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
+        var weekAheadInt = 0
         
-        cell.cellDate = Date() + hoursFromNow + daysFromNow
-        
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: false)
-        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
-    }
-    
-    func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) {
-        showNowCell(cell: cell, column: column, row: row)
-        
-        let hoursFromNow = TimeInterval(3600 * (row - nowRow))
-        let daysFromNow = TimeInterval(86400 * (column - nowColumn))
-        
-        let weekAhead = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: withColours)
-        let potentialWeekAhead = TimeInterval(86400 * 7 * weekAhead)
+        if looping {weekAheadInt = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: withColours)}
+        let potentialWeekAhead = TimeInterval(86400 * 7 * weekAheadInt)
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
-        
         setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: withColours)
-        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
+//        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
+    }
+    
+    func showNowCell(cell: CustomCell, column: Int, row: Int) {
+        if row == nowRow && column == nowColumn {
+            cell.layer.borderColor = UIColor.blue.cgColor
+            cell.layer.borderWidth = 2
+        }
+        else {
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 0
+        }
     }
     
     func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, showWithColours: Bool) -> Int {
@@ -49,17 +48,6 @@ extension CollectionVC {
                 //let timeBlock = TimeBlock(values:(column, row))
                 //(upcoming: will set event's status to done, delegated, obviated, or deferred)
             }
-        }
-    }
-    
-    func showNowCell(cell: CustomCell, column: Int, row: Int) {
-        if row == nowRow && column == nowColumn {
-            cell.layer.borderColor = UIColor.blue.cgColor
-            cell.layer.borderWidth = 2
-        }
-        else {
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.borderWidth = 0
         }
     }
 }

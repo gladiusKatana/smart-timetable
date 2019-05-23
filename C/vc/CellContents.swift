@@ -7,11 +7,7 @@ extension CollectionVC {
         let row = indexPath.item ; let column = indexPath.section
         
         if collectionViewType == .hours {
-            if loopWeeks {
-                setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout, withColours: false)
-            }
-            else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
-            
+            setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: loopWeeks)
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
                 let timeBlock = TimeBlock(values:(column, row))
                 let simpleEvent = SimpleEvent(eventDescription: defaultEmptyEventDescription, eventDate: selectedCellDate)
@@ -20,6 +16,7 @@ extension CollectionVC {
             }
         }
         else if collectionViewType == .todoList {                               //print("(todo list; previous time block: \(previousTimeBlock) )")
+            cell.cellDate = selectedCellDate
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 if column == 0 {
                     cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
@@ -28,12 +25,8 @@ extension CollectionVC {
                     let eventDeadline = eventsAtIndexPath[previousTimeBlock]![row].eventDate
                     cell.titleLabel.text = formattedDateString(eventDeadline, comment: "", short: false)
                 }
-                else {
-                    cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"
-                }
-            } else { cell.titleLabel.text = "(no items yet)" }
-            
-            cell.cellDate = selectedCellDate
+                else {cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"}
+            } else {cell.titleLabel.text = "(no items yet)"}
         }
         else {print("collection view type is some other unknown type")}         // should never get called
     }
