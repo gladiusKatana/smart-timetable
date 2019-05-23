@@ -7,14 +7,21 @@ extension CollectionVC {
         
         if vcType == .hours {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: loopWeeks)
-            if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-                let timeBlock = TimeBlock(values:(column, row))
-                let simpleEvent = SimpleEvent(eventDescription: defaultEmptyEventDescription, eventDate: selectedCellDate)
-                if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
-                cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
+            
+//            if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
+//                let timeBlock = TimeBlock(values:(column, row))
+//                let simpleEvent = SimpleEvent(eventDescription: defaultEmptyEventDescription, eventDate: selectedCellDate)
+//                if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
+//                cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
+//            }
+            let cellTimeBlock = TimeBlock(values:(column, row))
+            if eventsAtIndexPath[cellTimeBlock] != nil {
+                cell.titleLabel.text = eventsAtIndexPath[cellTimeBlock]?.last?.eventDescription
             }
-        } else if vcType == .todoList {                                   //print("(todo list; previous time block: \(previousTimeBlock))")
+        } else if vcType == .todoList
+        {                                                                           //print("(todo list; previous time block: \(previousTimeBlock))")
             cell.cellDate = selectedCellDate
+            
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 if column == 0 {
                     cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
@@ -26,7 +33,7 @@ extension CollectionVC {
                 else {cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"}
             } else {cell.titleLabel.text = "(no items yet)"}
         }
-        else {print("collection view type is some other unknown type")}             // should never get called
+        else {print("vc type is some other unknown type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
     }
     
     func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) {
