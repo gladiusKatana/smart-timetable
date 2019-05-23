@@ -23,12 +23,12 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 3, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, colourIndex: 1, collectionViewLayout: timetableLayout)
-var todoListVC = CollectionVC(.todoList, loopWeeks: false, colourIndex: 0, collectionViewLayout: todoListLayout)
+var timetableVC = CollectionVC(.hours, loopWeeks: true, weekColourLegend: false, colourIndex: 1, collectionViewLayout: timetableLayout)
+var todoListVC = CollectionVC(.todoList, loopWeeks: false, weekColourLegend: false, colourIndex: 0, collectionViewLayout: todoListLayout)
 //will obviate loopWeeks, in the above var, via subclassing / making it an optional parameter
 //--------------------------------------------------------------------------------------------
 
-var topVC = CollectionVC(.initial, loopWeeks: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer
+var topVC = CollectionVC(.initial, loopWeeks: false, weekColourLegend: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer
 
 var statusBarHeight = 0.0;              var lastStatusBarHeight = 0.0;      var navBarHeight = 0.0;     var launchWidth = 0.0
 

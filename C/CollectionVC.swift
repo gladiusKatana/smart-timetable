@@ -5,7 +5,8 @@ import UIKit
 class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
     var downcastLayout : CCVFlowLayout?;    var vcType = CollectionViewType.days
-    var colourIndex: Int = Int();           var loopWeeks = false
+    var colourIndex: Int = Int()
+    var loopWeeks = false;                  var weekColourLegend = false
     
     lazy var eventField: UITextField = {
         let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -21,10 +22,12 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         return eventField
     }()
     
-    init(_ vcType: CollectionViewType, loopWeeks: Bool, colourIndex: Int, collectionViewLayout layout: UICollectionViewLayout) {
+    init(_ vcType: CollectionViewType, loopWeeks: Bool, weekColourLegend: Bool,
+         colourIndex: Int, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         self.vcType = vcType
         self.loopWeeks = loopWeeks
+        self.weekColourLegend = weekColourLegend
         self.colourIndex = colourIndex
         self.downcastLayout = layout as? CCVFlowLayout
     }

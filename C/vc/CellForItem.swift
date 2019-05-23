@@ -10,11 +10,19 @@ extension CollectionVC {
         let customLayout = downcastLayout!
         
         let row = indexPath.item; let column = indexPath.section
-
+        
         eventField.becomeFirstResponder()
         
+        if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
+            setTitleLabels(cell: cell, column: column, row: row, layout: customLayout)
+        }
+        
+        if weekColourLegend {cellTextDefaultColour = .black}
+        
         setCellColours(cell: cell, row: row, column: column, layout: customLayout)
+        
         setCellContents(cell: cell, row: row, column: column, layout: customLayout)
+
         return cell
     }
     

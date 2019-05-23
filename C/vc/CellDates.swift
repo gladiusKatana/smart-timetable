@@ -14,12 +14,13 @@ extension CollectionVC {
         let potentialWeekAhead = TimeInterval(86400 * 7 * weekAheadInt)
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: withColours)
+//        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: withColours)
 //        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
     func showNowCell(cell: CustomCell, column: Int, row: Int) {
-        if row == nowRow && column == nowColumn {                   let nowColor = icyBlue
+        if row == nowRow && column == nowColumn {
+            var nowColor = icyBlue; if weekColourLegend {nowColor = .black}
             cell.layer.borderWidth = 2;     cell.layer.borderColor = nowColor.cgColor
             cell.titleLabel.text = "now";   cell.titleLabel.textColor = nowColor
         }
