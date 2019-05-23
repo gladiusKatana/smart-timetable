@@ -29,7 +29,7 @@ extension CollectionVC {
         }
         else {
             
-            if eventsAtIndexPath[timeBlock]?.last!.eventDescription == defaultEmptEventDescription {
+            if eventsAtIndexPath[timeBlock]?.last!.eventDescription == defaultEmptyEventDescription {
                 eventsAtIndexPath[timeBlock] = [simpleEvent]
             }
             else {

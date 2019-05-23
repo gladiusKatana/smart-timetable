@@ -13,13 +13,13 @@ func defaultSave(showDate: Bool) { if showDate {print(formattedDateString(Date()
         
         guard let val = eventsAtIndexPath[key] else {print("could not create event at index path key"); return}/*alternate to guard/guard/if: below*/
         guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
-        if todo != defaultEmptEventDescription {                                                        //; print(\((a, b)): \(todo))
+        if todo != defaultEmptyEventDescription {                                                        //; print(\((a, b)): \(todo))
             eventPathArrays.append([a, b])
         }
     }
     
     for vals in eventsAtIndexPath.values {
-        if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptEventDescription {
+        if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptyEventDescription {
             var eventDescriptions = [String]()
             
             var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()] as [Any]] // [[0, "", 0, "", 0, 0] as [Any]]

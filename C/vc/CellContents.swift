@@ -8,32 +8,39 @@ extension CollectionVC {
         
         if collectionViewType == .hours {
             if loopWeeks {
-                setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout)
+                setupHourlyCellsWithLoopingWeeks(cell: cell, column: column, row: row, layout: layout, withColours: false)
             }
             else {setupHourlyCellsWithoutLooping(cell: cell, column: column, row: row, layout: layout)}
             
             if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
                 let timeBlock = TimeBlock(values:(column, row))
-                let simpleEvent = SimpleEvent(eventDescription: defaultEmptEventDescription, eventDate: selectedCellDate)
+                let simpleEvent = SimpleEvent(eventDescription: defaultEmptyEventDescription, eventDate: selectedCellDate)
                 if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
                 cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
             }
         }
         else if collectionViewType == .todoList {                               //print("(todo list; previous time block: \(previousTimeBlock) )")
             if eventsAtIndexPath[previousTimeBlock] != nil {
-                cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
-            }
-            else {
-                cell.titleLabel.text = "no items yet"
-            }
+                if column == 0 {
+                    cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
+                }
+                else if column == 1 {
+                    let eventDeadline = eventsAtIndexPath[previousTimeBlock]![row].eventDate
+                    cell.titleLabel.text = formattedDateString(eventDeadline, comment: "", short: false)
+                }
+                else {
+                    cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"
+                }
+            } else { cell.titleLabel.text = "(no items yet)" }
+            
             cell.cellDate = selectedCellDate
         }
         else {print("collection view type is some other unknown type")}         // should never get called
     }
     
-    func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) {
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-            cell.titleLabel.textColor = .black
+            if withColours {cell.titleLabel.textColor = .black}
             /*see bottom - optional code to insert*/
         }
         else {

@@ -11,22 +11,22 @@ extension CollectionVC {
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow
         
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: false)
         modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
-    func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setupHourlyCellsWithLoopingWeeks (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) {
         showNowCell(cell: cell, column: column, row: row)
         
         let hoursFromNow = TimeInterval(3600 * (row - nowRow))
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
         
-        let weekAhead = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: true)
+        let weekAhead = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: withColours)
         let potentialWeekAhead = TimeInterval(86400 * 7 * weekAhead)
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
         
-        setTitleLabels(cell: cell, column: column, row: row, layout: layout)
+        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: withColours)
         modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     

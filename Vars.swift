@@ -16,7 +16,7 @@ var timetableLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lock
                                 loadsHorizontally: false,        //* ❗️ if loadsHorizontally is true, 'rows' look like columns
                                 squareCellMode: .noAutoSquare)  //* why no autocomplete for enum cases?
 
-var todoListLayout = CCVFlowLayout(rows: 1, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var todoListLayout = CCVFlowLayout(rows: 1, cols: 3, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                  cellWidth: nil, cellHeight: nil,
                                  autoFitWScale: 1, autoFitHScale: 1,
                                  hSpace: cellGap, vSpace: cellGap,
