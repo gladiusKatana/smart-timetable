@@ -10,7 +10,7 @@ func defaultLoadData(showDate: Bool) {                                      //pr
         lastLoggedInDate = dateFromLoadedComponents(lastLoginDateComponents)
         if showDate {
             print(formattedDateString(lastLoggedInDate, comment: "last login       (formatted)      ", short: false))
-            print("              (unformatted gmt)    \(lastLoggedInDate)")
+            print("              (unformatted gmt)    \(lastLoggedInDate)\n")
         }
     } else {
         let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())

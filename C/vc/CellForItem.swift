@@ -20,20 +20,29 @@ extension CollectionVC {
         if weekColourLegend {cellTextDefaultColour = .black}
         
         setCellColours(cell: cell, row: row, column: column, layout: customLayout)
-        
         setCellContents(cell: cell, row: row, column: column, layout: customLayout)
-
         return cell
     }
     
-    
     func setCellColours (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {
-        
         if row < layout.lockedHeaderRows || column < layout.lockedHeaderSections {
             cell.backgroundColor = headerColour
         }
         else {
             cell.backgroundColor = cellDefaultColour
+        }
+    }
+    
+    func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+        cell.titleLabel.textColor = platinum
+        if column == 0 && row > 0 {
+            var ampm = ""
+            if row < 13 {ampm = "am"}
+            else {ampm = "pm"}
+            cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
+        }
+        else if row == 0 && column > 0 {
+            cell.titleLabel.text = weekdaysAbbreviated[column - 1]
         }
     }
 }
