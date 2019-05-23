@@ -22,12 +22,12 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         return eventField
     }()
     
-    init(_ vcType: CollectionViewType, loopWeeks: Bool, weekColourLegend: Bool,
+    init(_ vcType: CollectionViewType, loopWeeks: Bool, demarcateWeeksByColour: Bool,
          colourIndex: Int, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         self.vcType = vcType
         self.loopWeeks = loopWeeks
-        self.weekColourLegend = weekColourLegend
+        self.weekColourLegend = demarcateWeeksByColour
         self.colourIndex = colourIndex
         self.downcastLayout = layout as? CCVFlowLayout
     }
