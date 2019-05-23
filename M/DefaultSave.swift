@@ -2,7 +2,8 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-func defaultSaveData(showDate: Bool) { if showDate {print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
+func defaultSaveData(showDate: Bool) {                      
+    if showDate{print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
     let defaults = UserDefaults.standard
     
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()
@@ -46,10 +47,12 @@ func defaultSaveData(showDate: Bool) { if showDate {print(formattedDateString(Da
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 
-func printSavedArrays() {
-    print("time block paths (\(eventPathArrays.count)): \n\(eventPathArrays)")
-    print("event descriptions (\(eventDescriptionArrays.count)): \n\(eventDescriptionArrays)")
-    print("event dates (\(eventDateArrays.count)): \n\(eventDateArrays)")
+func printSavedArrays() { let consoleAlignmentSpace = "                     "
+    print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) event descriptions: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
+    
+    let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
+    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates: \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }
 
 /*if let val = eventsAtIndexPath[key] {

@@ -2,11 +2,11 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-func defaultLoadData(showDate: Bool) {                                      //print("(load using defaults)\n")
+func defaultLoadData(showDate: Bool) {                                                      //print("(load using defaults)\n")
     let defaults = UserDefaults.standard
     
     if let components = defaults.array(forKey: "savedLastLoginDate") {
-        lastLoginDateComponents = components //probably can safely eliminate this & other use of the first var name, with equal or better readability
+        lastLoginDateComponents = components
         lastLoggedInDate = dateFromLoadedComponents(lastLoginDateComponents)
         if showDate {
             print(formattedDateString(lastLoggedInDate, comment: "last login       (formatted)      ", short: false))
@@ -32,8 +32,8 @@ func populateDictionaryFromDefaults() {
         
         var j = 0
         for description in todoListItemDescriptions {
-            let dateComponents = eventDateArrays[i][j]                              //; print("event date components: \(dateComponents)")
-            let date = dateFromLoadedComponents(dateComponents)                                             //; print("date: \(date)")
+            let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
+            let date = dateFromLoadedComponents(dateComponents)                             //; print("date: \(date)")
             let event = SimpleEvent(eventDescription: description, eventDate: date)
             print("loaded event: '\(event.eventDescription)' with deadline:\(formattedDateString(date, comment: "", short: false))")
             events.append(event)
@@ -50,7 +50,7 @@ func dateFromLoadedComponents(_ array: [Any]) -> Date {
     let monthLoaded = array[1] as! String                           //; print("month loaded: \(monthLoaded)")   //... conditional downcasts,...
     let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1    //; print("int: \(monthLoadedInt)")         //...rather than forced downcasts,
     let dayLoaded = array[2] as! Int                                //; print("day loaded: \(dayLoaded)")       //...for all bindings here
-    //let weekdayLoaded = array[3] as! String                           //; print("weekday loaded: \(weekdayLoaded)")
+    //let weekdayLoaded = array[3] as! String                       //; print("weekday loaded: \(weekdayLoaded)")
     let hourLoaded = array[4] as! Int                               //; print("hour loaded: \(hourLoaded)")
     let minuteLoaded = array[5] as! Int                             //; print("minute loaded: \(minuteLoaded)")
     
