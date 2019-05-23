@@ -4,22 +4,13 @@ import UIKit
 extension CollectionVC {
     
     func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {     //cell. titleLabel.text = "\(column),\(row)"
-        
         if vcType == .hours {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: loopWeeks)
-            
-//            if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-//                let timeBlock = TimeBlock(values:(column, row))
-//                let simpleEvent = SimpleEvent(eventDescription: defaultEmptyEventDescription, eventDate: selectedCellDate)
-//                if eventsAtIndexPath[timeBlock] == nil {eventsAtIndexPath[timeBlock] = [simpleEvent]}
-//                cell.titleLabel.text = eventsAtIndexPath[timeBlock]?.last?.eventDescription
-//            }
             let cellTimeBlock = TimeBlock(values:(column, row))
             if eventsAtIndexPath[cellTimeBlock] != nil {
                 cell.titleLabel.text = eventsAtIndexPath[cellTimeBlock]?.last?.eventDescription
             }
-        } else if vcType == .todoList
-        {                                                                           //print("(todo list; previous time block: \(previousTimeBlock))")
+        } else if vcType == .todoList {                                         //print("(todo list; previous time block: \(previousTimeBlock))")
             cell.cellDate = selectedCellDate
             
             if eventsAtIndexPath[previousTimeBlock] != nil {

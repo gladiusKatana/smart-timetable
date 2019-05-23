@@ -10,7 +10,7 @@ extension CollectionVC {
         setupNotificationForStatusBarHeightChange()
         
         if vcType != .initial {
-            print("\n💾\(vcType)-view loaded")
+            print("\n💾\(vcType)-view")                 // loaded
             setTopViewController()
         }
         
@@ -29,7 +29,7 @@ extension CollectionVC {
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
-            reloadCV(); print("🏞\(vcType)-view appeared")
+            reloadCV(); print("🏞\(vcType)-view")       // appeared
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
@@ -38,7 +38,6 @@ extension CollectionVC {
         setTopViewController()
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         if vcType == .todoList {
