@@ -1,4 +1,4 @@
-//  CellForItem.swift
+//  IndexPathToCell.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 extension CollectionVC {
@@ -13,11 +13,12 @@ extension CollectionVC {
         
         eventField.becomeFirstResponder()
         
+        cellTextDefaultColour = platinum
+        
         if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
             setTitleLabels(cell: cell, column: column, row: row, layout: customLayout)
         }
-        
-        if weekColourLegend {cellTextDefaultColour = .black}
+        else {cell.titleLabel.textColor = cellTextDefaultColour}
         
         setCellColours(cell: cell, row: row, column: column, layout: customLayout)
         setCellContents(cell: cell, row: row, column: column, layout: customLayout)

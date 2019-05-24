@@ -4,7 +4,7 @@ import UIKit
 extension CollectionVC {
     
     override func viewDidLoad() {
-        collectionView.backgroundColor = navyBlue
+        collectionView.backgroundColor = windowBackgroundColour // overrides the UIWindow's background colour (speaking visually of course)
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()

@@ -6,7 +6,7 @@ extension CollectionVC {
     func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {         //cell. titleLabel.text = "\(column),\(row)"
         
         if vcType == .hours {
-            setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: weekColourLegend)
+            setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
             if eventsAtIndexPath[cellTimeBlock] != nil {
                 cell.titleLabel.text = eventsAtIndexPath[cellTimeBlock]?.last?.eventDescription

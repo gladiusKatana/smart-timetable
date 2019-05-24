@@ -10,19 +10,17 @@ extension CollectionVC {
         let daysFromNow = TimeInterval(86400 * (column - nowColumn))
         var weekAheadInt = 0
         
-        if looping {weekAheadInt = setCellWeek(cell: cell, column: column, row: row, layout: layout, showWithColours: withColours)}
+        if looping {weekAheadInt = setCellWeek(cell: cell, column: column, row: row, layout: layout, withColours: withColours)}
         let potentialWeekAhead = TimeInterval(86400 * 7 * weekAheadInt)
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
-//        setTitleLabels(cell: cell, column: column, row: row, layout: layout, withColours: withColours)
 //        modifyTimeBlockBasedOnLoginDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
     func showNowCell(cell: CustomCell, column: Int, row: Int) {
         if row == nowRow && column == nowColumn {
-            var nowColor = icyBlue; if weekColourLegend {nowColor = .black}
-            cell.layer.borderWidth = 2;     cell.layer.borderColor = nowColor.cgColor
-            cell.titleLabel.text = "now";   cell.titleLabel.textColor = nowColor
+            cell.layer.borderWidth = 1;     cell.layer.borderColor = icyBlue.cgColor
+            cell.titleLabel.text = "now"
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor
@@ -30,26 +28,26 @@ extension CollectionVC {
         }
     }
     
-    func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, showWithColours: Bool) -> Int {
+    func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) -> Int {
         var weekAhead = 0
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
             if column < nowColumn || column == nowColumn && row < nowRow {
-                if showWithColours{cell.backgroundColor = .red}
+                if withColours{cell.backgroundColor = lightNavy}
                 weekAhead = 1
             }
-            else {if showWithColours{cell.backgroundColor = .orange}}
+//            else {if withColours{cell.backgroundColor = navyBlue}}
         }
         return weekAhead
     }
     
-    func modifyTimeBlockBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
-            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
-                cell.backgroundColor = .orange
-                //let timeBlock = TimeBlock(values:(column, row))
-                //(upcoming: will set event's status to done, delegated, obviated, or deferred)
-            }
-        }
-    }
+//    func modifyTimeBlockBasedOnLoginDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+//        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderRows {
+//            if cell.cellDate > lastLoggedInDate && cell.cellDate < Date() - TimeInterval(70) {
+//                cell.backgroundColor = .orange
+//                //let timeBlock = TimeBlock(values:(column, row))
+//                //(upcoming: will set event's status to done, delegated, obviated, or deferred)
+//            }
+//        }
+//    }
 }
 

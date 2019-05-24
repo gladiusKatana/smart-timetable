@@ -6,7 +6,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
     var downcastLayout : CCVFlowLayout?;    var vcType = CollectionViewType.days
     var colourIndex: Int = Int()
-    var loopWeeks = false;                  var weekColourLegend = false
+    var loopWeeks = false;                  var demarcateWeeksByColour = false
     
     lazy var eventField: UITextField = {
         let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -27,7 +27,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         super.init(collectionViewLayout: layout)
         self.vcType = vcType
         self.loopWeeks = loopWeeks
-        self.weekColourLegend = demarcateWeeksByColour
+        self.demarcateWeeksByColour = demarcateWeeksByColour
         self.colourIndex = colourIndex
         self.downcastLayout = layout as? CCVFlowLayout
     }
