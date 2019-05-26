@@ -19,11 +19,14 @@ extension CollectionVC {
                 if column == 0 {
                     cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
                 }
-                else if column == 1 {
-                    let eventDeadline = eventsAtIndexPath[previousTimeBlock]![row].eventDate
-                    cell.titleLabel.text = formattedDateString(eventDeadline, comment: "", short: false)
+//                else if column == 1 {
+//                    let eventDeadline = eventsAtIndexPath[previousTimeBlock]![row].eventDate
+//                    cell.titleLabel.text = formattedDateString(eventDeadline, comment: "", short: false)
+//                }
+                else {
+                    cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"
+                    cell.titleLabel.textColor = platinumLite
                 }
-                else {cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"}
             }
             else {
                 

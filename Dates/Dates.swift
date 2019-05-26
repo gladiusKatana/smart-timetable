@@ -36,10 +36,10 @@ func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
     }
     else {
         if mnthString == "January" || mnthString == "December" {
-            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI), \(yr) at \(hr):\(minTwoDigits)"
+            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI), \(yr) @ \(hr):\(minTwoDigits)"
         }
         else {
-            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI) at \(hr):\(minTwoDigits)"
+            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI) @ \(hr):\(minTwoDigits)"
         }
     }
 }
