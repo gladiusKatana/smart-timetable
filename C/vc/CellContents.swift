@@ -11,18 +11,15 @@ extension CollectionVC {
             if eventsAtIndexPath[cellTimeBlock] != nil {
                 cell.titleLabel.text = eventsAtIndexPath[cellTimeBlock]?.last?.eventDescription
             }
-        } else if vcType == .todoList {                                         //print("(todo list; previous time block: \(previousTimeBlock))")
+        }
             
+        else if vcType == .todoList {
             cell.cellDate = selectedCellDate
             
             if eventsAtIndexPath[previousTimeBlock] != nil {
                 if column == 0 {
                     cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
                 }
-//                else if column == 1 {
-//                    let eventDeadline = eventsAtIndexPath[previousTimeBlock]![row].eventDate
-//                    cell.titleLabel.text = formattedDateString(eventDeadline, comment: "", short: false)
-//                }
                 else {
                     cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"
                     cell.titleLabel.textColor = platinumLite

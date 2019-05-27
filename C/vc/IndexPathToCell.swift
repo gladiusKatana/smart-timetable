@@ -11,31 +11,31 @@ extension CollectionVC {
         
         let row = indexPath.item; let column = indexPath.section
         
-        eventField.becomeFirstResponder()
-        
-        cellTextDefaultColour = platinum
-        
         if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
-            setTitleLabels(cell: cell, column: column, row: row, layout: customLayout)
+            setCellColours(cell: cell, cellIsInHeader: true)
+            setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
         }
-        else {cell.titleLabel.textColor = cellTextDefaultColour}
+        else {
+            setCellColours(cell: cell, cellIsInHeader: false)
+            setCellContents(cell: cell, row: row, column: column, layout: customLayout)
+        }
         
-        setCellColours(cell: cell, row: row, column: column, layout: customLayout)
-        setCellContents(cell: cell, row: row, column: column, layout: customLayout)
         return cell
     }
     
-    func setCellColours (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {
-        if row < layout.lockedHeaderRows || column < layout.lockedHeaderSections {
+    func setCellColours (cell: CustomCell, cellIsInHeader: Bool) {
+        if cellIsInHeader {
             cell.backgroundColor = headerColour
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.titleLabel.textColor = platinum
         }
         else {
             cell.backgroundColor = cellDefaultColour
+            cell.titleLabel.textColor = cellTextDefaultColour
         }
     }
     
-    func setTitleLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        cell.titleLabel.textColor = platinum
+    func setTimeAndDayLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if column == 0 && row > 0 {
             var ampm = ""
             if row < 13 {ampm = "am"}

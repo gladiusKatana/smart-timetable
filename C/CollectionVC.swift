@@ -32,6 +32,8 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         self.downcastLayout = layout as? CCVFlowLayout
     }
     
+    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (downcastLayout!.loadsHorizontally) ? downcastLayout!.cols : downcastLayout!.rows
     }
@@ -39,7 +41,5 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return (downcastLayout!.loadsHorizontally) ? downcastLayout!.rows : downcastLayout!.cols
     }
-    
-    required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
 

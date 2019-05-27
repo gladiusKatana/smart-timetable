@@ -7,7 +7,9 @@ extension CollectionVC {
         collectionView.backgroundColor = windowBackgroundColour // overrides the UIWindow's background colour (speaking visually of course)
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
+        
         setupNotificationForStatusBarHeightChange()
+        eventField.becomeFirstResponder()
         
         if vcType != .initial {
             print("\n💾\(vcType)-view")                 // loaded

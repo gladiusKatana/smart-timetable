@@ -22,7 +22,7 @@ var lightNavy = UIColor.rgb(0, g: 40, b: 100, a: 1)
 
 var platinum = UIColor.rgb(214, g: 214, b: 214, a: 1)
 var platinumLite = UIColor.rgb(214, g: 214, b: 255, a: 0.25)
-var niceOrange = UIColor.rgb(228, g: 50, b: 44, a: 1)
+var niceOrange = UIColor.rgb(228, g: 100, b: 44, a: 0.75)
 
 
 var skyBackgroundImage = UIImage(named: "skyB")?.withRenderingMode(.alwaysOriginal) // sky background (blue with light clouds)

@@ -24,17 +24,16 @@ extension CollectionVC {
         let timeBlock = TimeBlock(values:(column, row))
         let simpleEvent = SimpleEvent(eventDescription: textEntered, eventDate: selectedCellDate)
         
-        if eventsAtIndexPath[timeBlock] == nil {
-            eventsAtIndexPath[timeBlock] = [simpleEvent]
-        }
-        else {
-            
+        if eventsAtIndexPath[timeBlock] != nil {
             if eventsAtIndexPath[timeBlock]?.last!.eventDescription == defaultEmptyEventDescription {
                 eventsAtIndexPath[timeBlock] = [simpleEvent]
             }
             else {
                 eventsAtIndexPath[timeBlock]!.append(simpleEvent)
             }
+        }
+        else {
+            eventsAtIndexPath[timeBlock] = [simpleEvent]
         }
 //        print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
     }
