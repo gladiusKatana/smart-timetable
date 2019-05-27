@@ -33,7 +33,6 @@ extension CollectionVC {
     }
 }
 
-/*see bottom - optional code to insert*/
 /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
  let dy = Calendar.current.component(.day, from: cell.cellDate)
  cell. titleLabel.text = "\(mo) \(dy)"*/

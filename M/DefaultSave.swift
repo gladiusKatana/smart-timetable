@@ -35,8 +35,7 @@ func defaultSaveData(showDate: Bool) {
             }
             eventDescriptionArrays.append(eventDescriptions)
             eventDateArrays.append(eventDateComponents)
-        }
-        //else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
+        }//else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
     printSavedArrays()
     lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the latest login date (for saving) as the date this minute
@@ -54,9 +53,3 @@ func printSavedArrays() { let consoleAlignmentSpace = "                     "
     let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
     print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates: \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }
-
-/*if let val = eventsAtIndexPath[key] {
- if let todo = val.last?.eventDescription, todo != defaultEmptEventDescription {
- print(todo)
- }
- }*/
