@@ -10,6 +10,7 @@ extension CollectionVC {
         let customLayout = downcastLayout!
         
         let row = indexPath.item; let column = indexPath.section
+        cell.xyCoordinate = [column, row]// = [x, y]
         
         if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
             setCellColours(cell: cell, cellIsInHeader: true)
@@ -30,7 +31,19 @@ extension CollectionVC {
             cell.titleLabel.textColor = platinum
         }
         else {
-            cell.backgroundColor = cellDefaultColour
+            
+            //            guard cell.xyCoordinate != selectedTimeBlockPath else {
+            //                cell.backgroundColor = halfIcyBlue
+            //                animateCellColourBack(cell:cell); return
+            //            }
+            
+            if cell.xyCoordinate == selectedTimeBlockPath {
+                cell.backgroundColor = halfIcyBlue
+                animateCellColourBack(cell:cell, originalColour: cell.cellColour)
+            }
+            else {
+                cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
+            }
             cell.titleLabel.textColor = cellTextDefaultColour
         }
     }

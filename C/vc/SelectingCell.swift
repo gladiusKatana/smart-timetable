@@ -34,16 +34,9 @@ extension CollectionVC {
                 if !cell.markedForItems {
                     UIView.animate(withDuration: 1, delay: 0,
                                    usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                    cell.backgroundColor = .black
+                                    cell.backgroundColor = halfIcyBlue
                     }, completion: nil)
                     cell.markedForItems = true
-                }
-                else {
-                    cell.backgroundColor = niceOrange
-                    UIView.animate(withDuration: 1, delay: 0,
-                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                    cell.backgroundColor = cell.cellColour
-                    }, completion: nil)
                 }
             }
             else if vcType == .todoList {

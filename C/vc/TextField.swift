@@ -15,7 +15,7 @@ extension CollectionVC {
         let fieldWidth = CGFloat(325)
         let fieldHeight = CGFloat(2 * timetableLayout.cellHeight!)
         let halfWidth = (timetableLayout.cellWidth! + globalKeyWindow.frame.width - fieldWidth) / 2
-
+        
         eventField.placeholder = dateString
         eventField.delegate = self
         eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
@@ -37,11 +37,11 @@ extension CollectionVC {
                 addToTimeBlocks(column: previousSelectedTimeBlockPath[0], row: previousSelectedTimeBlockPath[1], textEntered: textEntered)
                 gotoView(vc: todoListVC) // essentially reloads the view to display the updated list
             }
-            else {
-                print("collection view is not a recognized type")
-            }
+            else {print("collection view is not a recognized type")}
             textField.text = ""
         }
+        else {animateSelectedCellColourBack()}
+        
         return true
     }
 }

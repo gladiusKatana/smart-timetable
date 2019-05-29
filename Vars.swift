@@ -23,7 +23,7 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: false, colourIndex: 1, collectionViewLayout: timetableLayout)
+var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)
 //for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
 //--------------------------------------------------------------------------------------------

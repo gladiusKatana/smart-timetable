@@ -8,11 +8,12 @@ class CustomCell: UICollectionViewCell {
     
     lazy var titleLabel = UILabel()
     
-    //var event = SimpleEvent() // may add this as a property of the cell; or may simply keep it in a detached data structure (dictionary)
+//    var event = SimpleEvent() // may add this as a property of the cell; or may simply keep it in a detached data structure (dictionary)
     
-    var cellDate = Date()
     var cellColour = UIColor.clear
+    var cellDate = Date()
     var markedForItems = false
+    var xyCoordinate = [-2, -2]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +40,8 @@ class CustomCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = "" // use if title label text is ever set to a non-blank string
+        self.backgroundColor = .clear
+        self.cellColour = .clear
     }
 }
 

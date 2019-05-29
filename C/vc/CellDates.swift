@@ -18,12 +18,10 @@ extension CollectionVC {
     }
     
     func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
-        
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
-        
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
             
-            cell.backgroundColor = niceOrange
+            cell.backgroundColor = niceOrange //; cell.cell color = ...?
             
             let filledBlockToProcess = TimeBlock(values:(column, row))
             
@@ -48,7 +46,7 @@ extension CollectionVC {
     func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) -> Int {
         var weekAhead = 0
         if column < nowColumn || column == nowColumn && row < nowRow {
-            if withColours{cell.backgroundColor = lightNavy}
+            if withColours {cell.backgroundColor = lightNavy; cell.cellColour = lightNavy}
             weekAhead = 1
         }
         return weekAhead
