@@ -8,28 +8,26 @@ extension CollectionVC {
         if vcType == .hours {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
-            if eventsAtIndexPath[cellTimeBlock] != nil {
-                cell.titleLabel.text = eventsAtIndexPath[cellTimeBlock]?.last?.eventDescription
+            
+            if let eventAtTimeBlock = eventsAtIndexPath[cellTimeBlock] {
+                cell.titleLabel.text = eventAtTimeBlock.last?.eventDescription
             }
         }
             
         else if vcType == .todoList {
             cell.cellDate = selectedCellDate
             
-            if eventsAtIndexPath[previousTimeBlock] != nil {
-                if column == 0 {
-                    cell.titleLabel.text = eventsAtIndexPath[previousTimeBlock]![row].eventDescription
-                }
-                else {
-                    cell.titleLabel.text = "\(eventsAtIndexPath[previousTimeBlock]![row].eventStatus)"
-                    cell.titleLabel.textColor = platinumLite
-                }
+            guard let eventAtTimeBlock = eventsAtIndexPath[previousTimeBlock] else {
+                cell.titleLabel.text = "(no items yet)"; return
             }
+            
+            if column == 0 {cell.titleLabel.text = eventAtTimeBlock[row].eventDescription}
             else {
-                
-                cell.titleLabel.text = "(no items yet)"}
-        }
-        else {print("vc type is some other unknown type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
+                cell.titleLabel.text = "\(eventAtTimeBlock[row].eventStatus)"
+                cell.titleLabel.textColor = platinumLite
+            }
+            
+        } else {print("vc type is some other unknown type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
     }
 }
 

@@ -20,6 +20,7 @@ extension CollectionVC {
         eventField.delegate = self
         eventField.frame = CGRect(x: halfWidth, y: textFieldY, width: fieldWidth, height: fieldHeight)
         view.addSubview(eventField)
+        eventField.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

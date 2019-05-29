@@ -3,13 +3,13 @@
 import UIKit
 extension CollectionVC {
     
-    func gotoView(vc: CollectionVC) {                                           //print("\nshowing vc \(vc)")
+    func gotoView(vc: CollectionVC) {                                               //print("\nshowing vc \(vc)")
         
         if topVC != vc || !rePresentedVCFromButton {
             
-            if vc == todoListVC {                                               //print("time block being tested: \(timeBlock)")
-                if eventsAtIndexPath[previousTimeBlock] != nil {
-                    todoListVC.downcastLayout!.rows = eventsAtIndexPath[previousTimeBlock]!.count
+            if vc == todoListVC {                                                   //print("time block being tested: \(timeBlock)")
+                if let eventAtTimeBlock = eventsAtIndexPath[previousTimeBlock] {
+                    todoListVC.downcastLayout!.rows = eventAtTimeBlock.count
                 }
             }
             

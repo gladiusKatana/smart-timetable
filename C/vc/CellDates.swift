@@ -21,16 +21,16 @@ extension CollectionVC {
         
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
         
-        if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {           //- TimeInterval(70) { // do this with the events' dates, not cellDate
-        
+        if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
+            
             cell.backgroundColor = niceOrange
             
             let filledBlockToProcess = TimeBlock(values:(column, row))
-            if eventsAtIndexPath[filledBlockToProcess] != nil {
-                eventsAtIndexPath[filledBlockToProcess]?.last?.eventDate = cell.cellDate    // since the cell's cell-date is now 1 week later
-                eventsAtIndexPath[filledBlockToProcess]?.last?.eventStatus = .deferred
-                // event status property will be set by user in a prompt, which will loop over all of the time block's events/tasks, not just .last
-            }
+            
+            if let eventAtTimeBlock = eventsAtIndexPath[filledBlockToProcess] {
+                eventAtTimeBlock.last?.eventDate = cell.cellDate
+                eventAtTimeBlock.last?.eventStatus = .deferred
+            }// event status property will be set by user in a prompt, which will loop over all of the time block's events/tasks, not just .last
         }
     }
     
