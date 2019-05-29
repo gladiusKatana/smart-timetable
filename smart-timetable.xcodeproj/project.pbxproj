@@ -155,7 +155,7 @@
 				062A3F65226BE8F100D6DBED /* Cell.swift */,
 				062A3F55226BE8F100D6DBED /* ViewLifecycle.swift */,
 				0614F6C82288FA3400211DF2 /* IndexPathToCell.swift */,
-				062A3F54226BE8F100D6DBED /* vc */,
+				062A3F54226BE8F100D6DBED /* setup */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 				063D1E04229E2FC200A8B4DE /* global */,
 			);
@@ -172,7 +172,7 @@
 			path = nav;
 			sourceTree = "<group>";
 		};
-		062A3F54226BE8F100D6DBED /* vc */ = {
+		062A3F54226BE8F100D6DBED /* setup */ = {
 			isa = PBXGroup;
 			children = (
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
@@ -180,7 +180,7 @@
 				062A3F5A226BE8F100D6DBED /* SelectingCell.swift */,
 				0601A5202280ED85005D0D99 /* TextField.swift */,
 			);
-			path = vc;
+			path = setup;
 			sourceTree = "<group>";
 		};
 		062A3F5C226BE8F100D6DBED /* Checks */ = {
