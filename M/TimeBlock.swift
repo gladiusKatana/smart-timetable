@@ -33,8 +33,6 @@ extension CollectionVC {
             }
         }
         else {eventsAtIndexPath[timeBlock] = [simpleEvent]}
-        
-//        print("adding to time block @ \((column, row)); \ntodos: \(eventsAtIndexPath[timeBlock]!)\n") //\(timeBlock)
     }
 }
 

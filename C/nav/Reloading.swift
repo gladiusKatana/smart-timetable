@@ -13,7 +13,7 @@ extension CollectionVC {
         }
     }
     
-    //---------reload again (and possibly re-present) for visual continuity
+    //---------reload again (and potentially re-present) for visual continuity, especially when toggling views while in landscape
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
             || firstReenteredForeground {

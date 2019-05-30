@@ -21,8 +21,7 @@ func displayDate(_ inputDate: Date) -> (year: Int, monthStr: String, day: Int, w
     let dy = Calendar.current.component(.day, from: inputDate)
     let wkdy = wkdysDefaultOrder[Calendar.current.component(.weekday, from: inputDate) - 1]
     let hr = Calendar.current.component(.hour, from: inputDate)
-    let mn = Calendar.current.component(.minute, from: inputDate)
-    //let secInt = Calendar.current.component(.second, from: inputDate)
+    let mn = Calendar.current.component(.minute, from: inputDate)   //; let secInt = Calendar.current.component(.second, from: inputDate)
     return (yr, mnth, dy, wkdy, hr, mn)
 }
 

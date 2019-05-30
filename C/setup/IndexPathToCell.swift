@@ -32,11 +32,6 @@ extension CollectionVC {
         }
         else {
             
-            //            guard cell.xyCoordinate != selectedTimeBlockPath else {
-            //                cell.backgroundColor = halfIcyBlue
-            //                animateCellColourBack(cell:cell); return
-            //            }
-            
             if cell.xyCoordinate == selectedTimeBlockPath {
                 cell.backgroundColor = halfIcyBlue
                 animateCellColourBack(cell:cell, originalColour: cell.cellColour)
@@ -44,6 +39,13 @@ extension CollectionVC {
             else {
                 cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
             }
+            
+            //            guard cell.xyCoordinate != selectedTimeBlockPath else {
+            //                cell.backgroundColor = halfIcyBlue
+            //                animateCellColourBack(cell:cell); return
+            //            }
+            //            cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
+            
             cell.titleLabel.textColor = cellTextDefaultColour
         }
     }
@@ -60,4 +62,5 @@ extension CollectionVC {
         }
     }
 }
+
 

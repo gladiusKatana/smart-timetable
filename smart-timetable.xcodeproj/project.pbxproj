@@ -10,7 +10,6 @@
 		0601A5212280ED85005D0D99 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0601A5202280ED85005D0D99 /* TextField.swift */; };
 		060FAE6822775275002E472A /* CellDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060FAE6722775275002E472A /* CellDates.swift */; };
 		0614F6C722875C2700211DF2 /* DefaultLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F6C622875C2700211DF2 /* DefaultLoad.swift */; };
-		0614F6C92288FA3400211DF2 /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F6C82288FA3400211DF2 /* IndexPathToCell.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
 		062569CE227A8D33003E5C49 /* TimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062569CD227A8D33003E5C49 /* TimeBlock.swift */; };
@@ -44,6 +43,7 @@
 		063342332277C12200F7C754 /* SimpleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063342322277C12200F7C754 /* SimpleEvent.swift */; };
 		063D1E03229E2F8300A8B4DE /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063D1E02229E2F8300A8B4DE /* Animations.swift */; };
 		06674B622288FED30020AE37 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06674B612288FED30020AE37 /* Notifications.swift */; };
+		06BA051C229E3F6F00353134 /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA051B229E3F6E00353134 /* IndexPathToCell.swift */; };
 		06F3A2172273F54B00548AE1 /* DefaultSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3A2162273F54B00548AE1 /* DefaultSave.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,6 @@
 		0601A5202280ED85005D0D99 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		060FAE6722775275002E472A /* CellDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDates.swift; sourceTree = "<group>"; };
 		0614F6C622875C2700211DF2 /* DefaultLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoad.swift; sourceTree = "<group>"; };
-		0614F6C82288FA3400211DF2 /* IndexPathToCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IndexPathToCell.swift; path = vc/IndexPathToCell.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
 		062569CD227A8D33003E5C49 /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		063342322277C12200F7C754 /* SimpleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEvent.swift; sourceTree = "<group>"; };
 		063D1E02229E2F8300A8B4DE /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		06674B612288FED30020AE37 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		06BA051B229E3F6E00353134 /* IndexPathToCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathToCell.swift; path = setup/IndexPathToCell.swift; sourceTree = "<group>"; };
 		06F3A2162273F54B00548AE1 /* DefaultSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSave.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,7 +154,7 @@
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
 				062A3F65226BE8F100D6DBED /* Cell.swift */,
 				062A3F55226BE8F100D6DBED /* ViewLifecycle.swift */,
-				0614F6C82288FA3400211DF2 /* IndexPathToCell.swift */,
+				06BA051B229E3F6E00353134 /* IndexPathToCell.swift */,
 				062A3F54226BE8F100D6DBED /* setup */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 				063D1E04229E2FC200A8B4DE /* global */,
@@ -315,11 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				062A3F89226BE8F200D6DBED /* AppDelegate.swift in Sources */,
+				06BA051C229E3F6F00353134 /* IndexPathToCell.swift in Sources */,
 				062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
 				061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */,
-				0614F6C92288FA3400211DF2 /* IndexPathToCell.swift in Sources */,
 				062A3F88226BE8F200D6DBED /* AppLifecycle.swift in Sources */,
 				06F3A2172273F54B00548AE1 /* DefaultSave.swift in Sources */,
 				062A3F7C226BE8F200D6DBED /* SelectingCell.swift in Sources */,

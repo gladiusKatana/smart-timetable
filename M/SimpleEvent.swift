@@ -9,7 +9,7 @@ class SimpleEvent: NSObject {
     var eventStatus = EventStatus.upcoming
     //var recurring = false
     
-    init(eventDescription: String, eventDate: Date) {                          // oops, of course i need this
+    init(eventDescription: String, eventDate: Date) {
             self.eventDescription = eventDescription
             self.eventDate = eventDate
         }

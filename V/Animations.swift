@@ -19,8 +19,8 @@ extension CollectionVC {
     func animateCellColourBack(cell: CustomCell, originalColour: UIColor) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1,
                        options: UIView.AnimationOptions.curveEaseOut, animations: {
-                        cell.backgroundColor = originalColour //navyBlue
-        }, completion: nil) //}, completion: {(finished:Bool) in self.reloadCV()}) 
+                        cell.backgroundColor = originalColour
+        }, completion: nil)
         selectedTimeBlockPath = [-3, -3]
     }
 }

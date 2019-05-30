@@ -28,7 +28,7 @@ var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColou
 //for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
 //--------------------------------------------------------------------------------------------
 
-var topVC = CollectionVC(.initial, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: timetableLayout)// temporary value to satisfy initializer
+var topVC = CollectionVC(.initial, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: timetableLayout)
 
 var statusBarHeight = 0.0;              var lastStatusBarHeight = 0.0;      var navBarHeight = 0.0;     var launchWidth = 0.0
 
