@@ -38,7 +38,7 @@ func defaultSaveData(showDate: Bool) {
         }//else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
     printSavedArrays()
-    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the latest login date (for saving) as the date this minute
+    lastLoginDateComponents = [year, month, day, weekday, hour, minute] as [AnyObject] // setting the latest login date (for saving) as the date this minute
     
     defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedTodoListItems")

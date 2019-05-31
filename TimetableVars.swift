@@ -9,7 +9,7 @@ var selectedCellDate = Date()
 var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int()) // (0, "", 0, "", 0, 0)
 //* reserving full-spelled date-component names for CURRENT date (Date()) only
 
-var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
+var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [AnyObject]
 //var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
 
 
