@@ -15,7 +15,7 @@ func defaultLoadData(showDate: Bool) {                                          
     }
     eventPathArrays = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
     eventDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
-    eventDateArrays = defaults.array(forKey: "savedTodoListDates") as? [[[Any]]] ?? [[[]]]
+    eventDateArrays = defaults.array(forKey: "savedTodoListDates") as? [[[AnyObject]]] ?? [[[]]]
     populateDictionaryFromDefaults()
     //printSavedArrays()
 }

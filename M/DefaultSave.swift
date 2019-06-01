@@ -23,7 +23,7 @@ func defaultSaveData(showDate: Bool) {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptyEventDescription {
             var eventDescriptions = [String]()
             
-            var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()] as [Any]] // [[0, "", 0, "", 0, 0] as [Any]]
+            var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()]] as [[AnyObject]] // [[0, "", 0, "", 0, 0] as [Any]]
             eventDateComponents.removeAll()
             
             for event in vals {
@@ -31,7 +31,9 @@ func defaultSaveData(showDate: Bool) {
                 eventDescriptions.append(str)
                 
                 let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate)
-                eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
+                let displayDateArray = [yr, mnth, dy, wkdy, hr, mn] as [AnyObject]
+                eventDateComponents.append(displayDateArray)
+                //eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
             eventDescriptionArrays.append(eventDescriptions)
             eventDateArrays.append(eventDateComponents)
