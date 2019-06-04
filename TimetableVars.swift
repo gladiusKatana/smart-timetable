@@ -9,7 +9,7 @@ var selectedCellDate = Date()
 var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int()) // (0, "", 0, "", 0, 0)
 //* reserving full-spelled date-component names for CURRENT date (Date()) only
 
-var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [AnyObject]
+var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
 //var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
 
 
@@ -20,7 +20,7 @@ var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBloc
 
 var eventPathArrays = [[Int]]()
 var eventDescriptionArrays = [[String]]()
-var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [AnyObject]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
+var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
 
 var selectedTimeBlockPath = [-1, -1];             var previousSelectedTimeBlockPath = [0, 0]
