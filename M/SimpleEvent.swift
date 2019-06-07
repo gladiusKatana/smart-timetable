@@ -10,9 +10,9 @@ class SimpleEvent: NSObject {
     //var recurring = false
     
     init(eventDescription: String, eventDate: Date) {
-            self.eventDescription = eventDescription
-            self.eventDate = eventDate
-        }
+        self.eventDescription = eventDescription
+        self.eventDate = eventDate
+    }
     
     func showEventProperties() {
         var descriptor = ""

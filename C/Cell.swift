@@ -8,7 +8,7 @@ class CustomCell: UICollectionViewCell {
     
     lazy var titleLabel = UILabel()
     
-//    var event = SimpleEvent() // may add this as a property of a cell; or may simply keep it in a detached data structure (dictionary) as it is now
+    //var event = SimpleEvent() // may add this as a property of a cell; or may simply keep it in a detached data structure (dictionary) as it is now
     
     var cellColour = UIColor.clear
     var cellDate = Date()
@@ -45,5 +45,4 @@ class CustomCell: UICollectionViewCell {
         self.cellColour = .clear
     }
 }
-
 

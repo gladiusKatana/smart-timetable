@@ -18,14 +18,14 @@ extension CCVFlowLayout {
         textFieldY = CGFloat(navBarHeight + statusBarHeight - statusBarDelta)               //; print("textFieldY = \(textFieldY)")
         
         checkOrientation()  //; print("---------------------prepare \(currentTopVC.collectionViewType)-cv")     //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
-
+        
         if previousOrientation != currentOrientation  {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
         } else {
             if topVC.vcType == .hours {
-            processCurrentDate()                                                            //; print("process date from prepare")
+                processCurrentDate()                                                        //; print("process date from prepare")
             }
         }
         if topVC.vcType == .hours {
@@ -53,6 +53,4 @@ extension CCVFlowLayout {
         resetDimensionIfSquareCellsEnabled()
     }
 }
-
-
 

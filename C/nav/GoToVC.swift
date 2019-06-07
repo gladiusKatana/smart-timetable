@@ -18,7 +18,7 @@ extension CollectionVC {
             setupTitleAndPresentViewController(vc: vc) { () -> () in
                 reloadWithDelay(after: 0.02)
             }
-
+            
             //} else {setupAndPresent(vc: vc)}
             
         } else {

@@ -40,11 +40,11 @@ extension CollectionVC {
                 cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
             }
             
-            //            guard cell.xyCoordinate != selectedTimeBlockPath else {
-            //                cell.backgroundColor = halfIcyBlue
-            //                animateCellColourBack(cell:cell); return
-            //            }
-            //            cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
+            /*guard cell.xyCoordinate != selectedTimeBlockPath else {
+                cell.backgroundColor = halfIcyBlue
+                animateCellColourBack(cell:cell); return
+            }
+            cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour*/
             
             cell.titleLabel.textColor = cellTextDefaultColour
         }
@@ -62,5 +62,4 @@ extension CollectionVC {
         }
     }
 }
-
 
