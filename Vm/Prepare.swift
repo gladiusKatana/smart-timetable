@@ -50,7 +50,7 @@ extension CCVFlowLayout {
             
         case .neitherHardcoded:         cellWd = autofitWidth * autoFitWScale!   ; cellHt = autoFitHeight * autoFitHScale!
         }
-        resetDimensionIfSquareCellsOn()
+        resetDimensionIfSquareCellsEnabled()
     }
 }
 

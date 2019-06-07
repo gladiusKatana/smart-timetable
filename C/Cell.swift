@@ -40,6 +40,7 @@ class CustomCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = "" // use if title label text is ever set to a non-blank string
+        
         self.backgroundColor = .clear
         self.cellColour = .clear
     }

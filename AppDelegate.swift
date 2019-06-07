@@ -36,13 +36,13 @@ import UIKit
         let backgroundVC = UIViewController()
         
         backgroundVC.view.frame = globalKeyWindow.frame
-        backgroundVC.view.backgroundColor = windowBackgroundColour  // must match window's background colour, or when rotating landscape->portrait
+        backgroundVC.view.backgroundColor = windowBackgroundColour  // must match window's background colour, for when rotating landscape->portrait
         
         navController = UINavigationController(rootViewController: backgroundVC)
         window?.rootViewController = navController                  //; print("VCs*: \(String(describing: nav Controller?.viewControllers))")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            timetableVC.setupAndPresent(vc: timetableVC)    // just need a uiviewcontroller (any of them) to call this func.
+            timetableVC.setupAndPresent(vc: timetableVC)    // just need a uiviewcontroller (any of them) to call this method
         }
         return true
     }

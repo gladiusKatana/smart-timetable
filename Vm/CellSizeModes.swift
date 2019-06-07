@@ -3,7 +3,7 @@
 import UIKit
 extension CCVFlowLayout { // although it may be useful to call some of these from a view controller... if so, will change to global definition(s)
     
-    func resetDimensionIfSquareCellsOn() {
+    func resetDimensionIfSquareCellsEnabled() {
         switch squareCellMode {
         case .autoSquareWidthFromHeight:
             cellWd = cellHt
