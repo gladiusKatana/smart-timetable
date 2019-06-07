@@ -10,11 +10,11 @@ var cellGap = CGFloat(0) // if nonzero, do not make this smaller than: 0.5 (ipho
 
 //--------------------------------------------------------------------------------------------
 var timetableLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
-                                cellWidth: nil, cellHeight: nil,
-                                autoFitWScale: nil, autoFitHScale: nil,     //* auto-fit scale factors ignored if width/height non-nil
-                                hSpace: cellGap, vSpace: cellGap,           //* if auto-fit scale factors are nil, value of 1.0 substituted
-                                loadsHorizontally: false,        //* ❗️ if loadsHorizontally is true, 'rows' look like columns
-                                squareCellMode: .noAutoSquare)  //* why no autocomplete for enum cases?
+                                cellWidth: nil, cellHeight: nil,    //* nil value for either dimension results in auto-fitting to screen width/height
+                                autoFitWScale: nil, autoFitHScale: nil,     //* if an auto-fit scale factor is nil, default of 1.0 is used
+                                hSpace: cellGap, vSpace: cellGap,           //* also, auto-fit scale factors ignored if width/height are not nil
+                                loadsHorizontally: false, //❗️if loadsHorizontally is true, 'rows' look like columns. Just keep this in mind
+                                squareCellMode: .noAutoSquare)
 
 var todoListLayout = CCVFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                  cellWidth: nil, cellHeight: nil,
