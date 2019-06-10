@@ -40,7 +40,9 @@ extension CollectionVC {
             else {print("collection view is not a recognized type")}
             textField.text = ""
         }
-        else {animateSelectedCellColourBack()}
+        //else {
+        animateSelectedCellColourBack()
+        //}
         
         return true
     }

@@ -21,7 +21,7 @@ extension CollectionVC {
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
             
-            cell.backgroundColor = niceOrange //; cell.cell color = ...?
+            cell.backgroundColor = niceOrange; cell.cellColour = niceOrange
             
             let filledBlockToProcess = TimeBlock(values:(column, row))
             
