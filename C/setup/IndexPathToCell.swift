@@ -32,19 +32,19 @@ extension CollectionVC {
         }
         else {
             
-            if cell.xyCoordinate == selectedTimeBlockPath {
-                cell.backgroundColor = halfIcyBlue
-                animateCellColourBack(cell:cell, originalColour: cell.cellColour)
+            guard cell.xyCoordinate != selectedTimeBlockPath else {
+                cell.backgroundColor = halfIcyBlue; return
             }
-            else {
-                cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
-            }
+            cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
             
-            /*guard cell.xyCoordinate != selectedTimeBlockPath else {
-                cell.backgroundColor = halfIcyBlue
-                animateCellColourBack(cell:cell); return
-            }
-            cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour*/
+//            if cell.xyCoordinate == selectedTimeBlockPath {
+//                cell.backgroundColor = halfIcyBlue
+//            }
+//            else {
+//                cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
+//            }
+            
+            animateCellColourBack(cell:cell, originalColour: cell.cellColour)
             
             cell.titleLabel.textColor = cellTextDefaultColour
         }
