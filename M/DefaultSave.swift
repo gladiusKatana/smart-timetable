@@ -10,11 +10,11 @@ func defaultSaveData(showDate: Bool) {
     eventDateArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
-        let (a, b) = key.values                                                                             //; print("key: [\(key)  values \((a, b))")
+        let (a, b) = key.values                                                                         //; print("key: [\(key)  values \((a, b))")
         
         guard let val = eventsAtIndexPath[key] else {print("could not create event at index path key"); return}
         guard let todo = val.last?.eventDescription else {print("no description at event value"); return}
-        if todo != defaultEmptyEventDescription {                                                           //; print(\((a, b)): \(todo))
+        if todo != defaultEmptyEventDescription {                                                       //; print(\((a, b)): \(todo))
             eventPathArrays.append([a, b])
         }
     }
@@ -23,7 +23,7 @@ func defaultSaveData(showDate: Bool) {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptyEventDescription {
             var eventDescriptions = [String]()
             
-            var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()]] as [[Any]] // [[0, "", 0, "", 0, 0] as [Any]]
+            var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()]] as [[Any]]     // [[0, "", 0, "", 0, 0] as [Any]]
             eventDateComponents.removeAll()
             
             for event in vals {

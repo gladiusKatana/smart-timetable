@@ -37,13 +37,6 @@ extension CollectionVC {
             }
             cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
             
-//            if cell.xyCoordinate == selectedTimeBlockPath {
-//                cell.backgroundColor = halfIcyBlue
-//            }
-//            else {
-//                cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
-//            }
-            
             animateCellColourBack(cell:cell, originalColour: cell.cellColour)
             
             cell.titleLabel.textColor = cellTextDefaultColour

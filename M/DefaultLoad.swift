@@ -67,4 +67,3 @@ func pryntCurrentDate() {
     //print("              (unformatted gmt)    \(Date())\n")
 }
 
-
