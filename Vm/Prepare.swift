@@ -19,10 +19,6 @@ extension CCVFlowLayout {
         checkOrientation() //; print("---------------------prepare \(topVC.vcType)-cv")
         //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
         
-        if currentOrientation != launchOrientation {
-            eventMarkerVC.view.removeFromSuperview()
-        }
-        
         if previousOrientation != currentOrientation {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)

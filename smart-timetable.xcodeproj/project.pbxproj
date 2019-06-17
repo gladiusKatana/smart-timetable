@@ -172,10 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				062A3F53226BE8F100D6DBED /* SetTopVC.swift */,
-				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
 				062A3F50226BE8F100D6DBED /* GoToVC.swift */,
 				062A3F51226BE8F100D6DBED /* Reloading.swift */,
 				06674B612288FED30020AE37 /* Notifications.swift */,
+				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
 			);
 			path = nav;
 			sourceTree = "<group>";

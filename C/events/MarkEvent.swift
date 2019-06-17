@@ -8,7 +8,7 @@ extension CollectionVC {
         cell.titleLabel.textColor = eventTextBlue
         if row == 0 {
             cell.backgroundColor = icyBlue
-            cell.titleLabel.text = "Mark '\(globalEventIdentifier)': ➡️"
+            cell.titleLabel.text = "⬅️ Mark '\(globalEventIdentifier)':"
         } else {
             cell.backgroundColor = .lightGray
             cell.titleLabel.text = EventStatus.allCases[row - 1].caseName() //"\(row)"
@@ -16,12 +16,12 @@ extension CollectionVC {
     }
     
     func presentVcToClassifyEvents(layout: CCVFlowLayout) {
-//        for path in timeBlockPathsToProcess {                           //print("path to process: \(path)")
+//        for path in timeBlockPathsToProcess {                             //print("path to process: \(path)")
 //            //...
 //        }
 
         eventMarkerStartingX = 0
-        eventMarkerStartingY = CGFloat(navBarHeight + statusBarHeight)   // - statusBarDelta
+        eventMarkerStartingY = CGFloat(navBarHeight + statusBarHeight)      // - statusBarDelta
         
         //while !timeBlockPathsToProcess.isEmpty {
         if !timeBlockPathsToProcess.isEmpty {
@@ -34,13 +34,20 @@ extension CollectionVC {
              if row <= 18 {    eventMarkerStartingY = cell.frame.minY + layout.cellHeight! + 64}
              else {                              eventMarkerStartingY = cell.frame.minY - 9 * layout.cellHeight! + 64}*/
             
+            let wid = CGFloat(130) //CGFloat(0)
+//            if launchOrientation == "portrait" { wid = eventMarkerLayout.cellWidth!}
+//            if launchOrientation == "landscape" {
+//                wid = CGFloat(Double(globalKeyWindow.frame.width) - 0.5) / CGFloat(timetableLayout.cols) - timetableLayout.hSpace
+//            }
             
-            eventMarkerVC.collectionView?.frame = CGRect(x: eventMarkerStartingX + layout.cellWidth! * CGFloat(column - 2),
+            eventMarkerVC.collectionView?.frame = CGRect(x: eventMarkerStartingX + layout.cellWidth! * CGFloat(column + 1),
                                                         y: eventMarkerStartingY + layout.cellHeight! * CGFloat(row),
-                                                        width: eventMarkerLayout.cellWidth!, height: eventMarkerLayout.cellHeight! * 3)
+                                                        width: wid, height: eventMarkerLayout.cellHeight! * 3)
             
-            eventMarkerVC.downcastLayout?.cellWidth = eventMarkerLayout.cellWidth    //layout.cellWidth! * 2     //
-            eventMarkerVC.downcastLayout?.cellHeight = eventMarkerLayout.cellHeight  //layout.cellHeight
+            eventMarkerVC.downcastLayout?.cellHeight = eventMarkerLayout.cellHeight //timetableVC.downcastLayout?.cellHeight// //layout.cellHeight
+            eventMarkerVC.downcastLayout?.cellWidth = wid //eventMarkerLayout.cellWidth//layout.cellWidth! * 2
+            //timetableVC.downcastLayout!.cellWidth! * 2//
+            // why does the last one here cause *timetableVC's* header rows to become incorrectly positioned (fixed by a reload-data) ?
             
             topVC = eventMarkerVC
             self.view.addSubview(eventMarkerVC.view)
