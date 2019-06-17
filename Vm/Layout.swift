@@ -43,9 +43,8 @@ class CCVFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collec
         
         //print(cellDimensionsMode.simpleDescription()) //; print(squareCellMode.simpleDescription())
         
-        calculateSizes()
-        self.cellWidth = cellWd;   self.cellHeight = cellHt
-        //drawTestSquare()         //print("status  \(statusBarHeight) / \(lastStatusBarHeight)  launch width  \(launchWidth)")
+        calculateSizes();       self.cellWidth = cellWd;   self.cellHeight = cellHt
+        //drawTestSquare()      //print("status  \(statusBarHeight) / \(lastStatusBarHeight)  launch width  \(launchWidth)")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -23,16 +23,24 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, locked
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
+var eventMarkerLayout = CCVFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 1,
+                                 cellWidth: timetableLayout.cellWidth! * 2, cellHeight: timetableLayout.cellHeight!,
+                                 autoFitWScale: nil, autoFitHScale: nil,
+                                 hSpace: cellGap, vSpace: cellGap,
+                                 loadsHorizontally: false,
+                                 squareCellMode: .noAutoSquare)
+
 var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)
+var eventMarkerVC = CollectionVC(.eventClassifier, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 1, collectionViewLayout: eventMarkerLayout)
 //for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
 var topVC = CollectionVC(.initial, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: timetableLayout)
 //--------------------------------------------------------------------------------------------
 
-var statusBarHeight = 0.0;          var lastStatusBarHeight = 0.0
-var navBarHeight = 0.0;             var launchWidth = 0.0
+var statusBarHeight = 0.0;              var lastStatusBarHeight = 0.0
+var navBarHeight = 0.0;                 var launchWidth = 0.0
 
-var xOffSet = CGFloat(0);               var yOffSet = CGFloat(0)
+var xOffSet = CGFloat(0);               var yOffset = CGFloat(0)
 var textFieldY = CGFloat(0)
 
 var rePresentedVCFromButton = true;     var firstReenteredForeground = false

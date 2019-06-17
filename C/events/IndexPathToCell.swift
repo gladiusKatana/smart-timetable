@@ -12,15 +12,23 @@ extension CollectionVC {
         let row = indexPath.item; let column = indexPath.section
         cell.xyCoordinate = [column, row]// = [x, y]
         
-        if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
-            setCellColours(cell: cell, cellIsInHeader: true)
-            setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
+        if vcType == .eventClassifier {
+            setupEventTypeList(cell: cell, column: column, row: row)
         }
         else {
-            setCellColours(cell: cell, cellIsInHeader: false)
-            setCellContents(cell: cell, row: row, column: column, layout: customLayout)
+            if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
+                setCellColours(cell: cell, cellIsInHeader: true)
+                setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
+            }
+            else {
+                setCellColours(cell: cell, cellIsInHeader: false)
+                setCellContents(cell: cell, row: row, column: column, layout: customLayout)
+                
+//                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("time block paths: \(timeBlockPathsToProcess)")
+//                    presentVcToClassifyEvents(layout: customLayout)
+//                }
+            }
         }
-        
         return cell
     }
     

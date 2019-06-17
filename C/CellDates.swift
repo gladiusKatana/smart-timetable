@@ -21,14 +21,26 @@ extension CollectionVC {
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
             
-            cell.backgroundColor = niceOrange; cell.cellColour = niceOrange
+            //cell.backgroundColor = niceOrange; cell.cellColour = niceOrange // shows up momentarily after launch on ipad mini 4, landscape
             
-            let filledBlockToProcess = TimeBlock(values:(column, row))
-            
-            if let eventAtTimeBlock = eventsAtIndexPath[filledBlockToProcess] {
-                eventAtTimeBlock.last?.eventDate = cell.cellDate
-                eventAtTimeBlock.last?.eventStatus = .deferred
-            }// event status property will be set by user in a prompt, which will loop over all of the time block's events/tasks, not just .last
+            if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
+                
+                let blockToProcessColour = jadeGreen
+                cell.backgroundColor = blockToProcessColour; cell.cellColour = blockToProcessColour
+                
+                timeBlockPathsToProcess.append([column, row])
+                
+                if eventAtTimeBlock.count == 1 {
+                    presentVcToClassifyEvents(layout: layout)
+                    globalEventIdentifier = "\(eventAtTimeBlock[0].eventDescription)"
+                }
+                
+//                for event in eventAtTimeBlock {
+//                    event.eventDate = cell.cellDate
+//                    event.eventStatus = .deferred
+//                }
+                
+            }
         }
     }
     

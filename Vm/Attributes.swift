@@ -26,7 +26,7 @@ extension CCVFlowLayout {
                 if !loadsHorizontally {ip = IndexPath(item: i, section: j)}
                 else                {ip = IndexPath(item: j, section: i)}
                 
-                let attribute = UICollectionViewLayoutAttributes(forCellWith: ip)   //previously used:  = self.layoutAttributesForItem(at: ip)!
+                let attribute = UICollectionViewLayoutAttributes(forCellWith: ip) //let attribute = self.layoutAttributesForItem(at: ip)!
                 
                 let xDefault : CGFloat = CGFloat(j) * widthPlusSpace
                 let yDefault : CGFloat = CGFloat(i) * heightPlusSpace
@@ -34,14 +34,24 @@ extension CCVFlowLayout {
                 var xO = CGFloat(0);    var yO = CGFloat(0)                                                     //; print("*", terminator: "")
                 
                 if i < lockedHeaderRows && j < lockedHeaderSections {
-                    xO = xOffSet + CGFloat(j) * widthPlusSpace;     yO = yOffSet + CGFloat(i) * heightPlusSpace
+                    xO = xOffSet + CGFloat(j) * widthPlusSpace
+
+                    if self != eventMarkerLayout {
+                        yO = yOffset + CGFloat(i) * heightPlusSpace
+                    } else {yO = yOffset - CGFloat(navBarHeight + statusBarHeight)}
                 }
+                    
                 else if i < lockedHeaderRows {
-                    xO = xDefault;                                  yO = yOffSet + CGFloat(i) * heightPlusSpace
+                    xO = xDefault
+                    if self != eventMarkerLayout {
+                        yO = yOffset + CGFloat(i) * heightPlusSpace
+                    } else {yO = yOffset - CGFloat(navBarHeight + statusBarHeight)}
                 }
+                    
                 else if j < lockedHeaderSections {
                     xO = xOffSet + CGFloat(j) * widthPlusSpace;     yO = yDefault
                 }
+                    
                 else {
                     xO = xDefault;                                  yO = yDefault
                 }

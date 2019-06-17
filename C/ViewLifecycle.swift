@@ -23,7 +23,7 @@ extension CollectionVC {
         if vcType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-        else if vcType == .todoList {
+        else { //if vcType == .todoList {
             setupViewTitle(formattedDateString(selectedCellDate, comment: "", short: false), numLines: 1, alignment: .left)
         }
         
@@ -35,8 +35,15 @@ extension CollectionVC {
     
     
     override func viewDidAppear(_ animated: Bool) {     //print("path to time block\(selectedTimeBlockPath)")
-        setTopViewController()
+        if vcType != .eventClassifier {
+            setTopViewController()
+        }
+//        else {
+//            topVC = eventMarkerVC
+//        }
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
+        
+        if vcType == .eventClassifier {startTimerForShowScrollIndicator()}
     }
     
     override func viewWillDisappear(_ animated: Bool) {

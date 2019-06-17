@@ -3,11 +3,8 @@
 import UIKit
 
 class CustomCell: UICollectionViewCell {
-    
     static let reuseIdentifier = "CustomCell"
-    
     lazy var titleLabel = UILabel()
-    
     //var event = SimpleEvent() // may add this as a property of a cell; or may simply keep it in a detached data structure (dictionary) as it is now
     
     var cellColour = UIColor.clear
@@ -17,7 +14,6 @@ class CustomCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.backgroundColor = cellDefaultColour
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +39,25 @@ class CustomCell: UICollectionViewCell {
         
         self.backgroundColor = .clear
         self.cellColour = .clear
+    }
+}
+
+class CustomCellLeftTextAligned: CustomCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal,
+                                         toItem: self, attribute: .left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal,
+                                         toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
     }
 }
 

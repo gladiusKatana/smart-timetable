@@ -5,7 +5,7 @@ import UIKit
 
 enum CollectionViewType: Int {
     case initial = 0
-    case hours, todoList, days, months, years
+    case hours, todoList, days, months, years, eventClassifier
     
     func simpleDescription() -> String {
         
@@ -28,6 +28,9 @@ enum CollectionViewType: Int {
             
         case .years:
             return "shows the years of this century"
+            
+        case .eventClassifier:
+            return "prompts the user to classify an event"
         }
     }
 }

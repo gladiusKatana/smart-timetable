@@ -4,22 +4,26 @@ import UIKit
 extension CCVFlowLayout {
     
     override func prepare() {
-        calculateSizes()
-        cellWidth = cellWd;     widthPlusSpace = cellWidth! + hSpace
-        cellHeight = cellHt;    heightPlusSpace = cellHeight! + vSpace
+        calculateSizes();   cellWidth = cellWd;     cellHeight = cellHt
+        widthPlusSpace = cellWidth! + hSpace
+        heightPlusSpace = cellHeight! + vSpace
         
         var statusBarDelta = 0.0
         if UIApplication.shared.statusBarFrame.size.height > 20 {
             statusBarDelta = Double(UIApplication.shared.statusBarFrame.size.height - 20)
         }
-        
-        yOffSet = collectionView!.contentOffset.y + CGFloat(navBarHeight + statusBarHeight - statusBarDelta)    //print("yo: \(yOffSet)")
+        yOffset = collectionView!.contentOffset.y + CGFloat(navBarHeight + statusBarHeight - statusBarDelta)    //print("yo: \(yOffSet)")
         xOffSet = collectionView!.contentOffset.x
         textFieldY = CGFloat(navBarHeight + statusBarHeight - statusBarDelta)               //; print("textFieldY = \(textFieldY)")
         
-        checkOrientation()  //; print("---------------------prepare \(currentTopVC.collectionViewType)-cv")     //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
+        checkOrientation() //; print("---------------------prepare \(topVC.vcType)-cv")
+        //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
         
-        if previousOrientation != currentOrientation  {
+        if currentOrientation != launchOrientation {
+            eventMarkerVC.view.removeFromSuperview()
+        }
+        
+        if previousOrientation != currentOrientation {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
@@ -42,13 +46,13 @@ extension CCVFlowLayout {
         
         switch cellDimensionsMode {
             
-        case .widthAndHeightHardcoded:  cellWd = cellWidth!         ; cellHt = cellHeight!
+        case .widthAndHeightHardcoded:  cellWd = cellWidth!;    cellHt = cellHeight!
             
-        case .widthHardcoded:           cellWd = cellWidth!         ; cellHt = autoFitHeight * autoFitHScale!
+        case .widthHardcoded:           cellWd = cellWidth!;    cellHt = autoFitHeight * autoFitHScale!
             
-        case .heightHardcoded:          cellWd = autofitWidth * autoFitWScale!   ; cellHt = cellHeight!
+        case .heightHardcoded:          cellWd = autofitWidth * autoFitWScale!;     cellHt = cellHeight!
             
-        case .neitherHardcoded:         cellWd = autofitWidth * autoFitWScale!   ; cellHt = autoFitHeight * autoFitHScale!
+        case .neitherHardcoded:         cellWd = autofitWidth * autoFitWScale!;     cellHt = autoFitHeight * autoFitHScale!
         }
         resetDimensionIfSquareCellsEnabled()
     }
