@@ -10,19 +10,13 @@ extension CollectionVC {
         
         if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
             
-            if eventAtTimeBlock.count == 1 {
-                eventsToProcess = eventAtTimeBlock
+//            if eventAtTimeBlock.count == 1 {
                 presentVcToClassifyEvents(row: row, column: column, layout: layout)
                 globalEventIdentifier = "\(eventAtTimeBlock[0].eventDescription)"
-            }
-            
-            /*else {
-             for event in eventAtTimeBlock {
-             event.eventDate = cell.cellDate
-             event.eventStatus = .deferred
-             }
-             }*/
-        } else {print("could not initialize event at this index path")}
+//            }
+
+        }
+        else {print("could not initialize event at this index path")}
     }
     
     func presentVcToClassifyEvents(row: Int, column: Int, layout: CCVFlowLayout) {

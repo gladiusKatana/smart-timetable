@@ -7,23 +7,23 @@ extension CollectionVC {
                                  didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         let layout = downcastLayout!
-        let row = indexPath.item;   let column = indexPath.section
+        let rowSelected = indexPath.item;   let columnSelected = indexPath.section
         //        if indexPath.item >= layout.lockedHeaderRows && indexPath.section >= layout.lockedHeaderSections {
         //            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
         //            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
         //        }
         
-        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
+        if rowSelected >= layout.lockedHeaderRows && columnSelected >= layout.lockedHeaderSections {
             selectedCellDate = cell.cellDate
             let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
             if vcType == .hours {
                 
-                selectedTimeBlockPath = [column, row]
-                timeBlock = TimeBlock(values:(column, row))
+                selectedTimeBlockPath = [columnSelected, rowSelected]
+                timeBlock = TimeBlock(values:(columnSelected, rowSelected))
                 
-                previousSelectedTimeBlockPath = [column, row]
-                previousTimeBlock = TimeBlock(values:(column, row))
+                previousSelectedTimeBlockPath = [columnSelected, rowSelected]
+                previousTimeBlock = TimeBlock(values:(columnSelected, rowSelected))
                 
                 if eventsAtIndexPath[timeBlock] == nil {
                     formatAndPresentTextField(layout: layout, dateString: dateString)
@@ -49,7 +49,19 @@ extension CollectionVC {
         }
         
         if vcType == .eventClassifier {                                     //print("event type cell \(row)")
-            eventMarkerVC.view.removeFromSuperview()                        ; print("marked item as: \(EventStatus.allCases[row - 1])")
+            let row = timeBlockPathsToProcess.last![1]
+            let column = timeBlockPathsToProcess.last![0]
+            
+            if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
+                
+                if eventAtTimeBlock.count == 1 {
+                    //eventAtTimeBlock.last!.eventDate =
+                    eventAtTimeBlock.last!.eventStatus = EventStatus(rawValue: rowSelected - 1)!
+                    print("status entered: \(eventAtTimeBlock.last!.eventStatus)")
+                }
+                
+                eventMarkerVC.view.removeFromSuperview()    ; print("marked item as: \(EventStatus.allCases[rowSelected - 1])")
+            }
         }
     }
 }
