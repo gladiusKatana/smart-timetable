@@ -24,9 +24,9 @@ extension CollectionVC {
                 setCellColours(cell: cell, cellIsInHeader: false)
                 setCellContents(cell: cell, row: row, column: column, layout: customLayout)
                 
-//                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("time block paths: \(timeBlockPathsToProcess)")
-//                    presentVcToClassifyEvents(layout: customLayout)
-//                }
+                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("time block paths: \(timeBlockPathsToProcess)")
+                    processEventsSinceLastLogin(layout: customLayout)
+                }
             }
         }
         return cell
@@ -39,7 +39,6 @@ extension CollectionVC {
             cell.titleLabel.textColor = platinum
         }
         else {
-            
             guard cell.xyCoordinate != selectedTimeBlockPath else {
                 cell.backgroundColor = halfIcyBlue; return
             }
@@ -60,6 +59,17 @@ extension CollectionVC {
         }
         else if row == 0 && column > 0 {
             cell.titleLabel.text = weekdaysAbbreviated[column - 1]
+        }
+    }
+    
+    func setupEventTypeList(cell: CustomCell, column: Int, row: Int) {
+        cell.titleLabel.textColor = eventTextBlue
+        if row == 0 {
+            cell.backgroundColor = icyBlue
+            cell.titleLabel.text = "⬅️ Mark '\(globalEventIdentifier)':"
+        } else {
+            cell.backgroundColor = .lightGray
+            cell.titleLabel.text = EventStatus.allCases[row - 1].caseName()
         }
     }
 }

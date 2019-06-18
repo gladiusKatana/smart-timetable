@@ -16,7 +16,7 @@ var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
 //var timeBlocksToProcessSinceLastLogin = [Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()]
 var timeBlockPathsToProcess: [[Int]] = []
-
+var eventsToProcess = [SimpleEvent]()
 
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 

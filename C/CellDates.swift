@@ -23,23 +23,12 @@ extension CollectionVC {
             
             //cell.backgroundColor = niceOrange; cell.cellColour = niceOrange // shows up momentarily after launch on ipad mini 4, landscape
             
-            if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
+            if eventsAtIndexPath[TimeBlock(values:(column, row))] != nil {
                 
                 let blockToProcessColour = jadeGreen
                 cell.backgroundColor = blockToProcessColour; cell.cellColour = blockToProcessColour
                 
                 timeBlockPathsToProcess.append([column, row])
-                
-                if eventAtTimeBlock.count == 1 {
-                    presentVcToClassifyEvents(layout: layout)
-                    globalEventIdentifier = "\(eventAtTimeBlock[0].eventDescription)"
-                }
-                
-//                for event in eventAtTimeBlock {
-//                    event.eventDate = cell.cellDate
-//                    event.eventStatus = .deferred
-//                }
-                
             }
         }
     }
