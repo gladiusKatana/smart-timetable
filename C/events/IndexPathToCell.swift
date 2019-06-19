@@ -8,9 +8,8 @@ extension CollectionVC {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
-        
         let row = indexPath.item; let column = indexPath.section
-        cell.xyCoordinate = [column, row]// = [x, y]
+        cell.xyCoordinate = [column, row]
         
         if vcType == .eventClassifier {
             setupEventTypeList(cell: cell, column: column, row: row)
@@ -40,28 +39,21 @@ extension CollectionVC {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.titleLabel.textColor = platinum
         }
-        else {
-            guard cell.xyCoordinate != selectedTimeBlockPath else {
+        else { guard cell.xyCoordinate != selectedTimeBlockPath else {
                 cell.backgroundColor = halfIcyBlue; return
             }
             cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
-            
             animateCellColourBack(cell:cell, originalColour: cell.cellColour)
-            
             cell.titleLabel.textColor = cellTextDefaultColour
         }
     }
     
     func setTimeAndDayLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
         if column == 0 && row > 0 {
-            var ampm = ""
-            if row < 13 {ampm = "am"}
-            else {ampm = "pm"}
+            var ampm = ""; if row < 13 {ampm = "am"} else {ampm = "pm"}
             cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
         }
-        else if row == 0 && column > 0 {
-            cell.titleLabel.text = weekdaysAbbreviated[column - 1]
-        }
+        else if row == 0 && column > 0 {cell.titleLabel.text = weekdaysAbbreviated[column - 1]}
     }
     
     func setupEventTypeList(cell: CustomCell, column: Int, row: Int) {

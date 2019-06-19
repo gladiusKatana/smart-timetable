@@ -55,13 +55,13 @@ extension CollectionVC {
             if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
                 
                 if eventAtTimeBlock.count == 1 {
-                    //eventAtTimeBlock.last!.eventDate =
+//                    eventAtTimeBlock.last!.eventDate =
                     eventAtTimeBlock.last!.eventStatus = EventStatus(rawValue: rowSelected - 1)!
                     print("status entered: \(eventAtTimeBlock.last!.eventStatus)")
                 }
                 
                 timeBlockPathsToProcess.removeLast()
-                eventMarkerVC.view.removeFromSuperview()    ; print("marked item as: \(EventStatus.allCases[rowSelected - 1])")
+                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[rowSelected - 1])")
             }
         }
     }

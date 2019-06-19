@@ -5,7 +5,7 @@ import UIKit
 var lastLoggedInDate = Date()
 var selectedCellDate = Date()
 
-var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int()) // (0, "", 0, "", 0, 0)
+var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int())
 //* reserving full-spelled date-component names for CURRENT date (Date()) only
 
 var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
@@ -14,8 +14,7 @@ var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] a
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
-//var timeBlocksToProcessSinceLastLogin = [Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()]
-var timeBlockPathsToProcess: [[Int]] = []
+var timeBlockPathsToProcess: [[Int]] = []       //var timeBlocksToProcessSinceLastLogin = [Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()]
 
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 
@@ -24,13 +23,14 @@ var eventPathArrays = [[Int]]()
 var eventDescriptionArrays = [[String]]()
 var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
+
 var timerForShowScrollIndicator: Timer?
 
 var selectedTimeBlockPath = [-1, -1];           var previousSelectedTimeBlockPath = [0, 0]
 
 var nowRow = 0;                                 var nowColumn = 0
 
-var eventMarkerStartingX: CGFloat = 0.0;         var eventMarkerStartingY: CGFloat = 0.0;
+var eventMarkerStartingX: CGFloat = 0.0;        var eventMarkerStartingY: CGFloat = 0.0;
 
 var reloadedFromHourTickingOver = false;        var textFieldDisplayed = false
 
@@ -42,6 +42,5 @@ var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
 
-var globalEventIdentifier = ""
-var defaultEmptyEventDescription = "❒"
+var globalEventIdentifier = "";                 var defaultEmptyEventDescription = "❒"
 

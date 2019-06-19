@@ -23,7 +23,7 @@ extension CollectionVC {
         if vcType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-        else { //if vcType == .todoList {
+        else {
             setupViewTitle(formattedDateString(selectedCellDate, comment: "", short: false), numLines: 1, alignment: .left)
         }
         
@@ -38,9 +38,6 @@ extension CollectionVC {
         if vcType != .eventClassifier {
             setTopViewController()
         }
-//        else {
-//            topVC = eventMarkerVC
-//        }
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
         
         if vcType == .eventClassifier {startTimerForShowScrollIndicator()}

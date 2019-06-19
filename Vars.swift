@@ -32,8 +32,8 @@ var eventMarkerLayout = CCVFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, loc
 
 var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)
-var eventMarkerVC = CollectionVC(.eventClassifier, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 1, collectionViewLayout: eventMarkerLayout)
 //for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
+var eventMarkerVC = CollectionVC(.eventClassifier, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 1, collectionViewLayout: eventMarkerLayout)
 var topVC = CollectionVC(.initial, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: timetableLayout)
 //--------------------------------------------------------------------------------------------
 

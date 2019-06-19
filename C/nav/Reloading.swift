@@ -17,10 +17,7 @@ extension CollectionVC {
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
             || firstReenteredForeground
-        {                                       //print("r*")
-        
-//        if firstReenteredForeground {
-        
+        {                                                //print("r*")
 //            eventMarkerVC.view.removeFromSuperview()
         
             rePresentedVCFromButton = false              //; print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
@@ -29,11 +26,9 @@ extension CollectionVC {
                 previousOrientation = currentOrientation // * should probably factor out
                 reloadWithDelay(after: 0.02)
             }
-        
         } else {
             previousOrientation = currentOrientation     // * should probably factor out
-            reloadCV()
-            //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
+            reloadCV() //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
         }
     }
     

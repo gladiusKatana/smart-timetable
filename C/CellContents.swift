@@ -6,6 +6,11 @@ extension CollectionVC {
     func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {         //cell. titleLabel.text = "\(column),\(row)"
         
         if vcType == .hours {
+            
+            /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+             let dy = Calendar.current.component(.day, from: cell.cellDate)
+             cell. titleLabel.text = "\(mo) \(dy)"*/
+            
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
             
@@ -30,8 +35,4 @@ extension CollectionVC {
         } else {print("vc type is some other unknown type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
     }
 }
-
-/*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
- let dy = Calendar.current.component(.day, from: cell.cellDate)
- cell. titleLabel.text = "\(mo) \(dy)"*/
 
