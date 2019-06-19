@@ -24,8 +24,10 @@ extension CollectionVC {
                 setCellColours(cell: cell, cellIsInHeader: false)
                 setCellContents(cell: cell, row: row, column: column, layout: customLayout)
                 
-                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("time block paths: \(timeBlockPathsToProcess)")
-                    processEventsSinceLastLogin(layout: customLayout)
+                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("paths to process: \(timeBlockPathsToProcess)")
+                    if timeBlockPathsToProcess.count > 0 {
+                        processEventsSinceLastLogin(layout: customLayout)
+                    }
                 }
             }
         }
