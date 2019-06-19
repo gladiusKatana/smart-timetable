@@ -20,9 +20,11 @@ extension CCVFlowLayout {
         //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
         
         if previousOrientation != currentOrientation {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
-            }
+//            if topVC.vcType != .eventClassifier {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
+                }
+//            }
         } else {
             if topVC.vcType == .hours {
                 processCurrentDate()                                                        //; print("process date from prepare")

@@ -30,7 +30,7 @@ func populateDictionaryFromDefaults() {
             let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
             let date = dateFromLoadedComponents(dateComponents)                             //; print("date: \(date)")
             let event = SimpleEvent(eventDescription: description, eventDate: date)
-            print("loaded event: '\(event.eventDescription)' with deadline:\(formattedDateString(date, comment: "", short: false))")
+            print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, comment: "", short: false))")
             events.append(event)
             j += 1
         }

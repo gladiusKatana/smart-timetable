@@ -9,7 +9,7 @@ extension CollectionVC {
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
         
-        if vcType != .initial {
+        if vcType != .initial && vcType != .eventClassifier {
             print("\n💾\(vcType)-view")                 // loaded
             setTopViewController()
         }
@@ -46,7 +46,7 @@ extension CollectionVC {
         if vcType == .eventClassifier {startTimerForShowScrollIndicator()}
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) { //print("...\(vcType) will disappear...")
         if vcType == .todoList {
             if textFieldDisplayed {
                 eventField.removeFromSuperview()        //; print("removed text field")

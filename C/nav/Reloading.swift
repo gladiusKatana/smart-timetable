@@ -3,7 +3,7 @@
 import UIKit 
 extension CollectionVC {
     
-    @objc func reloadCV() {             //print("\n↺")
+    @objc func reloadCV() {             //print("↺")
         self.collectionView.reloadData()
     }
     
@@ -16,17 +16,24 @@ extension CollectionVC {
     //---------reload again (and potentially re-present) for visual continuity, especially when toggling views while in landscape
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
-            || firstReenteredForeground {
-            
+            || firstReenteredForeground
+        {                                       //print("r*")
+        
+//        if firstReenteredForeground {
+        
+//            eventMarkerVC.view.removeFromSuperview()
+        
             rePresentedVCFromButton = false              //; print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
-            
+
             setupTitleAndPresentViewController(vc: vc) { () -> () in
                 previousOrientation = currentOrientation // * should probably factor out
                 reloadWithDelay(after: 0.02)
             }
+        
         } else {
             previousOrientation = currentOrientation     // * should probably factor out
-            reloadCV() //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
+            reloadCV()
+            //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
         }
     }
     

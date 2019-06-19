@@ -60,6 +60,7 @@ extension CollectionVC {
                     print("status entered: \(eventAtTimeBlock.last!.eventStatus)")
                 }
                 
+                timeBlockPathsToProcess.removeLast()
                 eventMarkerVC.view.removeFromSuperview()    ; print("marked item as: \(EventStatus.allCases[rowSelected - 1])")
             }
         }

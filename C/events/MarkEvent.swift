@@ -37,7 +37,7 @@ extension CollectionVC {
             //timetableVC.downcastLayout!.cellWidth! * 2// makes *timetableVC's* header rows become incorrectly positioned (fixed by a reload-data)
             
             topVC = eventMarkerVC
-            self.view.addSubview(eventMarkerVC.view)
+            globalKeyWindow.addSubview(eventMarkerVC.view)  //self.view.
             topVC = timetableVC
             
         } //else {print("time block paths... empty")}
