@@ -32,20 +32,18 @@ extension CollectionVC {
                 else {gotoView(vc: todoListVC)}
                 
                 if !cell.markedForItems {
-                    UIView.animate(withDuration: 1, delay: 0,
+                    UIView.animate(withDuration: 1, delay: 0,// will factor/put in Animations.swift
                                    usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
                                     cell.backgroundColor = halfIcyBlue
                     }, completion: nil)
                     cell.markedForItems = true
                 }
             }
-                
             else if vcType == .todoList {
                 formatAndPresentTextField(layout: layout, dateString: dateString)
                 textFieldDisplayed = true
             }
-                
-            else {print("unrecognized collection view cell type selected")}
+            else {print("unrecognized collection view type's cell selected")}
         }
         
         if vcType == .eventClassifier {                                     //print("event type cell \(row)")

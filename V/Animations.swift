@@ -5,7 +5,7 @@ extension CollectionVC {
     
     
     func animateSelectedCellColourBack() {
-        if vcType == .hours {
+        
             let cells = self.collectionView.visibleCells as! [CustomCell]
             for cell in cells {                                             //print("xy coord \(cell.xyCoordinate)")
                 if cell.xyCoordinate == selectedTimeBlockPath {
@@ -20,7 +20,7 @@ extension CollectionVC {
                 
 
             }
-        }
+ 
     }
     
     

@@ -38,6 +38,7 @@ extension CollectionVC {
         if vcType != .eventClassifier {
             setTopViewController()
         }
+//        else {}
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
         
         if vcType == .eventClassifier {startTimerForShowScrollIndicator()}

@@ -32,7 +32,7 @@ extension CollectionVC {
                 cell.titleLabel.textColor = platinumLite
             }
             
-        } else {print("vc type is some other unknown type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
+        } else {print("[setCellContents(:)] unrecognized collection view type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
     }
 }
 

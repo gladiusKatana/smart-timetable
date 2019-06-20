@@ -37,11 +37,13 @@ extension CollectionVC {
                 addToTimeBlocks(column: previousSelectedTimeBlockPath[0], row: previousSelectedTimeBlockPath[1], textEntered: textEntered)
                 gotoView(vc: todoListVC)    // essentially reloads the view to display the updated list
             }
-            else {print("collection view is not a recognized type")}
+            else {print("unrecognized collection view type")}
             textField.text = ""
         }
         
-        animateSelectedCellColourBack() //; print("animating...")
+        if vcType == .hours {
+            animateSelectedCellColourBack() //; print("animating...")
+        }
         
         return true
     }

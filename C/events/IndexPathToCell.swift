@@ -11,9 +11,7 @@ extension CollectionVC {
         let row = indexPath.item; let column = indexPath.section
         cell.xyCoordinate = [column, row]
         
-        if vcType == .eventClassifier {
-            setupEventTypeList(cell: cell, column: column, row: row)
-        }
+        if vcType == .eventClassifier {setupEventTypeList(cell: cell, column: column, row: row)}
         else {
             if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
                 setCellColours(cell: cell, cellIsInHeader: true)
