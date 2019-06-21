@@ -1,7 +1,7 @@
 //  Reloading.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit 
-extension CollectionVC {
+extension UICollectionViewController { //CollectionVC {
     
     @objc func reloadCV() {             //print("↺")
         self.collectionView.reloadData()
@@ -37,7 +37,7 @@ extension CollectionVC {
         completion()
     }
     
-    func setupAndPresent(vc: CollectionVC) {
+    func setupAndPresent(vc: UICollectionViewController) {//setupAndPresent(vc: CollectionVC) {
         setupViewTitle("", numLines: 1, alignment: .left) // header titles is changed promptly from "" anyway
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.dismissNavController {

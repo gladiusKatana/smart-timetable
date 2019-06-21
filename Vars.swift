@@ -30,6 +30,17 @@ var eventMarkerLayout = CCVFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, loc
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
+var classifierLayout = CCVFlowLayout(rows: 3, cols: 3, lockedHeaderRows: 1, lockedHeaderSections: 1,
+                                       cellWidth: nil, cellHeight: nil,
+                                       autoFitWScale: nil, autoFitHScale: nil,
+                                       hSpace: cellGap, vSpace: cellGap,
+                                       loadsHorizontally: false,
+                                       squareCellMode: .noAutoSquare)
+
+var classifierVC = SelectorVC(.years, collectionViewLayout: classifierLayout)
+
+
+
 var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)
 //for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter

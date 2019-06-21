@@ -42,9 +42,38 @@ extension CollectionVC {
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
         
         if vcType == .eventClassifier {startTimerForShowScrollIndicator()}
+        
+//        let classifierLayout = CCVFlowLayout(rows: 3, cols: 3, lockedHeaderRows: 0, lockedHeaderSections: 0,
+//                                               cellWidth: nil, cellHeight: nil,
+//                                               autoFitWScale: nil, autoFitHScale: nil,
+//                                               hSpace: cellGap, vSpace: cellGap,
+//                                               loadsHorizontally: false,
+//                                               squareCellMode: .noAutoSquare)
+//
+//        let classifierVC = SelectorVC(.years, collectionViewLayout: classifierLayout)
+        
+//        classifierLayout = CCVFlowLayout(rows: 3, cols: 3, lockedHeaderRows: 0, lockedHeaderSections: 0,
+//                                           cellWidth: nil, cellHeight: nil,
+//                                           autoFitWScale: nil, autoFitHScale: nil,
+//                                           hSpace: cellGap, vSpace: cellGap,
+//                                           loadsHorizontally: false,
+//                                           squareCellMode: .noAutoSquare)
+//
+//        classifierVC = SelectorVC(.years, collectionViewLayout: classifierLayout)
+        
+
+//        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        
+        self.view.addSubview(classifierVC.view)
+//        globalKeyWindow.addSubview(classifierVC.view)
+        
+//        }
+
+//        timetableVC.setupAndPresent(vc: classifierVC)
     }
     
     override func viewWillDisappear(_ animated: Bool) { //print("...\(vcType) will disappear...")
+        super.viewWillDisappear(false)
         if vcType == .todoList {
             if textFieldDisplayed {
                 eventField.removeFromSuperview()        //; print("removed text field")
