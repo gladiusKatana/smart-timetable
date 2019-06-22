@@ -18,7 +18,6 @@ extension CollectionVC {
             let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
             if vcType == .hours {
-                
                 selectedTimeBlockPath = [columnSelected, rowSelected]
                 timeBlock = TimeBlock(values:(columnSelected, rowSelected))
                 

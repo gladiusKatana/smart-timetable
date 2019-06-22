@@ -42,10 +42,6 @@ extension CollectionVC {
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
         
         if vcType == .eventClassifier {startTimerForShowScrollIndicator()}
-        
-        self.view.addSubview(classifierVC.view)
-//        globalKeyWindow.addSubview(classifierVC.view)
-//        timetableVC.setupAndPresent(vc: classifierVC)
     }
     
     override func viewWillDisappear(_ animated: Bool) { //print("...\(vcType) will disappear...")

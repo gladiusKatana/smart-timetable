@@ -29,6 +29,13 @@ extension CollectionVC {
                 cell.backgroundColor = blockToProcessColour; cell.cellColour = blockToProcessColour
                 
                 timeBlockPathsToProcess.append([column, row])
+                
+                let cellWidth = downcastLayout!.cellWidth!; let cellHeight = downcastLayout!.cellHeight
+                classifierVC.downcastLayout?.customFrame = CGRect(x: cellWidth * CGFloat(column - 1),
+                                                                  y: CGFloat(navBarHeight + statusBarHeight) + cellHeight! * CGFloat(row),
+                                                                  width: cellWidth, height: cellHeight! * 2)
+                
+                self.view.addSubview(classifierVC.view)
             }
         }
     }

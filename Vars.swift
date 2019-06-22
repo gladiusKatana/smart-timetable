@@ -34,9 +34,9 @@ var eventMarkerLayout = CustomFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, 
                                  squareCellMode: .noAutoSquare)
 
 let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
-                        width: timetableLayout.cellWidth! * 4, height: timetableLayout.cellHeight! * 2)
+                        width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
-var classifierLayout = CustomFlowLayout(rows: 4, cols: 4, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var classifierLayout = CustomFlowLayout(rows: 4, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                        customFrame: popupFrame,
                                        cellWidth: timetableLayout.cellWidth!, cellHeight: timetableLayout.cellHeight!,
                                        autoFitWScale: nil, autoFitHScale: nil,
