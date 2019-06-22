@@ -44,7 +44,7 @@ var classifierLayout = CustomFlowLayout(rows: 4, cols: 4, lockedHeaderRows: 0, l
                                        loadsHorizontally: false,
                                        squareCellMode: .noAutoSquare)
 
-var classifierVC = PopupMenuVC(.hours, collectionViewLayout: classifierLayout)
+var classifierVC = PopupMenuVC(.eventClassifier, collectionViewLayout: classifierLayout)
 
 
 
