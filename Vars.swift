@@ -9,15 +9,15 @@ var navController: UINavigationController? = UINavigationController()
 var cellGap = CGFloat(0) // if nonzero, do not make this smaller than: 0.5 (iphone7), or else lines drawn inconsistently
 
 //--------------------------------------------------------------------------------------------
-var timetableLayout = CustomFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
+var timetableLayout = CustomFlowLayout(embeddedInNavController: true, rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                     customFrame: globalKeyWindow.frame,
-                                    cellWidth: nil, cellHeight: nil, //* nil value for either dimension results in auto-fitting to screen width/height
+                                    cellWidth: nil, cellHeight: nil, //* nil for either dimension results in auto-fitting to screen width/height
                                 autoFitWScale: nil, autoFitHScale: nil,     //* if an auto-fit scale factor is nil, default of 1.0 is used
                                 hSpace: cellGap, vSpace: cellGap,           //* also, auto-fit scale factors ignored if width/height are not nil
                                 loadsHorizontally: false, //❗️if loadsHorizontally is true, 'rows' look like columns. Just keep this in mind
                                 squareCellMode: .noAutoSquare)
 
-var todoListLayout = CustomFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var todoListLayout = CustomFlowLayout(embeddedInNavController: true, rows: 1, cols: 2, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                  customFrame: globalKeyWindow.frame,
                                  cellWidth: nil, cellHeight: nil,
                                  autoFitWScale: 1, autoFitHScale: 1,
@@ -25,7 +25,7 @@ var todoListLayout = CustomFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, loc
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var eventMarkerLayout = CustomFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 1,
+var eventMarkerLayout = CustomFlowLayout(embeddedInNavController: true, rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                  customFrame: globalKeyWindow.frame,
                                  cellWidth: timetableLayout.cellWidth! * 2, cellHeight: timetableLayout.cellHeight!,
                                  autoFitWScale: nil, autoFitHScale: nil,
@@ -36,7 +36,7 @@ var eventMarkerLayout = CustomFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, 
 let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
                         width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
-var classifierLayout = CustomFlowLayout(rows: 4, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 4, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                        customFrame: popupFrame,
                                        cellWidth: timetableLayout.cellWidth!, cellHeight: timetableLayout.cellHeight!,
                                        autoFitWScale: nil, autoFitHScale: nil,

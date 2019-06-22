@@ -14,7 +14,7 @@ class PopupMenuVC: UICollectionViewController {
     
     override func viewDidLoad() {
         collectionView.frame = downcastLayout!.customFrame
-        collectionView.backgroundColor = .orange
+        collectionView.backgroundColor = .clear // .orange
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true

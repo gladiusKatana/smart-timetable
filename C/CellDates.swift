@@ -30,12 +30,17 @@ extension CollectionVC {
                 
                 timeBlockPathsToProcess.append([column, row])
                 
-                let cellWidth = downcastLayout!.cellWidth!; let cellHeight = downcastLayout!.cellHeight
-                classifierVC.downcastLayout?.customFrame = CGRect(x: cellWidth * CGFloat(column - 1),
-                                                                  y: CGFloat(navBarHeight + statusBarHeight) + cellHeight! * CGFloat(row),
-                                                                  width: cellWidth, height: cellHeight! * 2)
+                //print("showing popup")
                 
-                self.view.addSubview(classifierVC.view)
+                let cellWidth = downcastLayout!.cellWd; let cellHeight = downcastLayout!.cellHt
+
+                classifierVC.downcastLayout?.customFrame = CGRect(x: cellWidth * CGFloat(column - 1),
+                                                                  y: CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row),
+                                                                  width: cellWidth, height: cellHeight * 2)
+                
+                if !removedPopup {
+                    self.view.addSubview(classifierVC.view)
+                }
             }
         }
     }

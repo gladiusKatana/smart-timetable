@@ -9,20 +9,21 @@ class CustomFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Col
     var cols = 0;                   var rows = 0;                   var lockedHeaderRows = 0;           var lockedHeaderSections = 0
 //    var contentSize = CGSize.zero
     var customFrame: CGRect
-    var cellDimensionsMode = CellDimensionsMode.neitherHardcoded;   var loadsHorizontally = false
+    var cellDimensionsMode = CellDimensionsMode.neitherHardcoded
+    var embeddedInNavController = false;                            var loadsHorizontally = false
     var squareCellMode = SquareCellMode.noAutoSquare;               var squareCells = false
     
-    init(rows: Int, cols: Int, lockedHeaderRows: Int, lockedHeaderSections: Int,
+    init(embeddedInNavController: Bool, rows: Int, cols: Int, lockedHeaderRows: Int, lockedHeaderSections: Int,
          customFrame: CGRect, cellWidth: CGFloat?, cellHeight: CGFloat?,
          autoFitWScale: CGFloat?, autoFitHScale: CGFloat?,
          hSpace: CGFloat, vSpace: CGFloat, loadsHorizontally: Bool, squareCellMode: SquareCellMode) {
         
+        self.embeddedInNavController = embeddedInNavController
+        
         if !loadsHorizontally {
-            self.rows = rows;                       self.cols = cols
+            self.rows = rows;       self.cols = cols
         }
-        else {
-            self.rows = cols;                       self.cols = rows
-        }
+        else {self.rows = cols;     self.cols = rows}
         
         self.lockedHeaderRows = lockedHeaderRows;   self.lockedHeaderSections = lockedHeaderSections
         self.customFrame = customFrame

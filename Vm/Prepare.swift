@@ -23,6 +23,10 @@ extension CustomFlowLayout {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
+            
+            classifierVC.view.removeFromSuperview()
+            removedPopup = true
+            
         } else {
             if topVC.vcType == .hours {
                 processCurrentDate()                                                        //; print("process date from prepare")
@@ -37,8 +41,11 @@ extension CustomFlowLayout {
         statusBarHeight = Double(UIApplication.shared.statusBarFrame.size.height)           //; print("status bar: \(statusBarHeight)")
         navBarHeight = Double((navController?.navigationBar.frame.height)!)                 //; print("nav bar: \(navBarHeight)")
         
-        let autofitWidth = CGFloat(Double(self.customFrame.width) - 0.5) / CGFloat(cols) - hSpace
-        let autoFitHeight = CGFloat(Double(self.customFrame.height) - navBarHeight - statusBarHeight) / CGFloat(rows) - vSpace
+        var frame: CGRect
+        if embeddedInNavController {frame = globalKeyWindow.frame}
+        else {frame = customFrame}
+        let autofitWidth = CGFloat(Double(frame.width) - 0.5) / CGFloat(cols) - hSpace
+        let autoFitHeight = CGFloat(Double(frame.height) - navBarHeight - statusBarHeight) / CGFloat(rows) - vSpace
         
         switch cellDimensionsMode {
             

@@ -1,6 +1,7 @@
 //  Reloading.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-import UIKit 
+import UIKit
+
 extension UICollectionViewController { //CollectionVC {
     
     @objc func reloadCV() {             //print("↺")
@@ -18,8 +19,6 @@ extension UICollectionViewController { //CollectionVC {
         if previousOrientation == "landscape" && currentOrientation == "portrait"
             || firstReenteredForeground
         {                                                //print("r*")
-//            eventMarkerVC.view.removeFromSuperview()
-        
             rePresentedVCFromButton = false              //; print("\n----------------------presented then reloaded \(vc.collectionViewType) cv ")
 
             setupTitleAndPresentViewController(vc: vc) { () -> () in
