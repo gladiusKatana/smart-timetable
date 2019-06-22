@@ -33,7 +33,7 @@ var nowRow = 0;                                 var nowColumn = 0
 var eventMarkerStartingX: CGFloat = 0.0;        var eventMarkerStartingY: CGFloat = 0.0;
 
 var reloadedFromHourTickingOver = false;        var textFieldDisplayed = false
-
+var removedPopup = false
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 var weekdaysAbbreviated = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
