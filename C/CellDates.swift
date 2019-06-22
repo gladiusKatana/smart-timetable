@@ -3,7 +3,7 @@
 import UIKit
 extension CollectionVC {
     
-    func setupHourlyCells(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, looping: Bool, withColours: Bool) {
+    func setupHourlyCells(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout, looping: Bool, withColours: Bool) {
         showNowCell(cell: cell, column: column, row: row)
         
         let hoursFromNow = TimeInterval(3600 * (row - nowRow))
@@ -17,7 +17,7 @@ extension CollectionVC {
         processEventBasedOnDateRange(cell: cell, column: column, row: row, layout: layout)
     }
     
-    func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout) {
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
             
@@ -44,7 +44,7 @@ extension CollectionVC {
         }
     }
     
-    func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout, withColours: Bool) -> Int {
+    func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout, withColours: Bool) -> Int {
         var weekAhead = 0
         if column < nowColumn || column == nowColumn && row < nowRow {
             if withColours {cell.backgroundColor = lightNavy; cell.cellColour = lightNavy}

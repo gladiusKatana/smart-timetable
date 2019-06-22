@@ -2,7 +2,7 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-class CCVFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collection View Flow Layout"
+class CustomFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collection View Flow Layout"
     var cellWidth: CGFloat?;        var cellHeight: CGFloat?;       var autoFitWScale: CGFloat?;        var autoFitHScale: CGFloat?
     var hSpace = CGFloat(0);        var vSpace = CGFloat(0);        var cellWd = CGFloat(0);            var cellHt = CGFloat(0)
     var xDefault = CGFloat(0);      var yDefault = CGFloat(0);      var widthPlusSpace = CGFloat(0);    var heightPlusSpace = CGFloat(0)

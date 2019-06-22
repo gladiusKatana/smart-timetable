@@ -3,7 +3,7 @@
 import UIKit
 extension CollectionVC {
     
-    func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CCVFlowLayout) {         //cell. titleLabel.text = "\(column),\(row)"
+    func setCellContents (cell: CustomCell, row: Int, column: Int, layout: CustomFlowLayout) {         //cell. titleLabel.text = "\(column),\(row)"
         
         if vcType == .hours {
             

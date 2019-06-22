@@ -13,7 +13,7 @@
 		0614F6C722875C2700211DF2 /* DefaultLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F6C622875C2700211DF2 /* DefaultLoad.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		061D5F3F22B0ABD800122898 /* MarkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D5F3E22B0ABD800122898 /* MarkEvent.swift */; };
-		061E600B22BC07720085744B /* SelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061E600A22BC07720085744B /* SelectorVC.swift */; };
+		061E600B22BC07720085744B /* PopupMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061E600A22BC07720085744B /* PopupMenuVC.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
 		062240F822AF6B070053570E /* CliListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062240F722AF6B070053570E /* CliListVC.swift */; };
 		062569CE227A8D33003E5C49 /* TimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062569CD227A8D33003E5C49 /* TimeBlock.swift */; };
@@ -58,7 +58,7 @@
 		0614F6C622875C2700211DF2 /* DefaultLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoad.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		061D5F3E22B0ABD800122898 /* MarkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkEvent.swift; sourceTree = "<group>"; };
-		061E600A22BC07720085744B /* SelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorVC.swift; sourceTree = "<group>"; };
+		061E600A22BC07720085744B /* PopupMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuVC.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
 		062240F722AF6B070053570E /* CliListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CliListVC.swift; sourceTree = "<group>"; };
 		062569CD227A8D33003E5C49 /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
@@ -119,14 +119,6 @@
 			path = Unused;
 			sourceTree = "<group>";
 		};
-		061E600922BC066D0085744B /* classifyEvent */ = {
-			isa = PBXGroup;
-			children = (
-				061E600A22BC07720085744B /* SelectorVC.swift */,
-			);
-			path = classifyEvent;
-			sourceTree = "<group>";
-		};
 		062A3F2F226BE87C00D6DBED = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +165,7 @@
 				06B4F0C622B72AA00048D51E /* IndexPathToCell.swift */,
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
 				060FAE6722775275002E472A /* CellDates.swift */,
-				061E600922BC066D0085744B /* classifyEvent */,
+				062A3F5A226BE8F100D6DBED /* SelectingCell.swift */,
 				062A3F54226BE8F100D6DBED /* events */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 			);
@@ -195,9 +187,9 @@
 		062A3F54226BE8F100D6DBED /* events */ = {
 			isa = PBXGroup;
 			children = (
-				061D5F3E22B0ABD800122898 /* MarkEvent.swift */,
-				062A3F5A226BE8F100D6DBED /* SelectingCell.swift */,
+				061E600A22BC07720085744B /* PopupMenuVC.swift */,
 				0601A5202280ED85005D0D99 /* TextField.swift */,
+				061D5F3E22B0ABD800122898 /* MarkEvent.swift */,
 			);
 			path = events;
 			sourceTree = "<group>";
@@ -361,7 +353,7 @@
 				062A3F8B226BE8F200D6DBED /* ZIndex.swift in Sources */,
 				062240F822AF6B070053570E /* CliListVC.swift in Sources */,
 				062133892276AE2000D46E5D /* DateCheck.swift in Sources */,
-				061E600B22BC07720085744B /* SelectorVC.swift in Sources */,
+				061E600B22BC07720085744B /* PopupMenuVC.swift in Sources */,
 				060FAE6822775275002E472A /* CellDates.swift in Sources */,
 				062A3F8D226BE8F200D6DBED /* CellSizeModes.swift in Sources */,
 				062A3F7F226BE8F200D6DBED /* TestSquare.swift in Sources */,

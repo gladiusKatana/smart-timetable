@@ -4,7 +4,7 @@ import UIKit
 
 class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
-    var downcastLayout : CCVFlowLayout?;    var vcType = CollectionViewType.days
+    var downcastLayout : CustomFlowLayout?;    var vcType = CollectionViewType.days
     var colourIndex: Int = Int()
     var loopWeeks = false;                  var demarcateWeeksByColour = false
     
@@ -29,7 +29,7 @@ class CollectionVC: UICollectionViewController, UITextFieldDelegate {
         self.loopWeeks = loopWeeks
         self.demarcateWeeksByColour = demarcateWeeksByColour
         self.colourIndex = colourIndex
-        self.downcastLayout = layout as? CCVFlowLayout
+        self.downcastLayout = layout as? CustomFlowLayout
     }
     
     required init?(coder aDecoder: NSCoder) {fatalError("init(coder:) has not been implemented")}

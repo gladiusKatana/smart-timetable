@@ -4,7 +4,7 @@ import UIKit
 
 extension CollectionVC {
     
-    func processEventsSinceLastLogin(layout: CCVFlowLayout) {
+    func processEventsSinceLastLogin(layout: CustomFlowLayout) {
         let row = timeBlockPathsToProcess.last![1]
         let column = timeBlockPathsToProcess.last![0]
         
@@ -19,7 +19,7 @@ extension CollectionVC {
         else {print("could not initialize event at this index path")}
     }
     
-    func presentVcToClassifyEvents(row: Int, column: Int, layout: CCVFlowLayout) {
+    func presentVcToClassifyEvents(row: Int, column: Int, layout: CustomFlowLayout) {
         eventMarkerStartingX = 0
         eventMarkerStartingY = CGFloat(navBarHeight + statusBarHeight) // - statusBarDelta
         

@@ -46,7 +46,7 @@ extension CollectionVC {
         }
     }
     
-    func setTimeAndDayLabels (cell: CustomCell, column: Int, row: Int, layout: CCVFlowLayout) {
+    func setTimeAndDayLabels (cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout) {
         if column == 0 && row > 0 {
             var ampm = ""; if row < 13 {ampm = "am"} else {ampm = "pm"}
             cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"

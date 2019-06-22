@@ -1,7 +1,7 @@
 //  Prepare.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
-extension CCVFlowLayout {
+extension CustomFlowLayout {
     
     override func prepare() {
         calculateSizes();   cellWidth = cellWd;     cellHeight = cellHt

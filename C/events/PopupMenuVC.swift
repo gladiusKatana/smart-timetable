@@ -2,14 +2,14 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-class SelectorVC: UICollectionViewController {
+class PopupMenuVC: UICollectionViewController {
     
-    var downcastLayout : CCVFlowLayout?;    var vcType = CollectionViewType.days
+    var downcastLayout : CustomFlowLayout?;    var vcType = CollectionViewType.days
     
     init(_ vcType: CollectionViewType, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         self.vcType = vcType
-        self.downcastLayout = layout as? CCVFlowLayout
+        self.downcastLayout = layout as? CustomFlowLayout
     }
     
     override func viewDidLoad() {
