@@ -13,10 +13,11 @@ class SelectorVC: UICollectionViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        collectionView.frame = downcastLayout!.customFrame
         collectionView.backgroundColor = .orange
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
+        collectionView?.isScrollEnabled = true
         setupNavBarButtons(nil, atIndex: nil)
     }
     
@@ -29,11 +30,14 @@ class SelectorVC: UICollectionViewController {
 //        let customLayout = downcastLayout!
         let row = indexPath.item; let column = indexPath.section
         
-        if row % 2 == 0 && column % 2 != 0 {
+        if row % 2 != 0 && column % 2 == 0 {
             cell.backgroundColor = .blue
         }
+        else {
+            cell.backgroundColor = .darkGray
+        }
         
-        print(indexPath)
+//        print(indexPath)
         
         return cell
     }

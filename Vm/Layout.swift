@@ -7,12 +7,13 @@ class CCVFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collec
     var hSpace = CGFloat(0);        var vSpace = CGFloat(0);        var cellWd = CGFloat(0);            var cellHt = CGFloat(0)
     var xDefault = CGFloat(0);      var yDefault = CGFloat(0);      var widthPlusSpace = CGFloat(0);    var heightPlusSpace = CGFloat(0)
     var cols = 0;                   var rows = 0;                   var lockedHeaderRows = 0;           var lockedHeaderSections = 0
-    var contentSize = CGSize.zero
+//    var contentSize = CGSize.zero
+    var customFrame: CGRect
     var cellDimensionsMode = CellDimensionsMode.neitherHardcoded;   var loadsHorizontally = false
     var squareCellMode = SquareCellMode.noAutoSquare;               var squareCells = false
     
     init(rows: Int, cols: Int, lockedHeaderRows: Int, lockedHeaderSections: Int,
-         cellWidth: CGFloat?, cellHeight: CGFloat?,
+         customFrame: CGRect, cellWidth: CGFloat?, cellHeight: CGFloat?,
          autoFitWScale: CGFloat?, autoFitHScale: CGFloat?,
          hSpace: CGFloat, vSpace: CGFloat, loadsHorizontally: Bool, squareCellMode: SquareCellMode) {
         
@@ -24,8 +25,8 @@ class CCVFlowLayout : UICollectionViewFlowLayout {  // stands for "Custom Collec
         }
         
         self.lockedHeaderRows = lockedHeaderRows;   self.lockedHeaderSections = lockedHeaderSections
+        self.customFrame = customFrame
         self.cellWidth = cellWidth;                 self.cellHeight = cellHeight
-        
         self.autoFitHScale = (autoFitHScale != nil) ? autoFitHScale : 1
         self.autoFitWScale = (autoFitWScale != nil) ? autoFitWScale : 1
         

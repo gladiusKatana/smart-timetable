@@ -10,13 +10,15 @@ var cellGap = CGFloat(0) // if nonzero, do not make this smaller than: 0.5 (ipho
 
 //--------------------------------------------------------------------------------------------
 var timetableLayout = CCVFlowLayout(rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
-                                cellWidth: nil, cellHeight: nil,    //* nil value for either dimension results in auto-fitting to screen width/height
+                                    customFrame: globalKeyWindow.frame,
+                                    cellWidth: nil, cellHeight: nil, //* nil value for either dimension results in auto-fitting to screen width/height
                                 autoFitWScale: nil, autoFitHScale: nil,     //* if an auto-fit scale factor is nil, default of 1.0 is used
                                 hSpace: cellGap, vSpace: cellGap,           //* also, auto-fit scale factors ignored if width/height are not nil
                                 loadsHorizontally: false, //❗️if loadsHorizontally is true, 'rows' look like columns. Just keep this in mind
                                 squareCellMode: .noAutoSquare)
 
 var todoListLayout = CCVFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, lockedHeaderSections: 0,
+                                 customFrame: globalKeyWindow.frame,
                                  cellWidth: nil, cellHeight: nil,
                                  autoFitWScale: 1, autoFitHScale: 1,
                                  hSpace: cellGap, vSpace: cellGap,
@@ -24,20 +26,25 @@ var todoListLayout = CCVFlowLayout(rows: 1, cols: 2, lockedHeaderRows: 0, locked
                                  squareCellMode: .noAutoSquare)
 
 var eventMarkerLayout = CCVFlowLayout(rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 1,
+                                 customFrame: globalKeyWindow.frame,
                                  cellWidth: timetableLayout.cellWidth! * 2, cellHeight: timetableLayout.cellHeight!,
                                  autoFitWScale: nil, autoFitHScale: nil,
                                  hSpace: cellGap, vSpace: cellGap,
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-var classifierLayout = CCVFlowLayout(rows: 3, cols: 3, lockedHeaderRows: 1, lockedHeaderSections: 1,
-                                       cellWidth: nil, cellHeight: nil,
+let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
+                        width: timetableLayout.cellWidth! * 4, height: timetableLayout.cellHeight! * 2)
+
+var classifierLayout = CCVFlowLayout(rows: 4, cols: 4, lockedHeaderRows: 0, lockedHeaderSections: 0,
+                                       customFrame: popupFrame,
+                                       cellWidth: timetableLayout.cellWidth!, cellHeight: timetableLayout.cellHeight!,
                                        autoFitWScale: nil, autoFitHScale: nil,
                                        hSpace: cellGap, vSpace: cellGap,
                                        loadsHorizontally: false,
                                        squareCellMode: .noAutoSquare)
 
-var classifierVC = SelectorVC(.years, collectionViewLayout: classifierLayout)
+var classifierVC = SelectorVC(.hours, collectionViewLayout: classifierLayout)
 
 
 
