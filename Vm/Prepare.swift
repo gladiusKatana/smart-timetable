@@ -24,8 +24,7 @@ extension CustomFlowLayout {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
             
-            classifierVC.view.removeFromSuperview()
-            removedPopup = true
+
             
         } else {
             if topVC.vcType == .hours {

@@ -16,6 +16,9 @@ extension UICollectionViewController { //CollectionVC {
     
     //---------reload again (and potentially re-present) for visual continuity, especially when toggling views while in landscape
     @objc func reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: CollectionVC) {
+        
+        classifierVC.view.removeFromSuperview() //; removedPopup = true
+        
         if previousOrientation == "landscape" && currentOrientation == "portrait"
             || firstReenteredForeground
         {                                                //print("r*")
@@ -28,6 +31,10 @@ extension UICollectionViewController { //CollectionVC {
         } else {
             previousOrientation = currentOrientation     // * should probably factor out
             reloadCV() //reloadWithDelay(after: 0.02) // ?use time delay, as in above completion block? (will test over time, with different devices)
+//            setupTitleAndPresentViewController(vc: vc) { () -> () in
+//                previousOrientation = currentOrientation // * should probably factor out
+//                reloadWithDelay(after: 0)
+//            }
         }
     }
     

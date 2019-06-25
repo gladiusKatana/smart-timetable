@@ -13,8 +13,9 @@ class PopupMenuVC: UICollectionViewController {
     }
     
     override func viewDidLoad() {
-        collectionView.frame = downcastLayout!.customFrame
-        collectionView.backgroundColor = .clear // .orange
+        super.viewDidLoad()
+//        collectionView.frame = downcastLayout!.customFrame  
+        collectionView.backgroundColor = .orange //.clear //
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true
@@ -27,7 +28,7 @@ class PopupMenuVC: UICollectionViewController {
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
-//        let customLayout = downcastLayout!
+        //let customLayout = downcastLayout!
         let row = indexPath.item; let column = indexPath.section
         
         if row % 2 != 0 && column % 2 == 0 {

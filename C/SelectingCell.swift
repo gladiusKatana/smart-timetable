@@ -5,38 +5,41 @@ extension CollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+//        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let layout = downcastLayout!
-        let rowSelected = indexPath.item;   let columnSelected = indexPath.section
+        let row = indexPath.item;   let column = indexPath.section
         //        if indexPath.item >= layout.lockedHeaderRows && indexPath.section >= layout.lockedHeaderSections {
         //            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
         //            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
         //        }
         
-        if rowSelected >= layout.lockedHeaderRows && columnSelected >= layout.lockedHeaderSections {
+        if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             selectedCellDate = cell.cellDate
             let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
             
             if vcType == .hours {
-                selectedTimeBlockPath = [columnSelected, rowSelected]
-                timeBlock = TimeBlock(values:(columnSelected, rowSelected))
+                selectedTimeBlockPath = [column, row]
+                timeBlock = TimeBlock(values:(column, row))
                 
-                previousSelectedTimeBlockPath = [columnSelected, rowSelected]
-                previousTimeBlock = TimeBlock(values:(columnSelected, rowSelected))
+                previousSelectedTimeBlockPath = [column, row]
+                previousTimeBlock = TimeBlock(values:(column, row))
                 
-                if eventsAtIndexPath[timeBlock] == nil {
-                    formatAndPresentTextField(layout: layout, dateString: dateString)
-                    textFieldDisplayed = true
-                }
-                else {gotoView(vc: todoListVC)}
+//                if eventsAtIndexPath[timeBlock] == nil {
+//                    formatAndPresentTextField(layout: layout, dateString: dateString)
+//                    textFieldDisplayed = true
+//                }
+//                else {gotoView(vc: todoListVC)}
+
+//                if !cell.markedForItems {
+//                    UIView.animate(withDuration: 1, delay: 0,// will factor/put in Animations.swift
+//                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+//                                    cell.backgroundColor = halfIcyBlue
+//                    }, completion: nil)
+//                    cell.markedForItems = true
+//                }
+
                 
-                if !cell.markedForItems {
-                    UIView.animate(withDuration: 1, delay: 0,// will factor/put in Animations.swift
-                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                    cell.backgroundColor = halfIcyBlue
-                    }, completion: nil)
-                    cell.markedForItems = true
-                }
             }
             else if vcType == .todoList {
                 formatAndPresentTextField(layout: layout, dateString: dateString)
@@ -53,12 +56,12 @@ extension CollectionVC {
                 
                 if eventAtTimeBlock.count == 1 {
 //                    eventAtTimeBlock.last!.eventDate =
-                    eventAtTimeBlock.last!.eventStatus = EventStatus(rawValue: rowSelected - 1)!
+                    eventAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
                     print("status entered: \(eventAtTimeBlock.last!.eventStatus)")
                 }
                 
                 timeBlockPathsToProcess.removeLast()
-                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[rowSelected - 1])")
+                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[row - 1])")
             }
         }
     }
