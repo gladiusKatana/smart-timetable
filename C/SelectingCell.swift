@@ -61,7 +61,7 @@ extension CollectionVC {
                 }
                 
                 timeBlockPathsToProcess.removeLast()
-                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[row - 1])")
+//                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[row - 1])")
             }
         }
     }
