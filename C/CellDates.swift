@@ -40,29 +40,29 @@ extension CollectionVC {
             cell.layer.borderWidth = 1;     cell.layer.borderColor = icyBlue.cgColor
             cell.titleLabel.text = "now"
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
-
-                let layout = self.downcastLayout!
-                let cellWidth = layout.widthPlusSpace; let cellHeight = layout.heightPlusSpace
-
-                let ex = cellWidth * CGFloat(column + 1)
-                let wye = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
-
-                let frame = CGRect(x: ex, y: wye, width: cellWidth, height: cellHeight * 2)
-
-                classifierVC.downcastLayout?.customFrame = frame
-                classifierVC.collectionView.frame = frame
-
-                let classifierLayout = classifierVC.downcastLayout!
-
-                classifierLayout.cellWidth = cellWidth
-                classifierLayout.cellHeight = cellHeight             //; print("classifier vc will be added at \(frame)")
-
-                //if !removedPopup {
-                self.view.addSubview(classifierVC.view)
-                //globalKeyWindow.addSubview(classifierVC.view)
-                // }
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
+//
+//                let layout = self.downcastLayout!
+//                let cellWidth = layout.widthPlusSpace; let cellHeight = layout.heightPlusSpace
+//
+//                let ex = cellWidth * CGFloat(column + 1)
+//                let wye = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
+//
+//                let frame = CGRect(x: ex, y: wye, width: cellWidth, height: cellHeight * 2)
+//
+//                classifierVC.downcastLayout?.customFrame = frame
+//                classifierVC.collectionView.frame = frame
+//
+//                let classifierLayout = classifierVC.downcastLayout!
+//
+//                classifierLayout.cellWidth = cellWidth
+//                classifierLayout.cellHeight = cellHeight             //; print("classifier vc will be added at \(frame)")
+//
+//                //if !removedPopup {
+//                self.view.addSubview(classifierVC.view)
+//                //globalKeyWindow.addSubview(classifierVC.view)
+//                // }
+//            }
             
             
         }

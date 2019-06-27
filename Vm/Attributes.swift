@@ -36,20 +36,20 @@ extension CustomFlowLayout {
                 if i < lockedHeaderRows && j < lockedHeaderSections {
                     xO = xOffSet + CGFloat(j) * widthPlusSpace
 
-//                    if self != eventMarkerLayout {
-//                        yO = yOffset + CGFloat(i) * heightPlusSpace
-//                    } else {
+                    if self != classifierLayout {
+                        yO = yOffset + CGFloat(i) * heightPlusSpace
+                    } else {
                         yO = yOffset - CGFloat(navBarHeight + statusBarHeight)
-//                    }
+                    }
                 }
                     
                 else if i < lockedHeaderRows {
                     xO = xDefault
-//                    if self != eventMarkerLayout {
-//                        yO = yOffset + CGFloat(i) * heightPlusSpace
-//                    } else {
+                    if self != classifierLayout {
+                        yO = yOffset + CGFloat(i) * heightPlusSpace
+                    } else {
                         yO = yOffset - CGFloat(navBarHeight + statusBarHeight)
-//                    }
+                    }
                 }
                     
                 else if j < lockedHeaderSections {
