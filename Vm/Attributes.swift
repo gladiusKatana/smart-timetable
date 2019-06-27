@@ -45,6 +45,7 @@ extension CustomFlowLayout {
                     
                 else if i < lockedHeaderRows {
                     xO = xDefault
+                    
                     if self != classifierLayout {
                         yO = yOffset + CGFloat(i) * heightPlusSpace
                     } else {

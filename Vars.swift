@@ -25,7 +25,7 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true, rows: 1, co
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-//var eventMarkerLayout = CustomFlowLayout(embeddedInNavController: true, rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 1,
+//var eventMarkerLayout = CustomFlowLayout(embeddedInNavController: true, rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 0,
 //                                 customFrame: globalKeyWindow.frame,
 //                                 cellWidth: timetableLayout.cellWidth! * 2, cellHeight: timetableLayout.cellHeight!,
 //                                 autoFitWScale: nil, autoFitHScale: nil,
@@ -36,7 +36,7 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true, rows: 1, co
 let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
                         width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
-var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 4, cols: 1, lockedHeaderRows: 0, lockedHeaderSections: 0,
+var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 5, cols: 3, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                        customFrame: popupFrame,
                                        cellWidth: timetableLayout.cellWidth!, cellHeight: timetableLayout.cellHeight!,
                                        autoFitWScale: nil, autoFitHScale: nil,

@@ -13,7 +13,7 @@ extension CollectionVC {
         
         if vcType == .eventClassifier {setupEventTypeList(cell: cell, column: column, row: row)}
         else {
-            if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
+            if row < 1 || column < 1 {
                 setCellColours(cell: cell, cellIsInHeader: true)
                 setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
             }
