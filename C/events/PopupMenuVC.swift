@@ -29,11 +29,11 @@ class PopupMenuVC: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
-        let row = indexPath.item //; let column = indexPath.section
+        let row = indexPath.item ; let column = indexPath.section
         
         cell.titleLabel.text = "\(indexPath)"
         
-        if row < customLayout.lockedHeaderRows {
+        if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
             cell.backgroundColor = .darkGray
         }
         else {

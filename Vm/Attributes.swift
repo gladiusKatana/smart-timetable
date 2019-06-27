@@ -62,7 +62,7 @@ extension CustomFlowLayout {
                 }
                 
                 attribute.frame = CGRect(x: xO, y: yO, width: cellWidth!, height: cellHeight!)
-                determineZIndex(item: j, section: i, cellAttributes: attribute)
+                determineZIndex(row: i, section: j, cellAttributes: attribute)
                 attributesForElements.append(attribute)
             }
         }

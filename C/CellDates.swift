@@ -48,7 +48,7 @@ extension CollectionVC {
                 let ex = cellWidth * CGFloat(column + 1)
                 let wye = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
 
-                let frame = CGRect(x: ex, y: wye, width: cellWidth, height: cellHeight * 2)
+                let frame = CGRect(x: ex, y: wye, width: cellWidth * 2, height: cellHeight * 2)
 
                 classifierVC.downcastLayout?.customFrame = frame
                 classifierVC.collectionView.frame = frame
