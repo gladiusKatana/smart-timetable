@@ -60,7 +60,7 @@ extension CollectionVC {
 
                 //if !removedPopup {
                 self.view.addSubview(classifierVC.view)
-                classifierVC.startTimerForShowScrollIndicator()
+                classifierVC.keepScrollIndicatorsVisible()
                 //globalKeyWindow.addSubview(classifierVC.view)
                 // }
             }
