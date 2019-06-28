@@ -2,7 +2,7 @@
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 
-extension CollectionVC {
+extension PopupMenuVC {
     
     @objc func showScrollIndicatorsInContacts() {
         UIView.animate(withDuration: 0.01) {

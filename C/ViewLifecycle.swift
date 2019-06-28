@@ -40,8 +40,6 @@ extension CollectionVC {
         }
 //        else {}
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
-        
-        if vcType == .eventClassifier {startTimerForShowScrollIndicator()}
     }
     
     override func viewWillDisappear(_ animated: Bool) { //print("...\(vcType) will disappear...")
