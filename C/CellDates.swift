@@ -30,7 +30,30 @@ extension CollectionVC {
                 
                 timeBlockPathsToProcess.append([column, row])
                 
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
+                    
+                    let layout = self.downcastLayout!
+                    let cellWidth = layout.widthPlusSpace;      let cellHeight = layout.heightPlusSpace
+                    
+                    let classifierLayout = classifierVC.downcastLayout!
+                    classifierLayout.cellWidth = cellWidth * 2;  classifierLayout.cellHeight = cellHeight
+                    
+                    let cols = CGFloat(classifierLayout.cols)
+                    
+                    let x = cellWidth * CGFloat(column + 1)
+                    let y = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
+                    
+                    let frame = CGRect(x: x, y: y, width: cellWidth * cols * 2, height: cellHeight * 4)
+                    
+                    classifierVC.downcastLayout?.customFrame = frame
+                    classifierVC.collectionView.frame = frame
+                    
+                    //if !removedPopup {
+                    self.view.addSubview(classifierVC.view)
+                    classifierVC.keepScrollIndicatorsVisible()
+                    //globalKeyWindow.addSubview(classifierVC.view)
+                    // }
+                }
             }
         }
     }
@@ -39,33 +62,6 @@ extension CollectionVC {
         if row == nowRow && column == nowColumn {
             cell.layer.borderWidth = 1;     cell.layer.borderColor = icyBlue.cgColor
             cell.titleLabel.text = "now"
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
-
-                let layout = self.downcastLayout!
-                let cellWidth = layout.widthPlusSpace;      let cellHeight = layout.heightPlusSpace
-                
-                let classifierLayout = classifierVC.downcastLayout!
-                classifierLayout.cellWidth = cellWidth * 2;  classifierLayout.cellHeight = cellHeight
-                
-                let cols = CGFloat(classifierLayout.cols)
-
-                let x = cellWidth * CGFloat(column + 1)
-                let y = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
-
-                let frame = CGRect(x: x, y: y, width: cellWidth * cols * 2, height: cellHeight * 4)
-
-                classifierVC.downcastLayout?.customFrame = frame
-                classifierVC.collectionView.frame = frame
-
-                //if !removedPopup {
-                self.view.addSubview(classifierVC.view)
-                classifierVC.keepScrollIndicatorsVisible()
-                //globalKeyWindow.addSubview(classifierVC.view)
-                // }
-            }
-            
-            
         }
         else {
             cell.layer.borderColor = UIColor.clear.cgColor

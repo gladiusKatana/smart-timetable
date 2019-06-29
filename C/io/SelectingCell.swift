@@ -5,8 +5,8 @@ extension CollectionVC {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-//        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         let layout = downcastLayout!
         let row = indexPath.item;   let column = indexPath.section
         //        if indexPath.item >= layout.lockedHeaderRows && indexPath.section >= layout.lockedHeaderSections {
@@ -25,19 +25,22 @@ extension CollectionVC {
                 previousSelectedTimeBlockPath = [column, row]
                 previousTimeBlock = TimeBlock(values:(column, row))
                 
-//                if eventsAtIndexPath[timeBlock] == nil {
-//                    formatAndPresentTextField(layout: layout, dateString: dateString)
-//                    textFieldDisplayed = true
-//                }
-//                else {gotoView(vc: todoListVC)}
+                if eventsAtIndexPath[timeBlock] == nil {
+                    formatAndPresentTextField(layout: layout, dateString: dateString)
+                    textFieldDisplayed = true
+                }
+                else {gotoView(vc: todoListVC)}
 
-//                if !cell.markedForItems {
-//                    UIView.animate(withDuration: 1, delay: 0,// will factor/put in Animations.swift
-//                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-//                                    cell.backgroundColor = halfIcyBlue
-//                    }, completion: nil)
-//                    cell.markedForItems = true
-//                }
+                if !cell.markedForItems {
+                    UIView.animate(withDuration: 1, delay: 0,// will factor/put in Animations.swift
+                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                                    cell.backgroundColor = halfIcyBlue
+                    }, completion: nil)
+                    cell.markedForItems = true
+                }
+                else {
+                    print("not animating")
+                }
 
             }
             else if vcType == .todoList {

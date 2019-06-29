@@ -7,8 +7,6 @@ extension PopupMenuVC {
                                  didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
-        
         let layout = downcastLayout!
         let row = indexPath.item;   let column = indexPath.section
         

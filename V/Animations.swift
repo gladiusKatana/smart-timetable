@@ -6,21 +6,19 @@ extension CollectionVC {
     
     func animateSelectedCellColourBack() {
         
-            let cells = self.collectionView.visibleCells as! [CustomCell]
-            for cell in cells {                                             //print("xy coord \(cell.xyCoordinate)")
-                if cell.xyCoordinate == selectedTimeBlockPath {
-                    animateCellColourBack(cell: cell, originalColour: cell.cellColour)
-                    
-//                    cell.titleLabel.textColor = .clear
-//                    UIView.transition(with: cell.titleLabel, duration: 1, options: UIView.AnimationOptions.transitionCrossDissolve,
-//                                      animations: {
-//                                        cell.titleLabel.textColor = platinum
-//                    }, completion: nil)
-                }
+        let cells = self.collectionView.visibleCells as! [CustomCell]
+        
+        for cell in cells {                                             //print("xy coord \(cell.xyCoordinate)")
+            if cell.xyCoordinate == selectedTimeBlockPath {
+                animateCellColourBack(cell: cell, originalColour: cell.cellColour)
                 
-
+                cell.titleLabel.textColor = .clear
+                UIView.transition(with: cell.titleLabel, duration: 1, options: UIView.AnimationOptions.transitionCrossDissolve,
+                                  animations: {
+                                    cell.titleLabel.textColor = platinum
+                }, completion: nil)
             }
- 
+        }
     }
     
     
@@ -31,5 +29,6 @@ extension CollectionVC {
         }, completion: nil)
         selectedTimeBlockPath = [-3, -3]
     }
+    
 }
 
