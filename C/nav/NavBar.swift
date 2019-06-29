@@ -1,7 +1,7 @@
 //  NavBar.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
-extension UICollectionViewController { //CollectionVC {
+extension UICollectionViewController { //CollectionVC {//***
     
     func setupNavBarButtons(_ withCustomColour: UIColor?, atIndex: Int?) {
         let timetableButton = setupButton(selector: #selector(buttonWrapperMethodforTimetableVC), title: "timetableImage")

@@ -36,7 +36,7 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true, rows: 1, co
 let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
                         width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
-var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 5, cols: 3, lockedHeaderRows: 1, lockedHeaderSections: 1,
+var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 0,
                                        customFrame: popupFrame,
                                        //cellWidth: timetableLayout.cellWidth!, cellHeight: timetableLayout.cellHeight!,
                                         cellWidth: 80, cellHeight: 20,

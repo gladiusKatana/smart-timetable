@@ -13,6 +13,8 @@
 		0614F6C722875C2700211DF2 /* DefaultLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F6C622875C2700211DF2 /* DefaultLoad.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		061D5F3F22B0ABD800122898 /* MarkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D5F3E22B0ABD800122898 /* MarkEvent.swift */; };
+		061DBADB22C6EACB00B9860D /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */; };
+		061DBADE22C6EFF800B9860D /* PopupSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DBADD22C6EFF800B9860D /* PopupSelection.swift */; };
 		061E600B22BC07720085744B /* PopupMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061E600A22BC07720085744B /* PopupMenuVC.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
 		062240F822AF6B070053570E /* CliListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062240F722AF6B070053570E /* CliListVC.swift */; };
@@ -47,7 +49,6 @@
 		063342332277C12200F7C754 /* SimpleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063342322277C12200F7C754 /* SimpleEvent.swift */; };
 		063D1E03229E2F8300A8B4DE /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063D1E02229E2F8300A8B4DE /* Animations.swift */; };
 		06674B622288FED30020AE37 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06674B612288FED30020AE37 /* Notifications.swift */; };
-		06B4F0C722B72AA00048D51E /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F0C622B72AA00048D51E /* IndexPathToCell.swift */; };
 		06F3A2172273F54B00548AE1 /* DefaultSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3A2162273F54B00548AE1 /* DefaultSave.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		0614F6C622875C2700211DF2 /* DefaultLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoad.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		061D5F3E22B0ABD800122898 /* MarkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkEvent.swift; sourceTree = "<group>"; };
+		061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathToCell.swift; sourceTree = SOURCE_ROOT; };
+		061DBADD22C6EFF800B9860D /* PopupSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSelection.swift; sourceTree = "<group>"; };
 		061E600A22BC07720085744B /* PopupMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuVC.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
 		062240F722AF6B070053570E /* CliListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CliListVC.swift; sourceTree = "<group>"; };
@@ -94,7 +97,6 @@
 		063342322277C12200F7C754 /* SimpleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEvent.swift; sourceTree = "<group>"; };
 		063D1E02229E2F8300A8B4DE /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		06674B612288FED30020AE37 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		06B4F0C622B72AA00048D51E /* IndexPathToCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathToCell.swift; path = events/IndexPathToCell.swift; sourceTree = "<group>"; };
 		06F3A2162273F54B00548AE1 /* DefaultSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSave.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,18 @@
 				062A3F67226BE8F100D6DBED /* StringMethods.swift */,
 			);
 			path = Unused;
+			sourceTree = "<group>";
+		};
+		061DBADC22C6EB6000B9860D /* io */ = {
+			isa = PBXGroup;
+			children = (
+				062A3F5A226BE8F100D6DBED /* SelectingCell.swift */,
+				0601A5202280ED85005D0D99 /* TextField.swift */,
+				061E600A22BC07720085744B /* PopupMenuVC.swift */,
+				061DBADD22C6EFF800B9860D /* PopupSelection.swift */,
+				061D5F3E22B0ABD800122898 /* MarkEvent.swift */,
+			);
+			path = io;
 			sourceTree = "<group>";
 		};
 		062A3F2F226BE87C00D6DBED = {
@@ -161,12 +175,11 @@
 			isa = PBXGroup;
 			children = (
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
+				061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */,
 				062A3F55226BE8F100D6DBED /* ViewLifecycle.swift */,
-				06B4F0C622B72AA00048D51E /* IndexPathToCell.swift */,
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
 				060FAE6722775275002E472A /* CellDates.swift */,
-				062A3F5A226BE8F100D6DBED /* SelectingCell.swift */,
-				062A3F54226BE8F100D6DBED /* events */,
+				061DBADC22C6EB6000B9860D /* io */,
 				062A3F4E226BE8F100D6DBED /* nav */,
 			);
 			path = C;
@@ -182,16 +195,6 @@
 				062A3F4F226BE8F100D6DBED /* NavBar.swift */,
 			);
 			path = nav;
-			sourceTree = "<group>";
-		};
-		062A3F54226BE8F100D6DBED /* events */ = {
-			isa = PBXGroup;
-			children = (
-				061E600A22BC07720085744B /* PopupMenuVC.swift */,
-				0601A5202280ED85005D0D99 /* TextField.swift */,
-				061D5F3E22B0ABD800122898 /* MarkEvent.swift */,
-			);
-			path = events;
 			sourceTree = "<group>";
 		};
 		062A3F5C226BE8F100D6DBED /* Checks */ = {
@@ -322,11 +325,11 @@
 				062A3F89226BE8F200D6DBED /* AppDelegate.swift in Sources */,
 				061D5F3F22B0ABD800122898 /* MarkEvent.swift in Sources */,
 				062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */,
-				06B4F0C722B72AA00048D51E /* IndexPathToCell.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
 				061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */,
 				062A3F88226BE8F200D6DBED /* AppLifecycle.swift in Sources */,
+				061DBADE22C6EFF800B9860D /* PopupSelection.swift in Sources */,
 				06F3A2172273F54B00548AE1 /* DefaultSave.swift in Sources */,
 				062A3F7C226BE8F200D6DBED /* SelectingCell.swift in Sources */,
 				062A3F87226BE8F200D6DBED /* Description.swift in Sources */,
@@ -335,6 +338,7 @@
 				063342332277C12200F7C754 /* SimpleEvent.swift in Sources */,
 				062A3F84226BE8F200D6DBED /* Cell.swift in Sources */,
 				063D1E03229E2F8300A8B4DE /* Animations.swift in Sources */,
+				061DBADB22C6EACB00B9860D /* IndexPathToCell.swift in Sources */,
 				062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */,
 				06674B622288FED30020AE37 /* Notifications.swift in Sources */,
 				062569CE227A8D33003E5C49 /* TimeBlock.swift in Sources */,

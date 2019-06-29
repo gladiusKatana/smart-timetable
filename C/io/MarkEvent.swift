@@ -46,6 +46,9 @@ extension CollectionVC {
 //    }
 }
 
+//        //while !timeBlockPathsToProcess.isEmpty {
+//        if !timeBlockPathsToProcess.isEmpty {
+
 /*if column < 5 {  eventMarkerStartingX = cell.frame.minX}
  else {                              eventMarkerStartingX = cell.frame.minX - 2 * layout.cellWidth!}
  if row <= 18 {    eventMarkerStartingY = cell.frame.minY + layout.cellHeight! + 64}

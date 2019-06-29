@@ -43,20 +43,20 @@ extension CollectionVC {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
 
                 let layout = self.downcastLayout!
-                let cellWidth = layout.widthPlusSpace; let cellHeight = layout.heightPlusSpace
+                let cellWidth = layout.widthPlusSpace;      let cellHeight = layout.heightPlusSpace
+                
+                let classifierLayout = classifierVC.downcastLayout!
+                classifierLayout.cellWidth = cellWidth * 2;  classifierLayout.cellHeight = cellHeight
+                
+                let cols = CGFloat(classifierLayout.cols)
 
-                let ex = cellWidth * CGFloat(column + 1)
-                let wye = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
+                let x = cellWidth * CGFloat(column + 1)
+                let y = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
 
-                let frame = CGRect(x: ex, y: wye, width: cellWidth * 2, height: cellHeight * 2)
+                let frame = CGRect(x: x, y: y, width: cellWidth * cols * 2, height: cellHeight * 4)
 
                 classifierVC.downcastLayout?.customFrame = frame
                 classifierVC.collectionView.frame = frame
-
-                let classifierLayout = classifierVC.downcastLayout!
-
-                classifierLayout.cellWidth = cellWidth
-                classifierLayout.cellHeight = cellHeight             //; print("classifier vc will be added at \(frame)")
 
                 //if !removedPopup {
                 self.view.addSubview(classifierVC.view)

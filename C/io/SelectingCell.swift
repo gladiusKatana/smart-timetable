@@ -1,4 +1,4 @@
-//  TagEvent.swift
+//  SelectingCell.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 extension CollectionVC {
@@ -39,7 +39,6 @@ extension CollectionVC {
 //                    cell.markedForItems = true
 //                }
 
-                
             }
             else if vcType == .todoList {
                 formatAndPresentTextField(layout: layout, dateString: dateString)
@@ -47,22 +46,8 @@ extension CollectionVC {
             }
             else {print("unrecognized collection view type's cell selected")}
         }
-        
-        if vcType == .eventClassifier {                                     //print("event type cell \(row)")
-            let row = timeBlockPathsToProcess.last![1]
-            let column = timeBlockPathsToProcess.last![0]
-            
-            if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
-                
-                if eventAtTimeBlock.count == 1 {
-//                    eventAtTimeBlock.last!.eventDate =
-                    eventAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
-                    print("status entered: \(eventAtTimeBlock.last!.eventStatus)")
-                }
-                
-                timeBlockPathsToProcess.removeLast()
-//                eventMarkerVC.view.removeFromSuperview()                    ; print("marked item as: \(EventStatus.allCases[row - 1])")
-            }
+        else {
+            print("selected header")
         }
     }
 }

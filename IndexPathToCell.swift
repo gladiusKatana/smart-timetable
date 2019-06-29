@@ -11,22 +11,19 @@ extension CollectionVC {
         let row = indexPath.item; let column = indexPath.section
         cell.xyCoordinate = [column, row]
         
-        if vcType == .eventClassifier {setupEventTypeList(cell: cell, column: column, row: row)}
+        if row < 1 || column < 1 {
+            setCellColours(cell: cell, cellIsInHeader: true)
+            setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
+        }
         else {
-            if row < 1 || column < 1 {
-                setCellColours(cell: cell, cellIsInHeader: true)
-                setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
-            }
-            else {
-                setCellColours(cell: cell, cellIsInHeader: false)
-                setCellContents(cell: cell, row: row, column: column, layout: customLayout)
-                
-//                if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("paths to process: \(timeBlockPathsToProcess)")
-//                    if timeBlockPathsToProcess.count > 0 {
-//                        processEventsSinceLastLogin(layout: customLayout)
-//                    }
+            setCellColours(cell: cell, cellIsInHeader: false)
+            setCellContents(cell: cell, row: row, column: column, layout: customLayout)
+            
+//            if row == customLayout.rows - 1 && column == customLayout.cols - 1 {        //print("paths to process: \(timeBlockPathsToProcess)")
+//                if timeBlockPathsToProcess.count > 0 {
+//                    processEventsSinceLastLogin(layout: customLayout)
 //                }
-            }
+//            }
         }
         return cell
     }
@@ -38,7 +35,7 @@ extension CollectionVC {
             cell.titleLabel.textColor = platinum
         }
         else { guard cell.xyCoordinate != selectedTimeBlockPath else {
-                cell.backgroundColor = halfIcyBlue; return
+            cell.backgroundColor = halfIcyBlue; return
             }
             cell.backgroundColor = cellDefaultColour; cell.cellColour = cellDefaultColour
             animateCellColourBack(cell:cell, originalColour: cell.cellColour)
@@ -52,17 +49,6 @@ extension CollectionVC {
             cell.titleLabel.text = "\(hoursOfTheDay[row - 1])\(ampm)"
         }
         else if row == 0 && column > 0 {cell.titleLabel.text = weekdaysAbbreviated[column - 1]}
-    }
-    
-    func setupEventTypeList(cell: CustomCell, column: Int, row: Int) {
-        cell.titleLabel.textColor = eventTextBlue
-        if row == 0 {
-            cell.backgroundColor = icyBlue
-            cell.titleLabel.text = "⬅️ Mark '\(globalEventIdentifier)':"
-        } else {
-            cell.backgroundColor = .lightGray
-            cell.titleLabel.text = EventStatus.allCases[row - 1].caseName()
-        }
     }
 }
 
