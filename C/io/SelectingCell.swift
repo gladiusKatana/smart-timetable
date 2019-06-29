@@ -38,9 +38,6 @@ extension CollectionVC {
                     }, completion: nil)
                     cell.markedForItems = true
                 }
-                else {
-                    print("not animating")
-                }
 
             }
             else if vcType == .todoList {
