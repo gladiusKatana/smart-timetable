@@ -25,14 +25,6 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true, rows: 1, co
                                  loadsHorizontally: false,
                                  squareCellMode: .noAutoSquare)
 
-//var eventMarkerLayout = CustomFlowLayout(embeddedInNavController: true, rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 0,
-//                                 customFrame: globalKeyWindow.frame,
-//                                 cellWidth: timetableLayout.cellWidth! * 2, cellHeight: timetableLayout.cellHeight!,
-//                                 autoFitWScale: nil, autoFitHScale: nil,
-//                                 hSpace: cellGap, vSpace: cellGap,
-//                                 loadsHorizontally: false,
-//                                 squareCellMode: .noAutoSquare)
-
 let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
                         width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
@@ -47,9 +39,8 @@ var classifierLayout = CustomFlowLayout(embeddedInNavController: false, rows: 7,
 
 var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)
-//for todoListVC: probably will obviate loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
-var classifierVC = PopupMenuVC(.eventClassifier, collectionViewLayout: classifierLayout)
-//var eventMarkerVC = CollectionVC(.eventClassifier, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 1, collectionViewLayout: eventMarkerLayout)
+//for todoListVC: may remove loopWeeks & demarcateWeeksByColour, via subclassing / making it an optional parameter
+var classifierVC = PopupMenuVC(collectionViewLayout: classifierLayout)
 var topVC = CollectionVC(.initial, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: timetableLayout)
 //--------------------------------------------------------------------------------------------
 

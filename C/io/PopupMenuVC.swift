@@ -4,11 +4,10 @@ import UIKit
 
 class PopupMenuVC: UICollectionViewController {
     
-    var downcastLayout : CustomFlowLayout?;    var vcType = CollectionViewType.days
+    var downcastLayout : CustomFlowLayout? 
     
-    init(_ vcType: CollectionViewType, collectionViewLayout layout: UICollectionViewLayout) {
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
-        self.vcType = vcType
         self.downcastLayout = layout as? CustomFlowLayout
     }
     
@@ -24,12 +23,12 @@ class PopupMenuVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        collectionView.frame = downcastLayout!.customFrame
+        //collectionView.frame = downcastLayout!.customFrame
         collectionView.backgroundColor = .orange //.clear //
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true
-        setupNavBarButtons(nil, atIndex: nil)
+        //setupNavBarButtons(nil, atIndex: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView,

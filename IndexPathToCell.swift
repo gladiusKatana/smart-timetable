@@ -11,7 +11,7 @@ extension CollectionVC {
         let row = indexPath.item; let column = indexPath.section
         cell.xyCoordinate = [column, row]
         
-        if row < 1 || column < 1 {
+        if row < customLayout.lockedHeaderRows || column < customLayout.lockedHeaderSections {
             setCellColours(cell: cell, cellIsInHeader: true)
             setTimeAndDayLabels(cell: cell, column: column, row: row, layout: customLayout)
         }

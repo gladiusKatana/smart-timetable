@@ -9,7 +9,7 @@ extension CollectionVC {
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
         
-        if vcType != .initial && vcType != .eventClassifier {
+        if vcType != .initial {
             print("\n💾\(vcType)-view")                 // loaded
             setTopViewController()
         }
@@ -38,7 +38,7 @@ extension CollectionVC {
         if vcType != .eventClassifier {
             setTopViewController()
         }
-//        else {}
+
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
     

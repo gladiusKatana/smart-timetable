@@ -20,6 +20,7 @@ extension CollectionVC {
         }
             
         else if vcType == .todoList {
+            
             cell.cellDate = selectedCellDate
             
             guard let eventAtTimeBlock = eventsAtIndexPath[previousTimeBlock] else {
