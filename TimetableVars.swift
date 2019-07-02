@@ -14,13 +14,15 @@ var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] a
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
-var timeBlockPathsToProcess: [[Int]] = []       //var timeBlocksToProcessSinceLastLogin = [Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()]
-
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
+
+var eventsToProcess = [[SimpleEvent]]()
+var pathsToProcess = [[Int]]()
 
 
 var eventPathArrays = [[Int]]()
 var eventDescriptionArrays = [[String]]()
+var eventStatusArrays = [[Int]]() // raw values
 var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
 
 

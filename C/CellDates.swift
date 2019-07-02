@@ -19,18 +19,14 @@ extension CollectionVC {
     
     func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout) {
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
+        
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
-            
             //cell.backgroundColor = niceOrange; cell.cellColour = niceOrange // shows up momentarily after launch on ipad mini 4, landscape
             
-            if eventsAtIndexPath[TimeBlock(values:(column, row))] != nil {
-                
-                let blockToProcessColour = jadeGreen
-                cell.backgroundColor = blockToProcessColour; cell.cellColour = blockToProcessColour
-                
-                timeBlockPathsToProcess.append([column, row])
-                
-                presentPopupViewToMarkEventsSinceLastLogin(column: column, row: row)
+            if let events = eventsAtIndexPath[TimeBlock(values:(column, row))] {
+                cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen
+                if !eventsToProcess.contains(events) {eventsToProcess.append(events)}
+                if !pathsToProcess.contains([column, row]) {pathsToProcess.append([column, row])}
             }
         }
     }

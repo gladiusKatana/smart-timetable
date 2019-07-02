@@ -5,9 +5,7 @@ import UIKit
 func defaultSaveData(showDate: Bool) {                      
     if showDate{print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
     let defaults = UserDefaults.standard
-    
-    eventPathArrays.removeAll();   eventDescriptionArrays.removeAll()
-    eventDateArrays.removeAll()
+    eventPathArrays.removeAll();   eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                         //; print("key: [\(key)  values \((a, b))")
@@ -22,18 +20,20 @@ func defaultSaveData(showDate: Bool) {
     for vals in eventsAtIndexPath.values {
         if vals.count > 1 || vals.count == 1 && vals[0].eventDescription != defaultEmptyEventDescription {
             var eventDescriptions = [String]()
+            var eventStatuses = [Int]()
             
             var eventDateComponents = [[Int(), String(), Int(), String(), Int(), Int()]] as [[Any]]     // [[0, "", 0, "", 0, 0] as [Any]]
-            eventDateComponents.removeAll()
+            eventDateComponents.removeAll()   // *
             
             for event in vals {
-                let str = event.eventDescription
-                eventDescriptions.append(str)
+                eventDescriptions.append(event.eventDescription)
+                eventStatuses.append(event.eventStatus.rawValue)
                 
                 let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate)
                 eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
             eventDescriptionArrays.append(eventDescriptions)
+            eventStatusArrays.append(eventStatuses)
             eventDateArrays.append(eventDateComponents)
         }//else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
@@ -42,6 +42,7 @@ func defaultSaveData(showDate: Bool) {
     
     defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedTodoListItems")
+    defaults.set(eventStatusArrays, forKey: "savedTodoListStatuses")
     defaults.set(eventDateArrays, forKey: "savedTodoListDates")
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
@@ -49,6 +50,7 @@ func defaultSaveData(showDate: Bool) {
 func printSavedArrays() { let consoleAlignmentSpace = "                     "
     print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
     print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) event descriptions: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event status raw values): \n\(consoleAlignmentSpace)\(eventStatusArrays)")
     
     let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
     print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates: \n\(consoleAlignmentSpace)\(elementsNewlined)")

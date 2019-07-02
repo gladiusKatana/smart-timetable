@@ -15,6 +15,7 @@ func defaultLoadData(showDate: Bool) {                                          
     }
     eventPathArrays = defaults.array(forKey: "savedTimeBlockPaths") as? [[Int]] ?? []
     eventDescriptionArrays = defaults.array(forKey: "savedTodoListItems") as? [[String]] ?? []
+    eventStatusArrays = defaults.array(forKey: "savedTodoListStatuses") as? [[Int]] ?? []
     eventDateArrays = defaults.array(forKey: "savedTodoListDates") as? [[[Any]]] ?? [[[]]]
     populateDictionaryFromDefaults()    //; printSavedArrays()
 }
@@ -26,9 +27,10 @@ func populateDictionaryFromDefaults() {
         var events = [SimpleEvent]()
         var j = 0
         for description in todoListItemDescriptions {
+            let todoListItemStatus = eventStatusArrays[i][j]
             let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
             let date = dateFromLoadedComponents(dateComponents)                             //; print("date: \(date)")
-            let event = SimpleEvent(eventDescription: description, eventDate: date)
+            let event = SimpleEvent(eventDescription: description, eventDate: date, eventStatus: EventStatus(rawValue: todoListItemStatus)!)
             print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, comment: "", short: false))")
             events.append(event)
             j += 1

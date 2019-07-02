@@ -22,7 +22,7 @@ extension CollectionVC {
     func addToTimeBlocks(column: Int, row: Int, textEntered: String) {
         
         let timeBlock = TimeBlock(values:(column, row))
-        let simpleEvent = SimpleEvent(eventDescription: textEntered, eventDate: selectedCellDate)
+        let simpleEvent = SimpleEvent(eventDescription: textEntered, eventDate: selectedCellDate, eventStatus: .upcoming)
         
         if eventsAtIndexPath[timeBlock] != nil {
             if eventsAtIndexPath[timeBlock]?.last!.eventDescription == defaultEmptyEventDescription {

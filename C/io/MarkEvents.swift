@@ -4,7 +4,7 @@ import UIKit
 
 extension CollectionVC {
     
-    func presentPopupViewToMarkEventsSinceLastLogin(column: Int, row: Int) {
+    func presentPopupViewToMarkEvents(column: Int, row: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { //time delay of 0.3 works stably (thus far) on my iPhone 7
             
             let layout = self.downcastLayout!
@@ -32,23 +32,16 @@ extension CollectionVC {
     }
     
     func processEventsSinceLastLogin(layout: CustomFlowLayout) {
-        let row = timeBlockPathsToProcess.last![1]
-        let column = timeBlockPathsToProcess.last![0]
-        
-        if let eventAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(column, row))] {
-            
-            //if eventAtTimeBlock.count == 1 {
-//                presentVcToClassifyEvents(row: row, column: column, layout: layout)
-                globalEventIdentifier = "\(eventAtTimeBlock[0].eventDescription)"
-            //}
 
+        if pathsToProcess.count > 0 {
+            let column = pathsToProcess.first![0]; let row = pathsToProcess.first![1]
+            presentPopupViewToMarkEvents(column: column, row: row)
+            //globalEventIdentifier = "\(eventAtTimeBlock[0].eventDescription)" ; print("global event identifier: \(globalEventIdentifier)")
         }
-        else {print("could not initialize event at this index path")}
+
+        //} else {print("could not initialize event at this index path")}
     }
 }
-
-//        //while !timeBlockPathsToProcess.isEmpty {
-//        if !timeBlockPathsToProcess.isEmpty {
 
 /*if column < 5 {  eventMarkerStartingX = cell.frame.minX}
  else {                              eventMarkerStartingX = cell.frame.minX - 2 * layout.cellWidth!}
