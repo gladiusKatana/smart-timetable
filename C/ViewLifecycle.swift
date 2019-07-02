@@ -12,7 +12,7 @@ extension CollectionVC {
         if vcType != .initial {                         print("\n💾\(vcType)-view") // disk emoji means loaded
             setTopViewController()
         }
-
+        
         checkDatePeriodically(){kickoffTimer()}         // if you want to check the date then do the timer kickoff ('start on the 0th callback')
         //kickoffTimer()                                // if you want to do the timer kickoff then check the date ('start on the 1st callback')
     }

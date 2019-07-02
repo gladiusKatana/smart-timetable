@@ -11,7 +11,7 @@ extension PopupMenuVC {
         let row = indexPath.item;   let column = indexPath.section
         
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
-
+            
             let currentColumn = pathsToProcess.first![0]; let currentRow = pathsToProcess.first![1] // ie, current index path being processed
             
             if let eventsAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {

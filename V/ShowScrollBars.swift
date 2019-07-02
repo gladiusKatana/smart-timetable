@@ -13,6 +13,6 @@ extension PopupMenuVC {
             self.collectionView?.flashScrollIndicators()
         }
     }
-
+    
 }
 

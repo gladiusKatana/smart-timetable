@@ -41,7 +41,7 @@ extension CollectionVC {
             cell.layer.borderColor = UIColor.clear.cgColor
             cell.layer.borderWidth = 0
         }
-//        presentPopupViewToMarkEvents(column: column, row: row) //! // testing popup window, independent of actual condition under which it pops up
+        //presentPopupViewToMarkEvents(column: column, row: row) //! // testing popup window, independent of actual condition under which it pops up
     }
     
     func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout, withColours: Bool) -> Int {
