@@ -31,13 +31,15 @@ let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
                         width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
 
 var classifierLayout = CustomFlowLayout(embeddedInNavController: false,
-                                        customFrame: popupFrame,
+                                        customFrame: nil,
                                         rows: 7, cols: 1, lockedHeaderRows: 1, lockedHeaderSections: 0,
                                         cellWidth: 80, cellHeight: 20,
                                         autoFitWScale: nil, autoFitHScale: nil,
                                         hSpace: cellGap, vSpace: cellGap,
                                         loadsHorizontally: false,
                                         squareCellMode: .noAutoSquare)
+
+let nilCatcherFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
 
 var timetableVC = CollectionVC(.hours, loopWeeks: true, demarcateWeeksByColour: true, colourIndex: 1, collectionViewLayout: timetableLayout)
 var todoListVC = CollectionVC(.todoList, loopWeeks: false, demarcateWeeksByColour: false, colourIndex: 0, collectionViewLayout: todoListLayout)

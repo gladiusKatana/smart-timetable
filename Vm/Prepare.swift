@@ -39,7 +39,13 @@ extension CustomFlowLayout {
         
         var frame: CGRect
         if embeddedInNavController {frame = globalKeyWindow.frame}
-        else {frame = customFrame!}
+        //else {frame = customFrame!}   //* frame-setting inside this else{} may not be done in-time for popup views (ie non-nav-controller-embedded
+        else {                           // view controllers).  In this app, presentPopupViewToMarkEvents() initializes the popup's frame anyway;...
+            if let safeFrame = customFrame {//...this may work fine for the next version of collection-view-template, also... will investigate
+                frame = safeFrame
+            } else {frame = nilCatcherFrame} //...default frame is overridden anyway (see above comment); hence its value being all 0's
+        }
+        
         let autofitWidth = CGFloat(Double(frame.width) - 0.5) / CGFloat(cols) - hSpace
         let autoFitHeight = CGFloat(Double(frame.height) - navBarHeight - statusBarHeight) / CGFloat(rows) - vSpace
         
