@@ -9,15 +9,13 @@ extension CollectionVC {
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
         
-        if vcType != .initial {
-            print("\n💾\(vcType)-view")                 // loaded
+        if vcType != .initial {                         print("\n💾\(vcType)-view") // disk emoji means loaded
             setTopViewController()
         }
-        
+
         checkDatePeriodically(){kickoffTimer()}         // if you want to check the date then do the timer kickoff ('start on the 0th callback')
         //kickoffTimer()                                // if you want to do the timer kickoff then check the date ('start on the 1st callback')
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         if vcType == .hours {
@@ -29,16 +27,12 @@ extension CollectionVC {
         
         if rePresentedVCFromButton {
             rePresentedVCFromButton = false
-            reloadCV(); print("🏞\(vcType)-view")       // appeared
+            reloadCV()                                  ; print("🏞\(vcType)-view")       // picture-emoji means appeared
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {     //print("path to time block\(selectedTimeBlockPath)")
-        if vcType != .eventClassifier {
-            setTopViewController()
-        }
-
+        if vcType != .eventClassifier {setTopViewController()}
         setupNavBarButtons(grayTwo, atIndex: colourIndex)
     }
     

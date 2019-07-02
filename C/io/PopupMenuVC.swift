@@ -22,18 +22,15 @@ class PopupMenuVC: UICollectionViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        //collectionView.frame = downcastLayout!.customFrame
-        collectionView.backgroundColor = .orange //.clear //
+        super.viewDidLoad()                     //; collectionView.frame = downcastLayout!.customFrame
+        collectionView.backgroundColor = .clear //.orange // * to experiment with later: why should i see any orange (if it's orange), upon rotation?
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true
-        //setupNavBarButtons(nil, atIndex: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reuseIdentifier, for: indexPath) as! CustomCell
         let customLayout = downcastLayout!
         let row = indexPath.item                 //; let column = indexPath.section
@@ -47,7 +44,6 @@ class PopupMenuVC: UICollectionViewController {
         }
         
         cell.titleLabel.textColor = .black
-        
         //print(indexPath)
         return cell
     }

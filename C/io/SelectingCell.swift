@@ -45,10 +45,7 @@ extension CollectionVC {
                 textFieldDisplayed = true
             }
             else {print("unrecognized collection view type's cell selected")}
-        }
-        else {
-            print("selected header")
-        }
+        } else {print("selected header")}
     }
 }
 

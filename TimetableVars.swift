@@ -9,7 +9,7 @@ var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(
 //* reserving full-spelled date-component names for CURRENT date (Date()) only
 
 var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
-//var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or could define as  = [Any?]() ... but would not handle unwrapping for printing
+//var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or  as  = [Any?]()  ... but would not handle unwrapping for printing
 
 
 var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
@@ -21,9 +21,9 @@ var pathsToProcess = [[Int]]()
 
 
 var eventPathArrays = [[Int]]()
+var eventStatusArrays = [[Int]]() // raw values of enum EventStatus
 var eventDescriptionArrays = [[String]]()
-var eventStatusArrays = [[Int]]() // raw values
-var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // [[[0, "", 0, "", 0, 0] as [Any]]]
+var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // or  [[[0, "", 0, "", 0, 0] as [Any]]]
 
 
 var timerForShowScrollIndicator: Timer?
@@ -35,7 +35,7 @@ var nowRow = 0;                                 var nowColumn = 0
 var eventMarkerStartingX: CGFloat = 0.0;        var eventMarkerStartingY: CGFloat = 0.0;
 
 var reloadedFromHourTickingOver = false;        var textFieldDisplayed = false
-var removedPopup = false
+//var removedPopup = false
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 var weekdaysAbbreviated = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]

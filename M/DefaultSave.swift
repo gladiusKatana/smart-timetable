@@ -51,7 +51,6 @@ func printSavedArrays() { let consoleAlignmentSpace = "                     "
     print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
     print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) event descriptions: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
     print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event status raw values): \n\(consoleAlignmentSpace)\(eventStatusArrays)")
-    
     let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
     print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates: \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }

@@ -4,9 +4,9 @@ import UIKit
 
 class CollectionVC: UICollectionViewController, UITextFieldDelegate {
     
-    var downcastLayout : CustomFlowLayout?;     var vcType = CollectionViewType.days
+    var vcType = CollectionViewType.days;       var downcastLayout : CustomFlowLayout?
     var colourIndex: Int = Int()
-    var loopWeeks = false;                      var demarcateWeeksByColour = false
+    var demarcateWeeksByColour = false;         var loopWeeks = false
     
     lazy var eventField: UITextField = {
         let eventField =  UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))

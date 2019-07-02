@@ -23,9 +23,6 @@ extension CustomFlowLayout {
             DispatchQueue.main.asyncAfter(deadline: .now()) {
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
-            
-
-            
         } else {
             if topVC.vcType == .hours {
                 processCurrentDate()                                                        //; print("process date from prepare")
@@ -42,7 +39,7 @@ extension CustomFlowLayout {
         
         var frame: CGRect
         if embeddedInNavController {frame = globalKeyWindow.frame}
-        else {frame = customFrame}
+        else {frame = customFrame!}
         let autofitWidth = CGFloat(Double(frame.width) - 0.5) / CGFloat(cols) - hSpace
         let autoFitHeight = CGFloat(Double(frame.height) - navBarHeight - statusBarHeight) / CGFloat(rows) - vSpace
         
