@@ -15,7 +15,7 @@ import UIKit
         window?.makeKeyAndVisible()
         
         modelName = UIDevice.modelName
-        getOrientationAtLaunch()                                    ; print("launching on \(modelName)   ...in \(launchOrientation) orientation")
+        getOrientationAtLaunch()                                    ; print("launching on \(modelName) in \(launchOrientation) orientation")
         
         statusBar = UIApplication.shared.value(forKey: "statusBar") as! UIView
         if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
@@ -25,7 +25,7 @@ import UIKit
         UINavigationBar.appearance().barTintColor = icyBlue
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        print(formattedDateString(Date(), comment: "                           on date", short: false))
+        print(formattedDateString(Date(), comment: "                      on", short: false))
         
         return true
     }

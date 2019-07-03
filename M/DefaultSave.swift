@@ -3,7 +3,7 @@
 import UIKit
 
 func defaultSaveData(showDate: Bool) {                      
-    if showDate{print(formattedDateString(Date(), comment: "saving via defaults, date logged: ", short: false))}
+    if showDate{print(formattedDateString(Date(), comment: "✔︎saved to your device on", short: false))}
     let defaults = UserDefaults.standard
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
     
@@ -48,10 +48,11 @@ func defaultSaveData(showDate: Bool) {
 }
 
 func printSavedArrays() { let consoleAlignmentSpace = "                     "
-    print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
-    print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) event descriptions: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
-    print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event status raw values): \n\(consoleAlignmentSpace)\(eventStatusArrays)")
+    //print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) events: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event-status raw values: \n\(consoleAlignmentSpace)\(eventStatusArrays)")
     let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
-    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates: \n\(consoleAlignmentSpace)\(elementsNewlined)")
+    let dateColonOrNot = (eventDateArrays.isEmpty) ? "." : ":"
+    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }
 

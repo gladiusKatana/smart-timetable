@@ -30,7 +30,7 @@ extension AppDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         print("🌔will enter foreground")
         
-        if !firstReenteredForeground {print("first entered foreground now")}
+        if !firstReenteredForeground {                                              print("entered foreground for the first time")}
         firstReenteredForeground = true // 1-way bool: never reset (calling above 2 methods causes layout exception over the whole life cycle)
     }
     

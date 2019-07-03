@@ -59,12 +59,12 @@ func dateFromLoadedComponents(_ array: [Any]) -> Date {
 }
 
 func pryntLastLoginDate() {// spelling 'prynt' with a y so this function's existence does not cause override of autocomplete for print statements
-    print(formattedDateString(lastLoggedInDate, comment: "last login       (formatted)      ", short: false))
+    print(formattedDateString(lastLoggedInDate, comment: "last login              ", short: false))
     //print("              (unformatted gmt)    \(lastLoggedInDate)\n")
 }
 
 func pryntCurrentDate() {
-    print(formattedDateString(Date(), comment: "date right now   (formatted)      ", short: false)); print("")
+    print(formattedDateString(Date(), comment: "date right now          ", short: false)); print("")
     //print("              (unformatted gmt)    \(Date())\n")
 }
 
