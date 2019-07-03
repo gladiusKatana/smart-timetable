@@ -1,7 +1,8 @@
 //  CellSizeModes.swift
-//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder, aka gladiusKatana ⚔️
 import UIKit
-extension CustomFlowLayout { // although it may be useful to call some of these from a view controller... if so, will change to global definition(s)
+
+extension CustomFlowLayout {
     
     func resetDimensionIfSquareCellsEnabled() {
         switch squareCellMode {

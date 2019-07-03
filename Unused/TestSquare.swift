@@ -1,6 +1,5 @@
 //  TestSquare.swift
-//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder, aka gladiusKatana ⚔️
 import UIKit
 
 func drawTestSquare() { //For testing purposes only: to verify calculation/recalculation of navbar height + status bar height, dynamically.
@@ -12,7 +11,6 @@ func drawTestSquare() { //For testing purposes only: to verify calculation/recal
     globalKeyWindow.layer.addSublayer(testRectanglelayer)
     //print("drawing rect clr[\(randNum)] @ (\(statusBarHeight + navBarHeight)\n")
 }
-
 
 public func randomNumber<T : SignedInteger>(inRange range: ClosedRange<T> = 1...6) -> T {
     let length = Int64(range.upperBound - range.lowerBound + 1)

@@ -1,5 +1,5 @@
 //  Vars.swift
-//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder, aka gladiusKatana ⚔️
 import UIKit
 
 var globalKeyWindow = UIApplication.shared.keyWindow!
@@ -64,3 +64,4 @@ var phones = ["iPhone4", "iPhone 4s", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPh
 // left the above var global only to make it more prominent
 
 var legendOne = "   💾 = view loaded";  var legendTwo = "      🏞 = view appeared"  //console legend
+

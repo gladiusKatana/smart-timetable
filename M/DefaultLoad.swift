@@ -1,5 +1,5 @@
 //  DefaultLoad.swift
-//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder, aka gladiusKatana ⚔️
 import UIKit
 
 func defaultLoadData(showDate: Bool) {                                                      //print("(load using defaults)\n")

@@ -1,5 +1,5 @@
-//  PopupMenuVC.swift
-//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
+//  PopupVC.swift
+//  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder, aka gladiusKatana ⚔️
 import UIKit
 
 class PopupMenuVC: UICollectionViewController {
