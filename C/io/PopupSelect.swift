@@ -1,4 +1,4 @@
-//  PopupSelection.swift
+//  PopupSelect.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
 import UIKit
 extension PopupMenuVC {
@@ -22,9 +22,11 @@ extension PopupMenuVC {
                 }
             }
             
-            pathsToProcess.removeFirst()
+            pathsToProcess.removeFirst()            //; print("now paths to process: \(pathsToProcess)")
             classifierVC.view.removeFromSuperview()
-            timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
+            if !pathsToProcess.isEmpty {
+                timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
+            }
             
         } else {
             print("selected header")

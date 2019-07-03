@@ -19,8 +19,9 @@ extension CollectionVC {
             setCellColours(cell: cell, cellIsInHeader: false)
             setCellContents(cell: cell, row: row, column: column, layout: customLayout)
             
-            if row == customLayout.rows - 1 && column == customLayout.cols - 1 {            //print("events to process: \(eventsToProcess)") // *
-                if eventsToProcess.count > 0 {
+            if row == customLayout.rows - 1 && column == customLayout.cols - 1 {              //print("events to process: \(eventsToProcess)") // *
+                if eventsToProcess.count > 0 { // or could have used pathsToProcess.count > 0
+                    savedTimeBlocksForProcessing = true
                     processEventsSinceLastLogin(layout: customLayout)
                 }
             }

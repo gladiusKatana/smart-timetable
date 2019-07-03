@@ -4,16 +4,22 @@ import UIKit
 extension CollectionVC {
     
     func checkDatePeriodically(completion: () -> ()) {                                                  //print("\(Date())")
+        
         if "\(Date())".contains(":00:") {                                                               //print("the hour ticked over")
+            
             if !reloadedFromHourTickingOver {
+                
                 DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
                     self?.reloadCV()
                 }
+                
                 reloadedFromHourTickingOver = true
-            } else {
+            }
+            else {
                 reloadedFromHourTickingOver = false
             }
         }
+        
         completion()
     }
     

@@ -8,7 +8,10 @@ extension CollectionVC {
         
         if pathsToProcess.count > 0 {
             let column = pathsToProcess.first![0]; let row = pathsToProcess.first![1]
-            presentPopupViewToMarkEvents(column: column, row: row)
+            
+            if !pathsToProcess.isEmpty {
+                presentPopupViewToMarkEvents(column: column, row: row)
+            }
             //globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)"     //; print("event identifier: \(globalEventIdentifier)")
         }
     }
@@ -35,7 +38,7 @@ extension CollectionVC {
             classifierVC.collectionView.frame = frame
             
             ///if !removedPopup {
-            self.view.addSubview(classifierVC.view)
+            self.view.addSubview(classifierVC.view)             //; print("paths to process: \(pathsToProcess)")
             classifierVC.keepScrollIndicatorsVisible()
         }
     }
