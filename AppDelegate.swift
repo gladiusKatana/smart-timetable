@@ -1,6 +1,6 @@
 //  AppDelegate.swift
 //  smart-timetable  ∙  1st commit Apr. 07, 2019  ∙  Created by Garth Snyder (a.k.a. gladiusKatana ⚔️)
-import UIKit 
+import UIKit
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -15,7 +15,7 @@ import UIKit
         window?.makeKeyAndVisible()
         
         modelName = UIDevice.modelName
-        getOrientationAtLaunch()                                    ; print("launching on \(modelName) in \(launchOrientation) orientation")
+        getOrientationAtLaunch()                                ; print("launching on \(modelName) in \(launchOrientation) orientation \(legendOne)")
         
         statusBar = UIApplication.shared.value(forKey: "statusBar") as! UIView
         if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
@@ -25,7 +25,7 @@ import UIKit
         UINavigationBar.appearance().barTintColor = icyBlue
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        print(formattedDateString(Date(), comment: "                      on", short: false))
+        print(formattedDateString(Date(), prefix: "                      on", suffix: legendTwo, short: false))
         
         return true
     }

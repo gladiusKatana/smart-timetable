@@ -3,7 +3,7 @@
 import UIKit
 
 func defaultSaveData(showDate: Bool) {                      
-    if showDate{print(formattedDateString(Date(), comment: "✔︎saved to your device on", short: false))}
+    if showDate{print(formattedDateString(Date(), prefix: "✔︎saved to your device on", suffix: "", short: false))}
     let defaults = UserDefaults.standard
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
     

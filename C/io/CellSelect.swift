@@ -16,7 +16,7 @@ extension CollectionVC {
         
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             selectedCellDate = cell.cellDate
-            let dateString = formattedDateString(selectedCellDate, comment: "New event on", short: false)
+            let dateString = formattedDateString(selectedCellDate, prefix: "New event on", suffix: "", short: false)
             
             if vcType == .hours {
                 selectedTimeBlockPath = [column, row]

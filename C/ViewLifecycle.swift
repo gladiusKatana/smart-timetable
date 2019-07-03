@@ -22,7 +22,7 @@ extension CollectionVC {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
         else {
-            setupViewTitle(formattedDateString(selectedCellDate, comment: "", short: false), numLines: 1, alignment: .left)
+            setupViewTitle(formattedDateString(selectedCellDate, prefix: "", suffix: "", short: false), numLines: 1, alignment: .left)
         }
         
         if rePresentedVCFromButton {

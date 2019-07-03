@@ -25,18 +25,18 @@ func displayDate(_ inputDate: Date) -> (year: Int, monthStr: String, day: Int, w
     return (yr, mnth, dy, wkdy, hr, mn)
 }
 
-func formattedDateString(_ date: Date, comment: String, short: Bool) -> String {
+func formattedDateString(_ date: Date, prefix: String, suffix: String, short: Bool) -> String {
     let (yr, mnthString, dayI, wkday, hr, min) = displayDate(date)
     let minTwoDigits = minuteStringShowingTwoDigits(min)
     if short {
-        return "\(comment) \(wkday) \(hr):\(minTwoDigits)"
+        return "\(prefix) \(wkday) \(hr):\(minTwoDigits)"
     }
     else {
         if mnthString == "January" || mnthString == "December" {
-            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI), \(yr) @ \(hr):\(minTwoDigits)"
+            return "\(prefix) \(wkday). \(mnthString.prefix(3)) \(dayI), \(yr) @ \(hr):\(minTwoDigits)\(suffix)"
         }
         else {
-            return "\(comment) \(wkday). \(mnthString.prefix(3)) \(dayI) @ \(hr):\(minTwoDigits)"
+            return "\(prefix) \(wkday). \(mnthString.prefix(3)) \(dayI) @ \(hr):\(minTwoDigits)\(suffix)"
         }
     }
 }

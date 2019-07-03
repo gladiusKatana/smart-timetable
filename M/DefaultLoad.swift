@@ -31,7 +31,7 @@ func populateDictionaryFromDefaults() {
             let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
             let date = dateFromLoadedComponents(dateComponents)                             //; print("date: \(date)")
             let event = SimpleEvent(eventDescription: description, eventDate: date, eventStatus: EventStatus(rawValue: todoListItemStatus)!)
-            print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, comment: "", short: false))")
+            print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, prefix: "", suffix: "", short: false))")
             events.append(event)
             j += 1
         }
@@ -59,12 +59,12 @@ func dateFromLoadedComponents(_ array: [Any]) -> Date {
 }
 
 func pryntLastLoginDate() {// spelling 'prynt' with a y so this function's existence does not cause override of autocomplete for print statements
-    print(formattedDateString(lastLoggedInDate, comment: "last login              ", short: false))
+    print(formattedDateString(lastLoggedInDate, prefix: "last login              ", suffix: "", short: false))
     //print("              (unformatted gmt)    \(lastLoggedInDate)\n")
 }
 
 func pryntCurrentDate() {
-    print(formattedDateString(Date(), comment: "date right now          ", short: false)); print("")
+    print(formattedDateString(Date(), prefix: "date right now          ", suffix: "", short: false)); print("")
     //print("              (unformatted gmt)    \(Date())\n")
 }
 
