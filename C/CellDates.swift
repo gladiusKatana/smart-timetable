@@ -16,9 +16,9 @@ extension CollectionVC {
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
         processEventBasedOnDateRange(cell: cell, column: column, row: row, layout: layout)
         
-        let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-        let dy = Calendar.current.component(.day, from: cell.cellDate)
-        cell.titleLabel.text = "\(mo) \(dy)"
+//        let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+//        let dy = Calendar.current.component(.day, from: cell.cellDate)
+//        cell.titleLabel.text = "\(mo) \(dy)"
     }
     
     func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout) {
@@ -28,7 +28,7 @@ extension CollectionVC {
             cell.backgroundColor = niceOrange; cell.cellColour = niceOrange // shows up momentarily after launch on ipad mini 4, landscape
             
             if let events = eventsAtIndexPath[TimeBlock(values:(column, row))] {
-//                cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen
+                //cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen
                 if !savedTimeBlocksForProcessing {
                     if !eventsToProcess.contains(events) {eventsToProcess.append(events)}
                     if !pathsToProcess.contains([column, row]) {pathsToProcess.append([column, row])}
