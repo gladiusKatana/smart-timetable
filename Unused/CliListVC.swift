@@ -1,5 +1,8 @@
 ////  ClientListViewController.swift
-////  Dekoju
+////  Dekoju // pretty funny video (at least to me), that explains why I didn't use this name, for an ancestor of the app that gave rise to this one:
+////         // https://www.youtube.com/watch?v=y_anJVHpzW0
+////         // ("Dekoju" is Lithuanian for "Thank You" but... this video made me think, yeah... probably a bad name🧐
+
 ////  Created by Garth Snyder on 2018-12-01.  //  Copyright © 2018 Garth Snyder. All rights reserved.
 //import UIKit;   import ContactsUI
 //
