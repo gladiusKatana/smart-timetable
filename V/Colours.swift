@@ -12,6 +12,9 @@ let num = CGFloat(42)
 var headerColour = UIColor.rgb(num, g: num, b: num, a: 1)
 
 
+var frostedGlass = UIColor.rgb(255, g: 255, b: 255, a: 0.4)
+var clearGlass = UIColor.rgb(255, g: 255, b: 255, a: 0.05)
+
 var grayTwo = UIColor.rgb(0, g: 0, b: 0, a: 0.2)
 var graySeven = UIColor.rgb(0, g: 0, b: 0, a: 0.7)
 

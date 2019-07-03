@@ -27,7 +27,6 @@ extension CollectionVC {
                 cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen
                 if !eventsToProcess.contains(events) {eventsToProcess.append(events)}
                 if !pathsToProcess.contains([column, row]) {pathsToProcess.append([column, row])}
-                //globalEventIdentifier = "\(events.last!.eventDescription)"
             }
         }
     }

@@ -27,8 +27,8 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true,
                                       loadsHorizontally: false,
                                       squareCellMode: .noAutoSquare)
 
-let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 300,
-                        width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 2)
+let popupFrame = CGRect(x: timetableLayout.cellWidth! * 2, y: 0,
+                        width: timetableLayout.cellWidth!, height: timetableLayout.cellHeight! * 5)
 
 var classifierLayout = CustomFlowLayout(embeddedInNavController: false,
                                         customFrame: nil,

@@ -28,8 +28,8 @@ class SimpleEvent: NSObject {
 }
 
 enum EventStatus: Int, CaseIterable {
-    case upcoming = 0
-    case occurred, done, delegated, obviated, deferred
+    case occurred = 0
+    case done, delegated, deferred, obviated, upcoming
     func simpleDescription() -> String {
         switch self {
         case .upcoming:

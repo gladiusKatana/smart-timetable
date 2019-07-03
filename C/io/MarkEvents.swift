@@ -9,7 +9,7 @@ extension CollectionVC {
         if pathsToProcess.count > 0 {
             let column = pathsToProcess.first![0]; let row = pathsToProcess.first![1]
             presentPopupViewToMarkEvents(column: column, row: row)
-            globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)" //; print("global event identifier: \(globalEventIdentifier)")
+            //globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)"     //; print("event identifier: \(globalEventIdentifier)")
         }
     }
     
@@ -19,15 +19,17 @@ extension CollectionVC {
             let layout = self.downcastLayout!
             let cellWidth = layout.widthPlusSpace;      let cellHeight = layout.heightPlusSpace
             
+            let widthMultiplier = CGFloat(2)
+            
             let classifierLayout = classifierVC.downcastLayout!
-            classifierLayout.cellWidth = cellWidth * 2;  classifierLayout.cellHeight = cellHeight
+            classifierLayout.cellWidth = cellWidth * widthMultiplier;  classifierLayout.cellHeight = cellHeight
             
             let cols = CGFloat(classifierLayout.cols)
             
             let x = cellWidth * CGFloat(column + 1)
             let y = CGFloat(navBarHeight + statusBarHeight) + cellHeight * CGFloat(row)
             
-            let frame = CGRect(x: x, y: y, width: cellWidth * cols * 2, height: cellHeight * 4)
+            let frame = CGRect(x: x, y: y, width: cellWidth * cols * widthMultiplier, height: cellHeight * 5)
             
             classifierVC.downcastLayout?.customFrame = frame
             classifierVC.collectionView.frame = frame
