@@ -7,6 +7,13 @@ extension CollectionVC {
         
         if "\(Date())".contains(":00:") {                                                               //print("the hour ticked over")
             
+            if nowRow == timetableLayout.rows - 1 && nowColumn == timetableLayout.cols - 1 {            //print("the week just rolled over")
+                lastLoginDateComponents = [year, month, day, weekday, hour, minute]
+                lastLoggedInDate = dateFromLoadedComponents(lastLoginDateComponents)
+                pryntLastLoginDate()
+                pryntCurrentDate()
+            }
+            
             if !reloadedFromHourTickingOver {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in

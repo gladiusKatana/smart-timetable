@@ -15,6 +15,10 @@ extension CollectionVC {
         
         cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
         processEventBasedOnDateRange(cell: cell, column: column, row: row, layout: layout)
+        
+        let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
+        let dy = Calendar.current.component(.day, from: cell.cellDate)
+        cell.titleLabel.text = "\(mo) \(dy)"
     }
     
     func processEventBasedOnDateRange(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout) {

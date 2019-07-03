@@ -7,10 +7,6 @@ extension CollectionVC {
         
         if vcType == .hours {
             
-            /*let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
-             let dy = Calendar.current.component(.day, from: cell.cellDate)
-             cell. titleLabel.text = "\(mo) \(dy)"*/
-            
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
             
