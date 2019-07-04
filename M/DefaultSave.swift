@@ -37,8 +37,8 @@ func defaultSaveData(showDate: Bool) {
             eventDateArrays.append(eventDateComponents)
         }//else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
-    printSavedArrays()
-    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the latest login date (for saving) as the date this minute
+    pryntSavedArrays()
+    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the /latest login date (for saving) as the date this minute
     
     defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedTodoListItems")
@@ -47,12 +47,36 @@ func defaultSaveData(showDate: Bool) {
     defaults.set(lastLoginDateComponents, forKey: "savedLastLoginDate")
 }
 
-func printSavedArrays() { let consoleAlignmentSpace = "                     "
+func pryntSavedArrays() { let consoleAlignmentSpace = "                     "
     //print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
     print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) events: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
     print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event-status raw values: \n\(consoleAlignmentSpace)\(eventStatusArrays)")
-    let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
+    
     let dateColonOrNot = (eventDateArrays.isEmpty) ? "." : ":"
+//    let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
+//    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(elementsNewlined)")
+    
+    let formattedDatesArrays = formatDatesFromComponentsArray(eventDateArrays)
+//    print("\n\(consoleAlignmentSpace)\(formattedDatesArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(formattedDatesArrays)")
+    let elementsNewlined = formattedDatesArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
     print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }
+
+func formatDatesFromComponentsArray(_ cells: [[[Any]]]) -> [[String]] {
+    var formattedDatesArrays = [[String]]()
+    
+    for timeBlock in cells {
+        var timeBlockDateStrings = [String]()
+        
+        for eventDateComponents in timeBlock {
+            let date = dateFromComponents(eventDateComponents)
+            let dateString = formattedDateString(date, prefix: "", suffix: "", short: false)
+            timeBlockDateStrings.append(dateString)
+        }
+        formattedDatesArrays.append(timeBlockDateStrings)
+    }
+    
+    return formattedDatesArrays
+}
+
 

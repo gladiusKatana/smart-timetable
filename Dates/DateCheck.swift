@@ -10,7 +10,7 @@ extension CollectionVC {
             
             if nowRow == timetableLayout.rows - 1 && nowColumn == timetableLayout.cols - 1 {            //print("the week just rolled over")
                 lastLoginDateComponents = [year, month, day, weekday, hour, minute]
-                lastLoggedInDate = dateFromLoadedComponents(lastLoginDateComponents)
+                lastLoggedInDate = dateFromComponents(lastLoginDateComponents)
                 pryntLastLoginDate()
                 pryntCurrentDate()
             }

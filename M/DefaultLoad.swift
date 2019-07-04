@@ -6,7 +6,7 @@ func defaultLoadData(showDate: Bool) {                                          
     let defaults = UserDefaults.standard
     if let components = defaults.array(forKey: "savedLastLoginDate") {
         lastLoginDateComponents = components  
-        lastLoggedInDate = dateFromLoadedComponents(lastLoginDateComponents)
+        lastLoggedInDate = dateFromComponents(lastLoginDateComponents)
         if showDate {pryntLastLoginDate(); pryntCurrentDate()}
     } else {
         let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
@@ -29,7 +29,7 @@ func populateDictionaryFromDefaults() {
         for description in todoListItemDescriptions {
             let todoListItemStatus = eventStatusArrays[i][j]
             let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
-            let date = dateFromLoadedComponents(dateComponents)                             //; print("date: \(date)")
+            let date = dateFromComponents(dateComponents)                             //; print("date: \(date)")
             let event = SimpleEvent(eventDescription: description, eventDate: date, eventStatus: EventStatus(rawValue: todoListItemStatus)!)
             print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, prefix: "", suffix: "", short: false))")
             events.append(event)
@@ -41,7 +41,7 @@ func populateDictionaryFromDefaults() {
     }
 }
 
-func dateFromLoadedComponents(_ array: [Any]) -> Date {
+func dateFromComponents(_ array: [Any]) -> Date {
     let yearLoaded = array[0] as! Int                               //; print("year loaded: \(yearLoaded)")     // will probably replace with...
     let monthLoaded = array[1] as! String                           //; print("month loaded: \(monthLoaded)")   //... conditional downcasts,...
     let monthLoadedInt = months.firstIndex(of: monthLoaded)! + 1    //; print("int: \(monthLoadedInt)")         //...rather than forced downcasts,
