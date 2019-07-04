@@ -37,13 +37,13 @@ class PopupMenuVC: UICollectionViewController {
         let row = indexPath.item                 //; let column = indexPath.section
         
         if row < customLayout.lockedHeaderRows { //|| column < customLayout.lockedHeaderSections { // popup menu design here has no need for > col.s
-            cell.backgroundColor = frostedGlass
+            cell.backgroundColor = headerColour
             cell.titleLabel.text = "✔︎ Mark Event:"//"⬅️ Mark '\(globalEventIdentifier)':"
-            cell.titleLabel.textColor = navyBlue
+            cell.titleLabel.textColor = platinum
         } else {
-            cell.backgroundColor = clearGlass
+            cell.backgroundColor = .lightGray
             cell.titleLabel.text = EventStatus.allCases[row - 1].caseName()
-            cell.titleLabel.textColor = .white
+            cell.titleLabel.textColor = headerColour
         }
 
         //print(indexPath)

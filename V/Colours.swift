@@ -11,7 +11,7 @@ let num = CGFloat(42)
 var headerColour = UIColor.rgb(num, g: num, b: num, a: 1)
 
 
-var frostedGlass = UIColor.rgb(230, g: 230, b: 230, a: 1)
+var frostedGlass = UIColor.rgb(230, g: 230, b: 230, a: 0.7)
 //var frostedGlass = UIColor.rgb(255, g: 255, b: 255, a: 0.4)
 var clearGlass = UIColor.rgb(255, g: 255, b: 255, a: 0.05)
 
@@ -29,7 +29,7 @@ var jadeGreen = UIColor.rgb(22, g: 134, b: 79, a: 1)
 var platinum = UIColor.rgb(214, g: 214, b: 214, a: 1)
 var platinumLite = UIColor.rgb(214, g: 214, b: 255, a: 0.25)
 var niceOrange = UIColor.rgb(228, g: 100, b: 44, a: 0.75)
-
+var niceOrangeLight = UIColor.rgb(220, g: 70, b: 20, a: 0.5) //(220, g: 70, b: 20, a: 0.5)
 
 var skyBackgroundImage = UIImage(named: "skyB")?.withRenderingMode(.alwaysOriginal) // sky background (blue with light clouds)
 var skyBackgroundColour = UIColor(patternImage: skyBackgroundImage!) //looks pretty nice, may use later
