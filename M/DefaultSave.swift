@@ -3,7 +3,7 @@
 import UIKit
 
 func defaultSaveData(showDate: Bool) {                      
-    if showDate{print(formattedDateString(Date(), prefix: "✔︎saved to your device on", suffix: "", short: false))}
+    if showDate{print(formattedDateString(Date(), roundedDown: false, prefix: "✔︎saved to your device on", suffix: "", short: false))}
     let defaults = UserDefaults.standard
     eventPathArrays.removeAll();   eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
     
@@ -29,7 +29,7 @@ func defaultSaveData(showDate: Bool) {
                 eventDescriptions.append(event.eventDescription)
                 eventStatuses.append(event.eventStatus.rawValue)
                 
-                let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate)
+                let (yr, mnth, dy, wkdy, hr, mn) = displayDate(event.eventDate, roundedDown: true)
                 eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
             eventDescriptionArrays.append(eventDescriptions)
@@ -38,7 +38,9 @@ func defaultSaveData(showDate: Bool) {
         }//else {print("\n!descriptions array at this time block contains only default (\(defaultEmptEventDescription)), and it's: \(vals[0].eventDescription)")}
     }
     pryntSavedArrays()
-    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the /latest login date (for saving) as the date this minute
+//    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the /latest login date (for saving) as the date this minute
+    let (yr, mnth, dy, wkdy, hr, mn) = displayDate(Date(), roundedDown: false)
+    lastLoginDateComponents = [yr, mnth, dy, wkdy, hr, mn]
     
     defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")
     defaults.set(eventDescriptionArrays, forKey: "savedTodoListItems")
@@ -70,7 +72,7 @@ func formatDatesFromComponentsArray(_ cells: [[[Any]]]) -> [[String]] {
         
         for eventDateComponents in timeBlock {
             let date = dateFromComponents(eventDateComponents)
-            let dateString = formattedDateString(date, prefix: "", suffix: "", short: false)
+            let dateString = formattedDateString(date, roundedDown: true, prefix: "", suffix: " ", short: false)//2nd space to match default left one
             timeBlockDateStrings.append(dateString)
         }
         formattedDatesArrays.append(timeBlockDateStrings)

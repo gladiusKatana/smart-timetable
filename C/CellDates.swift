@@ -14,7 +14,7 @@ extension CollectionVC {
         if looping {weekAheadInt = setCellWeek(cell: cell, column: column, row: row, layout: layout, withColours: withColours)}
         let potentialWeekAhead = TimeInterval(86400 * 7 * weekAheadInt)
         
-        cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead
+        cell.cellDate = Date() + hoursFromNow + daysFromNow + potentialWeekAhead // dates never actually rounded: just displayed rounded sometimes
         processEventBasedOnDateRange(cell: cell, column: column, row: row, layout: layout)
         
 //        let mo = months[Calendar.current.component(.month, from: cell.cellDate) - 1]
@@ -27,6 +27,12 @@ extension CollectionVC {
         
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
             cell.backgroundColor = niceOrange; cell.cellColour = niceOrange // shows up momentarily after launch on ipad mini 4, landscape
+            
+            if oneWeekAgo > lastLoggedInDate && oneWeekAgo <= lastLoggedInDate + TimeInterval(3600) { //&& row != nowRow && column != nowColumn
+                cell.titleLabel.text = "last login"
+//                cell.titleLabel.textColor = .black
+                cell.titleLabel.font = UIFont.systemFont(ofSize: 8, weight: .ultraLight)
+            }
             
             if let events = eventsAtIndexPath[TimeBlock(values:(column, row))] {
                 //cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen

@@ -25,7 +25,7 @@ import UIKit
         UINavigationBar.appearance().barTintColor = icyBlue
         UINavigationBar.appearance().shadowImage = UIImage()
         
-        print(formattedDateString(Date(), prefix: "                      on", suffix: legendTwo, short: false))
+        print(formattedDateString(Date(), roundedDown: false, prefix: "                      on", suffix: legendTwo, short: false))
         
         return true
     }

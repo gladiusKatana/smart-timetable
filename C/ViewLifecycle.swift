@@ -22,8 +22,8 @@ extension CollectionVC {
         if vcType == .hours {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
-        else {
-            setupViewTitle(formattedDateString(selectedCellDate, prefix: "", suffix: "", short: false), numLines: 1, alignment: .left)
+        else { //if vcType is the other nav-controller-embedded one, ie todoList VC
+            setupViewTitle(formattedDateString(selectedCellDate, roundedDown: true, prefix: "", suffix: "", short: false), numLines: 1, alignment: .left)
         }
         
         if rePresentedVCFromButton {

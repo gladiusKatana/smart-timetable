@@ -9,7 +9,7 @@ func defaultLoadData(showDate: Bool) {                                          
         lastLoggedInDate = dateFromComponents(lastLoginDateComponents)
         if showDate {pryntLastLoginDate(); pryntCurrentDate()}
     } else {
-        let (yr, mo, dy, wkd, hr, mn) = displayDate(Date())
+        let (yr, mo, dy, wkd, hr, mn) = displayDate(Date(), roundedDown: true)
         lastLoginDateComponents = [yr, mo, dy, wkd, hr, mn]
         print("\nfirst login")
     }
@@ -31,7 +31,7 @@ func populateDictionaryFromDefaults() {
             let dateComponents = eventDateArrays[i][j]                                      //; print("event date components: \(dateComponents)")
             let date = dateFromComponents(dateComponents)                             //; print("date: \(date)")
             let event = SimpleEvent(eventDescription: description, eventDate: date, eventStatus: EventStatus(rawValue: todoListItemStatus)!)
-            print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, prefix: "", suffix: "", short: false))")
+            print("loaded event: '\(event.eventDescription)' [\(event.eventStatus)] with deadline:\(formattedDateString(date, roundedDown: true, prefix: "", suffix: "", short: false))")
             events.append(event)
             j += 1
         }
@@ -59,12 +59,12 @@ func dateFromComponents(_ array: [Any]) -> Date {
 }
 
 func pryntLastLoginDate() {// spelling 'prynt' with a y so this function's existence does not cause override of autocomplete for print statements
-    print(formattedDateString(lastLoggedInDate, prefix: "last login              ", suffix: "", short: false))
+    print(formattedDateString(lastLoggedInDate, roundedDown: false, prefix: "last login              ", suffix: "", short: false))
     //print("              (unformatted gmt)    \(lastLoggedInDate)\n")
 }
 
 func pryntCurrentDate() {
-    print(formattedDateString(Date(), prefix: "date right now          ", suffix: "", short: false)); print("")
+    print(formattedDateString(Date(), roundedDown: false, prefix: "date right now          ", suffix: "", short: false)); print("")
     //print("              (unformatted gmt)    \(Date())\n")
 }
 

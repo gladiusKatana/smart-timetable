@@ -10,14 +10,14 @@ extension CollectionVC {
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCell
         let layout = downcastLayout!
         let row = indexPath.item;   let column = indexPath.section
-        //        if indexPath.item >= layout.lockedHeaderRows && indexPath.section >= layout.lockedHeaderSections {
-        //            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
-        //            print(formattedDateString(cell.cellDate, comment: "                 (formatted)    ", short: false))
-        //        }
+//        if indexPath.item >= layout.lockedHeaderRows && indexPath.section >= layout.lockedHeaderSections {
+//            print("\nselected date (unformatted gmt)  \(cell.cellDate)")
+//            print(formattedDateString(cell.cellDate, roundedDown: true, prefix: "                 (formatted)    ", suffix: "", short: false))
+//        }
         
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             selectedCellDate = cell.cellDate
-            let dateString = formattedDateString(selectedCellDate, prefix: "New event on", suffix: "", short: false)
+            let dateString = formattedDateString(selectedCellDate, roundedDown: false, prefix: "New event on", suffix: "", short: false)
             
             if vcType == .hours {
                 selectedTimeBlockPath = [column, row]
@@ -34,8 +34,8 @@ extension CollectionVC {
                 
                 if !cell.markedForItems {
                     UIView.animate(withDuration: 1, delay: 0, // will factor/put in Animations.swift
-                                   usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                                    cell.backgroundColor = halfIcyBlue
+                        usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                            cell.backgroundColor = halfIcyBlue
                     }, completion: nil)
                     cell.markedForItems = true
                 }
