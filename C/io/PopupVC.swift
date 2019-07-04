@@ -27,6 +27,7 @@ class PopupMenuVC: UICollectionViewController {
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: downcastLayout!.cellHeight!, left: 0, bottom: 0, right: 0)
         collectionView?.isUserInteractionEnabled = true
     }
     
