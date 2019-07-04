@@ -49,8 +49,8 @@ func defaultSaveData(showDate: Bool) {
 
 func pryntSavedArrays() { let consoleAlignmentSpace = "                     "
     //print("\n\(consoleAlignmentSpace)\(eventPathArrays.count) time blocks: \n\(consoleAlignmentSpace)\(eventPathArrays)")
-    print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) events: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
-    print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) event-status raw values: \n\(consoleAlignmentSpace)\(eventStatusArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventDescriptionArrays.count) blocks' events: \n\(consoleAlignmentSpace)\(eventDescriptionArrays)")
+    print("\n\(consoleAlignmentSpace)\(eventStatusArrays.count) blocks' event-status raw values: \n\(consoleAlignmentSpace)\(eventStatusArrays)")
     
     let dateColonOrNot = (eventDateArrays.isEmpty) ? "." : ":"
 //    let elementsNewlined = eventDateArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
@@ -59,7 +59,7 @@ func pryntSavedArrays() { let consoleAlignmentSpace = "                     "
     let formattedDatesArrays = formatDatesFromComponentsArray(eventDateArrays)
 //    print("\n\(consoleAlignmentSpace)\(formattedDatesArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(formattedDatesArrays)")
     let elementsNewlined = formattedDatesArrays.map {"\($0)"}.joined(separator: "\n\(consoleAlignmentSpace)")
-    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(elementsNewlined)")
+    print("\n\(consoleAlignmentSpace)\(eventDateArrays.count) blocks' event dates\(dateColonOrNot) \n\(consoleAlignmentSpace)\(elementsNewlined)")
 }
 
 func formatDatesFromComponentsArray(_ cells: [[[Any]]]) -> [[String]] {
