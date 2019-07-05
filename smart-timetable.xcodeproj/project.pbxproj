@@ -13,7 +13,6 @@
 		0614F6C722875C2700211DF2 /* DefaultLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F6C622875C2700211DF2 /* DefaultLoad.swift */; };
 		061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061B37FB226D48CA006555B5 /* TimetableVars.swift */; };
 		061D5F3F22B0ABD800122898 /* MarkEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D5F3E22B0ABD800122898 /* MarkEvents.swift */; };
-		061DBADB22C6EACB00B9860D /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */; };
 		061DBADE22C6EFF800B9860D /* PopupSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DBADD22C6EFF800B9860D /* PopupSelect.swift */; };
 		061E600B22BC07720085744B /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061E600A22BC07720085744B /* PopupVC.swift */; };
 		062133892276AE2000D46E5D /* DateCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062133882276AE2000D46E5D /* DateCheck.swift */; };
@@ -47,6 +46,7 @@
 		063342332277C12200F7C754 /* SimpleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063342322277C12200F7C754 /* SimpleEvent.swift */; };
 		063D1E03229E2F8300A8B4DE /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063D1E02229E2F8300A8B4DE /* Animations.swift */; };
 		06674B622288FED30020AE37 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06674B612288FED30020AE37 /* Notifications.swift */; };
+		067C4ADD22CF8D5000D2FC6B /* IndexPathToCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067C4ADC22CF8D5000D2FC6B /* IndexPathToCell.swift */; };
 		06F3A2172273F54B00548AE1 /* DefaultSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3A2162273F54B00548AE1 /* DefaultSave.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,6 @@
 		0614F6C622875C2700211DF2 /* DefaultLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoad.swift; sourceTree = "<group>"; };
 		061B37FB226D48CA006555B5 /* TimetableVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableVars.swift; sourceTree = "<group>"; };
 		061D5F3E22B0ABD800122898 /* MarkEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkEvents.swift; sourceTree = "<group>"; };
-		061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathToCell.swift; sourceTree = SOURCE_ROOT; };
 		061DBADD22C6EFF800B9860D /* PopupSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSelect.swift; sourceTree = "<group>"; };
 		061E600A22BC07720085744B /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		062133882276AE2000D46E5D /* DateCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCheck.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		063342322277C12200F7C754 /* SimpleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEvent.swift; sourceTree = "<group>"; };
 		063D1E02229E2F8300A8B4DE /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		06674B612288FED30020AE37 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		067C4ADC22CF8D5000D2FC6B /* IndexPathToCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathToCell.swift; sourceTree = SOURCE_ROOT; };
 		06F3A2162273F54B00548AE1 /* DefaultSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSave.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,8 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				062A3F59226BE8F100D6DBED /* CollectionVC.swift */,
-				061DBADA22C6EACB00B9860D /* IndexPathToCell.swift */,
 				062A3F55226BE8F100D6DBED /* ViewLifecycle.swift */,
+				067C4ADC22CF8D5000D2FC6B /* IndexPathToCell.swift */,
 				062A3F58226BE8F100D6DBED /* CellContents.swift */,
 				060FAE6722775275002E472A /* CellDates.swift */,
 				061DBADC22C6EB6000B9860D /* io */,
@@ -319,6 +319,7 @@
 				062A3F89226BE8F200D6DBED /* AppDelegate.swift in Sources */,
 				061D5F3F22B0ABD800122898 /* MarkEvents.swift in Sources */,
 				062A3F72226BE8F200D6DBED /* NavBar.swift in Sources */,
+				067C4ADD22CF8D5000D2FC6B /* IndexPathToCell.swift in Sources */,
 				062A3F80226BE8F200D6DBED /* Orientation.swift in Sources */,
 				062A3F8A226BE8F200D6DBED /* Attributes.swift in Sources */,
 				061B37FC226D48CA006555B5 /* TimetableVars.swift in Sources */,
@@ -331,7 +332,6 @@
 				063342332277C12200F7C754 /* SimpleEvent.swift in Sources */,
 				062A3F84226BE8F200D6DBED /* Cell.swift in Sources */,
 				063D1E03229E2F8300A8B4DE /* Animations.swift in Sources */,
-				061DBADB22C6EACB00B9860D /* IndexPathToCell.swift in Sources */,
 				062A3F8C226BE8F200D6DBED /* Layout.swift in Sources */,
 				06674B622288FED30020AE37 /* Notifications.swift in Sources */,
 				062569CE227A8D33003E5C49 /* TimeBlock.swift in Sources */,
