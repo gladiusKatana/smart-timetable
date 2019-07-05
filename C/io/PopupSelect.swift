@@ -19,8 +19,8 @@ extension PopupMenuVC {
             
             if let eventsAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {
                 
-                    eventsAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
-                    print("status entered: \(eventsAtTimeBlock.last!.eventStatus)")
+                eventsAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
+                print("status entered: \(eventsAtTimeBlock.last!.eventStatus)")
             }
             
             pathsToProcess.removeFirst()            ; print("now paths to process: \(pathsToProcess)")
@@ -28,9 +28,7 @@ extension PopupMenuVC {
             
             classifierVC.view.removeFromSuperview()
             
-            if !pathsToProcess.isEmpty {
-                timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
-            }
+            timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
             
         } else {
             print("selected header")
