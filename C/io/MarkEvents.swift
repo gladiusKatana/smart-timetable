@@ -12,7 +12,7 @@ extension CollectionVC {
             if !pathsToProcess.isEmpty {
                 presentPopupViewToMarkEvents(column: column, row: row)
             }
-            //globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)"     //; print("event identifier: \(globalEventIdentifier)")
+            globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)"     //; print("event identifier: \(globalEventIdentifier)")
         }
     }
     

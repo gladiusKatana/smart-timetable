@@ -12,7 +12,12 @@ extension CollectionVC {
             let cellTimeBlock = TimeBlock(values:(column, row))
             
             if let eventsAtTimeBlock = eventsAtIndexPath[cellTimeBlock] {
-                cell.titleLabel.text = eventsAtTimeBlock.last?.eventDescription
+                if eventsAtTimeBlock.count == 1 {
+                    cell.titleLabel.text = eventsAtTimeBlock[0].eventDescription
+                }
+                else {
+                    cell.titleLabel.text = "\(eventsAtTimeBlock.count) items"
+                }
             }
         }
             
