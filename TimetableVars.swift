@@ -16,7 +16,7 @@ var eventsAtIndexPath = Dictionary<TimeBlock<Int,Int>,[SimpleEvent]>()
 
 var timeBlock = TimeBlock(values:(0, 0));       var previousTimeBlock = TimeBlock(values:(0, 0))
 
-var eventsToProcess = [[SimpleEvent]]()
+var eventArraysToProcess = [[SimpleEvent]]()
 var pathsToProcess = [[Int]]()
 
 
@@ -31,6 +31,7 @@ var timerForShowScrollIndicator: Timer?
 var selectedTimeBlockPath = [-1, -1];           var previousSelectedTimeBlockPath = [0, 0]
 
 var nowRow = 0;                                 var nowColumn = 0
+var eventsInBlockToBeProcessed = 0
 
 var eventMarkerStartingX: CGFloat = 0.0;        var eventMarkerStartingY: CGFloat = 0.0;
 
@@ -45,5 +46,5 @@ var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
 
-var globalEventIdentifier = "";                 var defaultEmptyEventDescription = "❒"
+var globalEventIdentifier = "(event)";                 var defaultEmptyEventDescription = "❒"
 

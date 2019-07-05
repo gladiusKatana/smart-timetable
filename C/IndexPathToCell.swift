@@ -20,9 +20,14 @@ extension CollectionVC {
             setCellColours(cell: cell, cellIsInHeader: false)
             setCellContents(cell: cell, row: row, column: column, layout: customLayout)
             
-            if row == customLayout.rows - 1 && column == customLayout.cols - 1 {              //print("events to process: \(eventsToProcess)") // *
-                if eventsToProcess.count > 0 { // or could have used pathsToProcess.count > 0
+            if row == customLayout.rows - 1 && column == customLayout.cols - 1 {              //; print("events to process: \(events ToProcess)")//*
+                if eventArraysToProcess.count > 0 { // or could have used pathsToProcess.count > 0
                     savedTimeBlocksForProcessing = true
+                    
+                    eventsInBlockToBeProcessed = eventArraysToProcess.first!.count          //; print("\neventsInBlock first set")// initial value
+                    print("block events remaining (initial): \(eventsInBlockToBeProcessed)\n")
+                    print("paths to process: \(pathsToProcess)")
+                    
                     processEventsSinceLastLogin(layout: customLayout)
                 }
             }

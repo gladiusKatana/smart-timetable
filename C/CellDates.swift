@@ -37,7 +37,7 @@ extension CollectionVC {
             if let events = eventsAtIndexPath[TimeBlock(values:(column, row))] {
                 //cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen
                 if !savedTimeBlocksForProcessing {
-                    if !eventsToProcess.contains(events) {eventsToProcess.append(events)}
+                    if !eventArraysToProcess.contains(events) {eventArraysToProcess.append(events)}
                     if !pathsToProcess.contains([column, row]) {pathsToProcess.append([column, row])}
                 }
             }

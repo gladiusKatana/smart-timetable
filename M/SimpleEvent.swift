@@ -32,35 +32,25 @@ enum EventStatus: Int, CaseIterable {
     case done, delegated, deferred, obviated, upcoming
     func simpleDescription() -> String {
         switch self {
-        case .upcoming:
-            return "event is upcoming"
-        case .occurred:
-            return "event occurred"
-        case .done:
-            return "task was done. Nice!"
-        case .delegated:
-            return "task was delegated to someone else"
-        case .obviated:
-            return "task was obviated; no need to do it anymore"
-        case .deferred:
-            return "task was deferred; it will show in the time-block chosen during deferral"
+        
+        case .occurred:     return "event occurred"
+        case .done:         return "task was done. Nice!"
+        case .delegated:    return "task was delegated to someone else"
+        case .deferred:     return "task was deferred; it will show in the time-block chosen during deferral"   // ***
+        case .obviated:     return "task was obviated; no need to do it anymore"
+        case .upcoming:     return "event is upcoming"
         }
     }
     
     func caseName() -> String {
         switch self {
-        case .upcoming:
-            return "Upcoming"
-        case .occurred:
-            return "Occurred"
-        case .done:
-            return "Done"
-        case .delegated:
-            return "Delegated"
-        case .obviated:
-            return "Obviated"
-        case .deferred:
-            return "Deferred"
+
+        case .occurred:     return "Occurred"
+        case .done:         return "Done"
+        case .delegated:    return "Delegated"
+        case .deferred:     return "Deferred"
+        case .obviated:     return "Obviated"
+        case .upcoming:     return "Upcoming"
         }
     }
 }

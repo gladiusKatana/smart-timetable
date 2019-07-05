@@ -9,6 +9,7 @@ extension CollectionVC {
         if vcType == .hours {
             
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
+            
             let cellTimeBlock = TimeBlock(values:(column, row))
             
             if let events = eventsAtIndexPath[cellTimeBlock] {
@@ -35,7 +36,7 @@ extension CollectionVC {
                 cell.titleLabel.textColor = platinumLite
             }
             
-        } else {print("[setCellContents(:)] unrecognized collection view type")}//not called, but will add more vcs from https://github.com/gladiusKatana/DMY-Tabs-Calendar
+        } else {print("[setCellContents(:)] unrecognized collection view type")}//not called, but will add more vcs from project DMY-Tabs-Calendar
     }
 }
 
