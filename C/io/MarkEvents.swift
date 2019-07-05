@@ -6,13 +6,12 @@ extension CollectionVC {
     
     func processEventsSinceLastLogin(layout: CustomFlowLayout) {
         
-        if pathsToProcess.count > 0 {
+        if !pathsToProcess.isEmpty {
             let column = pathsToProcess.first![0]; let row = pathsToProcess.first![1]
             
-            if !pathsToProcess.isEmpty {
-                presentPopupViewToMarkEvents(column: column, row: row)
-            }
             globalEventIdentifier = "\(eventsToProcess.first!.first!.eventDescription)"     ; print("event identifier: \(globalEventIdentifier)")
+            
+            presentPopupViewToMarkEvents(column: column, row: row)
         }
     }
     
@@ -37,7 +36,6 @@ extension CollectionVC {
             classifierVC.downcastLayout?.customFrame = frame
             classifierVC.collectionView.frame = frame
             
-            ///if !removedPopup {
             self.view.addSubview(classifierVC.view)             ; print("paths to process: \(pathsToProcess)")
             classifierVC.keepScrollIndicatorsVisible()
         }

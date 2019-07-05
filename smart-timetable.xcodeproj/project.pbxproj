@@ -121,8 +121,8 @@
 				062A3F5A226BE8F100D6DBED /* CellSelect.swift */,
 				0601A5202280ED85005D0D99 /* TextField.swift */,
 				061E600A22BC07720085744B /* PopupVC.swift */,
-				061DBADD22C6EFF800B9860D /* PopupSelect.swift */,
 				061D5F3E22B0ABD800122898 /* MarkEvents.swift */,
+				061DBADD22C6EFF800B9860D /* PopupSelect.swift */,
 			);
 			path = io;
 			sourceTree = "<group>";

@@ -31,7 +31,6 @@ extension CollectionVC {
             
             if oneWeekAgo > lastLoggedInDate && oneWeekAgo <= lastLoggedInDate + TimeInterval(3600) { //&& row != nowRow && column != nowColumn
                 cell.titleLabel.text = "last login"
-//                cell.titleLabel.textColor = .black
                 cell.titleLabel.font = UIFont.systemFont(ofSize: 8, weight: .ultraLight)
             }
             
