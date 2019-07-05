@@ -9,8 +9,8 @@ extension UICollectionViewController {
         if topVC != vc || !rePresentedVCFromButton {
             
             if vc == todoListVC {                                                   //print("time block being tested: \(timeBlock)")
-                if let eventsAtTimeBlock = eventsAtIndexPath[previousTimeBlock] {
-                    todoListVC.downcastLayout!.rows = eventsAtTimeBlock.count
+                if let events = eventsAtIndexPath[previousTimeBlock] {
+                    todoListVC.downcastLayout!.rows = events.count
                 }
             }
             

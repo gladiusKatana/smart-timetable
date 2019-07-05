@@ -11,12 +11,12 @@ extension CollectionVC {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
             
-            if let eventsAtTimeBlock = eventsAtIndexPath[cellTimeBlock] {
-                if eventsAtTimeBlock.count == 1 {
-                    cell.titleLabel.text = eventsAtTimeBlock[0].eventDescription
+            if let events = eventsAtIndexPath[cellTimeBlock] {
+                if events.count == 1 {
+                    cell.titleLabel.text = events[0].eventDescription
                 }
                 else {
-                    cell.titleLabel.text = "\(eventsAtTimeBlock.count) items"
+                    cell.titleLabel.text = "\(events.count) items"
                 }
             }
         }

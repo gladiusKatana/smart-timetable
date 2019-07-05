@@ -14,13 +14,13 @@ extension PopupMenuVC {
         
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             
-            let currentColumn = pathsToProcess.first![0]; let currentRow = pathsToProcess.first![1] // ie, current index path being processed
+            let currentColumn = pathsToProcess.first![0]; let currentRow = pathsToProcess.first![1] // ie, current index path being marked
             
             
-            if let eventsAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {
+            if let events = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {
                 
-                eventsAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
-                print("status entered: \(eventsAtTimeBlock.last!.eventStatus)")
+                events.last!.eventStatus = EventStatus(rawValue: row - 1)!
+                print("status entered: \(events.last!.eventStatus)")
             }
             
             pathsToProcess.removeFirst()            ; print("now paths to process: \(pathsToProcess)")
