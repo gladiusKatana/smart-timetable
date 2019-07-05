@@ -12,7 +12,7 @@ extension CollectionVC {
             if !pathsToProcess.isEmpty {
                 presentPopupViewToMarkEvents(column: column, row: row)
             }
-            globalEventIdentifier = "\(eventsToProcess.last!.last!.eventDescription)"     //; print("event identifier: \(globalEventIdentifier)")
+            globalEventIdentifier = "\(eventsToProcess.first!.first!.eventDescription)"     ; print("event identifier: \(globalEventIdentifier)")
         }
     }
     
@@ -38,7 +38,7 @@ extension CollectionVC {
             classifierVC.collectionView.frame = frame
             
             ///if !removedPopup {
-            self.view.addSubview(classifierVC.view)             //; print("paths to process: \(pathsToProcess)")
+            self.view.addSubview(classifierVC.view)             ; print("paths to process: \(pathsToProcess)")
             classifierVC.keepScrollIndicatorsVisible()
         }
     }

@@ -17,17 +17,19 @@ extension PopupMenuVC {
             
             if let eventsAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {
                 
-                if eventsAtTimeBlock.count == 1 {
+//                if eventsAtTimeBlock.count == 1 {
                     eventsAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
                     print("status entered: \(eventsAtTimeBlock.last!.eventStatus)")
-                }
+//                }
             }
             
-            pathsToProcess.removeFirst()            //; print("now paths to process: \(pathsToProcess)")
+            pathsToProcess.removeFirst()            ; print("now paths to process: \(pathsToProcess)")
+            eventsToProcess.removeFirst()
             
             classifierVC.view.removeFromSuperview()
             
             if !pathsToProcess.isEmpty {
+                globalEventIdentifier = "\(eventsToProcess.first!.first!.eventDescription)"
                 timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
             }
             
