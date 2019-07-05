@@ -11,18 +11,16 @@ extension PopupMenuVC {
         let layout = downcastLayout!
         let row = indexPath.item;   let column = indexPath.section
         
+        
         if row >= layout.lockedHeaderRows && column >= layout.lockedHeaderSections {
             
             let currentColumn = pathsToProcess.first![0]; let currentRow = pathsToProcess.first![1] // ie, current index path being processed
             
+            
             if let eventsAtTimeBlock = eventsAtIndexPath[TimeBlock(values:(currentColumn, currentRow))] {
-                
-//                if eventsAtTimeBlock.count == 1 {
                 
                     eventsAtTimeBlock.last!.eventStatus = EventStatus(rawValue: row - 1)!
                     print("status entered: \(eventsAtTimeBlock.last!.eventStatus)")
-                
-//                }
             }
             
             pathsToProcess.removeFirst()            ; print("now paths to process: \(pathsToProcess)")

@@ -5,7 +5,7 @@ import UIKit
 func defaultSaveData(showDate: Bool) {                      
     if showDate{print(formattedDateString(Date(), roundedDown: false, prefix: "✔︎saved to your device on", suffix: "", short: false))}
     let defaults = UserDefaults.standard
-    eventPathArrays.removeAll();   eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
+    eventPathArrays.removeAll(); eventDescriptionArrays.removeAll(); eventStatusArrays.removeAll(); eventDateArrays.removeAll()
     
     for key in eventsAtIndexPath.keys {
         let (a, b) = key.values                                                                         //; print("key: [\(key)  values \((a, b))")
