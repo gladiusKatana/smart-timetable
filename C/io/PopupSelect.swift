@@ -24,7 +24,9 @@ extension PopupMenuVC {
             }
             
             pathsToProcess.removeFirst()            //; print("now paths to process: \(pathsToProcess)")
+            
             classifierVC.view.removeFromSuperview()
+            
             if !pathsToProcess.isEmpty {
                 timetableVC.processEventsSinceLastLogin(layout: timetableVC.downcastLayout!)
             }

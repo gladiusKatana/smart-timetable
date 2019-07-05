@@ -11,8 +11,8 @@ extension CollectionVC {
             setupHourlyCells(cell: cell, column: column, row: row, layout: layout, looping: loopWeeks, withColours: demarcateWeeksByColour)
             let cellTimeBlock = TimeBlock(values:(column, row))
             
-            if let eventAtTimeBlock = eventsAtIndexPath[cellTimeBlock] {
-                cell.titleLabel.text = eventAtTimeBlock.last?.eventDescription
+            if let eventsAtTimeBlock = eventsAtIndexPath[cellTimeBlock] {
+                cell.titleLabel.text = eventsAtTimeBlock.last?.eventDescription
             }
         }
             
