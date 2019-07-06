@@ -20,6 +20,8 @@ extension AppDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         customApplicationStatusPrint(applicationState: "⏸will resign active")
         defaultSaveData(showDate: true)
+        
+        savedTimeBlocksForProcessing = false
     }
     
     

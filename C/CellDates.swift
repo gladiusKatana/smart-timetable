@@ -33,6 +33,7 @@ extension CollectionVC {
                 cell.titleLabel.text = "last login"
                 cell.titleLabel.font = UIFont.systemFont(ofSize: 8, weight: .ultraLight)
             }
+            else {cell.titleLabel.font = defaultTimetableCellFont}
             
             if let events = eventsAtIndexPath[TimeBlock(values:(column, row))] {
                 //cell.backgroundColor = jadeGreen; cell.cellColour = jadeGreen

@@ -27,11 +27,12 @@ class PopupMenuVC: UICollectionViewController {
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         collectionView?.isScrollEnabled = true
-        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: downcastLayout!.cellHeight!, left: 0, bottom: 0, right: 0)
         collectionView?.isUserInteractionEnabled = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let scaleMult = timetableVC.downcastLayout!.autoFitHScale!
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: self.downcastLayout!.cellHeight! * scaleMult, left: 0, bottom: 0, right: 0)
         collectionView.reloadData()
     }
     
@@ -43,14 +44,13 @@ class PopupMenuVC: UICollectionViewController {
         
         if row < customLayout.lockedHeaderRows { //|| column < customLayout.lockedHeaderSections { // popup menu design here has no need for > col.s
             cell.backgroundColor = headerColour
-            cell.titleLabel.text = "< Mark '\(globalEventIdentifier)':" //"✔︎ Mark Event:" //← ⇦ ◄⬅️
+            cell.titleLabel.text = "Mark '\(globalEventIdentifier)':"     //"✔︎ Mark Event:" // ← ⇦ ◄ ⬅️ still looking for a large enough ascii arrow
             cell.titleLabel.textColor = platinum
         } else {
             cell.backgroundColor = .lightGray
             cell.titleLabel.text = EventStatus.allCases[row - 1].caseName()
             cell.titleLabel.textColor = headerColour
         }
-
         //print(indexPath)
         return cell
     }

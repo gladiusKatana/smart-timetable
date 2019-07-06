@@ -38,7 +38,7 @@ extension UICollectionViewController {
             rePresentedVCFromButton = false                         //; print("\n---------presented then reloaded \(vc.collectionViewType) cv ")
             setupTitleAndPresentViewController(vc: vc) { () -> () in
                 previousOrientation = currentOrientation //* should probably factor out
-                reloadWithDelay(after: 0.02)
+                reloadWithDelay(after: 0.05) //0.1 //0.2
             }
         } else {
             previousOrientation = currentOrientation

@@ -21,14 +21,16 @@ extension CustomFlowLayout {
         //print("---------------------prepare \(currentTopVC.collectionViewType)-cv    \n                     cell width: \(cellWidth!)\n                     nav bar height: \(navBarHeight)")
         
         if previousOrientation != currentOrientation {
-            DispatchQueue.main.asyncAfter(deadline: .now()) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { //0.2
                 topVC.reloadAfterVCIsPossiblyPresentedAgainFromCallToPrepare(vc: topVC)
             }
-        } else {
+        }
+        else {
             if topVC.vcType == .hours {
                 processCurrentDate()                                                        //; print("process date from prepare")
             }
         }
+        
         if topVC.vcType == .hours {
             topVC.rePresentTextField()
         }
@@ -40,14 +42,14 @@ extension CustomFlowLayout {
         
         var frame: CGRect
         if embeddedInNavController {frame = globalKeyWindow.frame}
-        //else {frame = customFrame!}   //* frame-setting inside this else{} may not be done in-time for popup views (ie non-nav-controller-embedded
         else {                           // view controllers).  In this app, presentPopupViewToMarkEvents() initializes the popup's frame anyway;...
             if let safeFrame = customFrame {//...this may work fine for the next version of collection-view-template, also... will investigate
                 frame = safeFrame
             } else {frame = nilCatcherFrame} //...default frame is overridden anyway (see above comment); hence its value being all 0's
         }
+        //else {frame = customFrame!}   //* frame-setting inside this else{} may not be done in-time for popup views (ie non-nav-controller-embedded
         
-        let autofitWidth = CGFloat(Double(frame.width) - 0.5) / CGFloat(cols) - hSpace
+        let autofitWidth = CGFloat(frame.width) / CGFloat(cols) - hSpace
         let autoFitHeight = CGFloat(Double(frame.height) - navBarHeight - statusBarHeight) / CGFloat(rows) - vSpace
         
         switch cellDimensionsMode {

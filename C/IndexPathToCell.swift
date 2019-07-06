@@ -22,6 +22,15 @@ extension CollectionVC {
             
             if row == customLayout.rows - 1 && column == customLayout.cols - 1 {              //; print("events to process: \(events ToProcess)")//*
                 if eventArraysToProcess.count > 0 { // or could have used pathsToProcess.count > 0
+                    
+                    if !savedTimeBlocksForProcessing {
+                        self.downcastLayout?.autoFitHScale = 0.85
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            classifierVC.collectionView.reloadData()
+                            self.reloadCV()
+                        }
+                    }
+                    
                     savedTimeBlocksForProcessing = true
                     
                     eventsInBlockToBeProcessed = eventArraysToProcess.first!.count          //; print("\neventsInBlock first set")// initial value
