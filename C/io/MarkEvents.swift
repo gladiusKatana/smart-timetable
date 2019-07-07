@@ -14,10 +14,8 @@ extension CollectionVC {
         else {                                                                               //print("paths to process empty")
             self.downcastLayout?.autoFitHScale = 0.995
             
-            if !allRecentEventsMarked {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.reloadCV()
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.reloadCV()
             }
         }
     }
