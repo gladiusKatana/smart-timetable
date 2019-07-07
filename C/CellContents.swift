@@ -17,7 +17,7 @@ extension CollectionVC {
                     cell.titleLabel.text = events[0].eventDescription
                 }
                 else {
-                    cell.titleLabel.text = "\(events.count) items"
+                    cell.titleLabel.text = "(\(events.count) items)"
                 }
             }
         }
