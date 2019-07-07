@@ -12,7 +12,7 @@ extension CollectionVC {
         
         if vcType != .initial { var str = ""
             if !consoleLegendAppeared {str = loadSymbolLegend} else {str = ""}
-            print("💾\(vcType)-view\(str)") // disk emoji means loaded
+            print("💾\(vcType)\(str)") // disk emoji means loaded
             setTopViewController()
         }
         
@@ -32,7 +32,7 @@ extension CollectionVC {
             rePresentedVCFromButton = false
             reloadCV()
             if !consoleLegendAppeared {str = appearSymbolLegend} else {str = ""}
-            print("🏞\(vcType)-view\(str)") // picture-emoji means appeared
+            print("🏞\(vcType)\(str)") // picture-emoji means appeared
             consoleLegendAppeared = true
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
