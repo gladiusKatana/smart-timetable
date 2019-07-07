@@ -33,8 +33,6 @@ var selectedTimeBlockPath = [-1, -1];           var previousSelectedTimeBlockPat
 var nowRow = 0;                                 var nowColumn = 0
 var eventsInBlockToBeProcessed = 0
 
-var eventMarkerStartingX: CGFloat = 0.0;        var eventMarkerStartingY: CGFloat = 0.0;
-
 var reloadedFromHourTickingOver = false;        var textFieldDisplayed = false
 var savedTimeBlocksForProcessing = false;       var allRecentEventsMarked = false
 
