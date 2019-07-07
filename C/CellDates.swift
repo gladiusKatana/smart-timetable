@@ -47,7 +47,7 @@ extension CollectionVC {
     
     func showNowCell(cell: CustomCell, column: Int, row: Int) {
         if row == nowRow && column == nowColumn {
-            cell.layer.borderWidth = 1;     cell.layer.borderColor = icyBlue.cgColor
+            cell.layer.borderWidth = 1;     cell.layer.borderColor = bluishGrey.cgColor
             cell.titleLabel.text = "now"
         }
         else {

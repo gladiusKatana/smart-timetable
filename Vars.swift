@@ -13,7 +13,7 @@ var timetableLayout = CustomFlowLayout(embeddedInNavController: true,    // if t
                                        customFrame: nil,                 // if nil, defaults to a pre-set frame (e.g. global key window frame)
                                        rows: 25, cols: 8, lockedHeaderRows: 1, lockedHeaderSections: 1,
                                        cellWidth: nil, cellHeight: nil,  //! if either dimension entered nil, screen width &/or height is autofitted
-                                       autoFitWScale: 0.995, autoFitHScale: nil, //! if either of these parameters are nil, they default to 1.0
+                                       autoFitWScale: 0.997, autoFitHScale: nil, //! if either of these parameters are nil, they default to 1.0
                                        hSpace: cellGap, vSpace: cellGap, //! auto-fit scaling factors above are ignored if width/height are not nil
                                        loadsHorizontally: false,         //❗️if loadsHorizontally is true, 'rows' look like columns
                                        squareCellMode: .noAutoSquare)
@@ -22,7 +22,7 @@ var todoListLayout = CustomFlowLayout(embeddedInNavController: true,
                                       customFrame: globalKeyWindow.frame,
                                       rows: 1, cols: 2, lockedHeaderRows: 0, lockedHeaderSections: 0,
                                       cellWidth: nil, cellHeight: nil,
-                                      autoFitWScale: 1, autoFitHScale: 0.5,
+                                      autoFitWScale: 1, autoFitHScale: 0.667,
                                       hSpace: cellGap, vSpace: cellGap,
                                       loadsHorizontally: false,
                                       squareCellMode: .noAutoSquare)

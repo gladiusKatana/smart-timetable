@@ -5,7 +5,8 @@ import UIKit
 extension CollectionVC {
     
     override func viewDidLoad() {
-        collectionView.backgroundColor = windowBackgroundColour // overrides the UIWindow's background colour (speaking visually of course)
+        collectionView.backgroundColor = darkNavy //windowBackgroundColour // overrides UIWindow's background colour (speaking visually of course)
+        if vcType == .todoList {collectionView.backgroundColor = bluishGrey}
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
