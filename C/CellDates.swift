@@ -26,7 +26,7 @@ extension CollectionVC {
         let oneWeekAgo = cell.cellDate - TimeInterval(86400 * 7)
         
         if oneWeekAgo > lastLoggedInDate && oneWeekAgo < Date() {
-            let color = niceOrangeLight
+            let color = niceOrange
             cell.backgroundColor = color; cell.cellColour = color // shows up momentarily after launch on ipad mini 4, landscape
             
             if oneWeekAgo > lastLoggedInDate && oneWeekAgo <= lastLoggedInDate + TimeInterval(3600) { //&& row != nowRow && column != nowColumn
@@ -60,7 +60,7 @@ extension CollectionVC {
     func setCellWeek(cell: CustomCell, column: Int, row: Int, layout: CustomFlowLayout, withColours: Bool) -> Int {
         var weekAhead = 0
         if column < nowColumn || column == nowColumn && row < nowRow {
-            if withColours {cell.backgroundColor = lightNavy; cell.cellColour = lightNavy}
+            if withColours {cell.backgroundColor = lastWeekColour; cell.cellColour = lastWeekColour}
             weekAhead = 1
         }
         return weekAhead

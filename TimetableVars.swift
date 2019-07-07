@@ -5,10 +5,10 @@ import UIKit
 var lastLoggedInDate = Date()
 var selectedCellDate = Date()
 
-var (year, month, day, weekday, hour, minute) = (Int(), String(), Int(), String(), Int(), Int())
+var (year, month, day, weekday, weekdayLong, hour, minute) = (Int(), String(), Int(), String(), String(), Int(), Int())
 //* reserving full-spelled date-component names for CURRENT date (Date()) only
 
-var lastLoginDateComponents = [Int(), String(), Int(), String(), Int(), Int()] as [Any]
+var lastLoginDateComponents = [Int(), String(), Int(), String(), String(), Int(), Int()] as [Any]
 //var lastLoginDateComponents = [0, "", 0, "", 0, 0] as [Any] // or  as  = [Any?]()  ... but would not handle unwrapping for printing
 
 
@@ -23,7 +23,7 @@ var pathsToProcess = [[Int]]()
 var eventPathArrays = [[Int]]()
 var eventStatusArrays = [[Int]]() // raw values of enum EventStatus
 var eventDescriptionArrays = [[String]]()
-var eventDateArrays = [[[Int(), String(), Int(), String(), Int(), Int()] as [Any]]] // or  [[[0, "", 0, "", 0, 0] as [Any]]]
+var eventDateArrays = [[[Int(), String(), Int(), String(), String(), Int(), Int()] as [Any]]] // or  [[[0, "", 0, "", 0, 0] as [Any]]]
 
 
 var timerForShowScrollIndicator: Timer?
@@ -39,6 +39,7 @@ var savedTimeBlocksForProcessing = false
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 var weekdaysAbbreviated = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 var wkdysDefaultOrder = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+var fullWeekdaysDefaultOrder = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 var hoursOfTheDay = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 //var militaryDayHours = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]

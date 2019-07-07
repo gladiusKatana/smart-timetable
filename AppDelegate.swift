@@ -22,7 +22,7 @@ import UIKit
             statusBar.backgroundColor = .clear
         }
         
-        UINavigationBar.appearance().barTintColor = bluishGrey
+        UINavigationBar.appearance().barTintColor = .white
         UINavigationBar.appearance().shadowImage = UIImage()
         
         print(formattedDateString(Date(), roundedDown: false, prefix: "                      on", suffix: "", short: false))

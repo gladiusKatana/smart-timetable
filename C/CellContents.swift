@@ -33,7 +33,7 @@ extension CollectionVC {
             if column == 0 {cell.titleLabel.text = eventAtTimeBlock[row].eventDescription}
             else {
                 cell.titleLabel.text = "\(eventAtTimeBlock[row].eventStatus)"
-                cell.titleLabel.textColor = platinumLite
+                cell.titleLabel.textColor = cellTextDefaultColour
             }
             
         } else {print("[setCellContents(:)] unrecognized collection view type")}//not called, but will add more vcs from project DMY-Tabs-Calendar

@@ -44,7 +44,7 @@ extension CollectionVC {
     func setCellColours (cell: CustomCell, cellIsInHeader: Bool) {
         if cellIsInHeader {
             cell.backgroundColor = headerColour;    cell.layer.borderColor = UIColor.clear.cgColor
-            cell.titleLabel.textColor = platinum;   cell.titleLabel.font = defaultTimetableCellFont
+            cell.titleLabel.textColor = cellTextDefaultColour;   cell.titleLabel.font = defaultTimetableCellFont
         }
         else { guard cell.xyCoordinate != selectedTimeBlockPath else {
             cell.backgroundColor = halfIcyBlue; return

@@ -5,7 +5,7 @@ import UIKit
 extension CollectionVC {
     
     override func viewDidLoad() {
-        collectionView.backgroundColor = darkNavy //windowBackgroundColour // overrides UIWindow's background colour (speaking visually of course)
+        collectionView.backgroundColor = windowBackgroundColour // overrides UIWindow's background colour (speaking visually of course)
         if vcType == .todoList {collectionView.backgroundColor = bluishGrey}
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reuseIdentifier)
         collectionView.bounces = false
@@ -26,7 +26,7 @@ extension CollectionVC {
             setupViewTitle("Timetable", numLines: 1, alignment: .left)
         }
         else { //if vcType is the other nav-controller-embedded one, ie todoList VC
-            setupViewTitle(formattedDateString(selectedCellDate, roundedDown: true, prefix: "", suffix: "", short: false), numLines: 1, alignment: .left)
+            setupViewTitle(formattedDateString(selectedCellDate, roundedDown: true, prefix: "Tasks", suffix: "", short: true), numLines: 1, alignment: .left)
         }
         
         if rePresentedVCFromButton { var str = ""

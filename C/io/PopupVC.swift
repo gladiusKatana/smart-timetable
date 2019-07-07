@@ -45,7 +45,7 @@ class PopupMenuVC: UICollectionViewController {
         if row < customLayout.lockedHeaderRows { //|| column < customLayout.lockedHeaderSections { // popup menu design here has no need for > col.s
             cell.backgroundColor = headerColour
             cell.titleLabel.text = "Mark '\(globalEventIdentifier)':"     //"✔︎ Mark Event:" // ← ⇦ ◄ ⬅️ still looking for a large enough ascii arrow
-            cell.titleLabel.textColor = platinum
+            cell.titleLabel.textColor = cellTextDefaultColour
         } else {
             cell.backgroundColor = .lightGray
             cell.titleLabel.text = EventStatus.allCases[row - 1].caseName()

@@ -33,9 +33,9 @@ extension CollectionVC {
                 else {gotoView(vc: todoListVC)}
                 
                 if !cell.markedForItems {
-                    UIView.animate(withDuration: 1, delay: 0, // will factor/put in Animations.swift
+                    UIView.animate(withDuration: 1, delay: 0,                       // will factor/put in Animations.swift
                         usingSpringWithDamping: 1, initialSpringVelocity: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-                            cell.backgroundColor = halfIcyBlue
+                            cell.backgroundColor = navyBlue
                     }, completion: nil)
                     cell.markedForItems = true
                 }
