@@ -32,7 +32,7 @@ enum EventStatus: Int, CaseIterable {
     case done, delegated, deferred, obviated, upcoming
     func simpleDescription() -> String {
         switch self {
-        
+            
         case .occurred:     return "event occurred"
         case .done:         return "task was done. Nice!"
         case .delegated:    return "task was delegated to someone else"
@@ -44,7 +44,7 @@ enum EventStatus: Int, CaseIterable {
     
     func caseName() -> String {
         switch self {
-
+            
         case .occurred:     return "Occurred"
         case .done:         return "Done"
         case .delegated:    return "Delegated"
