@@ -10,7 +10,9 @@ extension CollectionVC {
         collectionView.bounces = false
         setupNotificationForStatusBarHeightChange()
         
-        if vcType != .initial {                         print("\n💾\(vcType)-view") // disk emoji means loaded
+        if vcType != .initial { var str = ""
+            if !consoleLegendAppeared {str = loadSymbolLegend} else {str = ""}
+            print("💾\(vcType)-view\(str)") // disk emoji means loaded
             setTopViewController()
         }
         
@@ -26,9 +28,12 @@ extension CollectionVC {
             setupViewTitle(formattedDateString(selectedCellDate, roundedDown: true, prefix: "", suffix: "", short: false), numLines: 1, alignment: .left)
         }
         
-        if rePresentedVCFromButton {
+        if rePresentedVCFromButton { var str = ""
             rePresentedVCFromButton = false
-            reloadCV()                                  ; print("🏞\(vcType)-view")       // picture-emoji means appeared
+            reloadCV()
+            if !consoleLegendAppeared {str = appearSymbolLegend} else {str = ""}
+            print("🏞\(vcType)-view\(str)") // picture-emoji means appeared
+            consoleLegendAppeared = true
         } //above method called early (before actually appears) to print on first appearance + avoid an additional reset of rePresentedVCFromButton
     }
     
