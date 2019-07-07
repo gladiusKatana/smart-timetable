@@ -32,11 +32,8 @@ extension CollectionVC {
                     }
                     
                     savedTimeBlocksForProcessing = true
-                    
                     eventsInBlockToBeProcessed = eventArraysToProcess.first!.count          //; print("\neventsInBlock first set")// initial value
-                    print("block events remaining (initial): \(eventsInBlockToBeProcessed)\n")
-                    print("paths to process: \(pathsToProcess)")
-                    
+                    //print("block events remaining (initial): \(eventsInBlockToBeProcessed)\n"); print("paths to process: \(pathsToProcess)")
                     processEventsSinceLastLogin(layout: customLayout)
                 }
             }
