@@ -29,7 +29,7 @@ func defaultSaveData(showDate: Bool) {
                 eventDescriptions.append(event.eventDescription)
                 eventStatuses.append(event.eventStatus.rawValue)
                 
-                let (yr, mnth, dy, wkdy, wkdyLong, hr, mn) = displayDate(event.eventDate, roundedDown: true)
+                let (yr, mnth, dy, wkdy, _, hr, mn) = displayDate(event.eventDate, roundedDown: true)
                 eventDateComponents.append([yr, mnth, dy, wkdy, hr, mn])
             }
             eventDescriptionArrays.append(eventDescriptions)
@@ -39,7 +39,7 @@ func defaultSaveData(showDate: Bool) {
     }
     pryntSavedArrays()
     //    lastLoginDateComponents = [year, month, day, weekday, hour, minute] // setting the /latest login date (for saving) as the date this minute
-    let (yr, mnth, dy, wkdy, wkdyLong, hr, mn) = displayDate(Date(), roundedDown: false)
+    let (yr, mnth, dy, wkdy, _, hr, mn) = displayDate(Date(), roundedDown: false)
     lastLoginDateComponents = [yr, mnth, dy, wkdy, hr, mn]
     
     defaults.set(eventPathArrays, forKey: "savedTimeBlockPaths")

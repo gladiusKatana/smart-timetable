@@ -48,7 +48,7 @@ extension UICollectionViewController { //CollectionVC {//***
         navbarTitleLabel.backgroundColor = .clear
         navbarTitleLabel.text = titleText; navbarTitleLabel.numberOfLines = numLines
         navbarTitleLabel.textAlignment = alignment
-        navbarTitleLabel.font = UIFont(name: "Helvetica Neue", size: 13)
+        navbarTitleLabel.font = UIFont.systemFont(ofSize: 13, weight: .light) //UIFont(name: "Helvetica Neue", size: 13)
         navbarTitleLabel.textColor = .black
         navbarTitleLabel.isUserInteractionEnabled = false
         navigationItem.titleView = navbarTitleLabel
